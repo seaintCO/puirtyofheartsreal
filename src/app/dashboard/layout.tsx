@@ -3,6 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardTopbar from "@/components/dashboard/DashboardTopbar";
 
+export const dynamic = "force-dynamic";
+
 export default async function DashboardLayout({
   children,
 }: {
@@ -12,19 +14,25 @@ export default async function DashboardLayout({
 
   const {
     data: { user },
+    error: authError,
   } = await supabase.auth.getUser();
 
-  if (!user) {
+  if (authError || !user) {
     redirect("/login");
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("paid, full_name")
-    .eq("id", user.id)
-    .single();
+  const { data: profile, error: profileError } =
+    await supabase
+      .from("profiles")
+      .select("paid, full_name, role")
+      .eq("id", user.id)
+      .single();
 
-  if (!profile?.paid) {
+  if (profileError || !profile) {
+    redirect("/login");
+  }
+
+  if (!profile.paid && profile.role !== "admin") {
     redirect("/enroll");
   }
 
@@ -35,10 +43,16 @@ export default async function DashboardLayout({
 
         <div className="min-w-0 flex-1">
           <DashboardTopbar
-            studentName={profile.full_name || user.email || "Student"}
+            studentName={
+              profile.full_name ||
+              user.email ||
+              "Student"
+            }
           />
 
-          <main className="p-5 md:p-8">{children}</main>
+          <main className="p-5 md:p-8">
+            {children}
+          </main>
         </div>
       </div>
     </div>

@@ -1,36 +1,32 @@
 ﻿import Link from "next/link";
 import {
-  ArrowRight,
+  ArrowUpRight,
   CalendarDays,
-  CheckCircle2,
   MessageCircle,
   ShieldCheck,
-  Sparkles,
   Users,
 } from "lucide-react";
 
-const DISCORD_INVITE_URL =
-  process.env.NEXT_PUBLIC_DISCORD_INVITE_URL ||
-  "https://discord.gg/7ZZBJm7yX";
+const DISCORD_URL = "https://discord.gg/7ZZBJm7yX";
 
-const benefits = [
+const communityFeatures = [
   {
+    title: "Member Conversations",
+    description:
+      "Connect with other students, share your progress, and ask questions.",
     icon: MessageCircle,
-    title: "Member conversations",
-    description:
-      "Connect with other students, ask questions, and share what you are building.",
   },
   {
+    title: "Mentorship Updates",
+    description:
+      "Receive announcements about calls, workshops, lessons, and events.",
     icon: CalendarDays,
-    title: "Live updates",
-    description:
-      "Receive announcements, mentorship updates, community calls, and event details.",
   },
   {
-    icon: Users,
-    title: "Private support",
+    title: "Private Support",
     description:
-      "Get support from the Purity of Hearts community throughout your journey.",
+      "Stay connected to the Purity of Hearts mentorship community.",
+    icon: Users,
   },
 ];
 
@@ -41,100 +37,89 @@ export default function Page() {
         Student Portal
       </span>
 
-      <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mt-4 flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
         <div>
-          <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
+          <h1 className="text-4xl font-semibold tracking-tight text-white">
             Community
           </h1>
 
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/50 md:text-base">
-            Join the private Purity of Hearts Discord for mentorship updates,
-            member conversations, announcements, and support.
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/45">
+            Join the private Discord for mentorship updates, community
+            conversations, announcements, and student support.
           </p>
         </div>
 
         <Link
-          href={DISCORD_INVITE_URL}
+          href={DISCORD_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#D3B25F] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#E2C774]"
+          className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#D2B35F] px-6 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#E1C674]"
         >
           Join Discord
-          <ArrowRight className="h-4 w-4" />
+          <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
 
-      <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-[#C9A75D]/25 bg-[#1A1812] p-7 md:p-10">
-        <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-[#C9A75D]/10 blur-3xl" />
+      <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-[#C9A75D]/25 bg-[#1B1913] p-7 md:p-10">
+        <div className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-[#C9A75D]/10 blur-3xl" />
 
-        <div className="relative grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+        <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A75D]/25 bg-[#C9A75D]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#D8BB72]">
-              <Sparkles className="h-3.5 w-3.5" />
-              Private Member Access
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A75D]/25 bg-[#C9A75D]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#D8BB72]">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Private Member Community
             </div>
 
             <h2 className="mt-6 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              You do not have to build alone.
+              Continue your journey with the community.
             </h2>
 
             <p className="mt-4 max-w-2xl text-sm leading-7 text-white/55 md:text-base">
-              Continue the conversation beyond the lessons. Meet other members,
-              receive important updates, ask questions, and stay connected to
-              the Purity of Hearts mentorship community.
+              The private Purity of Hearts Discord is where students can stay
+              connected, receive mentorship announcements, ask questions, and
+              engage with other members.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href={DISCORD_INVITE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D3B25F] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#E2C774]"
-              >
-                Open the Private Discord
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-
-              <div className="inline-flex items-center gap-2 text-sm text-white/45">
-                <ShieldCheck className="h-4 w-4 text-[#C9A75D]" />
-                Access reserved for members
-              </div>
-            </div>
+            <Link
+              href={DISCORD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#D2B35F] px-6 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#E1C674]"
+            >
+              Open Private Discord
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
 
           <div className="rounded-[1.5rem] border border-white/10 bg-black/20 p-6">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#C9A75D]/15 text-[#D3B25F]">
-                <MessageCircle className="h-5 w-5" />
+            <div className="flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#C9A75D]/15 text-[#D2B35F]">
+                <MessageCircle className="h-6 w-6" />
               </div>
 
               <div>
-                <p className="font-semibold text-white">
+                <h3 className="font-semibold text-white">
                   Purity of Hearts Discord
-                </p>
+                </h3>
 
                 <p className="mt-1 text-xs text-white/40">
-                  Private student community
+                  Private access for enrolled members
                 </p>
               </div>
             </div>
 
             <div className="mt-6 space-y-3">
               {[
-                "Mentorship announcements",
-                "Student questions and support",
-                "Community conversations",
-                "Live session and event updates",
+                "Mentorship and program announcements",
+                "Member questions and conversations",
+                "Live calls, workshops, and event updates",
+                "Private student support",
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3"
+                  className="rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-white/60"
                 >
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#C9A75D]" />
-
-                  <span className="text-sm text-white/60">
-                    {item}
-                  </span>
+                  {item}
                 </div>
               ))}
             </div>
@@ -143,26 +128,26 @@ export default function Page() {
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
-        {benefits.map((benefit) => {
-          const Icon = benefit.icon;
+        {communityFeatures.map((feature) => {
+          const Icon = feature.icon;
 
           return (
-            <div
-              key={benefit.title}
+            <article
+              key={feature.title}
               className="rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-6"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#C9A75D]/20 bg-[#C9A75D]/10 text-[#C9A75D]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C9A75D]/10 text-[#D2B35F]">
                 <Icon className="h-5 w-5" />
               </div>
 
               <h3 className="mt-5 text-lg font-semibold text-white">
-                {benefit.title}
+                {feature.title}
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-white/45">
-                {benefit.description}
+                {feature.description}
               </p>
-            </div>
+            </article>
           );
         })}
       </div>

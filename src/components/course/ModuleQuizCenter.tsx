@@ -72,7 +72,9 @@ export default function ModuleQuizCenter({
 
     const { error } = await supabase.from("quiz_attempts").insert({
       user_id: userId,
+      course_id: "purity-main",
       lesson_id: `module-${selectedModule.module}`,
+      quiz_id: `module-${selectedModule.module}`,
       score,
       total_questions: selectedModule.questions.length,
       answers: {
@@ -81,6 +83,8 @@ export default function ModuleQuizCenter({
         percentage,
         passed,
       },
+      passed,
+      completed_at: new Date().toISOString(),
     });
 
     if (!error) {
@@ -102,8 +106,8 @@ export default function ModuleQuizCenter({
         </h1>
 
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/45">
-          Complete each 15-question assessment to test your understanding.
-          A score of 80% or higher is required to pass.
+          Complete each module assessment to test your understanding. A score
+          of 80% or higher is required to pass.
         </p>
       </div>
 
@@ -314,7 +318,7 @@ export default function ModuleQuizCenter({
                 currentQuestion ===
                   selectedModule.questions.length - 1 && (
                   <p className="mt-4 text-center text-xs text-white/35">
-                    Answer all 15 questions before submitting.
+                    Answer every question before submitting.
                   </p>
                 )}
             </>

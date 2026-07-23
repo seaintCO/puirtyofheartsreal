@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { PURITYOS_SYSTEM_PROMPT } from "@/lib/purityos";
@@ -76,7 +77,10 @@ export async function POST(request: Request) {
     );
     if (usageError) {
       return NextResponse.json(
-        { error: "You’ve reached today’s 30-message limit. Come back tomorrow." },
+        {
+          error:
+            "You’ve reached your PurityOS usage limit (30 per day or 500 per month).",
+        },
         { status: 429 },
       );
     }
@@ -152,6 +156,9 @@ export async function POST(request: Request) {
       reasoning: { effort: "low" },
       max_output_tokens: 650,
       store: false,
+      safety_identifier: createHash("sha256")
+        .update(`purity-of-hearts:${user.id}`)
+        .digest("hex"),
     });
 
     const assistantMessage =

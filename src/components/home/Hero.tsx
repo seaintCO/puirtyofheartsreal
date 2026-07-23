@@ -1,128 +1,104 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BookOpen,
-  CheckCircle2,
-  MessageCircle,
-  NotebookPen,
-  Play,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Check, Play } from "lucide-react";
+import { businessLessons } from "@/data/business-course";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#f8f1e9] px-6 pb-24 pt-20 sm:pb-32 sm:pt-28">
-      <div className="absolute left-[-15%] top-[-30%] h-[760px] w-[760px] rounded-full bg-[#ecced0]/45 blur-[150px]" />
-      <div className="absolute bottom-[-35%] right-[-10%] h-[760px] w-[760px] rounded-full bg-[#d6b660]/24 blur-[160px]" />
-      <div className="absolute inset-0 opacity-[0.025] [background-image:radial-gradient(#1f1f1f_1px,transparent_1px)] [background-size:22px_22px]" />
-
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
-        <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/55 px-4 py-2 text-xs font-medium text-[#80632e] shadow-sm backdrop-blur-2xl">
-            <Sparkles size={14} />
-            Faith, business, and personal growth
-          </div>
-          <h1 className="mt-8 max-w-3xl font-serif text-6xl leading-[0.95] tracking-[-0.045em] text-[#1f1f1f] sm:text-7xl lg:text-[6.6rem]">
-            Become who you were
-            <span className="block italic text-[#a88643]">created to be.</span>
-          </h1>
-          <p className="mt-7 max-w-xl text-base leading-7 text-[#1f1f1f]/58 sm:text-lg">
-            A private learning and coaching platform where faith becomes
-            practical—through structured courses, personal reflection, real
-            community, and guidance for life and business.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/enroll"
-              className="group flex items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-7 py-4 text-sm font-medium text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-[#9a7838]"
-            >
-              Explore the program
-              <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="/purityos"
-              className="flex items-center justify-center gap-2 rounded-full border border-[#1f1f1f]/10 bg-white/60 px-7 py-4 text-sm font-medium text-[#1f1f1f] backdrop-blur-xl transition hover:bg-white"
-            >
-              <Sparkles size={16} className="text-[#a88643]" />
-              Meet PurityOS
-            </Link>
-          </div>
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#1f1f1f]/43">
-            {["Saved progress", "Private community", "Guided study tools"].map(
-              (item) => (
-                <span key={item} className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#a88643]" />
-                  {item}
-                </span>
-              ),
-            )}
-          </div>
+    <section className="overflow-hidden bg-[#f5f5f7] px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:pb-36 lg:pt-28">
+      <div className="mx-auto max-w-6xl text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6b31]">
+          Faith. Business. A life with direction.
+        </p>
+        <h1 className="mx-auto mt-6 max-w-5xl text-[clamp(3.25rem,9vw,7.6rem)] font-semibold leading-[0.88] tracking-[-0.065em] text-[#111]">
+          Grow with clarity.
+          <span className="mt-2 block text-[#a28142]">Lead with purpose.</span>
+        </h1>
+        <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-[#1d1d1f]/58 sm:text-xl sm:leading-8">
+          A private learning and coaching experience for people building a
+          business, strengthening their faith, and becoming more intentional
+          about what comes next.
+        </p>
+        <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <Link
+            href="/enroll"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#8c6b30]"
+          >
+            Explore the program <ArrowRight size={15} />
+          </Link>
+          <Link
+            href="/purityos"
+            className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-7 py-4 text-sm font-semibold text-[#111] transition hover:border-black/20"
+          >
+            Meet PurityOS
+          </Link>
         </div>
+      </div>
 
-        <div className="relative">
-          <div className="absolute inset-8 rounded-[3rem] bg-[#b8964f]/20 blur-[70px]" />
-          <div className="relative rounded-[2.2rem] border border-white/80 bg-white/48 p-3 shadow-[0_45px_140px_rgba(80,55,20,.18)] backdrop-blur-2xl">
-            <div className="overflow-hidden rounded-[1.7rem] border border-white/70 bg-[#171614] text-white">
-              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-                <div>
-                  <p className="text-xs font-medium">Purity Member Portal</p>
-                  <p className="mt-1 text-[10px] text-white/30">
-                    Your growth, beautifully organized
-                  </p>
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <div className="rounded-[2rem] border border-black/[0.06] bg-white p-3 shadow-[0_35px_100px_rgba(0,0,0,.12)] sm:rounded-[2.6rem] sm:p-4">
+          <div className="overflow-hidden rounded-[1.45rem] bg-[#0a0a0a] text-white sm:rounded-[2rem]">
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 sm:px-8 sm:py-5">
+              <div>
+                <p className="text-xs font-semibold">Purity Member Portal</p>
+                <p className="mt-1 hidden text-[11px] text-white/35 sm:block">
+                  Learning, progress, and support in one place
+                </p>
+              </div>
+              <span className="rounded-full bg-white/10 px-3 py-1.5 text-[10px] text-white/55">
+                Member view
+              </span>
+            </div>
+
+            <div className="grid gap-4 p-4 sm:p-6 lg:grid-cols-[1.3fr_.7fr] lg:p-8">
+              <div className="rounded-[1.5rem] bg-[#191919] p-5 sm:p-8">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#d9bb6d]">
+                    Continue learning
+                  </span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-black">
+                    <Play size={14} fill="currentColor" />
+                  </span>
                 </div>
-                <div className="flex gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-white/15" />
-                  <span className="h-2 w-2 rounded-full bg-white/15" />
-                  <span className="h-2 w-2 rounded-full bg-[#d8b665]" />
+                <h2 className="mt-12 max-w-xl text-3xl font-semibold leading-tight tracking-[-0.035em] sm:mt-16 sm:text-5xl">
+                  Business Management
+                  <br />
+                  &amp; Leadership
+                </h2>
+                <div className="mt-8 h-1.5 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-[47%] rounded-full bg-[#d9bb6d]" />
+                </div>
+                <div className="mt-3 flex justify-between text-[11px] text-white/35">
+                  <span>15 of {businessLessons.length} lessons</span>
+                  <span>47%</span>
                 </div>
               </div>
-              <div className="p-5 sm:p-7">
-                <div className="rounded-3xl border border-[#d8b665]/20 bg-gradient-to-br from-[#d8b665]/15 to-white/[0.025] p-6">
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-full bg-[#d8b665]/12 px-3 py-1 text-[10px] text-[#e7ca80]">
-                      Continue learning
-                    </span>
-                    <Play size={15} className="text-[#d8b665]" />
+
+              <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+                {[
+                  ["Curriculum", `${businessLessons.length} lessons`],
+                  ["Study tools", "Quizzes + notes"],
+                  ["Progress", "Saved securely"],
+                ].map(([label, value], index) => (
+                  <div
+                    key={label}
+                    className={`rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 sm:p-5 ${
+                      index === 2 ? "col-span-2 lg:col-span-1" : ""
+                    }`}
+                  >
+                    <p className="text-[10px] uppercase tracking-[0.16em] text-white/30">
+                      {label}
+                    </p>
+                    <p className="mt-4 flex items-center gap-2 text-sm font-medium text-white/75">
+                      <Check size={14} className="text-[#d9bb6d]" />
+                      {value}
+                    </p>
                   </div>
-                  <h2 className="mt-7 font-serif text-3xl">
-                    Business Management
-                    <br />& Leadership
-                  </h2>
-                  <div className="mt-6 h-1.5 rounded-full bg-white/10">
-                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-[#997637] to-[#efd48a]" />
-                  </div>
-                  <div className="mt-3 flex justify-between text-[10px] text-white/30">
-                    <span>15 of 24 lessons</span>
-                    <span>62%</span>
-                  </div>
-                </div>
-                <div className="mt-4 grid grid-cols-3 gap-3">
-                  {[
-                    [BookOpen, "Courses"],
-                    [NotebookPen, "Journal"],
-                    [MessageCircle, "Community"],
-                  ].map(([Icon, label]: any) => (
-                    <div
-                      key={label}
-                      className="rounded-2xl border border-white/10 bg-white/[0.035] p-4"
-                    >
-                      <Icon size={17} className="text-[#d8b665]" />
-                      <p className="mt-5 text-[11px] text-white/50">{label}</p>
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
-          </div>
-          <div className="absolute -bottom-6 -left-5 hidden rounded-2xl border border-white/80 bg-white/75 p-4 shadow-xl backdrop-blur-2xl sm:block">
-            <p className="text-[10px] uppercase tracking-[0.18em] text-[#a88643]">
-              This week
-            </p>
-            <p className="mt-2 text-sm font-medium">3 lessons completed</p>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

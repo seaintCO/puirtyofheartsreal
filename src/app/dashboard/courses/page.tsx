@@ -122,7 +122,7 @@ export default async function CoursesPage() {
 
       <div className="mt-8 grid gap-5 md:grid-cols-3">
         {[
-          ["24 Video Lessons", PlayCircle],
+          [`${businessLessons.length} Video Lessons`, PlayCircle],
           ["Interactive Study Tools", BookOpen],
           ["Completion Tracking", CheckCircle2],
         ].map(([title, Icon]: any) => (

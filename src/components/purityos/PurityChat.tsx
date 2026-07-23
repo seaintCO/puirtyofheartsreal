@@ -18,7 +18,11 @@ import {
   Trash2,
   X,
 } from "lucide-react";
-import { DISCORD_URL, PURITYOS_DAILY_LIMIT } from "@/lib/purityos";
+import {
+  DISCORD_URL,
+  PURITYOS_DAILY_LIMIT,
+  PURITYOS_MONTHLY_LIMIT,
+} from "@/lib/purityos";
 
 type Conversation = {
   id: string;
@@ -264,7 +268,7 @@ export default function PurityChat({
   );
 
   return (
-    <main className="flex h-screen overflow-hidden bg-[#0d0c0b] text-white">
+    <main className="flex h-dvh overflow-hidden bg-[#0d0c0b] text-white">
       <aside className="hidden h-full w-72 shrink-0 border-r border-white/10 bg-black/20 lg:block">
         {sidebar}
       </aside>
@@ -384,7 +388,7 @@ export default function PurityChat({
           </div>
         </div>
 
-        <div className="relative z-10 border-t border-white/10 bg-[#0d0c0b]/85 px-4 pb-4 pt-3 backdrop-blur-2xl sm:px-6">
+        <div className="relative z-10 border-t border-white/10 bg-[#0d0c0b]/85 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-2xl sm:px-6">
           <form
             onSubmit={sendMessage}
             className="mx-auto flex max-w-3xl items-end gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-2 pl-4 shadow-2xl transition focus-within:border-[#d8b665]/35"
@@ -416,7 +420,7 @@ export default function PurityChat({
               AI support, not therapy or emergency care. Verify important advice.
             </p>
             <p className="hidden shrink-0 sm:block">
-              Up to {PURITYOS_DAILY_LIMIT} messages/day
+              {PURITYOS_DAILY_LIMIT}/day · {PURITYOS_MONTHLY_LIMIT}/month
             </p>
           </div>
           {notice && (
@@ -429,4 +433,3 @@ export default function PurityChat({
     </main>
   );
 }
-

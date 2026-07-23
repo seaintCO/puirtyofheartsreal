@@ -35,3 +35,4 @@ export const DISCORD_URL =
   process.env.NEXT_PUBLIC_DISCORD_URL || "https://discord.gg/7ZZBJm7yX";
 
 export const PURITYOS_DAILY_LIMIT = 30;
+export const PURITYOS_MONTHLY_LIMIT = 500;

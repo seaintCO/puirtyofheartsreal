@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   BookOpen,
   CheckCircle2,
@@ -20,18 +20,41 @@ import {
   businessLessons,
   type CourseLesson,
 } from "@/data/business-course";
+import { useBusinessCourseProgress } from "@/hooks/useBusinessCourseProgress";
 
 type Tab = "lesson" | "quiz" | "flashcards" | "cheat-sheet" | "assignment";
 
 export default function BusinessCoursePlayer() {
   const [activeLessonId, setActiveLessonId] = useState(businessLessons[0].id);
   const [activeTab, setActiveTab] = useState<Tab>("lesson");
-  const [notes, setNotes] = useState<Record<string, string>>({});
-  const [completed, setCompleted] = useState<string[]>([]);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [flashcardIndex, setFlashcardIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [restoredLesson, setRestoredLesson] = useState(false);
+  const {
+    loading,
+    saving,
+    completed,
+    progressPercent,
+    notes,
+    assignments,
+    lastLessonId,
+    touchLesson,
+    toggleComplete,
+    updateNote,
+    saveNote,
+    updateAssignment,
+    saveAssignment,
+    saveQuizAttempt,
+  } = useBusinessCourseProgress();
+
+  useEffect(() => {
+    if (!loading && !restoredLesson) {
+      setActiveLessonId(lastLessonId || businessLessons[0].id);
+      setRestoredLesson(true);
+    }
+  }, [lastLessonId, loading, restoredLesson]);
 
   const activeLesson =
     businessLessons.find((lesson) => lesson.id === activeLessonId) ??
@@ -39,10 +62,6 @@ export default function BusinessCoursePlayer() {
 
   const activeIndex = businessLessons.findIndex(
     (lesson) => lesson.id === activeLesson.id,
-  );
-
-  const progress = Math.round(
-    (completed.length / businessLessons.length) * 100,
   );
 
   const quizScore = useMemo(() => {
@@ -53,6 +72,7 @@ export default function BusinessCoursePlayer() {
 
   function openLesson(lesson: CourseLesson) {
     setActiveLessonId(lesson.id);
+    void touchLesson(lesson.id);
     setActiveTab("lesson");
     setAnswers({});
     setQuizSubmitted(false);
@@ -68,12 +88,46 @@ export default function BusinessCoursePlayer() {
     }
   }
 
-  function markComplete() {
-    setCompleted((current) =>
-      current.includes(activeLesson.id)
-        ? current.filter((id) => id !== activeLesson.id)
-        : [...current, activeLesson.id],
+  async function markComplete() {
+    await toggleComplete(activeLesson.id);
+  }
+
+  async function submitQuiz() {
+    setQuizSubmitted(true);
+    await saveQuizAttempt(
+      activeLesson.id,
+      answers,
+      quizScore,
+      activeLesson.quiz.length,
     );
+  }
+
+  function downloadCheatSheet() {
+    const content = [
+      activeLesson.title,
+      "",
+      activeLesson.description,
+      "",
+      "Key principles",
+      ...activeLesson.keyPoints.map(
+        (point, index) => `${index + 1}. ${point}`,
+      ),
+      "",
+      "Action step",
+      activeLesson.actionStep,
+      "",
+      "Purity of Hearts · Business Management & Leadership",
+    ].join("\n");
+    const url = URL.createObjectURL(
+      new Blob([content], { type: "text/plain;charset=utf-8" }),
+    );
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `${activeLesson.id}-cheat-sheet.txt`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
   }
 
   const tabs: { id: Tab; label: string; icon: typeof BookOpen }[] = [
@@ -104,13 +158,13 @@ export default function BusinessCoursePlayer() {
         <div className="min-w-64 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
           <div className="flex justify-between text-xs text-white/45">
             <span>Course progress</span>
-            <span>{progress}%</span>
+            <span>{progressPercent}%</span>
           </div>
 
           <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
             <div
               className="h-full rounded-full bg-[#C9A75D] transition-all duration-500"
-              style={{ width: `${progress}%` }}
+              style={{ width: `${progressPercent}%` }}
             />
           </div>
 
@@ -120,8 +174,43 @@ export default function BusinessCoursePlayer() {
         </div>
       </div>
 
+      <div className="mb-5 xl:hidden">
+        <label
+          htmlFor="mobile-lesson"
+          className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#C9A75D]"
+        >
+          Choose a lesson
+        </label>
+        <select
+          id="mobile-lesson"
+          value={activeLesson.id}
+          onChange={(event) => {
+            const lesson = businessLessons.find(
+              (item) => item.id === event.target.value,
+            );
+            if (lesson) openLesson(lesson);
+          }}
+          className="w-full rounded-2xl border border-white/10 bg-[#181818] px-4 py-3.5 text-sm text-white outline-none focus:border-[#C9A75D]"
+        >
+          {businessCourse.modules.map((module) => (
+            <optgroup
+              key={module.number}
+              label={`Module ${module.number} · ${module.title}`}
+            >
+              {businessLessons
+                .filter((lesson) => lesson.module === module.number)
+                .map((lesson) => (
+                  <option key={lesson.id} value={lesson.id}>
+                    {lesson.lesson}. {lesson.title}
+                  </option>
+                ))}
+            </optgroup>
+          ))}
+        </select>
+      </div>
+
       <div className="grid gap-6 xl:grid-cols-[310px_minmax(0,1fr)]">
-        <aside className="max-h-[850px] overflow-y-auto rounded-[2rem] border border-white/10 bg-white/[0.04] p-4">
+        <aside className="hidden max-h-[850px] overflow-y-auto rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 xl:block">
           {businessCourse.modules.map((module) => {
             const moduleLessons = businessLessons.filter(
               (lesson) => lesson.module === module.number,
@@ -271,18 +360,22 @@ export default function BusinessCoursePlayer() {
                       <textarea
                         value={notes[activeLesson.id] ?? ""}
                         onChange={(event) =>
-                          setNotes((current) => ({
-                            ...current,
-                            [activeLesson.id]: event.target.value,
-                          }))
+                          updateNote(activeLesson.id, event.target.value)
                         }
                         placeholder="Write your notes and reflections..."
                         className="mt-4 min-h-40 w-full resize-none rounded-2xl border border-white/10 bg-[#111] p-4 text-sm text-white/70 outline-none focus:border-[#C9A75D]"
                       />
 
-                      <button className="mt-3 flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-[#111]">
+                      <button
+                        type="button"
+                        onClick={() => void saveNote(activeLesson.id)}
+                        disabled={saving === `note:${activeLesson.id}`}
+                        className="mt-3 flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-[#111] disabled:opacity-60"
+                      >
                         <Save size={15} />
-                        Save Notes
+                        {saving === `note:${activeLesson.id}`
+                          ? "Saving…"
+                          : "Save Notes"}
                       </button>
                     </div>
                   </div>
@@ -366,10 +459,16 @@ export default function BusinessCoursePlayer() {
 
                 {!quizSubmitted ? (
                   <button
-                    onClick={() => setQuizSubmitted(true)}
-                    className="mt-7 rounded-full bg-[#C9A75D] px-8 py-4 text-sm font-medium text-white"
+                    onClick={() => void submitQuiz()}
+                    disabled={
+                      Object.keys(answers).length < activeLesson.quiz.length ||
+                      saving === `quiz:${activeLesson.id}`
+                    }
+                    className="mt-7 rounded-full bg-[#C9A75D] px-8 py-4 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
                   >
-                    Submit Quiz
+                    {saving === `quiz:${activeLesson.id}`
+                      ? "Saving…"
+                      : "Submit Quiz"}
                   </button>
                 ) : (
                   <div className="mt-7 rounded-2xl border border-[#C9A75D]/30 bg-[#C9A75D]/10 p-6">
@@ -494,7 +593,11 @@ export default function BusinessCoursePlayer() {
                   ))}
                 </div>
 
-                <button className="mt-7 flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#111]">
+                <button
+                  type="button"
+                  onClick={downloadCheatSheet}
+                  className="mt-7 flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#111]"
+                >
                   <FileText size={16} />
                   Download Cheat Sheet
                 </button>
@@ -518,13 +621,24 @@ export default function BusinessCoursePlayer() {
                 </div>
 
                 <textarea
+                  value={assignments[activeLesson.id] ?? ""}
+                  onChange={(event) =>
+                    updateAssignment(activeLesson.id, event.target.value)
+                  }
                   placeholder="Complete the assignment or record your action plan..."
                   className="mt-6 min-h-72 w-full resize-none rounded-[2rem] border border-white/10 bg-[#181818] p-6 text-sm leading-relaxed text-white/70 outline-none focus:border-[#C9A75D]"
                 />
 
-                <button className="mt-5 flex items-center gap-2 rounded-full bg-[#C9A75D] px-7 py-3.5 text-sm font-medium text-white">
+                <button
+                  type="button"
+                  onClick={() => void saveAssignment(activeLesson.id)}
+                  disabled={saving === `assignment:${activeLesson.id}`}
+                  className="mt-5 flex items-center gap-2 rounded-full bg-[#C9A75D] px-7 py-3.5 text-sm font-medium text-white disabled:opacity-60"
+                >
                   <Save size={16} />
-                  Save Assignment
+                  {saving === `assignment:${activeLesson.id}`
+                    ? "Saving…"
+                    : "Save Assignment"}
                 </button>
               </div>
             )}
@@ -541,12 +655,13 @@ export default function BusinessCoursePlayer() {
             </button>
 
             <button
-              onClick={markComplete}
+              onClick={() => void markComplete()}
+              disabled={saving === `progress:${activeLesson.id}`}
               className={`flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium transition ${
                 completed.includes(activeLesson.id)
                   ? "bg-green-500/15 text-green-300"
                   : "bg-[#C9A75D] text-white"
-              }`}
+              } disabled:opacity-60`}
             >
               <CheckCircle2 size={16} />
               {completed.includes(activeLesson.id)

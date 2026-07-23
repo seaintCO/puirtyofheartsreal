@@ -92,7 +92,11 @@ export default function CoursesPage() {
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
-              [BookOpen, "Structured curriculum", "Six modules presented in a clear sequence."],
+              [
+                BookOpen,
+                "Structured curriculum",
+                `${businessCourse.modules.length} modules presented in a clear sequence.`,
+              ],
               [CheckSquare, "Apply what you learn", "Quizzes, action steps, and guided assignments."],
               [NotebookPen, "Keep your work", "Progress and notes saved to your private account."],
             ].map(([Icon, title, text]: any) => (
@@ -112,4 +116,3 @@ export default function CoursesPage() {
     </main>
   );
 }
-

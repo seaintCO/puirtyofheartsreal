@@ -4,20 +4,20 @@ A production-ready member platform for the existing Purity of Hearts course,
 private community, 1:1 consultation requests, PurityOS, the Purity Luma
 coming-soon shop, and the SEAINT Booking partner sandbox.
 
-The course lessons, quizzes, flashcards, and study content remain in their
-original data files. This upgrade changes the experience and adds products; it
-does not rewrite the curriculum.
+The original course remains intact and now includes eight additional curated
+lessons from Y Combinator, Grow with Google, HubSpot, TED, and Harvard Business
+Review.
 
 ## What is included
 
-- Premium responsive marketing site and glass member dashboard
-- Existing 24-lesson course, quizzes, flashcards, notes, journal, resources,
+- Responsive Apple-inspired marketing site and glass member dashboard
+- Expanded 32-lesson, 9-module course with quizzes, flashcards, notes, journal, resources,
   progress tracking, and completion certificate
 - Supabase authentication, row-level security, private resource storage, and
   admin resource uploads
 - Existing one-time Stripe course checkout
 - Separate $50/month PurityOS Stripe subscription
-- Saved PurityOS conversations, membership billing portal, daily usage limit,
+- Saved PurityOS conversations, membership billing portal, daily and monthly usage limits,
   moderation, cost controls, and crisis-safe response boundaries
 - Private Discord links in the community and PurityOS experience
 - 1:1 consultation request form plus admin request management
@@ -42,10 +42,11 @@ Before `npm run dev`, replace every placeholder in `.env.local`. Never commit
 
 ## Supabase setup
 
-The project contains two ordered migrations:
+The project contains three ordered migrations:
 
 1. `supabase/migrations/20260710150000_launch_ready.sql`
 2. `supabase/migrations/20260723010000_purityos_platform.sql`
+3. `supabase/migrations/20260723020000_course_expansion_and_purityos_limits.sql`
 
 For a new Supabase project:
 
@@ -61,7 +62,9 @@ Review the output before confirming a production migration.
 The first migration creates the private `resource-vault` storage bucket and the
 course tables. The second migration adds PurityOS, consultation requests,
 product waitlists, newsletter subscribers, certificate issuance, and safe
-profile updates.
+profile updates. The third aligns certificates with the 32-lesson curriculum
+and adds a 500-message monthly PurityOS cap in addition to the 30-message daily
+cap.
 
 To make the owner account an admin, run this once in the Supabase SQL editor
 after that person signs up:
@@ -119,7 +122,8 @@ business-support companion—not as a licensed therapist. It:
 - saves chats only to the signed-in member’s Supabase account;
 - checks active subscription access server-side;
 - moderates input and output;
-- limits each member to 30 messages per day and uses bounded chat history;
+- limits each member to 30 messages per day and 500 per month, and uses bounded
+  chat history;
 - provides general support but not diagnosis, medical care, emergency support,
   legal advice, or guaranteed business outcomes.
 

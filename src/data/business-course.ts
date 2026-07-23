@@ -27,9 +27,9 @@ export type CourseLesson = {
 
 export const businessCourse = {
   title: "Business Management & Leadership",
-  instructor: "Young Entrepreneurs Forum",
+  instructor: "Purity of Hearts + curated business educators",
   description:
-    "A practical business-management program covering finance, strategy, marketing, operations, leadership, administration, customer service, and growth.",
+    "A practical business-management program covering finance, strategy, marketing, operations, leadership, administration, customer service, customer discovery, and growth.",
   modules: [
     {
       number: 1,
@@ -60,6 +60,24 @@ export const businessCourse = {
       number: 6,
       title: "Launch & Leadership",
       description: "Launch products and become a stronger business leader.",
+    },
+    {
+      number: 7,
+      title: "Customer Discovery & Validation",
+      description:
+        "Choose stronger ideas, interview real customers, and validate demand before overbuilding.",
+    },
+    {
+      number: 8,
+      title: "Modern Marketing Systems",
+      description:
+        "Turn digital marketing, social media, and useful content into a focused growth system.",
+    },
+    {
+      number: 9,
+      title: "Purposeful Leadership",
+      description:
+        "Communicate a clear purpose, lead with trust, and give feedback that helps people grow.",
     },
   ],
 };
@@ -531,5 +549,205 @@ export const businessLessons: CourseLesson[] = [
     actionStep: "Write your personal leadership code.",
     quiz: placeholderQuiz("Business Leadership"),
     flashcards: placeholderFlashcards("Business Leadership"),
+  },
+  {
+    id: "evaluate-business-ideas",
+    module: 7,
+    lesson: 25,
+    title: "How to Get and Evaluate Business Ideas",
+    duration: "30:00",
+    youtubeUrl: "https://www.youtube.com/embed/Th8JoIan4dg",
+    description:
+      "Use Y Combinator's practical framework to notice real problems, compare opportunities, and avoid choosing an idea only because it sounds impressive.",
+    objectives: [
+      "Recognize the qualities of a promising business problem.",
+      "Compare founder fit, urgency, and market evidence.",
+      "Choose one idea to validate with customers.",
+    ],
+    keyPoints: [
+      "Strong ideas often begin with a problem the founder understands firsthand.",
+      "A painful and frequent problem is usually easier to validate than a vague aspiration.",
+      "Founder insight matters, but it still needs evidence from the market.",
+      "Start narrow enough to learn quickly.",
+    ],
+    actionStep:
+      "Score three possible business ideas from one to five for urgency, frequency, customer access, founder fit, and willingness to pay.",
+    quiz: placeholderQuiz("Evaluating Business Ideas"),
+    flashcards: placeholderFlashcards("Evaluating Business Ideas"),
+  },
+  {
+    id: "customer-interviews",
+    module: 7,
+    lesson: 26,
+    title: "How to Talk to Customers",
+    duration: "20:00",
+    youtubeUrl: "https://www.youtube.com/embed/z1iF1c8w5Lg",
+    description:
+      "Learn how to run useful customer conversations without pitching, leading the witness, or collecting compliments instead of evidence.",
+    objectives: [
+      "Prepare neutral customer-interview questions.",
+      "Listen for specific past behavior rather than hypothetical intent.",
+      "Turn interview patterns into product and service decisions.",
+    ],
+    keyPoints: [
+      "Ask about a real recent experience.",
+      "Let the customer do most of the talking.",
+      "Avoid explaining or defending the solution during discovery.",
+      "Look for repeated patterns across several conversations.",
+    ],
+    actionStep:
+      "Schedule five customer interviews and use the same six neutral questions in each conversation.",
+    quiz: placeholderQuiz("Customer Interviews"),
+    flashcards: placeholderFlashcards("Customer Interviews"),
+  },
+  {
+    id: "first-customers",
+    module: 7,
+    lesson: 27,
+    title: "How to Get Your First Customers",
+    duration: "28:00",
+    youtubeUrl: "https://www.youtube.com/embed/hyYCn_kAngI",
+    description:
+      "Build an early customer-acquisition plan based on direct outreach, focused learning, and hands-on service before attempting to scale.",
+    objectives: [
+      "Select a reachable early customer segment.",
+      "Write a direct outreach message.",
+      "Create a learning loop from outreach to delivery.",
+    ],
+    keyPoints: [
+      "Early acquisition is often manual.",
+      "Narrow targeting makes outreach more relevant.",
+      "The goal is learning and proof, not premature automation.",
+      "Founder involvement reveals objections and unmet needs.",
+    ],
+    actionStep:
+      "Build a list of 25 qualified prospects and contact the first five with a short, specific message.",
+    quiz: placeholderQuiz("First Customers"),
+    flashcards: placeholderFlashcards("First Customers"),
+  },
+  {
+    id: "digital-marketing-plan",
+    module: 8,
+    lesson: 28,
+    title: "Create a Digital Marketing Plan",
+    duration: "56:00",
+    youtubeUrl: "https://www.youtube.com/embed/4z5X3AGfDfM",
+    description:
+      "Follow a Grow with Google workshop to connect business goals, audience, channels, content, and measurement in one practical plan.",
+    objectives: [
+      "Connect marketing activity to a business objective.",
+      "Choose channels based on audience behavior.",
+      "Define simple measures for awareness, leads, and sales.",
+    ],
+    keyPoints: [
+      "Begin with one measurable business goal.",
+      "Describe the audience before choosing a channel.",
+      "Match content to the customer's decision stage.",
+      "Review results and improve the plan regularly.",
+    ],
+    actionStep:
+      "Create a 30-day digital marketing plan with one goal, one audience, two channels, four content themes, and three measures.",
+    quiz: placeholderQuiz("Digital Marketing Plan"),
+    flashcards: placeholderFlashcards("Digital Marketing Plan"),
+  },
+  {
+    id: "social-media-foundations",
+    module: 8,
+    lesson: 29,
+    title: "Start Marketing on Social Media",
+    duration: "12:00",
+    youtubeUrl: "https://www.youtube.com/embed/l3_HA0lBPu0",
+    description:
+      "Use HubSpot's beginner-friendly approach to choose a focused social channel, publish consistently, and connect content to business outcomes.",
+    objectives: [
+      "Choose a primary social platform.",
+      "Create repeatable content categories.",
+      "Connect social activity to a clear call to action.",
+    ],
+    keyPoints: [
+      "Be where the ideal customer already spends time.",
+      "Consistency matters more than posting everywhere.",
+      "Useful content earns attention and trust.",
+      "Track conversations, leads, and conversions—not vanity metrics alone.",
+    ],
+    actionStep:
+      "Choose one primary platform and draft a two-week calendar using three repeatable content categories.",
+    quiz: placeholderQuiz("Social Media Foundations"),
+    flashcards: placeholderFlashcards("Social Media Foundations"),
+  },
+  {
+    id: "content-marketing-plan",
+    module: 8,
+    lesson: 30,
+    title: "Build a Content Marketing Plan",
+    duration: "15:00",
+    youtubeUrl: "https://www.youtube.com/embed/cwnwMO6WOCM",
+    description:
+      "Map useful content to the questions customers ask before, during, and after a purchase.",
+    objectives: [
+      "Identify customer questions across the buying journey.",
+      "Choose content formats that fit the business.",
+      "Create a simple publishing and repurposing workflow.",
+    ],
+    keyPoints: [
+      "Content should help a specific audience solve a specific problem.",
+      "Different questions appear at awareness, consideration, and decision stages.",
+      "One strong idea can become several useful pieces of content.",
+      "A publishing system protects consistency.",
+    ],
+    actionStep:
+      "List ten customer questions, group them by buying stage, and turn the strongest three into content briefs.",
+    quiz: placeholderQuiz("Content Marketing Plan"),
+    flashcards: placeholderFlashcards("Content Marketing Plan"),
+  },
+  {
+    id: "lead-with-purpose",
+    module: 9,
+    lesson: 31,
+    title: "Lead With a Clear Why",
+    duration: "18:35",
+    youtubeUrl: "https://www.youtube.com/embed/qp0HIF3SfI4",
+    description:
+      "Study Simon Sinek's framework for communicating purpose so customers and team members understand what the organization stands for.",
+    objectives: [
+      "Distinguish purpose from products and tactics.",
+      "Write a clear purpose statement.",
+      "Connect purpose to everyday communication and decisions.",
+    ],
+    keyPoints: [
+      "People respond to meaning as well as features.",
+      "Purpose should guide behavior, not remain a slogan.",
+      "Clear communication begins from the inside out.",
+      "Trust grows when words and actions remain aligned.",
+    ],
+    actionStep:
+      "Write one sentence each for why your business exists, how it serves, and what it offers.",
+    quiz: placeholderQuiz("Purposeful Leadership"),
+    flashcards: placeholderFlashcards("Purposeful Leadership"),
+  },
+  {
+    id: "giving-useful-feedback",
+    module: 9,
+    lesson: 32,
+    title: "Give Feedback When It Feels Difficult",
+    duration: "6:00",
+    youtubeUrl: "https://www.youtube.com/embed/jhtwqK3iOV8",
+    description:
+      "Use a direct, respectful feedback structure to address behavior, explain impact, and agree on a constructive next step.",
+    objectives: [
+      "Prepare for a difficult feedback conversation.",
+      "Separate observed behavior from assumptions.",
+      "Agree on a specific improvement and follow-up.",
+    ],
+    keyPoints: [
+      "Give feedback close to the event.",
+      "Describe observable behavior and its impact.",
+      "Invite the other person's perspective.",
+      "End with a clear request and follow-up.",
+    ],
+    actionStep:
+      "Prepare one feedback conversation using four notes: observed behavior, impact, question, and requested next step.",
+    quiz: placeholderQuiz("Giving Useful Feedback"),
+    flashcards: placeholderFlashcards("Giving Useful Feedback"),
   },
 ];

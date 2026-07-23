@@ -141,7 +141,7 @@ export default function PurityOSPage() {
             {[
               [MessageSquareMore, "Saved conversation history"],
               [LockKeyhole, "Private member account access"],
-              [Check, "Up to 30 thoughtful messages per day"],
+              [Check, "Up to 30 messages per day and 500 per month"],
               [Check, "Business, life, and faith support"],
               [Check, "Cancel from your billing portal anytime"],
             ].map(([Icon, label]: any) => (

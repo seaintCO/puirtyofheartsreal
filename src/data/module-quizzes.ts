@@ -1244,4 +1244,226 @@ export const moduleQuizzes: ModuleQuiz[] = [
       },
     ],
   },
+  {
+    module: 7,
+    title: "Customer Discovery & Validation",
+    description:
+      "Idea selection, customer interviews, evidence, early outreach, and first-customer learning.",
+    passingScore: 80,
+    questions: [
+      {
+        id: "m7q1",
+        question: "Which is the strongest starting point for a business idea?",
+        options: [
+          "A painful problem experienced by an accessible group of customers",
+          "A logo without a customer",
+          "A trend the founder does not understand",
+          "A product with no defined use",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "A clear, meaningful problem and reachable customer group create a stronger foundation for validation.",
+      },
+      {
+        id: "m7q2",
+        question: "What should a customer interview focus on?",
+        options: [
+          "Specific past behavior and real problems",
+          "Convincing the customer to compliment the idea",
+          "Explaining every product feature",
+          "Hypothetical promises only",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Specific past behavior provides stronger evidence than compliments or hypothetical intent.",
+      },
+      {
+        id: "m7q3",
+        question: "Why should founders avoid leading questions?",
+        options: [
+          "They can bias the answer toward what the founder wants to hear",
+          "They make interviews shorter",
+          "They eliminate customer problems",
+          "They guarantee a sale",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Neutral questions make it more likely that the customer will reveal honest experiences and priorities.",
+      },
+      {
+        id: "m7q4",
+        question: "What is the main objective when finding first customers?",
+        options: [
+          "Learn while proving that a specific audience will act or pay",
+          "Automate every process immediately",
+          "Reach every possible market",
+          "Avoid direct customer contact",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Early selling is a learning process that tests the customer, offer, message, and delivery.",
+      },
+      {
+        id: "m7q5",
+        question: "What makes early outreach more relevant?",
+        options: [
+          "A narrow audience and a specific problem",
+          "A generic message sent to everyone",
+          "A long company history",
+          "An unclear call to action",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Focused outreach can speak directly to the recipient's likely situation and need.",
+      },
+    ],
+  },
+  {
+    module: 8,
+    title: "Modern Marketing Systems",
+    description:
+      "Digital planning, channel selection, content systems, measurement, and consistent execution.",
+    passingScore: 80,
+    questions: [
+      {
+        id: "m8q1",
+        question: "What should come first in a digital marketing plan?",
+        options: [
+          "A measurable business objective",
+          "Posting on every platform",
+          "Buying followers",
+          "Choosing colors",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "A measurable objective gives the marketing plan direction and makes evaluation possible.",
+      },
+      {
+        id: "m8q2",
+        question: "How should a small business choose a primary social channel?",
+        options: [
+          "Based on where its ideal customer already spends attention",
+          "By choosing every channel",
+          "By copying an unrelated competitor",
+          "By selecting the newest app automatically",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Channel choice should reflect audience behavior, business fit, and the ability to execute consistently.",
+      },
+      {
+        id: "m8q3",
+        question: "What is the best purpose for content marketing?",
+        options: [
+          "Help a specific audience solve problems and make informed decisions",
+          "Publish without an audience",
+          "Replace customer service",
+          "Avoid calls to action",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Useful content builds trust by answering meaningful customer questions across the buying journey.",
+      },
+      {
+        id: "m8q4",
+        question: "Which is a stronger measure than follower count alone?",
+        options: [
+          "Qualified conversations, leads, and conversions",
+          "Post frequency without results",
+          "The number of colors used",
+          "Competitor follower counts",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Business outcomes reveal whether attention is becoming useful customer action.",
+      },
+      {
+        id: "m8q5",
+        question: "Why use repeatable content categories?",
+        options: [
+          "They make planning more consistent and focused",
+          "They remove the need to understand customers",
+          "They guarantee virality",
+          "They prevent measurement",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Repeatable categories reduce planning friction while keeping content aligned with customer needs.",
+      },
+    ],
+  },
+  {
+    module: 9,
+    title: "Purposeful Leadership",
+    description:
+      "Purpose, trust, clear communication, constructive feedback, and values-led behavior.",
+    passingScore: 80,
+    questions: [
+      {
+        id: "m9q1",
+        question: "What does an organization's why describe?",
+        options: [
+          "The purpose or belief behind its work",
+          "Only its product list",
+          "Its office location",
+          "Its daily transaction count",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "The why expresses the purpose that guides how the organization serves and decides.",
+      },
+      {
+        id: "m9q2",
+        question: "How does purpose become credible?",
+        options: [
+          "Words, decisions, and behavior stay aligned",
+          "It appears only in advertising",
+          "It changes every week",
+          "The team never discusses it",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "People trust purpose when they can see it reflected consistently in real decisions and conduct.",
+      },
+      {
+        id: "m9q3",
+        question: "What should constructive feedback describe first?",
+        options: [
+          "Observable behavior",
+          "A personal insult",
+          "An assumed motive",
+          "An unrelated past mistake",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "Observable behavior creates a shared, concrete starting point for the conversation.",
+      },
+      {
+        id: "m9q4",
+        question: "Why invite the other person's perspective during feedback?",
+        options: [
+          "It can reveal context and create shared understanding",
+          "It eliminates the leader's responsibility",
+          "It avoids deciding on a next step",
+          "It guarantees agreement",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "A useful feedback conversation includes listening as well as clear direction.",
+      },
+      {
+        id: "m9q5",
+        question: "How should a feedback conversation end?",
+        options: [
+          "With a clear next step and follow-up",
+          "With an ambiguous complaint",
+          "Without allowing questions",
+          "With no record of expectations",
+        ],
+        correctAnswer: 0,
+        explanation:
+          "A specific next step makes the desired improvement understandable and measurable.",
+      },
+    ],
+  },
 ];

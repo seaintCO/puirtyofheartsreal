@@ -11,3 +11,4 @@ playlist-metadata.json
 .env*.local
 .env*.local
 backup-*
+.vercel

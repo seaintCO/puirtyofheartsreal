@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 
-export default function AuthForm() {
+export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
   const router = useRouter();
   const supabase = createClient();
 
@@ -30,7 +30,7 @@ export default function AuthForm() {
           email,
           password,
           options: {
-            emailRedirectTo: `${siteUrl}/auth/callback?next=/enroll`,
+            emailRedirectTo: `${siteUrl}/auth/callback?next=${encodeURIComponent(next)}`,
             data: {
               full_name: fullName,
             },
@@ -57,7 +57,7 @@ export default function AuthForm() {
         throw error;
       }
 
-      router.push("/dashboard");
+      router.push(next);
       router.refresh();
     } catch (error) {
       setMessage(

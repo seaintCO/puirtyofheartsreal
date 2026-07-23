@@ -74,12 +74,7 @@ export async function POST(request: Request) {
     console.error("Checkout error:", error);
 
     return NextResponse.json(
-      {
-        error:
-          error instanceof Error
-            ? error.message
-            : "Unable to create Checkout Session.",
-      },
+      { error: "Unable to start checkout. Please try again." },
       { status: 500 },
     );
   }

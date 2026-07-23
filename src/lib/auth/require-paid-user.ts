@@ -16,7 +16,7 @@ export async function requirePaidUser() {
   const { data: profile, error: profileError } =
     await supabase
       .from("profiles")
-      .select("id, email, role, paid")
+      .select("id, email, full_name, role, paid")
       .eq("id", user.id)
       .single();
 

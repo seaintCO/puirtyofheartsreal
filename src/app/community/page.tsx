@@ -1,46 +1,86 @@
-﻿import Link from "next/link";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BookHeart,
+  MessageCircle,
+  Mic2,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { DISCORD_URL } from "@/lib/purityos";
 
 export default function CommunityPage() {
   return (
-    <main className="relative min-h-screen bg-[#1A1A1A] pt-32 text-white">
-      <Link href="/" className="fixed left-6 top-24 z-50 rounded-full border border-[#1F1F1F]/10 bg-white/80 px-5 py-2 text-sm font-medium text-[#1F1F1F] shadow-sm backdrop-blur transition hover:bg-white">
-        ← Back to Home
-      </Link>
-      <section className="relative overflow-hidden px-6 pb-24">
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-[#C9A75D]/10 blur-[120px]" />
-        <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
+    <main className="min-h-screen bg-[#11100e] text-white">
+      <Navbar dark />
+      <section className="relative overflow-hidden px-6 pb-28 pt-24 sm:pt-32">
+        <div className="absolute right-[-10%] top-[-20%] h-[760px] w-[760px] rounded-full bg-[#c9a75d]/13 blur-[160px]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">Digital Sanctuary</span>
-            <h1 className="mt-6 font-serif text-5xl leading-tight lg:text-7xl">
-              A private faith community built for connection and growth.
-            </h1>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-white/60">
-              Prayer groups, live Q&A, Bible studies, devotionals, discussion spaces, and exclusive content in one calm premium space.
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d8b665]">
+              Private member Discord
             </p>
+            <h1 className="mt-6 max-w-3xl font-serif text-6xl leading-[0.98] tracking-tight sm:text-8xl">
+              Growth feels different
+              <span className="block italic text-[#d8b665]">when you’re not alone.</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-base leading-7 text-white/45">
+              Join member conversations, receive announcements, ask questions,
+              and stay close to the Purity of Hearts community.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href={DISCORD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d8b665] px-7 py-4 text-sm font-semibold text-[#17130c]"
+              >
+                Open Discord <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/enroll"
+                className="inline-flex items-center justify-center rounded-full border border-white/10 px-7 py-4 text-sm text-white/55"
+              >
+                Become a member
+              </Link>
+            </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
-            <div className="rounded-2xl border border-white/10 bg-[#222] p-6">
-              <div className="mb-6 h-4 w-32 rounded-full bg-white/10" />
-              <div className="space-y-4">
-                <div className="rounded-xl bg-white/5 p-4">
-                  <p className="text-sm font-medium">Prayer Request</p>
-                  <p className="mt-2 text-xs text-white/50">Share privately with the community and receive support.</p>
+          <div className="rounded-[2.2rem] border border-white/10 bg-white/[0.035] p-3 backdrop-blur-2xl">
+            <div className="rounded-[1.7rem] border border-white/10 bg-[#191816] p-6">
+              <div className="flex items-center justify-between border-b border-white/10 pb-5">
+                <div>
+                  <p className="text-sm font-medium">Purity of Hearts</p>
+                  <p className="mt-1 text-[10px] text-white/30">Member community</p>
                 </div>
-                <div className="rounded-xl bg-white/5 p-4">
-                  <p className="text-sm font-medium">Live Bible Study</p>
-                  <p className="mt-2 text-xs text-white/50">Join Susan for guided teaching and reflection.</p>
-                </div>
-                <div className="rounded-xl bg-white/5 p-4">
-                  <p className="text-sm font-medium">Daily Devotionals</p>
-                  <p className="mt-2 text-xs text-white/50">Receive encouragement every day.</p>
-                </div>
+                <Users size={18} className="text-[#d8b665]" />
+              </div>
+              <div className="mt-5 space-y-3">
+                {[
+                  [MessageCircle, "member-conversations", "Ask, share, and connect"],
+                  [BookHeart, "faith-and-reflection", "Weekly encouragement"],
+                  [Mic2, "live-room", "Calls and community events"],
+                  [ShieldCheck, "member-support", "Private program support"],
+                ].map(([Icon, channel, text]: any) => (
+                  <div
+                    key={channel}
+                    className="flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.03] p-4"
+                  >
+                    <Icon size={18} className="text-[#d8b665]" />
+                    <div>
+                      <p className="text-sm text-white/70"># {channel}</p>
+                      <p className="mt-1 text-[10px] text-white/28">{text}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
+      <Footer dark />
     </main>
   );
 }
-

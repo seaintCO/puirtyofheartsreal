@@ -16,7 +16,7 @@ import {
   Trophy,
 } from "lucide-react";
 
-const items = [
+export const dashboardItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { label: "Journal", href: "/dashboard/journal", icon: NotebookPen },
   { label: "Resource Vault", href: "/dashboard/resources", icon: FolderOpen },
@@ -27,25 +27,36 @@ const items = [
   { label: "Flashcards", href: "/dashboard/flashcards", icon: Brain },
   { label: "Certificates", href: "/dashboard/certificates", icon: Trophy },
   { label: "Community", href: "/dashboard/community", icon: MessageCircle },
-  { label: "Resource Admin", href: "/dashboard/admin/resources", icon: FolderOpen },
   { label: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 
-export default function DashboardSidebar() {
+export const adminDashboardItems = [
+  { label: "Resource Admin", href: "/dashboard/admin/resources", icon: FolderOpen },
+  { label: "Consultations", href: "/dashboard/admin/consultations", icon: MessageCircle },
+];
+
+export default function DashboardSidebar({
+  isAdmin = false,
+}: {
+  isAdmin?: boolean;
+}) {
   const pathname = usePathname();
+  const items = isAdmin
+    ? [...dashboardItems, ...adminDashboardItems]
+    : dashboardItems;
 
   return (
-    <aside className="hidden min-h-screen w-72 shrink-0 border-r border-white/10 bg-[#151515] p-5 lg:block">
-      <div className="mb-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white">
+    <aside className="sticky top-0 hidden h-screen w-72 shrink-0 border-r border-white/10 bg-black/20 p-5 backdrop-blur-2xl lg:block">
+      <div className="mb-7 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white">
           Purity of Hearts
         </p>
-        <p className="mt-2 text-xs text-white/35">
-          Student Portal
+        <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-[#d8b665]">
+          Member Portal
         </p>
       </div>
 
-      <nav className="space-y-2">
+      <nav className="space-y-1 overflow-y-auto pb-6">
         {items.map(({ label, href, icon: Icon }) => {
           const active =
             pathname === href ||
@@ -55,10 +66,10 @@ export default function DashboardSidebar() {
             <Link
               key={href}
               href={href}
-              className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
+              className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition ${
                 active
-                  ? "bg-[#C9A75D] text-[#111]"
-                  : "text-white/55 hover:bg-white/[0.06] hover:text-white"
+                  ? "bg-[#d8b665] text-[#15120c] shadow-lg"
+                  : "text-white/42 hover:bg-white/[0.06] hover:text-white/80"
               }`}
             >
               <Icon size={18} />

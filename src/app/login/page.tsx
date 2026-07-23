@@ -2,7 +2,16 @@ import Link from "next/link";
 import AuthForm from "@/components/auth/AuthForm";
 import { ArrowLeft } from "lucide-react";
 
-export default function LoginPage() {
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const requestedNext = (await searchParams).next;
+  const next =
+    requestedNext?.startsWith("/") && !requestedNext.startsWith("//")
+      ? requestedNext
+      : "/dashboard";
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#FFF8F2] px-6 py-24">
       <div className="absolute left-1/2 top-1/2 h-[520px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C9A75D]/15 blur-[140px]" />
@@ -16,7 +25,7 @@ export default function LoginPage() {
       </Link>
 
       <div className="relative z-10">
-        <AuthForm />
+        <AuthForm next={next} />
       </div>
     </main>
   );

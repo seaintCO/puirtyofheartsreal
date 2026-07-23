@@ -1,38 +1,60 @@
-﻿import Link from "next/link";
-import { ArrowRight, BookOpen, Heart, Users } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BookOpen,
+  Brain,
+  CheckSquare,
+  FolderOpen,
+  NotebookPen,
+} from "lucide-react";
 
-const cards = [
-  { icon: BookOpen, title: "Courses", text: "Biblical teaching made simple.", href: "/courses" },
-  { icon: Heart, title: "Devotionals", text: "Daily encouragement and reflection.", href: "/community" },
-  { icon: Users, title: "Community", text: "Prayer, support, and live studies.", href: "/community" },
+const features = [
+  [BookOpen, "24 focused lessons", "A complete business and leadership learning path."],
+  [NotebookPen, "Private journal", "Save reflections, prayer notes, and next actions."],
+  [CheckSquare, "Quizzes & progress", "Know what you completed and where to continue."],
+  [Brain, "Flashcards", "Review essential ideas in short study sessions."],
+  [FolderOpen, "Resource vault", "Download worksheets, guides, and member resources."],
 ];
 
 export default function FeaturedCourses() {
   return (
-    <section className="bg-[#F8F3EB] px-6 py-20">
+    <section className="bg-[#11100e] px-6 py-28 text-white">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
-          <h2 className="mb-3 text-3xl font-semibold tracking-tight text-[#1F1F1F] md:text-4xl">
-            Learn. Reflect. Grow.
-          </h2>
-          <p className="mx-auto max-w-xl text-base text-[#1F1F1F]/60">
-            A clean digital space for faith-centered growth.
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-3">
-          {cards.map(({ icon: Icon, title, text, href }) => (
-            <Link key={title} href={href} className="group rounded-3xl border border-[#1F1F1F]/5 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FFF8F2] text-[#C9A75D] transition group-hover:scale-110">
-                <Icon size={26} />
-              </div>
-              <h3 className="mb-2 text-xl font-semibold tracking-tight text-[#1F1F1F]">{title}</h3>
-              <p className="mb-5 text-sm leading-relaxed text-[#1F1F1F]/60">{text}</p>
-              <div className="flex items-center gap-2 text-sm font-medium text-[#C9A75D]">
-                Explore <ArrowRight size={16} />
-              </div>
+        <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d8b665]">
+              One complete member experience
+            </p>
+            <h2 className="mt-6 max-w-xl font-serif text-5xl leading-[1.02] tracking-tight sm:text-6xl">
+              More than videos in a folder.
+            </h2>
+            <p className="mt-6 max-w-lg text-base leading-7 text-white/45">
+              Learn, apply, reflect, and return. Every tool is connected to a
+              private account so your progress stays with you.
+            </p>
+            <Link
+              href="/courses"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#d8b665] px-6 py-3.5 text-sm font-semibold text-[#17130c]"
+            >
+              View the curriculum <ArrowRight size={16} />
             </Link>
-          ))}
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map(([Icon, title, text]: any, index) => (
+              <article
+                key={title}
+                className={`rounded-[1.8rem] border border-white/10 bg-white/[0.035] p-6 ${
+                  index === 0 ? "sm:col-span-2" : ""
+                }`}
+              >
+                <Icon size={21} className="text-[#d8b665]" />
+                <h3 className="mt-5 text-lg font-medium">{title}</h3>
+                <p className="mt-3 max-w-md text-sm leading-6 text-white/38">
+                  {text}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

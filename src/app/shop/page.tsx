@@ -1,271 +1,118 @@
-﻿"use client";
-
-import Link from "next/link";
-import { useMemo, useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Heart,
-  Search,
-  ShoppingBag,
-  SlidersHorizontal,
-  Sparkles,
-  Star,
-  X,
-} from "lucide-react";
-
-const products = [
-  { name: "Family Wellness Kit", category: "Health Tech", price: 89, tag: "Best Seller" },
-  { name: "Smart Prayer Journal", category: "Tools", price: 38, tag: "New" },
-  { name: "Faith Home Cards", category: "Family Accessories", price: 24, tag: "Popular" },
-  { name: "Leadership Workbook", category: "Coaching", price: 42, tag: "Digital" },
-  { name: "Purpose Planner", category: "Tools", price: 34, tag: "Featured" },
-  { name: "Family Devotional Set", category: "Family Accessories", price: 55, tag: "Limited" },
-  { name: "Wellness Reflection Cards", category: "Health Tech", price: 29, tag: "New" },
-  { name: "Home Prayer Bundle", category: "Family Accessories", price: 64, tag: "Bundle" },
-];
-
-const categories = ["All", "Health Tech", "Tools", "Family Accessories", "Coaching", "Digital"];
+import Image from "next/image";
+import { FlaskConical, ShieldCheck, Sparkles } from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import WaitlistForm from "@/components/shop/WaitlistForm";
+import { shopProducts } from "@/data/shop-products";
 
 export default function ShopPage() {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All");
-  const [sort, setSort] = useState("featured");
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [maxPrice, setMaxPrice] = useState(100);
-
-  const filteredProducts = useMemo(() => {
-    let result = products.filter((product) => {
-      const matchesSearch =
-        product.name.toLowerCase().includes(query.toLowerCase()) ||
-        product.category.toLowerCase().includes(query.toLowerCase()) ||
-        product.tag.toLowerCase().includes(query.toLowerCase());
-
-      const matchesCategory = category === "All" || product.category === category;
-      const matchesPrice = product.price <= maxPrice;
-
-      return matchesSearch && matchesCategory && matchesPrice;
-    });
-
-    if (sort === "price-low") result = [...result].sort((a, b) => a.price - b.price);
-    if (sort === "price-high") result = [...result].sort((a, b) => b.price - a.price);
-    if (sort === "name") result = [...result].sort((a, b) => a.name.localeCompare(b.name));
-
-    return result;
-  }, [query, category, sort, maxPrice]);
-
   return (
-    <main className="min-h-screen bg-[#FFF8F2]">
-      <Link
-        href="/"
-        className="fixed left-6 top-24 z-50 inline-flex items-center gap-2 rounded-full border border-[#1F1F1F]/10 bg-white/85 px-5 py-2.5 text-sm font-medium text-[#1F1F1F] shadow-sm backdrop-blur transition hover:bg-white"
-      >
-        <ArrowLeft size={15} />
-        Back to Home
-      </Link>
+    <main className="min-h-screen bg-[#f6efe7]">
+      <Navbar />
 
-      <section className="px-6 pb-14 pt-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[1fr_380px] lg:items-end">
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
-                Premium Store
-              </span>
-              <h1 className="mt-5 text-5xl font-semibold tracking-tight text-[#1F1F1F] md:text-7xl">
-                Shop Purity
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#1F1F1F]/60">
-                Health Tech, Tools, Family Accessories and more.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-[#1F1F1F]/5 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3">
-                <Sparkles className="text-[#C9A75D]" size={24} />
-                <div>
-                  <p className="text-sm font-semibold text-[#1F1F1F]">Curated Collection</p>
-                  <p className="mt-1 text-xs text-[#1F1F1F]/50">
-                    Faith, wellness, leadership, and family.
-                  </p>
-                </div>
-              </div>
-            </div>
+      <section className="relative overflow-hidden px-6 pb-20 pt-24 sm:pt-32">
+        <div className="absolute left-1/2 top-[-10%] h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-[#d9b964]/18 blur-[150px]" />
+        <div className="relative mx-auto max-w-7xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#9b7939]/15 bg-white/55 px-4 py-2 text-xs font-medium text-[#8b6d33] backdrop-blur-xl">
+            <Sparkles size={14} />
+            Product concepts · launching soon
           </div>
+          <h1 className="mx-auto mt-7 max-w-4xl font-serif text-6xl leading-[0.98] tracking-tight text-[#1f1f1f] sm:text-8xl">
+            The future of your
+            <span className="block italic text-[#a88643]">wellness ritual.</span>
+          </h1>
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-[#1f1f1f]/55">
+            Purity Luma is an upcoming collection of refined red-light wellness
+            concepts for face, neck, and at-home routines. Join the list to hear
+            when product details and availability are confirmed.
+          </p>
+        </div>
+      </section>
 
-          <div className="mt-12 grid gap-4 lg:grid-cols-[1fr_auto_auto]">
-            <div className="flex items-center gap-3 rounded-2xl border border-[#1F1F1F]/10 bg-white px-5 py-4 shadow-sm">
-              <Search size={18} className="text-[#1F1F1F]/40" />
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search products, collections, tools..."
-                className="w-full bg-transparent text-sm outline-none placeholder:text-[#1F1F1F]/40"
-              />
-            </div>
-
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-              className="rounded-2xl border border-[#1F1F1F]/10 bg-white px-5 py-4 text-sm font-medium shadow-sm outline-none"
+      <section className="px-6 pb-28">
+        <div className="mx-auto max-w-7xl space-y-8">
+          {shopProducts.map((product, index) => (
+            <article
+              key={product.slug}
+              className="grid overflow-hidden rounded-[2.4rem] border border-white/75 bg-white/55 shadow-[0_30px_100px_rgba(63,43,15,.09)] backdrop-blur-2xl lg:grid-cols-2"
             >
-              <option value="featured">Featured</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="name">Name</option>
-            </select>
-
-            <button
-              onClick={() => setDrawerOpen(true)}
-              className="flex items-center justify-center gap-2 rounded-2xl border border-[#1F1F1F]/10 bg-white px-5 py-4 text-sm font-medium shadow-sm transition hover:bg-[#F8F3EB]"
-            >
-              <SlidersHorizontal size={18} />
-              Advanced Filters
-            </button>
-          </div>
-
-          <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
-            {categories.map((item) => (
-              <button
-                key={item}
-                onClick={() => setCategory(item)}
-                className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition ${
-                  category === item
-                    ? "bg-[#1F1F1F] text-white"
-                    : "border border-[#1F1F1F]/10 bg-white text-[#1F1F1F]/65 hover:bg-[#F8F3EB]"
+              <div
+                className={`relative min-h-[380px] overflow-hidden lg:min-h-[620px] ${
+                  index % 2 ? "lg:order-2" : ""
                 }`}
               >
-                {item}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-6 text-sm text-[#1F1F1F]/50">
-            Showing {filteredProducts.length} products
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 pb-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.name}
-                className="group rounded-[2rem] border border-[#1F1F1F]/5 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative mb-5 flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#FFF8F2] to-[#F5E4E7]">
-                  <div className="absolute right-4 top-4 rounded-full bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#C9A75D]">
-                    {product.tag}
-                  </div>
-                  <ShoppingBag className="text-[#1F1F1F]/20 transition duration-500 group-hover:scale-110" size={58} />
-                </div>
-
-                <div className="mb-3 flex items-center gap-1 text-[#C9A75D]">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} size={13} fill="currentColor" />
-                  ))}
-                </div>
-
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
-                      {product.category}
-                    </p>
-                    <h3 className="mt-2 text-base font-semibold text-[#1F1F1F]">{product.name}</h3>
-                  </div>
-                  <p className="font-semibold text-[#1F1F1F]">${product.price}</p>
-                </div>
-
-                <div className="mt-5 flex items-center justify-between border-t border-[#1F1F1F]/5 pt-4">
-                  <button className="inline-flex items-center gap-2 text-sm font-medium text-[#1F1F1F] transition hover:text-[#C9A75D]">
-                    View Details <ArrowRight size={14} />
-                  </button>
-                  <Heart size={18} className="text-[#1F1F1F]/35 transition group-hover:text-[#C9A75D]" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {filteredProducts.length === 0 && (
-            <div className="rounded-[2rem] border border-[#1F1F1F]/5 bg-white p-10 text-center shadow-sm">
-              <p className="text-lg font-semibold">No products found.</p>
-              <p className="mt-2 text-sm text-[#1F1F1F]/55">Try a different search or filter.</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {drawerOpen && (
-        <div className="fixed inset-0 z-[100] bg-black/30 backdrop-blur-sm" onClick={() => setDrawerOpen(false)}>
-          <aside
-            onClick={(e) => e.stopPropagation()}
-            className="ml-auto h-full w-full max-w-md bg-[#FFF8F2] p-6 shadow-2xl"
-          >
-            <div className="mb-8 flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold">Advanced Filters</h2>
-                <p className="mt-1 text-sm text-[#1F1F1F]/55">Refine the product catalog.</p>
-              </div>
-              <button onClick={() => setDrawerOpen(false)} className="rounded-full bg-white p-3 shadow-sm">
-                <X size={18} />
-              </button>
-            </div>
-
-            <div className="space-y-8">
-              <div>
-                <p className="mb-4 text-sm font-semibold">Category</p>
-                <div className="grid grid-cols-2 gap-3">
-                  {categories.map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setCategory(item)}
-                      className={`rounded-2xl px-4 py-3 text-sm font-medium ${
-                        category === item ? "bg-[#1F1F1F] text-white" : "bg-white text-[#1F1F1F]/65"
-                      }`}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <div className="mb-4 flex items-center justify-between">
-                  <p className="text-sm font-semibold">Max Price</p>
-                  <p className="text-sm text-[#C9A75D]">${maxPrice}</p>
-                </div>
-                <input
-                  type="range"
-                  min="20"
-                  max="100"
-                  value={maxPrice}
-                  onChange={(e) => setMaxPrice(Number(e.target.value))}
-                  className="w-full"
+                <Image
+                  src={product.image}
+                  alt={`${product.name} product concept`}
+                  fill
+                  priority={index === 0}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition duration-700 hover:scale-[1.025]"
                 />
+                <div className="absolute left-5 top-5 rounded-full border border-white/45 bg-white/65 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#745a2c] backdrop-blur-xl">
+                  Coming soon
+                </div>
               </div>
 
-              <button
-                onClick={() => setDrawerOpen(false)}
-                className="w-full rounded-full bg-[#C9A75D] px-6 py-4 text-sm font-medium text-white"
-              >
-                Apply Filters
-              </button>
-
-              <button
-                onClick={() => {
-                  setQuery("");
-                  setCategory("All");
-                  setSort("featured");
-                  setMaxPrice(100);
-                }}
-                className="w-full rounded-full bg-white px-6 py-4 text-sm font-medium text-[#1F1F1F]"
-              >
-                Reset All
-              </button>
-            </div>
-          </aside>
+              <div className="flex flex-col justify-center p-7 sm:p-12 lg:p-16">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a88643]">
+                  {product.eyebrow}
+                </p>
+                <h2 className="mt-5 font-serif text-4xl tracking-tight text-[#1f1f1f] sm:text-6xl">
+                  {product.name}
+                </h2>
+                <p className="mt-5 max-w-lg text-base leading-7 text-[#1f1f1f]/55">
+                  {product.description}
+                </p>
+                <div className="mt-7 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-[#1f1f1f]/10 bg-white/60 px-4 py-2 text-xs text-[#1f1f1f]/55">
+                    {product.category}
+                  </span>
+                  <span className="rounded-full border border-[#1f1f1f]/10 bg-white/60 px-4 py-2 text-xs text-[#1f1f1f]/55">
+                    Product concept
+                  </span>
+                </div>
+                <div className="mt-9 max-w-lg">
+                  <WaitlistForm productSlug={product.slug} />
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
-      )}
+      </section>
+
+      <section className="border-y border-[#1f1f1f]/7 bg-white/35 px-6 py-20">
+        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+          {[
+            [
+              FlaskConical,
+              "Details before claims",
+              "Specifications, testing, pricing, and final product claims will be published only when confirmed.",
+            ],
+            [
+              ShieldCheck,
+              "Wellness, not treatment",
+              "These concepts are not presented as medical devices and are not intended to diagnose or treat disease.",
+            ],
+            [
+              Sparkles,
+              "Early access",
+              "Waitlist members will be first to receive launch details and availability updates.",
+            ],
+          ].map(([Icon, title, text]: any) => (
+            <article
+              key={title}
+              className="rounded-[1.8rem] border border-white/70 bg-white/55 p-7 backdrop-blur-xl"
+            >
+              <Icon size={22} className="text-[#a88643]" />
+              <h3 className="mt-5 text-lg font-medium">{title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#1f1f1f]/48">{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <Footer />
     </main>
   );
 }

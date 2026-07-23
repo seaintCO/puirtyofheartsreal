@@ -6,8 +6,26 @@ import {
   PlayCircle,
 } from "lucide-react";
 import { businessLessons } from "@/data/business-course";
+import { requirePaidUser } from "@/lib/auth/require-paid-user";
+import { createClient } from "@/lib/supabase/server";
 
-export default function CoursesPage() {
+export default async function CoursesPage() {
+  const { user } = await requirePaidUser();
+  const supabase = await createClient();
+  const { data: progress } = await supabase
+    .from("lesson_progress")
+    .select("lesson_id, completed")
+    .eq("user_id", user.id)
+    .eq("course_id", "purity-main");
+  const completedIds = new Set(
+    (progress ?? []).filter((item) => item.completed).map((item) => item.lesson_id),
+  );
+  const nextLesson =
+    businessLessons.find((lesson) => !completedIds.has(lesson.id)) ??
+    businessLessons[0];
+  const progressPercent = Math.round(
+    (completedIds.size / Math.max(businessLessons.length, 1)) * 100,
+  );
   const totalMinutes = businessLessons.reduce((total, lesson) => {
     const [minutes, seconds] = lesson.duration.split(":").map(Number);
     return total + minutes + seconds / 60;
@@ -76,7 +94,9 @@ export default function CoursesPage() {
                 Current Progress
               </p>
               <p className="mt-2 text-sm text-white/60">
-                Begin with Business Finance
+                {completedIds.size >= businessLessons.length
+                  ? "Course complete — review any lesson"
+                  : `Continue with ${nextLesson.title}`}
               </p>
             </div>
 
@@ -88,6 +108,15 @@ export default function CoursesPage() {
               <ArrowRight size={16} />
             </Link>
           </div>
+          <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-white/10">
+            <div
+              className="h-full rounded-full bg-[#C9A75D]"
+              style={{ width: `${Math.max(progressPercent, 2)}%` }}
+            />
+          </div>
+          <p className="mt-2 text-right text-[10px] text-white/30">
+            {progressPercent}% complete
+          </p>
         </div>
       </div>
 

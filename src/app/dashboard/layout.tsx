@@ -37,9 +37,11 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#111] text-white">
-      <div className="flex min-h-screen">
-        <DashboardSidebar />
+    <div className="relative min-h-screen overflow-hidden bg-[#11100e] text-white">
+      <div className="pointer-events-none fixed left-[12%] top-[-20%] h-[700px] w-[700px] rounded-full bg-[#c9a75d]/8 blur-[160px]" />
+      <div className="pointer-events-none fixed bottom-[-30%] right-[-10%] h-[700px] w-[700px] rounded-full bg-[#6b4f85]/8 blur-[160px]" />
+      <div className="relative flex min-h-screen">
+        <DashboardSidebar isAdmin={profile.role === "admin"} />
 
         <div className="min-w-0 flex-1">
           <DashboardTopbar
@@ -48,9 +50,10 @@ export default async function DashboardLayout({
               user.email ||
               "Student"
             }
+            isAdmin={profile.role === "admin"}
           />
 
-          <main className="p-5 md:p-8">
+          <main className="p-4 sm:p-6 md:p-8">
             {children}
           </main>
         </div>

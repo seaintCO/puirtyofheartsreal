@@ -1,77 +1,124 @@
-﻿import Link from "next/link";
-import { ArrowRight, Bookmark, Calendar, PlayCircle, Sparkles } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  MessageCircle,
+  NotebookPen,
+  Play,
+  Sparkles,
+} from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#FFF8F2] px-6 pb-20 pt-20 md:pb-28 md:pt-24">
-      <div className="absolute left-1/2 top-44 h-[420px] w-[620px] -translate-x-1/2 rounded-full bg-[#C9A75D]/20 blur-[130px]" />
-      <div className="absolute right-0 top-16 h-80 w-80 rounded-full bg-[#F5E4E7]/70 blur-[110px]" />
+    <section className="relative overflow-hidden bg-[#f8f1e9] px-6 pb-24 pt-20 sm:pb-32 sm:pt-28">
+      <div className="absolute left-[-15%] top-[-30%] h-[760px] w-[760px] rounded-full bg-[#ecced0]/45 blur-[150px]" />
+      <div className="absolute bottom-[-35%] right-[-10%] h-[760px] w-[760px] rounded-full bg-[#d6b660]/24 blur-[160px]" />
+      <div className="absolute inset-0 opacity-[0.025] [background-image:radial-gradient(#1f1f1f_1px,transparent_1px)] [background-size:22px_22px]" />
 
-      <div className="relative z-10 mx-auto max-w-3xl text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1F1F1F]/10 bg-white px-4 py-1.5 text-xs font-medium text-[#1F1F1F]/70 shadow-sm">
-          <Sparkles size={14} className="text-[#C9A75D]" />
-          Get To The F
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/55 px-4 py-2 text-xs font-medium text-[#80632e] shadow-sm backdrop-blur-2xl">
+            <Sparkles size={14} />
+            Faith, business, and personal growth
+          </div>
+          <h1 className="mt-8 max-w-3xl font-serif text-6xl leading-[0.95] tracking-[-0.045em] text-[#1f1f1f] sm:text-7xl lg:text-[6.6rem]">
+            Become who you were
+            <span className="block italic text-[#a88643]">created to be.</span>
+          </h1>
+          <p className="mt-7 max-w-xl text-base leading-7 text-[#1f1f1f]/58 sm:text-lg">
+            A private learning and coaching platform where faith becomes
+            practical—through structured courses, personal reflection, real
+            community, and guidance for life and business.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/enroll"
+              className="group flex items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-7 py-4 text-sm font-medium text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-[#9a7838]"
+            >
+              Explore the program
+              <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/purityos"
+              className="flex items-center justify-center gap-2 rounded-full border border-[#1f1f1f]/10 bg-white/60 px-7 py-4 text-sm font-medium text-[#1f1f1f] backdrop-blur-xl transition hover:bg-white"
+            >
+              <Sparkles size={16} className="text-[#a88643]" />
+              Meet PurityOS
+            </Link>
+          </div>
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#1f1f1f]/43">
+            {["Saved progress", "Private community", "Guided study tools"].map(
+              (item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <CheckCircle2 size={14} className="text-[#a88643]" />
+                  {item}
+                </span>
+              ),
+            )}
+          </div>
         </div>
 
-        <h1 className="hero-title hero-glow mx-auto mb-5 max-w-3xl text-5xl font-bold leading-[1.02] tracking-[-0.04em] md:text-7xl">
-          Lead with Purpose.
-        </h1>
-
-        <p className="mx-auto mb-9 max-w-xl text-base leading-relaxed text-[#1F1F1F]/60 md:text-lg">
-          Faith-based coaching for leaders seeking to grow closer to God.
-        </p>
-
-        <div className="flex flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/courses" className="hero-button group inline-flex items-center justify-center gap-2 rounded-full bg-[#1F1F1F] px-7 py-3.5 text-sm font-medium text-white shadow-xl transition hover:-translate-y-1">
-            Start Your Journey <ArrowRight size={17} className="transition group-hover:translate-x-1" />
-          </Link>
-          <Link href="/about" className="hero-button inline-flex items-center justify-center gap-2 rounded-full border border-[#1F1F1F]/10 bg-white px-7 py-3.5 text-sm font-medium text-[#1F1F1F] shadow-sm transition hover:bg-[#F8F3EB]">
-            <PlayCircle size={17} />
-            Watch Susan's Story
-          </Link>
-        </div>
-      </div>
-
-      <div className="relative z-10 mx-auto mt-12 max-w-5xl">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#1F1F1F] p-4 shadow-2xl ring-1 ring-white/5 md:p-8">
-          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#C9A75D]/20 blur-[90px]" />
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:col-span-2">
-              <div className="mb-5 flex items-center justify-between">
-                <span className="rounded-full bg-[#C9A75D]/20 px-3 py-1 text-xs font-medium text-[#C9A75D]">Today</span>
-                <Bookmark className="text-white/40" size={20} />
-              </div>
-              <h3 className="mb-2 text-2xl font-semibold tracking-tight text-white">Purpose Session</h3>
-              <p className="max-w-lg text-sm leading-relaxed text-white/55">
-                Continue your coaching path, reflection, and next leadership lesson.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <PlayCircle className="mb-5 text-[#C9A75D]" size={28} />
-              <p className="text-sm font-medium text-white">Coaching Progress</p>
-              <p className="mt-2 text-xs text-white/45">Faith & Leadership</p>
-              <div className="mt-5 h-1.5 rounded-full bg-white/10">
-                <div className="h-1.5 w-[65%] rounded-full bg-[#C9A75D]" />
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:col-span-3">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="relative">
+          <div className="absolute inset-8 rounded-[3rem] bg-[#b8964f]/20 blur-[70px]" />
+          <div className="relative rounded-[2.2rem] border border-white/80 bg-white/48 p-3 shadow-[0_45px_140px_rgba(80,55,20,.18)] backdrop-blur-2xl">
+            <div className="overflow-hidden rounded-[1.7rem] border border-white/70 bg-[#171614] text-white">
+              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
                 <div>
-                  <div className="mb-2 flex items-center gap-2 text-[#C9A75D]">
-                    <Calendar size={16} />
-                    <span className="text-xs font-medium uppercase tracking-widest">Next Live Coaching</span>
-                  </div>
-                  <h4 className="text-xl font-semibold text-white">Live Teaching With Susan</h4>
-                  <p className="mt-1 text-sm text-white/45">Join weekly inside the community</p>
+                  <p className="text-xs font-medium">Purity Member Portal</p>
+                  <p className="mt-1 text-[10px] text-white/30">
+                    Your growth, beautifully organized
+                  </p>
                 </div>
-                <Link href="/community" className="rounded-full bg-[#C9A75D] px-6 py-3 text-center text-sm font-medium text-white transition hover:bg-[#b59550]">
-                  Reserve Seat
-                </Link>
+                <div className="flex gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-white/15" />
+                  <span className="h-2 w-2 rounded-full bg-white/15" />
+                  <span className="h-2 w-2 rounded-full bg-[#d8b665]" />
+                </div>
+              </div>
+              <div className="p-5 sm:p-7">
+                <div className="rounded-3xl border border-[#d8b665]/20 bg-gradient-to-br from-[#d8b665]/15 to-white/[0.025] p-6">
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-[#d8b665]/12 px-3 py-1 text-[10px] text-[#e7ca80]">
+                      Continue learning
+                    </span>
+                    <Play size={15} className="text-[#d8b665]" />
+                  </div>
+                  <h2 className="mt-7 font-serif text-3xl">
+                    Business Management
+                    <br />& Leadership
+                  </h2>
+                  <div className="mt-6 h-1.5 rounded-full bg-white/10">
+                    <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-[#997637] to-[#efd48a]" />
+                  </div>
+                  <div className="mt-3 flex justify-between text-[10px] text-white/30">
+                    <span>15 of 24 lessons</span>
+                    <span>62%</span>
+                  </div>
+                </div>
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  {[
+                    [BookOpen, "Courses"],
+                    [NotebookPen, "Journal"],
+                    [MessageCircle, "Community"],
+                  ].map(([Icon, label]: any) => (
+                    <div
+                      key={label}
+                      className="rounded-2xl border border-white/10 bg-white/[0.035] p-4"
+                    >
+                      <Icon size={17} className="text-[#d8b665]" />
+                      <p className="mt-5 text-[11px] text-white/50">{label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+          <div className="absolute -bottom-6 -left-5 hidden rounded-2xl border border-white/80 bg-white/75 p-4 shadow-xl backdrop-blur-2xl sm:block">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-[#a88643]">
+              This week
+            </p>
+            <p className="mt-2 text-sm font-medium">3 lessons completed</p>
           </div>
         </div>
       </div>

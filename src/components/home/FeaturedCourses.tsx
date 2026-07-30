@@ -10,18 +10,18 @@ export default function FeaturedCourses() {
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6b31]">
             Business academy
           </p>
-          <h2 className="mt-6 text-[clamp(2.8rem,7vw,5.8rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#111]">
+          <h2 className="mt-6 text-[clamp(2.3rem,5.3vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#111]">
             A real curriculum.
             <span className="block text-[#86868b]">Built to be applied.</span>
           </h2>
-          <p className="mt-7 max-w-2xl text-base leading-7 text-[#1d1d1f]/58 sm:text-lg sm:leading-8">
+          <p className="mt-7 max-w-2xl text-base leading-7 text-[#1d1d1f]/[0.58] sm:text-lg sm:leading-8">
             Finance, customer discovery, modern marketing, operations,
             leadership, and growth—organized into a clear path with saved
             progress and practical work after every lesson.
           </p>
         </div>
 
-        <div className="mt-14 grid border-y border-black/10 sm:grid-cols-3">
+        <div className="mt-14 grid border-y border-black/[0.10] sm:grid-cols-3">
           {[
             [businessLessons.length.toString(), "guided video lessons"],
             [businessCourse.modules.length.toString(), "focused modules"],
@@ -29,12 +29,12 @@ export default function FeaturedCourses() {
           ].map(([value, label]) => (
             <div
               key={label}
-              className="border-b border-black/10 py-7 last:border-b-0 sm:border-b-0 sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
+              className="border-b border-black/[0.10] py-7 last:border-b-0 sm:border-b-0 sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
             >
               <p className="text-4xl font-semibold tracking-[-0.04em] text-[#111]">
                 {value}
               </p>
-              <p className="mt-2 text-sm text-[#1d1d1f]/50">{label}</p>
+              <p className="mt-2 text-sm text-[#1d1d1f]/[0.50]">{label}</p>
             </div>
           ))}
         </div>
@@ -44,7 +44,7 @@ export default function FeaturedCourses() {
             <h3 className="text-2xl font-semibold tracking-[-0.03em]">
               Everything stays connected.
             </h3>
-            <p className="mt-4 max-w-md text-sm leading-7 text-[#1d1d1f]/55">
+            <p className="mt-4 max-w-md text-sm leading-7 text-[#1d1d1f]/[0.55]">
               Watch a lesson, test your understanding, save a note, review key
               ideas, and return exactly where you stopped.
             </p>
@@ -56,7 +56,7 @@ export default function FeaturedCourses() {
             </Link>
           </div>
 
-          <div className="divide-y divide-black/10 border-y border-black/10">
+          <div className="divide-y divide-black/[0.10] border-y border-black/[0.10]">
             {[
               ["01", "Video lessons", "Curated instruction in one learning path."],
               ["02", "Quizzes & flashcards", "Active review after every lesson."],
@@ -69,7 +69,7 @@ export default function FeaturedCourses() {
               >
                 <span className="text-xs font-semibold text-[#a28142]">{number}</span>
                 <p className="text-sm font-semibold">{title}</p>
-                <p className="text-sm leading-6 text-[#1d1d1f]/48">{text}</p>
+                <p className="text-sm leading-6 text-[#1d1d1f]/[0.48]">{text}</p>
               </div>
             ))}
           </div>

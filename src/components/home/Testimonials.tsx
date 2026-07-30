@@ -1,4 +1,4 @@
-﻿import { Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 const reviews = [
   "Susan helped me find clarity when I felt spiritually stuck.",
@@ -25,13 +25,13 @@ const reviews = [
 
 function ReviewCard({ text }: { text: string }) {
   return (
-    <div className="mx-3 w-[320px] shrink-0 rounded-3xl border border-[#1F1F1F]/5 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-      <div className="mb-4 flex gap-1 text-[#C9A75D]">
+    <div className="mx-3 w-[320px] shrink-0 rounded-3xl border border-[#1F1F1F]/[0.05] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+      <div className="mb-4 flex gap-1 text-[#ff4fa3]">
         {[1, 2, 3, 4, 5].map((i) => (
           <Star key={i} size={15} fill="currentColor" />
         ))}
       </div>
-      <p className="text-sm leading-relaxed text-[#1F1F1F]/70">"{text}"</p>
+      <p className="text-sm leading-relaxed text-[#1F1F1F]/[0.70]">"{text}"</p>
     </div>
   );
 }
@@ -43,10 +43,10 @@ export default function Testimonials() {
   return (
     <section className="overflow-hidden bg-[#FFF8F2] py-24">
       <div className="mb-12 px-6 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">
           Stories of Growth
         </span>
-        <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-[#1F1F1F] md:text-5xl">
+        <h2 className="mx-auto mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-[#1F1F1F] md:text-4xl">
           Real growth. Real guidance. Real purpose.
         </h2>
       </div>

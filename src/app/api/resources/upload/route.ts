@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { rejectUntrustedOrigin } from "@/lib/security/request";
 
 export const runtime = "nodejs";
 
@@ -12,6 +13,9 @@ function cleanFilename(filename: string) {
 }
 
 export async function POST(request: Request) {
+  const originError = rejectUntrustedOrigin(request);
+  if (originError) return originError;
+
   try {
     const supabase = await createClient();
 
@@ -151,12 +155,7 @@ export async function POST(request: Request) {
     console.error("Resource upload error:", error);
 
     return NextResponse.json(
-      {
-        error:
-          error instanceof Error
-            ? error.message
-            : "Unable to upload resource.",
-      },
+      { error: "Unable to upload resource." },
       { status: 500 },
     );
   }

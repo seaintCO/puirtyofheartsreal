@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Courses", href: "/courses" },
+  { label: "Platform", href: "/education" },
   { label: "PurityOS", href: "/purityos" },
-  { label: "Shop", href: "/shop" },
-  { label: "Community", href: "/community" },
+  { label: "Work with Susan", href: "/private-advisory" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Navbar({ dark = false }: { dark?: boolean }) {
@@ -17,29 +16,38 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b backdrop-blur-2xl ${
+      className={`sticky top-0 z-50 border-b backdrop-blur-[28px] ${
         dark
-          ? "border-white/10 bg-[#0e0d0b]/80 text-white"
-          : "border-black/[0.06] bg-white/80 text-[#1f1f1f]"
+          ? "border-white/[0.08] bg-[#09090e]/[0.70] text-white"
+          : "border-white/[0.70] bg-white/[0.55] text-[#111116]"
       }`}
     >
-      <div className="mx-auto flex h-[64px] max-w-6xl items-center justify-between px-5 sm:h-[72px] sm:px-8">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-[-0.02em]"
-        >
-          Purity of Hearts
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+        <Link href="/" className="group flex items-center gap-3">
+          <span
+            className={`relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border text-[10px] font-semibold tracking-[-0.04em] ${
+              dark
+                ? "border-white/[0.15] bg-white/[0.07] text-white"
+                : "border-white/[0.80] bg-white/[0.70] text-[#111116] shadow-[0_8px_24px_rgba(32,36,56,.10)]"
+            }`}
+          >
+            <span className="absolute inset-x-1 top-0 h-3 rounded-full bg-white/[0.55] blur-sm" />
+            <span className="relative">PH</span>
+          </span>
+          <span className="text-sm font-semibold tracking-[-0.025em]">
+            Purity Of Hearts
+          </span>
         </Link>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`text-xs font-medium transition ${
                 dark
-                  ? "text-white/50 hover:text-white"
-                  : "text-[#1f1f1f]/55 hover:text-[#1f1f1f]"
+                  ? "text-white/[0.52] hover:text-white"
+                  : "text-[#111116]/[0.55] hover:text-[#111116]"
               }`}
             >
               {item.label}
@@ -47,72 +55,76 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
           ))}
         </div>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <Link
             href="/login"
             className={`text-xs font-medium transition ${
-              dark ? "text-white/60 hover:text-white" : "hover:text-[#a88643]"
+              dark ? "text-white/[0.52] hover:text-white" : "text-black/[0.52] hover:text-black"
             }`}
           >
-            Log In
+            Member login
           </Link>
-
           <Link
-            href="/enroll"
-            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition ${
-              dark
-                ? "bg-[#d8b665] text-[#17130c] hover:bg-[#ecd083]"
-                : "bg-[#1f1f1f] text-white hover:bg-[#a88643]"
-            }`}
+            href="/consultation"
+            className="liquid-button inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-5 py-2.5 text-xs font-semibold text-white"
           >
-            Enroll
-            <ArrowRight size={16} />
+            Book a strategy call <ArrowUpRight size={14} />
           </Link>
         </div>
 
         <button
+          type="button"
           onClick={() => setOpen((current) => !current)}
-          className={`rounded-full p-2 ${dark ? "text-white md:hidden" : "md:hidden"}`}
+          className={`rounded-full border p-2 lg:hidden ${
+            dark
+              ? "border-white/[0.10] bg-white/[0.05] text-white"
+              : "border-white/[0.80] bg-white/[0.60] text-black shadow-sm"
+          }`}
           aria-label="Toggle navigation"
+          aria-expanded={open}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {open && (
         <div
-          className={`border-t px-6 py-6 md:hidden ${
+          className={`border-t px-5 py-5 backdrop-blur-[28px] lg:hidden ${
             dark
-              ? "border-white/10 bg-[#0e0d0b]"
-              : "border-black/[0.06] bg-white"
+              ? "border-white/[0.08] bg-[#0d0d14]/[0.95]"
+              : "border-white/[0.75] bg-white/[0.90]"
           }`}
         >
-          <div className="flex flex-col gap-1">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={dark ? "rounded-xl px-3 py-3 text-base font-medium text-white/70" : "rounded-xl px-3 py-3 text-base font-medium text-[#1f1f1f]/75"}
+                className={`rounded-2xl px-4 py-3 text-base font-medium ${
+                  dark
+                    ? "text-white/[0.72] hover:bg-white/[0.06]"
+                    : "text-black/[0.70] hover:bg-black/[0.035]"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
-
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className={dark ? "rounded-xl px-3 py-3 text-base font-medium text-white/70" : "rounded-xl px-3 py-3 text-base font-medium text-[#1f1f1f]/75"}
+              className={`rounded-2xl px-4 py-3 text-base font-medium ${
+                dark ? "text-white/[0.72]" : "text-black/[0.70]"
+              }`}
             >
-              Log In
+              Member login
             </Link>
-
             <Link
-              href="/enroll"
+              href="/consultation"
               onClick={() => setOpen(false)}
-              className={dark ? "mt-3 rounded-full bg-[#d8b665] px-6 py-3.5 text-center text-sm font-medium text-[#17130c]" : "mt-3 rounded-full bg-[#1f1f1f] px-6 py-3.5 text-center text-sm font-medium text-white"}
+              className="mt-3 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-[0_16px_40px_rgba(243,47,145,.24)]"
             >
-              Enroll
+              Book a growth strategy call
             </Link>
           </div>
         </div>

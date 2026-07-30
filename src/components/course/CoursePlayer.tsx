@@ -174,19 +174,19 @@ export default function CoursePlayer({
   }
 
   return (
-    <main className="min-h-screen bg-[#111] text-white">
-      <header className="border-b border-white/10 bg-[#151515] px-6 py-5">
+    <main className="min-h-screen bg-black/[0.20] backdrop-blur-xl text-white">
+      <header className="border-b border-white/[0.10] bg-white/[0.025] px-6 py-5">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div>
             <p className="text-sm font-semibold">Purity of Hearts</p>
-            <p className="mt-1 text-xs text-white/40">
+            <p className="mt-1 text-xs text-white/[0.40]">
               Welcome, {studentName}
             </p>
           </div>
 
           <button
             onClick={signOut}
-            className="flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 text-sm text-white/65 transition hover:bg-white/10 hover:text-white"
+            className="flex items-center gap-2 rounded-full border border-white/[0.10] px-5 py-2.5 text-sm text-white/[0.65] transition hover:bg-white/[0.10] hover:text-white"
           >
             <LogOut size={16} />
             Sign Out
@@ -195,15 +195,15 @@ export default function CoursePlayer({
       </header>
 
       <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[290px_1fr_350px]">
-        <aside className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
+        <aside className="liquid-card-dark rounded-[2rem] p-5">
           <div className="mb-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
               Program Progress
             </p>
             <p className="mt-3 text-3xl font-semibold">{progress}%</p>
-            <div className="mt-4 h-2 rounded-full bg-white/10">
+            <div className="mt-4 h-2 rounded-full bg-white/[0.10]">
               <div
-                className="h-2 rounded-full bg-[#C9A75D] transition-all"
+                className="h-2 rounded-full bg-[#ff75b8] transition-all"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -220,8 +220,8 @@ export default function CoursePlayer({
                   onClick={() => setActiveLessonId(lesson.id)}
                   className={`w-full rounded-2xl p-4 text-left transition ${
                     active
-                      ? "bg-[#C9A75D] text-[#111]"
-                      : "bg-white/[0.04] text-white/65 hover:bg-white/[0.08]"
+                      ? "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white"
+                      : "bg-white/[0.04] text-white/[0.65] hover:bg-white/[0.08]"
                   }`}
                 >
                   <div className="flex items-start gap-3">
@@ -247,24 +247,24 @@ export default function CoursePlayer({
         </aside>
 
         <section>
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-4">
+          <div className="overflow-hidden rounded-[2rem] border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl p-4">
             <div className="flex aspect-video items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#292929] to-black">
-              <button className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10 text-[#C9A75D] backdrop-blur transition hover:scale-110 hover:bg-white/15">
+              <button className="flex h-24 w-24 items-center justify-center rounded-full bg-white/[0.10] text-[#ff75b8] backdrop-blur transition hover:scale-110 hover:bg-white/[0.15]">
                 <PlayCircle size={46} />
               </button>
             </div>
           </div>
 
-          <div className="mt-6 rounded-[2rem] border border-white/10 bg-white/[0.04] p-7">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+          <div className="mt-6 rounded-[2rem] border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl p-7">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
               {activeLesson.module}
             </p>
 
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight">
+            <h1 className="mt-3 text-2xl font-semibold tracking-tight">
               {activeLesson.title}
             </h1>
 
-            <p className="mt-4 text-sm leading-relaxed text-white/55">
+            <p className="mt-4 text-sm leading-relaxed text-white/[0.55]">
               {activeLesson.description}
             </p>
 
@@ -276,9 +276,9 @@ export default function CoursePlayer({
               ].map(([Icon, label]: any) => (
                 <button
                   key={label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-left transition hover:bg-white/[0.08]"
+                  className="rounded-2xl border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl p-4 text-left transition hover:bg-white/[0.08]"
                 >
-                  <Icon className="text-[#C9A75D]" size={20} />
+                  <Icon className="text-[#ff75b8]" size={20} />
                   <p className="mt-3 text-sm font-medium">{label}</p>
                 </button>
               ))}
@@ -286,7 +286,7 @@ export default function CoursePlayer({
 
             <button
               onClick={markComplete}
-              className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A75D] px-6 py-4 text-sm font-medium text-white transition hover:bg-[#b59550]"
+              className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] px-6 py-4 text-sm font-medium text-white transition hover:bg-[#e14b9d]"
             >
               <CheckCircle2 size={17} />
               {completedLessons.includes(activeLessonId)
@@ -297,9 +297,9 @@ export default function CoursePlayer({
         </section>
 
         <aside className="space-y-5">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
+          <div className="liquid-card-dark rounded-[2rem] p-5">
             <div className="mb-4 flex items-center gap-2">
-              <NotebookPen className="text-[#C9A75D]" size={20} />
+              <NotebookPen className="text-[#ff75b8]" size={20} />
               <h2 className="font-semibold">Lesson Notes</h2>
             </div>
 
@@ -307,7 +307,7 @@ export default function CoursePlayer({
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
               placeholder="Write your reflections..."
-              className="min-h-44 w-full resize-none rounded-2xl border border-white/10 bg-[#1F1F1F] p-4 text-sm text-white/75 outline-none focus:border-[#C9A75D]"
+              className="min-h-44 w-full resize-none liquid-subcard-dark rounded-2xl p-4 text-sm text-white/[0.75] outline-none focus:border-[#ff75b8]/[0.70]"
             />
 
             <button
@@ -318,10 +318,10 @@ export default function CoursePlayer({
             </button>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
+          <div className="liquid-card-dark rounded-[2rem] p-5">
             <h2 className="font-semibold">Quick Quiz</h2>
 
-            <p className="mt-3 text-sm leading-relaxed text-white/55">
+            <p className="mt-3 text-sm leading-relaxed text-white/[0.55]">
               What should faith-based purpose produce?
             </p>
 
@@ -333,7 +333,7 @@ export default function CoursePlayer({
               ].map(([value, label]) => (
                 <label
                   key={value}
-                  className="flex cursor-pointer items-center gap-3 rounded-2xl bg-white/[0.04] p-3 text-sm text-white/65"
+                  className="flex cursor-pointer items-center gap-3 rounded-2xl bg-white/[0.04] p-3 text-sm text-white/[0.65]"
                 >
                   <input
                     type="radio"
@@ -351,22 +351,22 @@ export default function CoursePlayer({
 
             <button
               onClick={submitQuiz}
-              className="mt-4 w-full rounded-full border border-white/10 px-5 py-3 text-sm font-medium"
+              className="mt-4 w-full rounded-full border border-white/[0.10] px-5 py-3 text-sm font-medium"
             >
               Submit Answer
             </button>
 
             {quizMessage && (
-              <p className="mt-4 rounded-2xl bg-white/[0.05] p-3 text-xs leading-relaxed text-white/60">
+              <p className="mt-4 rounded-2xl bg-white/[0.05] p-3 text-xs leading-relaxed text-white/[0.60]">
                 {quizMessage}
               </p>
             )}
           </div>
 
-          <div className="rounded-[2rem] border border-[#C9A75D]/20 bg-[#C9A75D]/10 p-5">
-            <Trophy className="text-[#C9A75D]" size={24} />
+          <div className="rounded-[2rem] border border-[#ff75b8]/[0.20] bg-[#ff75b8]/[0.10] p-5">
+            <Trophy className="text-[#ff75b8]" size={24} />
             <h2 className="mt-4 font-semibold">Certificate</h2>
-            <p className="mt-2 text-xs leading-relaxed text-white/45">
+            <p className="mt-2 text-xs leading-relaxed text-white/[0.45]">
               Complete every module to unlock your certificate.
             </p>
           </div>

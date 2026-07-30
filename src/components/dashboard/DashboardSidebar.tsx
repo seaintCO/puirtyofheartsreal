@@ -1,10 +1,11 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BookOpen,
   Brain,
+  BriefcaseBusiness,
   CheckSquare,
   FolderOpen,
   GraduationCap,
@@ -33,6 +34,7 @@ export const dashboardItems = [
 export const adminDashboardItems = [
   { label: "Resource Admin", href: "/dashboard/admin/resources", icon: FolderOpen },
   { label: "Consultations", href: "/dashboard/admin/consultations", icon: MessageCircle },
+  { label: "Growth CRM", href: "/dashboard/admin/advisory", icon: BriefcaseBusiness },
 ];
 
 export default function DashboardSidebar({
@@ -46,33 +48,33 @@ export default function DashboardSidebar({
     : dashboardItems;
 
   return (
-    <aside className="sticky top-0 hidden h-screen w-72 shrink-0 border-r border-white/10 bg-black/20 p-5 backdrop-blur-2xl lg:block">
-      <div className="mb-7 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white">
-          Purity of Hearts
-        </p>
-        <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-[#d8b665]">
-          Member Portal
-        </p>
-      </div>
+    <aside className="liquid-glass-dark sticky top-4 m-4 hidden h-[calc(100vh_-_2rem)] w-64 shrink-0 rounded-[2rem] p-4 lg:block">
+      <Link href="/" className="mb-6 flex items-center gap-3 rounded-[1.25rem] border border-white/[0.08] bg-white/[0.035] p-3.5">
+        <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white text-[9px] font-semibold text-black">
+          <span className="absolute inset-0 bg-gradient-to-br from-[#f45aa4]/[0.32] to-[#8b5cf6]/[0.18]" />
+          <span className="relative">SW</span>
+        </span>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white">Purity Of Hearts</p>
+          <p className="mt-1 text-[9px] uppercase tracking-[0.16em] text-[#ff91c4]">Learning OS</p>
+        </div>
+      </Link>
 
-      <nav className="space-y-1 overflow-y-auto pb-6">
+      <nav className="max-h-[calc(100vh_-_8rem)] space-y-1 overflow-y-auto pb-6 pr-1">
         {items.map(({ label, href, icon: Icon }) => {
-          const active =
-            pathname === href ||
-            (href !== "/dashboard" && pathname.startsWith(href));
+          const active = pathname === href || (href !== "/dashboard" && pathname.startsWith(href));
 
           return (
             <Link
               key={href}
               href={href}
-              className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition ${
+              className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition ${
                 active
-                  ? "bg-[#d8b665] text-[#15120c] shadow-lg"
-                  : "text-white/42 hover:bg-white/[0.06] hover:text-white/80"
+                  ? "bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] text-white shadow-[0_12px_30px_rgba(244,90,164,.22)]"
+                  : "text-white/[0.40] hover:bg-white/[0.055] hover:text-white/[0.78]"
               }`}
             >
-              <Icon size={18} />
+              <Icon size={17} />
               {label}
             </Link>
           );

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
@@ -34,37 +34,37 @@ export default async function CoursesPage() {
   return (
     <section>
       <div className="mb-9">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
           Course Library
         </span>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
           Your Courses
         </h1>
 
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/45">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/[0.45]">
           Continue your videos, quizzes, flashcards, cheat sheets, notes, and
           assignments.
         </p>
       </div>
 
-      <div className="max-w-4xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04]">
+      <div className="max-w-4xl overflow-hidden liquid-card-dark rounded-[2rem]">
         <div className="relative flex aspect-[16/7] items-center justify-center overflow-hidden bg-gradient-to-br from-[#2C2C2C] via-[#1F1F1F] to-[#111]">
-          <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-[#C9A75D]/15 blur-[90px]" />
+          <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-[#ff75b8]/[0.15] blur-[90px]" />
 
-          <PlayCircle className="relative text-[#C9A75D]" size={64} />
+          <PlayCircle className="relative text-[#ff75b8]" size={64} />
         </div>
 
         <div className="p-7">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
             Complete Business Program
           </span>
 
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight">
             Business Management & Leadership
           </h2>
 
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/50">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/[0.50]">
             Finance, strategy, marketing, operations, people, accounting,
             economics, customer acquisition, product launches, and leadership.
           </p>
@@ -80,9 +80,9 @@ export default async function CoursesPage() {
             ].map((item) => (
               <span
                 key={item}
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-white/55"
+                className="flex items-center gap-2 rounded-full border border-white/[0.10] bg-white/[0.04] px-4 py-2 text-xs text-white/[0.55]"
               >
-                <CheckCircle2 size={13} className="text-[#C9A75D]" />
+                <CheckCircle2 size={13} className="text-[#ff75b8]" />
                 {item}
               </span>
             ))}
@@ -90,10 +90,10 @@ export default async function CoursesPage() {
 
           <div className="mt-8 flex items-center justify-between gap-5">
             <div>
-              <p className="text-xs uppercase tracking-widest text-white/35">
+              <p className="text-xs uppercase tracking-widest text-white/[0.35]">
                 Current Progress
               </p>
-              <p className="mt-2 text-sm text-white/60">
+              <p className="mt-2 text-sm text-white/[0.60]">
                 {completedIds.size >= businessLessons.length
                   ? "Course complete — review any lesson"
                   : `Continue with ${nextLesson.title}`}
@@ -102,19 +102,19 @@ export default async function CoursesPage() {
 
             <Link
               href="/dashboard/lessons"
-              className="inline-flex items-center gap-2 rounded-full bg-[#C9A75D] px-7 py-3.5 text-sm font-medium text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] px-7 py-3.5 text-sm font-medium text-white"
             >
               Open Course
               <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-white/10">
+          <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-white/[0.10]">
             <div
-              className="h-full rounded-full bg-[#C9A75D]"
+              className="h-full rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff]"
               style={{ width: `${Math.max(progressPercent, 2)}%` }}
             />
           </div>
-          <p className="mt-2 text-right text-[10px] text-white/30">
+          <p className="mt-2 text-right text-[10px] text-white/[0.30]">
             {progressPercent}% complete
           </p>
         </div>
@@ -128,9 +128,9 @@ export default async function CoursesPage() {
         ].map(([title, Icon]: any) => (
           <div
             key={title}
-            className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6"
+            className="liquid-card-dark rounded-[2rem] p-6"
           >
-            <Icon className="text-[#C9A75D]" size={24} />
+            <Icon className="text-[#ff75b8]" size={24} />
             <p className="mt-4 text-sm font-semibold">{title}</p>
           </div>
         ))}

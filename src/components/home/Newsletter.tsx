@@ -30,15 +30,15 @@ export default function Newsletter() {
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b5e2c]">
           Stay close
         </p>
-        <h2 className="mt-6 text-[clamp(2.6rem,6vw,4.8rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-[#111]">
+        <h2 className="mt-6 text-[clamp(2.15rem,4.5vw,3.8rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-[#111]">
           A little clarity for your week.
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-[#1f1f1f]/55">
+        <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-[#1f1f1f]/[0.55]">
           Receive devotionals, member updates, and new Purity resources.
         </p>
 
         {complete ? (
-          <div className="mx-auto mt-9 flex max-w-md items-center justify-center gap-2 rounded-full bg-white/70 px-6 py-4 text-sm font-medium text-[#6f5528]">
+          <div className="mx-auto mt-9 flex max-w-md items-center justify-center gap-2 rounded-full bg-white/[0.70] px-6 py-4 text-sm font-medium text-[#6f5528]">
             <Check size={17} />
             You’re subscribed.
           </div>
@@ -53,7 +53,7 @@ export default function Newsletter() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email address"
-              className="min-w-0 flex-1 rounded-full border border-black/10 bg-white/75 px-6 py-4 text-sm text-[#1f1f1f] outline-none placeholder:text-[#1f1f1f]/35 focus:border-[#a88643]"
+              className="min-w-0 flex-1 rounded-full border border-black/[0.10] bg-white/[0.75] px-6 py-4 text-sm text-[#1f1f1f] outline-none placeholder:text-[#1f1f1f]/[0.35] focus:border-[#e83491]"
             />
             <button
               disabled={loading}
@@ -64,7 +64,7 @@ export default function Newsletter() {
           </form>
         )}
         {error && <p className="mt-3 text-xs text-red-700">{error}</p>}
-        <p className="mt-4 text-[11px] text-[#1f1f1f]/38">
+        <p className="mt-4 text-[11px] text-[#1f1f1f]/[0.38]">
           No spam. Unsubscribe from any email.
         </p>
       </div>

@@ -1,13 +1,15 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { safeInternalPath } from "@/lib/security/redirects";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 
 export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
   const router = useRouter();
   const supabase = createClient();
+  const safeNext = useMemo(() => safeInternalPath(next, "/dashboard"), [next]);
 
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [fullName, setFullName] = useState("");
@@ -27,66 +29,69 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin;
 
         const { error } = await supabase.auth.signUp({
-          email,
+          email: email.trim().toLowerCase(),
           password,
           options: {
-            emailRedirectTo: `${siteUrl}/auth/callback?next=${encodeURIComponent(next)}`,
+            emailRedirectTo: `${siteUrl}/auth/callback?next=${encodeURIComponent(safeNext)}`,
             data: {
-              full_name: fullName,
+              full_name: fullName.trim().slice(0, 120),
             },
           },
         });
 
         if (error) {
-          throw error;
+          setMessage(
+            "We could not create the account. Check your details or try logging in.",
+          );
+          return;
         }
 
         setMessage(
-          "Account created. Check your email to verify your account, then log in.",
+          "Account request received. Check your email to verify your account, then log in.",
         );
         setMode("login");
+        setPassword("");
         return;
       }
 
       const { error } = await supabase.auth.signInWithPassword({
-        email,
+        email: email.trim().toLowerCase(),
         password,
       });
 
       if (error) {
-        throw error;
+        setMessage("Unable to sign in. Check your email and password.");
+        return;
       }
 
-      router.push(next);
+      router.replace(safeNext);
       router.refresh();
-    } catch (error) {
-      setMessage(
-        error instanceof Error ? error.message : "Authentication failed.",
-      );
+    } catch {
+      setMessage("Authentication is temporarily unavailable. Please try again.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div className="w-full max-w-md rounded-[2rem] border border-[#1F1F1F]/5 bg-white p-8 shadow-xl">
+    <div className="liquid-glass w-full rounded-[2.2rem] p-7 sm:p-8">
       <div className="mb-8 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#e83491]">
           Member Access
         </span>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight">
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight">
           {mode === "login" ? "Welcome back." : "Create your account."}
         </h1>
 
-        <p className="mt-3 text-sm leading-relaxed text-[#1F1F1F]/55">
+        <p className="mt-3 text-sm leading-relaxed text-black/[0.48]">
           {mode === "login"
             ? "Access your courses, coaching resources, notes, and community."
             : "Create the account that will receive course access after payment."}
         </p>
       </div>
 
-      <div className="mb-6 grid grid-cols-2 rounded-full bg-[#F8F3EB] p-1">
+      <div className="mb-6 grid grid-cols-2 rounded-full bg-white/[0.45] p-1">
         <button
           type="button"
           onClick={() => {
@@ -95,8 +100,8 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           }}
           className={`rounded-full px-4 py-3 text-sm font-medium transition ${
             mode === "login"
-              ? "bg-[#1F1F1F] text-white"
-              : "text-[#1F1F1F]/55"
+              ? "bg-gradient-to-r from-[#f32f91] to-[#8b67ff] text-white shadow-[0_8px_26px_rgba(243,47,145,.18)]"
+              : "text-black/[0.48]"
           }`}
         >
           Log In
@@ -110,8 +115,8 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           }}
           className={`rounded-full px-4 py-3 text-sm font-medium transition ${
             mode === "signup"
-              ? "bg-[#1F1F1F] text-white"
-              : "text-[#1F1F1F]/55"
+              ? "bg-gradient-to-r from-[#f32f91] to-[#8b67ff] text-white shadow-[0_8px_26px_rgba(243,47,145,.18)]"
+              : "text-black/[0.48]"
           }`}
         >
           Sign Up
@@ -122,35 +127,47 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
         {mode === "signup" && (
           <input
             required
+            name="name"
+            autoComplete="name"
+            maxLength={120}
             value={fullName}
             onChange={(event) => setFullName(event.target.value)}
             placeholder="Full name"
-            className="w-full rounded-2xl border border-[#1F1F1F]/10 bg-[#FFF8F2] px-5 py-4 text-sm outline-none transition focus:border-[#C9A75D]"
+            className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]"
           />
         )}
 
         <input
           required
+          name="email"
           type="email"
+          inputMode="email"
+          autoComplete="email"
+          autoCapitalize="none"
+          spellCheck={false}
+          maxLength={254}
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Email address"
-          className="w-full rounded-2xl border border-[#1F1F1F]/10 bg-[#FFF8F2] px-5 py-4 text-sm outline-none transition focus:border-[#C9A75D]"
+          className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]"
         />
 
         <input
           required
+          name="password"
           minLength={8}
+          maxLength={128}
           type="password"
+          autoComplete={mode === "login" ? "current-password" : "new-password"}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
-          className="w-full rounded-2xl border border-[#1F1F1F]/10 bg-[#FFF8F2] px-5 py-4 text-sm outline-none transition focus:border-[#C9A75D]"
+          className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]"
         />
 
         <button
           disabled={loading}
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1F1F1F] px-6 py-4 text-sm font-medium text-white transition hover:bg-[#C9A75D] disabled:cursor-not-allowed disabled:opacity-60"
+          className="liquid-button flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-6 py-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading ? (
             <LoaderCircle className="animate-spin" size={17} />
@@ -164,7 +181,10 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
       </form>
 
       {message && (
-        <div className="mt-5 rounded-2xl bg-[#F8F3EB] p-4 text-sm leading-relaxed text-[#1F1F1F]/70">
+        <div
+          aria-live="polite"
+          className="mt-5 rounded-2xl bg-white/[0.45] p-4 text-sm leading-relaxed text-black/[0.62]"
+        >
           {message}
         </div>
       )}

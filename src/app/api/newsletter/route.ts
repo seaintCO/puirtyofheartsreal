@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { rejectUntrustedOrigin } from "@/lib/security/request";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
+  const originError = rejectUntrustedOrigin(request);
+  if (originError) return originError;
+
   try {
     const body = (await request.json()) as { email?: string };
     const email = body.email?.trim().toLowerCase();

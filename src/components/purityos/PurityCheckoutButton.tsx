@@ -36,7 +36,7 @@ export default function PurityCheckoutButton() {
         type="button"
         onClick={subscribe}
         disabled={loading}
-        className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#d8b665] px-7 py-4 text-sm font-semibold text-[#16130d] transition hover:-translate-y-0.5 hover:bg-[#efd386] disabled:opacity-60"
+        className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-7 py-4 text-sm font-semibold text-white shadow-[0_14px_38px_rgba(243,47,145,.24)] transition hover:-translate-y-0.5 hover:saturate-125 disabled:opacity-60"
       >
         {loading ? (
           <LoaderCircle className="animate-spin" size={18} />

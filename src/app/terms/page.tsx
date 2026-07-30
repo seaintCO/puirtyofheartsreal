@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function TermsPage() {
@@ -9,11 +9,11 @@ export default function TermsPage() {
       </Link>
 
       <section className="mx-auto mt-16 max-w-3xl">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">Legal</span>
-        <h1 className="mt-4 text-5xl font-semibold tracking-tight">Terms of Service</h1>
-        <p className="mt-6 text-[#1F1F1F]/60">Last updated: July 23, 2026</p>
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">Legal</span>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight">Terms of Service</h1>
+        <p className="mt-6 text-[#1F1F1F]/[0.60]">Last updated: July 23, 2026</p>
 
-        <div className="mt-10 space-y-9 text-sm leading-7 text-[#1F1F1F]/70">
+        <div className="mt-10 space-y-9 text-sm leading-7 text-[#1F1F1F]/[0.70]">
           <section>
             <h2 className="text-lg font-semibold text-[#1f1f1f]">Platform use</h2>
             <p className="mt-2">By using Purity of Hearts, you agree to these terms and referenced policies. Purity of Hearts provides faith-based education, coaching, community access, digital resources, consultation requests, PurityOS, and related services. You must use the platform lawfully and respectfully.</p>

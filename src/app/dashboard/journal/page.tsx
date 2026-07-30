@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useCallback, useEffect, useState } from "react";
 import {
@@ -198,15 +198,15 @@ export default function JournalPage() {
     <section>
       <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
             Personal Journal
           </span>
 
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight">
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight">
             Journal
           </h1>
 
-          <p className="mt-3 text-sm text-white/45">
+          <p className="mt-3 text-sm text-white/[0.45]">
             Your private reflections, prayers, ideas, and coaching notes.
           </p>
         </div>
@@ -214,7 +214,7 @@ export default function JournalPage() {
         <button
           type="button"
           onClick={startNewEntry}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-[#C9A75D] px-6 py-3 text-sm font-medium text-[#111]"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] px-6 py-3 text-sm font-medium text-[#111]"
         >
           <Plus size={17} />
           New Entry
@@ -222,18 +222,18 @@ export default function JournalPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
-        <aside className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/35">
+        <aside className="liquid-card-dark rounded-[2rem] p-5">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/[0.35]">
             Recent Entries
           </p>
 
           {loading ? (
-            <div className="flex items-center gap-2 py-6 text-sm text-white/40">
+            <div className="flex items-center gap-2 py-6 text-sm text-white/[0.40]">
               <Loader2 className="animate-spin" size={16} />
               Loading entries
             </div>
           ) : entries.length === 0 ? (
-            <p className="py-6 text-sm leading-relaxed text-white/35">
+            <p className="py-6 text-sm leading-relaxed text-white/[0.35]">
               No journal entries yet. Start your first reflection.
             </p>
           ) : (
@@ -244,8 +244,8 @@ export default function JournalPage() {
                 onClick={() => selectEntry(entry)}
                 className={`mb-3 w-full rounded-2xl p-4 text-left transition ${
                   activeId === entry.id
-                    ? "bg-[#C9A75D] text-[#111]"
-                    : "bg-white/[0.04] text-white/60 hover:bg-white/[0.08]"
+                    ? "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white"
+                    : "bg-white/[0.04] text-white/[0.60] hover:bg-white/[0.08]"
                 }`}
               >
                 <p className="truncate text-sm font-medium">
@@ -262,7 +262,7 @@ export default function JournalPage() {
           )}
         </aside>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+        <div className="liquid-card-dark rounded-[2rem] p-6">
           <div className="mb-5 flex flex-col justify-between gap-4 md:flex-row md:items-center">
             <div className="min-w-0 flex-1">
               <input
@@ -272,7 +272,7 @@ export default function JournalPage() {
                 placeholder="Journal title"
               />
 
-              <label className="mt-3 flex items-center gap-2 text-xs text-white/35">
+              <label className="mt-3 flex items-center gap-2 text-xs text-white/[0.35]">
                 <Calendar size={14} />
 
                 <input
@@ -290,7 +290,7 @@ export default function JournalPage() {
               <button
                 type="button"
                 onClick={deleteEntry}
-                className="inline-flex items-center gap-2 rounded-full border border-red-400/20 px-4 py-2 text-sm text-red-300 transition hover:bg-red-400/10"
+                className="inline-flex items-center gap-2 rounded-full border border-red-400/[0.20] px-4 py-2 text-sm text-red-300 transition hover:bg-red-400/[0.10]"
               >
                 <Trash2 size={15} />
                 Delete
@@ -302,7 +302,7 @@ export default function JournalPage() {
             value={content}
             onChange={(event) => setContent(event.target.value)}
             placeholder="What is God teaching you today?"
-            className="min-h-[420px] w-full resize-none rounded-[1.5rem] border border-white/10 bg-[#181818] p-6 text-sm leading-relaxed text-white/75 outline-none focus:border-[#C9A75D]"
+            className="min-h-[420px] w-full resize-none rounded-[1.5rem] border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl p-6 text-sm leading-relaxed text-white/[0.75] outline-none focus:border-[#ff75b8]/[0.70]"
           />
 
           <div className="mt-5 flex flex-wrap items-center gap-4">
@@ -322,7 +322,7 @@ export default function JournalPage() {
             </button>
 
             {message ? (
-              <p className="text-sm text-white/50">{message}</p>
+              <p className="text-sm text-white/[0.50]">{message}</p>
             ) : null}
           </div>
         </div>

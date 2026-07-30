@@ -59,11 +59,11 @@ export default function WaitlistForm({
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Your email address"
-          className="min-w-0 flex-1 rounded-full border border-[#1f1f1f]/10 bg-white/85 px-5 py-3 text-sm text-[#1f1f1f] outline-none transition placeholder:text-[#1f1f1f]/35 focus:border-[#c9a75d]"
+          className="min-w-0 flex-1 rounded-full border border-[#1f1f1f]/[0.10] bg-white/[0.85] px-5 py-3 text-sm text-[#1f1f1f] outline-none transition placeholder:text-[#1f1f1f]/[0.35] focus:border-[#ff4fa3]"
         />
         <button
           disabled={loading}
-          className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#a88643] disabled:opacity-60"
+          className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#e83491] disabled:opacity-60"
         >
           {loading ? (
             <LoaderCircle size={16} className="animate-spin" />

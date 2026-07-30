@@ -13,9 +13,9 @@ export default function WhyPurity() {
         <div className="grid md:grid-cols-3 gap-x-12 gap-y-16">
           {values.map(({ icon: Icon, title, text }) => (
             <div key={title}>
-              <Icon className="text-[#C9A75D] mb-4" size={32} />
+              <Icon className="text-[#ff4fa3] mb-4" size={32} />
               <h3 className="font-serif text-xl tracking-tight text-[#1F1F1F] mb-2">{title}</h3>
-              <p className="text-sm text-[#1F1F1F]/70 font-light leading-relaxed">{text}</p>
+              <p className="text-sm text-[#1F1F1F]/[0.70] font-light leading-relaxed">{text}</p>
             </div>
           ))}
         </div>

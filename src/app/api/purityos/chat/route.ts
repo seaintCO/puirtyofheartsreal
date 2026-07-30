@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { PURITYOS_SYSTEM_PROMPT } from "@/lib/purityos";
+import { rejectUntrustedOrigin } from "@/lib/security/request";
 
 export const runtime = "nodejs";
 
@@ -20,6 +21,9 @@ type IncomingBody = {
 };
 
 export async function POST(request: Request) {
+  const originError = rejectUntrustedOrigin(request);
+  if (originError) return originError;
+
   try {
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(

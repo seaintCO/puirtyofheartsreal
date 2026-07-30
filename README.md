@@ -10,7 +10,7 @@ Review.
 
 ## What is included
 
-- Responsive Apple-inspired marketing site and glass member dashboard
+- Responsive minimalist liquid-glass marketing site and matching technology-focused member dashboard
 - Expanded 32-lesson, 9-module course with quizzes, flashcards, notes, journal, resources,
   progress tracking, and completion certificate
 - Supabase authentication, row-level security, private resource storage, and
@@ -42,11 +42,14 @@ Before `npm run dev`, replace every placeholder in `.env.local`. Never commit
 
 ## Supabase setup
 
-The project contains three ordered migrations:
+The project contains six ordered migrations:
 
 1. `supabase/migrations/20260710150000_launch_ready.sql`
 2. `supabase/migrations/20260723010000_purityos_platform.sql`
 3. `supabase/migrations/20260723020000_course_expansion_and_purityos_limits.sql`
+4. `supabase/migrations/20260730154500_susan_advisory_crm.sql`
+5. `supabase/migrations/20260730213000_hide_advisory_pricing.sql`
+6. `supabase/migrations/20260730231500_auth_security_hardening.sql`
 
 For a new Supabase project:
 
@@ -62,9 +65,7 @@ Review the output before confirming a production migration.
 The first migration creates the private `resource-vault` storage bucket and the
 course tables. The second migration adds PurityOS, consultation requests,
 product waitlists, newsletter subscribers, certificate issuance, and safe
-profile updates. The third aligns certificates with the 32-lesson curriculum
-and adds a 500-message monthly PurityOS cap in addition to the 30-message daily
-cap.
+profile updates. The third aligns certificates with the 32-lesson curriculum and adds a 500-message monthly PurityOS cap in addition to the 30-message daily cap. The fourth adds Susan’s private growth CRM. The fifth keeps public advisory pricing unset while preserving the CRM schema. The sixth removes legacy profile-mutation privileges, keeps admin and paid access server-controlled, and reinforces private-table permissions.
 
 To make the owner account an admin, run this once in the Supabase SQL editor
 after that person signs up:
@@ -168,3 +169,30 @@ Then verify these flows in Stripe test mode:
 - booking sandbox client and owner views.
 
 Do not switch Stripe to live mode until every test-mode flow passes.
+
+## Susan Wagner Brand Revamp (July 2026)
+
+The public website now centers Susan Wagner and presents three distinct offers:
+
+- `/education` — premium marketing page for the existing Purity of Hearts course platform.
+- `/purityos` — mobile-first PurityOS coming-soon page with early-access capture.
+- `/private-advisory` — private growth strategy page with a consultation-first call to action and no public pricing.
+- `/consultation` — growth strategy call form that also creates a private CRM lead record.
+- `/dashboard/admin/advisory` — admin-only growth strategy CRM and inquiry pipeline.
+- `/dashboard/admin/advisory/[id]` — private client workspace for vision, strategy, objectives, milestones, notes, sessions, and exit planning.
+
+### Course preservation
+
+The course data, lesson player, quizzes, flashcards, cheat sheets, journal, progress hooks, student dashboard, and certificate logic were not rewritten by this revamp.
+
+### Required database migration
+
+Apply the latest migrations:
+
+```text
+supabase/migrations/20260730154500_susan_advisory_crm.sql
+supabase/migrations/20260730213000_hide_advisory_pricing.sql
+supabase/migrations/20260730231500_auth_security_hardening.sql
+```
+
+These migrations are additive and do not alter course curriculum, lessons, quizzes, or progress tables. The final migration locks privileged profile fields so signed-in users cannot grant themselves paid or admin access.

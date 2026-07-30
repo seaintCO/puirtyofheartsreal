@@ -4,6 +4,11 @@ import PurityChat from "@/components/purityos/PurityChat";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "PurityOS Private Chat",
+  robots: { index: false, follow: false },
+};
+
 export default async function PurityChatPage({
   searchParams,
 }: {

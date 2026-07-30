@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { rejectUntrustedOrigin } from "@/lib/security/request";
 
 export async function DELETE(
   _request: Request,
   context: { params: Promise<{ id: string }> },
 ) {
+  const originError = rejectUntrustedOrigin(_request);
+  if (originError) return originError;
+
   const { id } = await context.params;
   const supabase = await createClient();
   const {

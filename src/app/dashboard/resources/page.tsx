@@ -137,28 +137,28 @@ export default function ResourcesPage() {
   return (
     <section>
       <div className="mb-8">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
           Bonus Learning Library
         </span>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
           Resource Vault
         </h1>
 
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/45">
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/[0.45]">
           Protected videos, PDFs, templates, worksheets, and business
           tools. These resources are separate from the official course.
         </p>
       </div>
 
-      <div className="mb-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
-        <Search size={18} className="text-white/30" />
+      <div className="mb-6 flex items-center gap-3 liquid-subcard-dark rounded-2xl px-5 py-4">
+        <Search size={18} className="text-white/[0.30]" />
 
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search resources..."
-          className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
+          className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/[0.30]"
         />
       </div>
 
@@ -169,8 +169,8 @@ export default function ResourcesPage() {
             onClick={() => setCategory(item)}
             className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium ${
               category === item
-                ? "bg-[#C9A75D] text-[#111]"
-                : "border border-white/10 bg-white/[0.04] text-white/55"
+                ? "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white"
+                : "border border-white/[0.10] bg-white/[0.04] text-white/[0.55]"
             }`}
           >
             {item}
@@ -181,7 +181,7 @@ export default function ResourcesPage() {
       {loading ? (
         <div className="flex min-h-64 items-center justify-center">
           <LoaderCircle
-            className="animate-spin text-[#C9A75D]"
+            className="animate-spin text-[#ff75b8]"
             size={34}
           />
         </div>
@@ -190,11 +190,11 @@ export default function ResourcesPage() {
           {filtered.map((resource) => (
             <article
               key={resource.id}
-              className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] transition hover:-translate-y-1 hover:border-[#C9A75D]/30"
+              className="overflow-hidden liquid-card-dark rounded-[2rem] transition hover:-translate-y-1 hover:border-[#ff75b8]/[0.30]"
             >
-              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#292929] to-[#151515] text-[#C9A75D]">
+              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#241322] to-[#0d0a14] text-[#ff75b8]">
                 {resource.featured && (
-                  <span className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-[#C9A75D] px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#111]">
+                  <span className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#111]">
                     <Star size={11} fill="currentColor" />
                     Featured
                   </span>
@@ -210,12 +210,12 @@ export default function ResourcesPage() {
 
               <div className="p-6">
                 <div className="flex justify-between gap-4">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
                     {resource.category}
                   </p>
 
                   {resource.duration && (
-                    <p className="text-xs text-white/35">
+                    <p className="text-xs text-white/[0.35]">
                       {resource.duration}
                     </p>
                   )}
@@ -225,14 +225,14 @@ export default function ResourcesPage() {
                   {resource.title}
                 </h2>
 
-                <p className="mt-3 text-sm leading-relaxed text-white/45">
+                <p className="mt-3 text-sm leading-relaxed text-white/[0.45]">
                   {resource.description}
                 </p>
 
                 <button
                   onClick={() => openResource(resource)}
                   disabled={downloading === resource.id}
-                  className="mt-6 flex items-center gap-2 rounded-full bg-[#C9A75D] px-5 py-2.5 text-sm font-medium text-white disabled:opacity-50"
+                  className="mt-6 flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] px-5 py-2.5 text-sm font-medium text-white disabled:opacity-50"
                 >
                   {downloading === resource.id ? (
                     <LoaderCircle
@@ -259,11 +259,11 @@ export default function ResourcesPage() {
 
       {selectedVideo && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-5 backdrop-blur"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/[0.85] p-5 backdrop-blur"
           onClick={() => setSelectedVideo(null)}
         >
           <div
-            className="w-full max-w-5xl rounded-[2rem] border border-white/10 bg-[#151515] p-4"
+            className="w-full max-w-5xl rounded-[2rem] border border-white/[0.10] bg-white/[0.025] p-4"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="aspect-video overflow-hidden rounded-[1.5rem] bg-black">
@@ -278,7 +278,7 @@ export default function ResourcesPage() {
 
             <div className="flex flex-col justify-between gap-4 p-4 sm:flex-row sm:items-center">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
                   Resource Vault
                 </p>
 
@@ -292,7 +292,7 @@ export default function ResourcesPage() {
                   href={selectedVideo.external_url ?? "#"}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 text-sm text-white/60"
+                  className="flex items-center gap-2 rounded-full border border-white/[0.10] px-5 py-2.5 text-sm text-white/[0.60]"
                 >
                   <ExternalLink size={15} />
                   YouTube

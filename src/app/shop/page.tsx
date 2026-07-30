@@ -10,18 +10,17 @@ export default function ShopPage() {
     <main className="min-h-screen bg-[#f6efe7]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-20 pt-24 sm:pt-32">
-        <div className="absolute left-1/2 top-[-10%] h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-[#d9b964]/18 blur-[150px]" />
+      <section className="relative overflow-hidden px-6 pb-16 pt-16 sm:pb-20 sm:pt-20">
+        <div className="absolute left-1/2 top-[-10%] h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-[#d9b964]/[0.18] blur-[150px]" />
         <div className="relative mx-auto max-w-7xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#9b7939]/15 bg-white/55 px-4 py-2 text-xs font-medium text-[#8b6d33] backdrop-blur-xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#9b7939]/[0.15] bg-white/[0.55] px-4 py-2 text-xs font-medium text-[#8b6d33] backdrop-blur-xl">
             <Sparkles size={14} />
-            Product concepts · launching soon
+            Purity Of Hearts
           </div>
-          <h1 className="mx-auto mt-7 max-w-4xl font-serif text-6xl leading-[0.98] tracking-tight text-[#1f1f1f] sm:text-8xl">
-            The future of your
-            <span className="block italic text-[#a88643]">wellness ritual.</span>
+          <h1 className="public-hero-title mx-auto mt-7 font-semibold text-[#1f1f1f]">
+            The future of your <span className="text-[#e83491]">wellness ritual.</span>
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-[#1f1f1f]/55">
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-[#1f1f1f]/[0.55]">
             Purity Luma is an upcoming collection of refined red-light wellness
             concepts for face, neck, and at-home routines. Join the list to hear
             when product details and availability are confirmed.
@@ -34,7 +33,7 @@ export default function ShopPage() {
           {shopProducts.map((product, index) => (
             <article
               key={product.slug}
-              className="grid overflow-hidden rounded-[2.4rem] border border-white/75 bg-white/55 shadow-[0_30px_100px_rgba(63,43,15,.09)] backdrop-blur-2xl lg:grid-cols-2"
+              className="grid overflow-hidden rounded-[2.4rem] border border-white/[0.75] bg-white/[0.55] shadow-[0_30px_100px_rgba(63,43,15,.09)] backdrop-blur-2xl lg:grid-cols-2"
             >
               <div
                 className={`relative min-h-[380px] overflow-hidden lg:min-h-[620px] ${
@@ -49,26 +48,26 @@ export default function ShopPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition duration-700 hover:scale-[1.025]"
                 />
-                <div className="absolute left-5 top-5 rounded-full border border-white/45 bg-white/65 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#745a2c] backdrop-blur-xl">
+                <div className="absolute left-5 top-5 rounded-full border border-white/[0.45] bg-white/[0.65] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#745a2c] backdrop-blur-xl">
                   Coming soon
                 </div>
               </div>
 
               <div className="flex flex-col justify-center p-7 sm:p-12 lg:p-16">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a88643]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e83491]">
                   {product.eyebrow}
                 </p>
-                <h2 className="mt-5 font-serif text-4xl tracking-tight text-[#1f1f1f] sm:text-6xl">
+                <h2 className="mt-5 font-serif text-3xl tracking-tight text-[#1f1f1f] sm:text-5xl">
                   {product.name}
                 </h2>
-                <p className="mt-5 max-w-lg text-base leading-7 text-[#1f1f1f]/55">
+                <p className="mt-5 max-w-lg text-base leading-7 text-[#1f1f1f]/[0.55]">
                   {product.description}
                 </p>
                 <div className="mt-7 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-[#1f1f1f]/10 bg-white/60 px-4 py-2 text-xs text-[#1f1f1f]/55">
+                  <span className="rounded-full border border-[#1f1f1f]/[0.10] bg-white/[0.60] px-4 py-2 text-xs text-[#1f1f1f]/[0.55]">
                     {product.category}
                   </span>
-                  <span className="rounded-full border border-[#1f1f1f]/10 bg-white/60 px-4 py-2 text-xs text-[#1f1f1f]/55">
+                  <span className="rounded-full border border-[#1f1f1f]/[0.10] bg-white/[0.60] px-4 py-2 text-xs text-[#1f1f1f]/[0.55]">
                     Product concept
                   </span>
                 </div>
@@ -81,7 +80,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <section className="border-y border-[#1f1f1f]/7 bg-white/35 px-6 py-20">
+      <section className="border-y border-[#1f1f1f]/[0.07] bg-white/[0.35] px-6 py-20">
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
           {[
             [
@@ -102,11 +101,11 @@ export default function ShopPage() {
           ].map(([Icon, title, text]: any) => (
             <article
               key={title}
-              className="rounded-[1.8rem] border border-white/70 bg-white/55 p-7 backdrop-blur-xl"
+              className="rounded-[1.8rem] border border-white/[0.70] bg-white/[0.55] p-7 backdrop-blur-xl"
             >
-              <Icon size={22} className="text-[#a88643]" />
+              <Icon size={22} className="text-[#e83491]" />
               <h3 className="mt-5 text-lg font-medium">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#1f1f1f]/48">{text}</p>
+              <p className="mt-3 text-sm leading-6 text-[#1f1f1f]/[0.48]">{text}</p>
             </article>
           ))}
         </div>

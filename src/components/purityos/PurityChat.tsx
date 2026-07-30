@@ -188,13 +188,13 @@ export default function PurityChat({
 
   const sidebar = (
     <div className="flex h-full flex-col">
-      <div className="flex items-center justify-between border-b border-white/10 p-5">
+      <div className="flex items-center justify-between border-b border-white/[0.10] p-5">
         <Link href="/" className="text-sm font-semibold tracking-[0.12em]">
-          PURITY<span className="text-[#dfbe70]">OS</span>
+          PURITY<span className="text-[#ff91c7]">OS</span>
         </Link>
         <button
           onClick={() => setMenuOpen(false)}
-          className="rounded-full p-2 text-white/60 lg:hidden"
+          className="rounded-full p-2 text-white/[0.60] lg:hidden"
           aria-label="Close conversations"
         >
           <X size={18} />
@@ -205,7 +205,7 @@ export default function PurityChat({
         <button
           type="button"
           onClick={newChat}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#dfbe70]/30 bg-[#dfbe70]/10 px-4 py-3 text-sm font-medium text-[#efd58e] transition hover:bg-[#dfbe70]/20"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#ff91c7]/[0.30] bg-[#ff91c7]/[0.10] px-4 py-3 text-sm font-medium text-[#ffb0d4] transition hover:bg-[#ff91c7]/[0.20]"
         >
           <Plus size={17} />
           New conversation
@@ -214,7 +214,7 @@ export default function PurityChat({
 
       <div className="min-h-0 flex-1 space-y-1 overflow-y-auto px-3">
         {conversations.length === 0 ? (
-          <p className="px-3 py-6 text-xs leading-5 text-white/35">
+          <p className="px-3 py-6 text-xs leading-5 text-white/[0.35]">
             Your saved conversations will appear here.
           </p>
         ) : (
@@ -223,21 +223,21 @@ export default function PurityChat({
               key={conversation.id}
               className={`group flex items-center gap-1 rounded-xl ${
                 conversation.id === conversationId
-                  ? "bg-white/10"
+                  ? "bg-white/[0.10]"
                   : "hover:bg-white/[0.05]"
               }`}
             >
               <Link
                 href={`/purityos/chat?conversation=${conversation.id}`}
                 onClick={() => setMenuOpen(false)}
-                className="min-w-0 flex-1 truncate px-3 py-3 text-sm text-white/65"
+                className="min-w-0 flex-1 truncate px-3 py-3 text-sm text-white/[0.65]"
               >
                 {conversation.title}
               </Link>
               <button
                 type="button"
                 onClick={() => deleteConversation(conversation.id)}
-                className="mr-2 rounded-lg p-2 text-white/25 opacity-0 transition hover:bg-red-500/10 hover:text-red-300 group-hover:opacity-100"
+                className="mr-2 rounded-lg p-2 text-white/[0.25] opacity-0 transition hover:bg-red-500/[0.10] hover:text-red-300 group-hover:opacity-100"
                 aria-label={`Delete ${conversation.title}`}
               >
                 <Trash2 size={14} />
@@ -247,18 +247,18 @@ export default function PurityChat({
         )}
       </div>
 
-      <div className="space-y-2 border-t border-white/10 p-4">
+      <div className="space-y-2 border-t border-white/[0.10] p-4">
         <button
           type="button"
           onClick={manageBilling}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-xs text-white/45 transition hover:bg-white/5 hover:text-white/70"
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-xs text-white/[0.45] transition hover:bg-white/[0.05] hover:text-white/[0.70]"
         >
           <CreditCard size={15} />
           Manage membership
         </button>
         <Link
           href="/"
-          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs text-white/45 transition hover:bg-white/5 hover:text-white/70"
+          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs text-white/[0.45] transition hover:bg-white/[0.05] hover:text-white/[0.70]"
         >
           <ChevronLeft size={15} />
           Back to Purity of Hearts
@@ -269,39 +269,39 @@ export default function PurityChat({
 
   return (
     <main className="flex h-dvh overflow-hidden bg-[#0d0c0b] text-white">
-      <aside className="hidden h-full w-72 shrink-0 border-r border-white/10 bg-black/20 lg:block">
+      <aside className="hidden h-full w-72 shrink-0 border-r border-white/[0.10] bg-black/[0.20] lg:block">
         {sidebar}
       </aside>
 
       {menuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <button
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/[0.70] backdrop-blur-sm"
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
           />
-          <aside className="relative h-full w-[86%] max-w-xs border-r border-white/10 bg-[#11100e]">
+          <aside className="relative h-full w-[86%] max-w-xs border-r border-white/[0.10] bg-[#08080d]">
             {sidebar}
           </aside>
         </div>
       )}
 
       <section className="relative flex min-w-0 flex-1 flex-col">
-        <div className="pointer-events-none absolute left-1/2 top-[-20%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#b9954a]/10 blur-[130px]" />
+        <div className="pointer-events-none absolute left-1/2 top-[-20%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#b9954a]/[0.10] blur-[130px]" />
 
-        <header className="relative z-10 flex h-16 items-center justify-between border-b border-white/10 bg-[#0d0c0b]/75 px-4 backdrop-blur-2xl sm:px-6">
+        <header className="relative z-10 flex h-16 items-center justify-between border-b border-white/[0.10] bg-[#0d0c0b]/[0.75] px-4 backdrop-blur-2xl sm:px-6">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="rounded-full border border-white/10 p-2.5 text-white/60 lg:hidden"
+              className="rounded-full border border-white/[0.10] p-2.5 text-white/[0.60] lg:hidden"
               aria-label="Open conversations"
             >
               <Menu size={18} />
             </button>
             <div>
               <p className="text-sm font-medium">PurityOS</p>
-              <p className="text-[11px] text-white/35">
+              <p className="text-[11px] text-white/[0.35]">
                 Faith-centered clarity for {memberName}
               </p>
             </div>
@@ -310,14 +310,14 @@ export default function PurityChat({
             <Link
               href={DISCORD_URL}
               target="_blank"
-              className="hidden items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-xs text-white/55 transition hover:bg-white/5 sm:flex"
+              className="hidden items-center gap-2 rounded-full border border-white/[0.10] px-4 py-2 text-xs text-white/[0.55] transition hover:bg-white/[0.05] sm:flex"
             >
               <MessageCircle size={14} />
               Discord
             </Link>
             <Link
               href="/consultation"
-              className="flex items-center gap-2 rounded-full bg-[#dfbe70] px-4 py-2 text-xs font-semibold text-[#17130c]"
+              className="flex items-center gap-2 rounded-full bg-[#ff91c7] px-4 py-2 text-xs font-semibold text-[#17121a]"
             >
               <CalendarDays size={14} />
               1:1 with Susan
@@ -329,13 +329,13 @@ export default function PurityChat({
           <div className="mx-auto flex min-h-full max-w-3xl flex-col px-4 py-8 sm:px-6">
             {messages.length === 0 ? (
               <div className="my-auto py-12">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfbe70]/25 bg-[#dfbe70]/10 text-[#e2c477] shadow-[0_0_50px_rgba(216,182,101,0.12)]">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#ff91c7]/[0.25] bg-[#ff91c7]/[0.10] text-[#ff91c7] shadow-[0_0_50px_rgba(255,79,163,0.14)]">
                   <Sparkles size={25} />
                 </div>
-                <h1 className="mt-6 text-center font-serif text-3xl sm:text-4xl">
+                <h1 className="mt-6 text-center font-serif text-2xl sm:text-3xl">
                   What’s on your heart?
                 </h1>
-                <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-6 text-white/42">
+                <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-6 text-white/[0.42]">
                   Talk through business decisions, life pressure, personal
                   growth, or a season where you need perspective.
                 </p>
@@ -345,11 +345,11 @@ export default function PurityChat({
                       key={label}
                       type="button"
                       onClick={() => sendMessage(undefined, prompt)}
-                      className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-left transition hover:-translate-y-0.5 hover:border-[#dfbe70]/25 hover:bg-white/[0.06]"
+                      className="rounded-2xl border border-white/[0.10] bg-white/[0.04] backdrop-blur-2xl p-4 text-left transition hover:-translate-y-0.5 hover:border-[#ff91c7]/[0.25] hover:bg-white/[0.06]"
                     >
-                      <Icon size={19} className="text-[#d8b665]" />
+                      <Icon size={19} className="text-[#f472b6]" />
                       <p className="mt-4 text-sm font-medium">{label}</p>
-                      <p className="mt-2 line-clamp-2 text-xs leading-5 text-white/35">
+                      <p className="mt-2 line-clamp-2 text-xs leading-5 text-white/[0.35]">
                         {prompt}
                       </p>
                     </button>
@@ -368,8 +368,8 @@ export default function PurityChat({
                     <div
                       className={
                         message.role === "user"
-                          ? "max-w-[88%] rounded-[1.4rem] rounded-br-md bg-[#d8b665] px-5 py-4 text-sm leading-6 text-[#17130c]"
-                          : "max-w-[92%] whitespace-pre-wrap text-sm leading-7 text-white/72"
+                          ? "max-w-[88%] rounded-[1.4rem] rounded-br-md bg-[#f472b6] px-5 py-4 text-sm leading-6 text-[#17121a]"
+                          : "max-w-[92%] whitespace-pre-wrap text-sm leading-7 text-white/[0.72]"
                       }
                     >
                       {message.content}
@@ -377,8 +377,8 @@ export default function PurityChat({
                   </article>
                 ))}
                 {loading && (
-                  <div className="flex items-center gap-3 text-sm text-white/35">
-                    <LoaderCircle size={16} className="animate-spin text-[#d8b665]" />
+                  <div className="flex items-center gap-3 text-sm text-white/[0.35]">
+                    <LoaderCircle size={16} className="animate-spin text-[#f472b6]" />
                     PurityOS is reflecting…
                   </div>
                 )}
@@ -388,10 +388,10 @@ export default function PurityChat({
           </div>
         </div>
 
-        <div className="relative z-10 border-t border-white/10 bg-[#0d0c0b]/85 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-2xl sm:px-6">
+        <div className="relative z-10 border-t border-white/[0.10] bg-[#0d0c0b]/[0.85] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-2xl sm:px-6">
           <form
             onSubmit={sendMessage}
-            className="mx-auto flex max-w-3xl items-end gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-2 pl-4 shadow-2xl transition focus-within:border-[#d8b665]/35"
+            className="mx-auto flex max-w-3xl items-end gap-3 rounded-[1.5rem] border border-white/[0.10] bg-white/[0.045] p-2 pl-4 shadow-2xl transition focus-within:border-[#f472b6]/[0.35]"
           >
             <textarea
               value={input}
@@ -405,17 +405,17 @@ export default function PurityChat({
               rows={1}
               maxLength={4000}
               placeholder="Ask about business, life, faith, or what you’re facing…"
-              className="max-h-32 min-h-[44px] flex-1 resize-none bg-transparent py-3 text-sm leading-5 text-white outline-none placeholder:text-white/25"
+              className="max-h-32 min-h-[44px] flex-1 resize-none bg-transparent py-3 text-sm leading-5 text-white outline-none placeholder:text-white/[0.25]"
             />
             <button
               disabled={!input.trim() || loading}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d8b665] text-[#17130c] transition hover:bg-[#efd386] disabled:opacity-30"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f472b6] text-[#17121a] transition hover:bg-[#ff9dcc] disabled:opacity-30"
               aria-label="Send message"
             >
               <ArrowUp size={18} />
             </button>
           </form>
-          <div className="mx-auto mt-2 flex max-w-3xl items-center justify-between gap-4 text-[10px] leading-4 text-white/25">
+          <div className="mx-auto mt-2 flex max-w-3xl items-center justify-between gap-4 text-[10px] leading-4 text-white/[0.25]">
             <p>
               AI support, not therapy or emergency care. Verify important advice.
             </p>

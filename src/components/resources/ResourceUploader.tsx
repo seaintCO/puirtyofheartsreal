@@ -71,10 +71,10 @@ export default function ResourceUploader() {
   return (
     <form
       onSubmit={submit}
-      className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6"
+      className="rounded-[2rem] border border-white/[0.10] bg-white/[0.04] p-6"
     >
       <div className="mb-7">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">
           Admin Resource Manager
         </p>
 
@@ -82,7 +82,7 @@ export default function ResourceUploader() {
           Add Resource
         </h2>
 
-        <p className="mt-2 text-sm text-white/40">
+        <p className="mt-2 text-sm text-white/[0.40]">
           Upload a protected file or add an external YouTube link.
         </p>
       </div>
@@ -92,12 +92,12 @@ export default function ResourceUploader() {
           name="title"
           required
           placeholder="Resource title"
-          className="rounded-2xl border border-white/10 bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#C9A75D]"
+          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
         />
 
         <select
           name="category"
-          className="rounded-2xl border border-white/10 bg-[#181818] px-5 py-4 text-sm text-white outline-none"
+          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none"
         >
           {categories.map((category) => (
             <option key={category}>{category}</option>
@@ -106,7 +106,7 @@ export default function ResourceUploader() {
 
         <select
           name="resourceType"
-          className="rounded-2xl border border-white/10 bg-[#181818] px-5 py-4 text-sm text-white outline-none"
+          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none"
         >
           {types.map((type) => (
             <option key={type} value={type}>
@@ -118,19 +118,19 @@ export default function ResourceUploader() {
         <input
           name="duration"
           placeholder="Duration, such as 12:30"
-          className="rounded-2xl border border-white/10 bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#C9A75D]"
+          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
         />
       </div>
 
       <textarea
         name="description"
         placeholder="Resource description"
-        className="mt-4 min-h-28 w-full resize-none rounded-2xl border border-white/10 bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#C9A75D]"
+        className="mt-4 min-h-28 w-full resize-none rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
       />
 
-      <div className="mt-4 rounded-2xl border border-white/10 bg-[#181818] p-5">
+      <div className="mt-4 rounded-2xl border border-white/[0.10] bg-[#181818] p-5">
         <div className="flex items-center gap-2">
-          <FileUp className="text-[#C9A75D]" size={19} />
+          <FileUp className="text-[#ff4fa3]" size={19} />
           <p className="text-sm font-medium">Upload protected file</p>
         </div>
 
@@ -138,13 +138,13 @@ export default function ResourceUploader() {
           type="file"
           name="file"
           accept=".pdf,.zip,.docx,.xlsx,.png,.jpg,.jpeg"
-          className="mt-4 block w-full text-sm text-white/55 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-5 file:py-2.5 file:text-sm file:font-medium file:text-[#111]"
+          className="mt-4 block w-full text-sm text-white/[0.55] file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-5 file:py-2.5 file:text-sm file:font-medium file:text-[#111]"
         />
       </div>
 
-      <div className="mt-4 rounded-2xl border border-white/10 bg-[#181818] p-5">
+      <div className="mt-4 rounded-2xl border border-white/[0.10] bg-[#181818] p-5">
         <div className="flex items-center gap-2">
-          <Link2 className="text-[#C9A75D]" size={19} />
+          <Link2 className="text-[#ff4fa3]" size={19} />
           <p className="text-sm font-medium">
             Or add an external video URL
           </p>
@@ -154,18 +154,18 @@ export default function ResourceUploader() {
           name="externalUrl"
           type="url"
           placeholder="https://youtu.be/..."
-          className="mt-4 w-full rounded-2xl border border-white/10 bg-[#111] px-5 py-4 text-sm text-white outline-none focus:border-[#C9A75D]"
+          className="mt-4 w-full rounded-2xl border border-white/[0.10] bg-[#111] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
         />
       </div>
 
-      <label className="mt-5 flex items-center gap-3 text-sm text-white/55">
+      <label className="mt-5 flex items-center gap-3 text-sm text-white/[0.55]">
         <input name="featured" type="checkbox" />
         Feature this resource
       </label>
 
       <button
         disabled={uploading}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A75D] px-7 py-4 text-sm font-medium text-white disabled:opacity-50"
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#ff4fa3] px-7 py-4 text-sm font-medium text-white disabled:opacity-50"
       >
         {uploading ? (
           <LoaderCircle className="animate-spin" size={18} />
@@ -177,8 +177,8 @@ export default function ResourceUploader() {
       </button>
 
       {message && (
-        <div className="mt-5 flex items-center gap-2 rounded-2xl bg-white/[0.05] p-4 text-sm text-white/65">
-          <CheckCircle2 className="text-[#C9A75D]" size={17} />
+        <div className="mt-5 flex items-center gap-2 rounded-2xl bg-white/[0.05] p-4 text-sm text-white/[0.65]">
+          <CheckCircle2 className="text-[#ff4fa3]" size={17} />
           {message}
         </div>
       )}

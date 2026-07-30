@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function ReturnsPage() {
@@ -9,11 +9,11 @@ export default function ReturnsPage() {
       </Link>
 
       <section className="mx-auto mt-16 max-w-3xl">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">Legal</span>
-        <h1 className="mt-4 text-5xl font-semibold tracking-tight">Return Policy</h1>
-        <p className="mt-6 text-[#1F1F1F]/60">Last updated: July 23, 2026</p>
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">Legal</span>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight">Return Policy</h1>
+        <p className="mt-6 text-[#1F1F1F]/[0.60]">Last updated: July 23, 2026</p>
 
-        <div className="mt-10 space-y-8 text-[#1F1F1F]/70">
+        <div className="mt-10 space-y-8 text-[#1F1F1F]/[0.70]">
           <p>Physical products may be eligible for return if they are unused, undamaged, and returned within the stated return window.</p>
           <p>Digital products, downloadable resources, courses, community memberships, and completed coaching sessions are generally non-refundable once access has been granted, unless required by law or approved case by case.</p>
           <p>PurityOS is a recurring monthly membership. It can be canceled through the billing portal to stop future renewals. Partial billing periods are generally not prorated unless required by law.</p>

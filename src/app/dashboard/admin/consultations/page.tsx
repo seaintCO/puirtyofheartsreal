@@ -25,13 +25,13 @@ export default async function ConsultationAdminPage() {
 
   return (
     <section className="mx-auto max-w-6xl">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d8b665]">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff75b8]">
         Admin
       </p>
-      <h1 className="mt-4 font-serif text-4xl tracking-tight sm:text-6xl">
+      <h1 className="mt-4 font-serif text-3xl tracking-tight sm:text-5xl">
         Consultation requests.
       </h1>
-      <p className="mt-3 text-sm text-white/40">
+      <p className="mt-3 text-sm text-white/[0.40]">
         Contact clients and keep each request’s status current.
       </p>
       <ConsultationAdmin initialRequests={data ?? []} />

@@ -1,19 +1,19 @@
-﻿import "./globals.css";
+import "./globals.css";
 
 export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
   title: {
-    default: "Purity of Hearts | Faith, Business & Personal Growth",
-    template: "%s | Purity of Hearts",
+    default: "Purity Of Hearts | Business, Faith & Legacy",
+    template: "%s | Purity Of Hearts",
   },
   description:
-    "Courses, faith-centered coaching, private community, PurityOS, and practical tools for business and personal growth.",
+    "Learn business through the Purity of Hearts education platform, discover PurityOS, or book a private growth strategy call with Susan Wagner.",
   openGraph: {
-    title: "Purity of Hearts",
+    title: "Purity Of Hearts",
     description:
-      "Faith, business, and personal growth in one private member experience.",
+      "Education, clarity, and private growth strategy for founders building with purpose.",
     type: "website",
   },
 };
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased selection:bg-[#C9A75D] selection:text-white">
+      <body className="antialiased selection:bg-[#ff4fa3]/25 selection:text-[#111116]">
         {children}
       </body>
     </html>

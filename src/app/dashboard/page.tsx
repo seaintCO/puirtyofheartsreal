@@ -56,23 +56,20 @@ export default async function DashboardPage() {
     <section className="mx-auto max-w-7xl">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d8b665]">
-            Member home
-          </p>
-          <h1 className="mt-4 font-serif text-4xl tracking-tight sm:text-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f472b6]">Member home</p>
+          <h1 className="mt-4 text-3xl font-semibold tracking-[-0.055em] sm:text-5xl">
             Keep going, {firstName}.
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-white/40">
-            Everything you’ve completed, saved, and started is waiting exactly
-            where you left it.
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-white/[0.38]">
+            Everything you completed, saved, and started is exactly where you left it.
           </p>
         </div>
         <Link
           href="/purityos"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d8b665]/20 bg-[#d8b665]/10 px-5 py-3 text-sm text-[#e7ca82]"
+          className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-5 py-3 text-sm font-semibold text-white"
         >
           <Sparkles size={16} />
-          Ask PurityOS
+          Open PurityOS
         </Link>
       </div>
 
@@ -83,44 +80,42 @@ export default async function DashboardPage() {
           [Trophy, String(passedQuizzes), "Quizzes passed"],
           [NotebookPen, String(journalCount ?? 0), "Journal entries"],
         ].map(([Icon, value, label]: any) => (
-          <article
-            key={label}
-            className="rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl"
-          >
-            <Icon size={18} className="text-[#d8b665]" />
-            <p className="mt-6 text-3xl font-semibold">{value}</p>
-            <p className="mt-2 text-xs text-white/35">{label}</p>
+          <article key={label} className="liquid-glass-dark rounded-[1.65rem] p-5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f472b6]/[0.10] text-[#ff91c4]">
+              <Icon size={17} />
+            </span>
+            <p className="mt-6 text-3xl font-semibold tracking-[-0.04em]">{value}</p>
+            <p className="mt-2 text-xs text-white/[0.32]">{label}</p>
           </article>
         ))}
       </div>
 
       <div className="mt-5 grid gap-5 xl:grid-cols-[1.35fr_.65fr]">
-        <article className="relative overflow-hidden rounded-[2rem] border border-[#d8b665]/18 bg-gradient-to-br from-[#d8b665]/13 via-white/[0.035] to-white/[0.02] p-6 sm:p-8">
-          <div className="absolute right-[-10%] top-[-50%] h-72 w-72 rounded-full bg-[#d8b665]/10 blur-[80px]" />
+        <article className="liquid-glass-dark relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
+          <div className="absolute right-[-10%] top-[-50%] h-72 w-72 rounded-full bg-[#f45aa4]/[0.18] blur-[85px]" />
+          <div className="absolute bottom-[-8rem] left-[35%] h-64 w-64 rounded-full bg-[#8b5cf6]/[0.12] blur-[90px]" />
           <div className="relative">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e0c376]">
-              Continue learning
-            </p>
-            <h2 className="mt-5 max-w-2xl font-serif text-3xl sm:text-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Continue learning</p>
+            <h2 className="mt-5 max-w-2xl text-2xl font-semibold tracking-[-0.04em] sm:text-4xl">
               {completedCount >= businessLessons.length
                 ? "Your course is complete"
                 : nextLesson.title}
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-white/40">
+            <p className="mt-3 max-w-xl text-sm leading-6 text-white/[0.38]">
               {completedCount >= businessLessons.length
                 ? "Review any lesson or open your certificate."
                 : `Module ${nextLesson.module} · Lesson ${nextLesson.lesson} · ${nextLesson.duration}`}
             </p>
-            <div className="mt-7 h-1.5 max-w-xl overflow-hidden rounded-full bg-white/10">
+            <div className="mt-7 h-1.5 max-w-xl overflow-hidden rounded-full bg-white/[0.10]">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#987334] to-[#f0d58d]"
+                className="h-full rounded-full bg-gradient-to-r from-[#f45aa4] to-[#9d7cff]"
                 style={{ width: `${Math.max(progressPercent, 2)}%` }}
               />
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/dashboard/lessons"
-                className="inline-flex items-center gap-2 rounded-full bg-[#d8b665] px-6 py-3.5 text-sm font-semibold text-[#17130c]"
+                className="liquid-button inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#17151b]"
               >
                 {completedCount >= businessLessons.length ? "Review course" : "Continue lesson"}
                 <ArrowRight size={16} />
@@ -128,7 +123,7 @@ export default async function DashboardPage() {
               {completedCount >= businessLessons.length && (
                 <Link
                   href="/dashboard/certificates"
-                  className="rounded-full border border-white/10 px-6 py-3.5 text-sm text-white/55"
+                  className="rounded-full border border-white/[0.10] bg-white/[0.04] px-6 py-3.5 text-sm text-white/[0.52] backdrop-blur-xl"
                 >
                   View certificate
                 </Link>
@@ -137,10 +132,8 @@ export default async function DashboardPage() {
           </div>
         </article>
 
-        <article className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 sm:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/30">
-            Member shortcuts
-          </p>
+        <article className="liquid-glass-dark rounded-[2rem] p-6 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/[0.28]">Member shortcuts</p>
           <div className="mt-5 space-y-2">
             {[
               [NotebookPen, "Open journal", "/dashboard/journal"],
@@ -151,16 +144,13 @@ export default async function DashboardPage() {
               <Link
                 key={href}
                 href={href}
-                className="group flex items-center justify-between rounded-2xl border border-white/8 bg-black/10 px-4 py-3.5 text-sm text-white/48 transition hover:bg-white/[0.05] hover:text-white/75"
+                className="group flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-3.5 text-sm text-white/[0.44] backdrop-blur-xl transition hover:bg-white/[0.07] hover:text-white/[0.78]"
               >
                 <span className="flex items-center gap-3">
-                  <Icon size={16} className="text-[#d8b665]" />
+                  <Icon size={16} className="text-[#f472b6]" />
                   {label}
                 </span>
-                <ArrowRight
-                  size={14}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={14} className="transition group-hover:translate-x-1" />
               </Link>
             ))}
           </div>

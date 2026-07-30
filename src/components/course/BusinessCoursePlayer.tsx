@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -142,33 +142,33 @@ export default function BusinessCoursePlayer() {
     <section>
       <div className="mb-8 flex flex-col justify-between gap-6 xl:flex-row xl:items-end">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
             Business Academy
           </span>
 
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
             {businessCourse.title}
           </h1>
 
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/45">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/[0.42]">
             {businessCourse.description}
           </p>
         </div>
 
-        <div className="min-w-64 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-          <div className="flex justify-between text-xs text-white/45">
+        <div className="liquid-card-dark min-w-64 rounded-2xl p-5">
+          <div className="flex justify-between text-xs text-white/[0.42]">
             <span>Course progress</span>
             <span>{progressPercent}%</span>
           </div>
 
-          <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/[0.10]">
             <div
-              className="h-full rounded-full bg-[#C9A75D] transition-all duration-500"
+              className="h-full rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] transition-all duration-500"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
 
-          <p className="mt-3 text-xs text-white/35">
+          <p className="mt-3 text-xs text-white/[0.35]">
             {completed.length} of {businessLessons.length} lessons complete
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function BusinessCoursePlayer() {
       <div className="mb-5 xl:hidden">
         <label
           htmlFor="mobile-lesson"
-          className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#C9A75D]"
+          className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff5fa2]"
         >
           Choose a lesson
         </label>
@@ -190,7 +190,7 @@ export default function BusinessCoursePlayer() {
             );
             if (lesson) openLesson(lesson);
           }}
-          className="w-full rounded-2xl border border-white/10 bg-[#181818] px-4 py-3.5 text-sm text-white outline-none focus:border-[#C9A75D]"
+          className="w-full rounded-2xl border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl px-4 py-3.5 text-sm text-white outline-none focus:border-[#ff5fa2]"
         >
           {businessCourse.modules.map((module) => (
             <optgroup
@@ -210,7 +210,7 @@ export default function BusinessCoursePlayer() {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[310px_minmax(0,1fr)]">
-        <aside className="hidden max-h-[850px] overflow-y-auto rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 xl:block">
+        <aside className="liquid-card-dark hidden max-h-[850px] overflow-y-auto rounded-[2rem] p-4 xl:block">
           {businessCourse.modules.map((module) => {
             const moduleLessons = businessLessons.filter(
               (lesson) => lesson.module === module.number,
@@ -219,7 +219,7 @@ export default function BusinessCoursePlayer() {
             return (
               <div key={module.number} className="mb-7">
                 <div className="mb-3 px-2">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#C9A75D]">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff5fa2]">
                     Module {module.number}
                   </p>
                   <h2 className="mt-2 text-sm font-semibold text-white">
@@ -238,8 +238,8 @@ export default function BusinessCoursePlayer() {
                         onClick={() => openLesson(lesson)}
                         className={`w-full rounded-2xl p-4 text-left transition ${
                           selected
-                            ? "bg-[#C9A75D] text-[#111]"
-                            : "bg-white/[0.03] text-white/60 hover:bg-white/[0.07] hover:text-white"
+                            ? "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white shadow-[0_10px_30px_rgba(224,59,151,.18)]"
+                            : "bg-white/[0.03] text-white/[0.60] hover:bg-white/[0.07] hover:text-white"
                         }`}
                       >
                         <div className="flex gap-3">
@@ -275,8 +275,8 @@ export default function BusinessCoursePlayer() {
                 onClick={() => setActiveTab(id)}
                 className={`flex shrink-0 items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition ${
                   activeTab === id
-                    ? "bg-[#C9A75D] text-[#111]"
-                    : "border border-white/10 bg-white/[0.04] text-white/55 hover:text-white"
+                    ? "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white shadow-[0_10px_30px_rgba(224,59,151,.18)]"
+                    : "border border-white/[0.10] bg-white/[0.04] text-white/[0.55] hover:text-white"
                 }`}
               >
                 <Icon size={16} />
@@ -285,7 +285,7 @@ export default function BusinessCoursePlayer() {
             ))}
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-4 md:p-6">
+          <div className="liquid-card-dark rounded-[2rem] p-4 md:p-6">
             {activeTab === "lesson" && (
               <div>
                 {activeLesson.youtubeUrl ? (
@@ -299,16 +299,16 @@ export default function BusinessCoursePlayer() {
                     />
                   </div>
                 ) : (
-                  <div className="flex aspect-video items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#272727] to-[#121212]">
+                  <div className="flex aspect-video items-center justify-center rounded-[1.5rem] bg-[radial-gradient(circle_at_top_right,rgba(255,95,162,.18),transparent_24%),radial-gradient(circle_at_left_center,rgba(107,124,255,.18),transparent_22%),linear-gradient(180deg,#171b29_0%,#0f1118_100%)]">
                     <div className="text-center">
                       <PlayCircle
-                        className="mx-auto text-[#C9A75D]"
+                        className="mx-auto text-[#ff5fa2]"
                         size={52}
                       />
                       <p className="mt-4 text-sm font-medium">
                         Video link coming soon
                       </p>
-                      <p className="mt-2 text-xs text-white/35">
+                      <p className="mt-2 text-xs text-white/[0.35]">
                         Add the YouTube URL for this lesson.
                       </p>
                     </div>
@@ -316,22 +316,22 @@ export default function BusinessCoursePlayer() {
                 )}
 
                 <div className="mt-7">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                     Module {activeLesson.module} · Lesson {activeLesson.lesson}
                   </p>
 
-                  <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+                  <h2 className="mt-3 text-2xl font-semibold tracking-tight">
                     {activeLesson.title}
                   </h2>
 
-                  <p className="mt-4 text-sm leading-relaxed text-white/55">
+                  <p className="mt-4 text-sm leading-relaxed text-white/[0.55]">
                     {activeLesson.description}
                   </p>
 
                   <div className="mt-8 grid gap-5 lg:grid-cols-2">
-                    <div className="rounded-2xl border border-white/10 bg-[#181818] p-5">
+                    <div className="liquid-subcard-dark rounded-2xl p-5">
                       <h3 className="flex items-center gap-2 font-semibold">
-                        <Trophy className="text-[#C9A75D]" size={19} />
+                        <Trophy className="text-[#ff5fa2]" size={19} />
                         Learning objectives
                       </h3>
 
@@ -339,10 +339,10 @@ export default function BusinessCoursePlayer() {
                         {activeLesson.objectives.map((objective) => (
                           <p
                             key={objective}
-                            className="flex gap-3 text-sm leading-relaxed text-white/55"
+                            className="flex gap-3 text-sm leading-relaxed text-white/[0.55]"
                           >
                             <CheckCircle2
-                              className="mt-0.5 shrink-0 text-[#C9A75D]"
+                              className="mt-0.5 shrink-0 text-[#ff5fa2]"
                               size={16}
                             />
                             {objective}
@@ -351,9 +351,9 @@ export default function BusinessCoursePlayer() {
                       </div>
                     </div>
 
-                    <div className="rounded-2xl border border-white/10 bg-[#181818] p-5">
+                    <div className="liquid-subcard-dark rounded-2xl p-5">
                       <h3 className="flex items-center gap-2 font-semibold">
-                        <BookOpen className="text-[#C9A75D]" size={19} />
+                        <BookOpen className="text-[#ff5fa2]" size={19} />
                         Lesson notes
                       </h3>
 
@@ -363,7 +363,7 @@ export default function BusinessCoursePlayer() {
                           updateNote(activeLesson.id, event.target.value)
                         }
                         placeholder="Write your notes and reflections..."
-                        className="mt-4 min-h-40 w-full resize-none rounded-2xl border border-white/10 bg-[#111] p-4 text-sm text-white/70 outline-none focus:border-[#C9A75D]"
+                        className="mt-4 min-h-40 w-full resize-none rounded-2xl border border-white/[0.10] bg-black/[0.20] backdrop-blur-xl p-4 text-sm text-white/[0.70] outline-none focus:border-[#ff5fa2]"
                       />
 
                       <button
@@ -385,15 +385,15 @@ export default function BusinessCoursePlayer() {
 
             {activeTab === "quiz" && (
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                   Knowledge Check
                 </span>
 
-                <h2 className="mt-3 text-3xl font-semibold">
+                <h2 className="mt-3 text-2xl font-semibold">
                   Lesson Quiz
                 </h2>
 
-                <p className="mt-3 text-sm text-white/45">
+                <p className="mt-3 text-sm text-white/[0.42]">
                   Answer each question and submit your responses.
                 </p>
 
@@ -401,7 +401,7 @@ export default function BusinessCoursePlayer() {
                   {activeLesson.quiz.map((question, questionIndex) => (
                     <div
                       key={question.question}
-                      className="rounded-2xl border border-white/10 bg-[#181818] p-5"
+                      className="liquid-subcard-dark rounded-2xl p-5"
                     >
                       <p className="font-medium leading-relaxed">
                         {questionIndex + 1}. {question.question}
@@ -434,12 +434,12 @@ export default function BusinessCoursePlayer() {
                               }}
                               className={`w-full rounded-2xl border p-4 text-left text-sm transition ${
                                 correct
-                                  ? "border-green-400/40 bg-green-400/10 text-green-200"
+                                  ? "border-green-400/[0.40] bg-green-400/[0.10] text-green-200"
                                   : incorrect
-                                    ? "border-red-400/40 bg-red-400/10 text-red-200"
+                                    ? "border-red-400/[0.40] bg-red-400/[0.10] text-red-200"
                                     : selected
-                                      ? "border-[#C9A75D] bg-[#C9A75D]/10 text-white"
-                                      : "border-white/10 bg-white/[0.03] text-white/60 hover:bg-white/[0.07]"
+                                      ? "border-[#ff75b8] bg-[#ff5fa2]/[0.10] text-white"
+                                      : "border-white/[0.10] bg-white/[0.03] text-white/[0.60] hover:bg-white/[0.07]"
                               }`}
                             >
                               {option}
@@ -449,7 +449,7 @@ export default function BusinessCoursePlayer() {
                       </div>
 
                       {quizSubmitted && (
-                        <p className="mt-4 rounded-2xl bg-white/[0.04] p-4 text-xs leading-relaxed text-white/55">
+                        <p className="mt-4 rounded-2xl bg-white/[0.04] p-4 text-xs leading-relaxed text-white/[0.55]">
                           {question.explanation}
                         </p>
                       )}
@@ -464,15 +464,15 @@ export default function BusinessCoursePlayer() {
                       Object.keys(answers).length < activeLesson.quiz.length ||
                       saving === `quiz:${activeLesson.id}`
                     }
-                    className="mt-7 rounded-full bg-[#C9A75D] px-8 py-4 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                    className="liquid-button mt-7 rounded-full px-8 py-4 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     {saving === `quiz:${activeLesson.id}`
                       ? "Saving…"
                       : "Submit Quiz"}
                   </button>
                 ) : (
-                  <div className="mt-7 rounded-2xl border border-[#C9A75D]/30 bg-[#C9A75D]/10 p-6">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                  <div className="mt-7 rounded-2xl border border-[#ff5fa2]/[0.30] bg-[#ff5fa2]/[0.10] p-6">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                       Quiz Result
                     </p>
 
@@ -497,24 +497,24 @@ export default function BusinessCoursePlayer() {
 
             {activeTab === "flashcards" && (
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                   Study Mode
                 </span>
 
-                <h2 className="mt-3 text-3xl font-semibold">
+                <h2 className="mt-3 text-2xl font-semibold">
                   Lesson Flashcards
                 </h2>
 
-                <p className="mt-3 text-sm text-white/45">
+                <p className="mt-3 text-sm text-white/[0.42]">
                   Select the card to reveal the answer.
                 </p>
 
                 <button
                   onClick={() => setFlipped((current) => !current)}
-                  className="mt-8 flex min-h-[320px] w-full items-center justify-center rounded-[2rem] border border-[#C9A75D]/25 bg-gradient-to-br from-[#262626] to-[#151515] p-10 text-center transition hover:border-[#C9A75D]/60"
+                  className="mt-8 flex min-h-[320px] w-full items-center justify-center rounded-[2rem] border border-[#ff5fa2]/[0.25] bg-gradient-to-br from-[#251322] to-[#0d0a14] p-10 text-center transition hover:border-[#ff75b8]/[0.60]"
                 >
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                       {flipped ? "Answer" : "Question"}
                     </p>
 
@@ -524,7 +524,7 @@ export default function BusinessCoursePlayer() {
                         : activeLesson.flashcards[flashcardIndex].front}
                     </p>
 
-                    <p className="mt-8 text-xs text-white/35">
+                    <p className="mt-8 text-xs text-white/[0.35]">
                       Select to flip
                     </p>
                   </div>
@@ -540,12 +540,12 @@ export default function BusinessCoursePlayer() {
                       );
                       setFlipped(false);
                     }}
-                    className="rounded-full border border-white/10 p-3 text-white/60 hover:text-white"
+                    className="rounded-full border border-white/[0.10] p-3 text-white/[0.60] hover:text-white"
                   >
                     <ChevronLeft size={19} />
                   </button>
 
-                  <p className="text-sm text-white/40">
+                  <p className="text-sm text-white/[0.40]">
                     {flashcardIndex + 1} of {activeLesson.flashcards.length}
                   </p>
 
@@ -558,7 +558,7 @@ export default function BusinessCoursePlayer() {
                       );
                       setFlipped(false);
                     }}
-                    className="rounded-full border border-white/10 p-3 text-white/60 hover:text-white"
+                    className="rounded-full border border-white/[0.10] p-3 text-white/[0.60] hover:text-white"
                   >
                     <ChevronRight size={19} />
                   </button>
@@ -568,11 +568,11 @@ export default function BusinessCoursePlayer() {
 
             {activeTab === "cheat-sheet" && (
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                   Quick Reference
                 </span>
 
-                <h2 className="mt-3 text-3xl font-semibold">
+                <h2 className="mt-3 text-2xl font-semibold">
                   {activeLesson.title} Cheat Sheet
                 </h2>
 
@@ -580,13 +580,13 @@ export default function BusinessCoursePlayer() {
                   {activeLesson.keyPoints.map((point, index) => (
                     <div
                       key={point}
-                      className="rounded-2xl border border-white/10 bg-[#181818] p-5"
+                      className="liquid-subcard-dark rounded-2xl p-5"
                     >
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                         Principle {index + 1}
                       </p>
 
-                      <p className="mt-3 text-sm leading-relaxed text-white/65">
+                      <p className="mt-3 text-sm leading-relaxed text-white/[0.65]">
                         {point}
                       </p>
                     </div>
@@ -606,15 +606,15 @@ export default function BusinessCoursePlayer() {
 
             {activeTab === "assignment" && (
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#ff5fa2]">
                   Apply the Lesson
                 </span>
 
-                <h2 className="mt-3 text-3xl font-semibold">
+                <h2 className="mt-3 text-2xl font-semibold">
                   Action Assignment
                 </h2>
 
-                <div className="mt-8 rounded-[2rem] border border-[#C9A75D]/25 bg-[#C9A75D]/10 p-7">
+                <div className="mt-8 rounded-[2rem] border border-[#ff5fa2]/[0.25] bg-[#ff5fa2]/[0.10] p-7">
                   <p className="text-lg font-medium leading-relaxed">
                     {activeLesson.actionStep}
                   </p>
@@ -626,14 +626,14 @@ export default function BusinessCoursePlayer() {
                     updateAssignment(activeLesson.id, event.target.value)
                   }
                   placeholder="Complete the assignment or record your action plan..."
-                  className="mt-6 min-h-72 w-full resize-none rounded-[2rem] border border-white/10 bg-[#181818] p-6 text-sm leading-relaxed text-white/70 outline-none focus:border-[#C9A75D]"
+                  className="mt-6 min-h-72 w-full resize-none rounded-[2rem] border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl p-6 text-sm leading-relaxed text-white/[0.70] outline-none focus:border-[#ff5fa2]"
                 />
 
                 <button
                   type="button"
                   onClick={() => void saveAssignment(activeLesson.id)}
                   disabled={saving === `assignment:${activeLesson.id}`}
-                  className="mt-5 flex items-center gap-2 rounded-full bg-[#C9A75D] px-7 py-3.5 text-sm font-medium text-white disabled:opacity-60"
+                  className="liquid-button mt-5 flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-white disabled:opacity-60"
                 >
                   <Save size={16} />
                   {saving === `assignment:${activeLesson.id}`
@@ -648,7 +648,7 @@ export default function BusinessCoursePlayer() {
             <button
               disabled={activeIndex === 0}
               onClick={() => changeLesson(-1)}
-              className="flex items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm text-white/55 transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-30"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/[0.10] px-6 py-3 text-sm text-white/[0.55] transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ChevronLeft size={16} />
               Previous Lesson
@@ -659,8 +659,8 @@ export default function BusinessCoursePlayer() {
               disabled={saving === `progress:${activeLesson.id}`}
               className={`flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium transition ${
                 completed.includes(activeLesson.id)
-                  ? "bg-green-500/15 text-green-300"
-                  : "bg-[#C9A75D] text-white"
+                  ? "bg-green-500/[0.15] text-green-300"
+                  : "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white"
               } disabled:opacity-60`}
             >
               <CheckCircle2 size={16} />
@@ -672,7 +672,7 @@ export default function BusinessCoursePlayer() {
             <button
               disabled={activeIndex === businessLessons.length - 1}
               onClick={() => changeLesson(1)}
-              className="flex items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm text-white/55 transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-30"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/[0.10] px-6 py-3 text-sm text-white/[0.55] transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-30"
             >
               Next Lesson
               <ChevronRight size={16} />

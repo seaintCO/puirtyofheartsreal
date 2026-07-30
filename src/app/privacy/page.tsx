@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function PrivacyPage() {
@@ -9,11 +9,11 @@ export default function PrivacyPage() {
       </Link>
 
       <section className="mx-auto mt-16 max-w-3xl">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">Legal</span>
-        <h1 className="mt-4 text-5xl font-semibold tracking-tight">Privacy Policy</h1>
-        <p className="mt-6 text-[#1F1F1F]/60">Last updated: July 23, 2026</p>
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">Legal</span>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight">Privacy Policy</h1>
+        <p className="mt-6 text-[#1F1F1F]/[0.60]">Last updated: July 23, 2026</p>
 
-        <div className="mt-10 space-y-9 text-sm leading-7 text-[#1F1F1F]/70">
+        <div className="mt-10 space-y-9 text-sm leading-7 text-[#1F1F1F]/[0.70]">
           <section>
             <h2 className="text-lg font-semibold text-[#1f1f1f]">Information we collect</h2>
             <p className="mt-2">Purity of Hearts collects information needed to provide accounts, courses, community access, consultations, product waitlists, newsletters, account support, and platform communication. This may include your name, email, phone number, course progress, journal and lesson notes, quiz activity, booking preferences, and messages you choose to submit.</p>

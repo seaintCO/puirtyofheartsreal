@@ -44,7 +44,7 @@ export default function ConsultationAdmin({
 
   if (requests.length === 0) {
     return (
-      <div className="mt-8 rounded-[2rem] border border-white/10 bg-white/[0.035] p-10 text-center text-sm text-white/40">
+      <div className="mt-8 liquid-card-dark rounded-[2rem] p-10 text-center text-sm text-white/[0.40]">
         No consultation requests yet.
       </div>
     );
@@ -56,13 +56,13 @@ export default function ConsultationAdmin({
       {requests.map((request) => (
         <article
           key={request.id}
-          className="rounded-[1.7rem] border border-white/10 bg-white/[0.035] p-5 sm:p-6"
+          className="liquid-card-dark rounded-[1.7rem] p-5 sm:p-6"
         >
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <p className="text-lg font-medium">{request.name}</p>
-              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/40">
-                <a href={`mailto:${request.email}`} className="hover:text-[#d8b665]">
+              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/[0.40]">
+                <a href={`mailto:${request.email}`} className="hover:text-[#ff75b8]">
                   {request.email}
                 </a>
                 {request.phone && <span>{request.phone}</span>}
@@ -72,7 +72,7 @@ export default function ConsultationAdmin({
             <select
               value={request.status}
               onChange={(event) => updateStatus(request.id, event.target.value)}
-              className="rounded-full border border-white/10 bg-[#211f1b] px-4 py-2 text-xs capitalize text-white/65 outline-none"
+              className="rounded-full border border-white/[0.10] bg-[#12111a] px-4 py-2 text-xs capitalize text-white/[0.65] outline-none"
             >
               {statuses.map((status) => (
                 <option key={status}>{status}</option>
@@ -80,31 +80,31 @@ export default function ConsultationAdmin({
             </select>
           </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl bg-black/15 p-4">
-              <p className="text-[10px] uppercase tracking-widest text-white/25">
+            <div className="rounded-xl bg-black/[0.15] p-4">
+              <p className="text-[10px] uppercase tracking-widest text-white/[0.25]">
                 Topic
               </p>
-              <p className="mt-2 text-sm text-white/65">{request.topic}</p>
+              <p className="mt-2 text-sm text-white/[0.65]">{request.topic}</p>
             </div>
-            <div className="rounded-xl bg-black/15 p-4">
-              <p className="text-[10px] uppercase tracking-widest text-white/25">
+            <div className="rounded-xl bg-black/[0.15] p-4">
+              <p className="text-[10px] uppercase tracking-widest text-white/[0.25]">
                 Preferred date
               </p>
-              <p className="mt-2 text-sm text-white/65">
+              <p className="mt-2 text-sm text-white/[0.65]">
                 {request.preferred_date || "No preference"}
               </p>
             </div>
-            <div className="rounded-xl bg-black/15 p-4">
-              <p className="text-[10px] uppercase tracking-widest text-white/25">
+            <div className="rounded-xl bg-black/[0.15] p-4">
+              <p className="text-[10px] uppercase tracking-widest text-white/[0.25]">
                 Preferred time
               </p>
-              <p className="mt-2 text-sm text-white/65">
+              <p className="mt-2 text-sm text-white/[0.65]">
                 {request.preferred_time || "No preference"}
               </p>
             </div>
           </div>
           {request.message && (
-            <p className="mt-4 whitespace-pre-wrap text-sm leading-6 text-white/45">
+            <p className="mt-4 whitespace-pre-wrap text-sm leading-6 text-white/[0.45]">
               {request.message}
             </p>
           )}

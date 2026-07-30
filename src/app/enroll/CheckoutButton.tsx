@@ -12,10 +12,7 @@ export default function CheckoutButton() {
     setError("");
 
     try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-      });
-
+      const response = await fetch("/api/checkout", { method: "POST" });
       const result = await response.json();
 
       if (!response.ok) {
@@ -24,9 +21,7 @@ export default function CheckoutButton() {
 
       window.location.href = result.url;
     } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "Checkout failed.",
-      );
+      setError(error instanceof Error ? error.message : "Checkout failed.");
       setLoading(false);
     }
   }
@@ -36,20 +31,20 @@ export default function CheckoutButton() {
       <button
         onClick={beginCheckout}
         disabled={loading}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A75D] px-8 py-4 text-sm font-medium text-white shadow-xl transition hover:-translate-y-1 hover:bg-[#b59550] disabled:cursor-not-allowed disabled:opacity-60"
+        className="liquid-button flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-8 py-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? (
           <LoaderCircle className="animate-spin" size={18} />
         ) : (
           <>
-            Enroll and Get Access
+            Enroll and get access
             <ArrowRight size={17} />
           </>
         )}
       </button>
 
       {error && (
-        <p className="mt-4 rounded-2xl bg-red-50 p-4 text-sm text-red-700">
+        <p className="mt-4 rounded-2xl border border-red-400/[0.20] bg-red-400/[0.10] p-4 text-sm text-red-200">
           {error}
         </p>
       )}

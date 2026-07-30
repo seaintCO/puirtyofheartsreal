@@ -48,18 +48,18 @@ export default function BookingSandbox() {
   }
 
   return (
-    <div className="overflow-hidden rounded-[2.2rem] border border-white/10 bg-[#0f1110] text-white shadow-[0_50px_140px_rgba(0,0,0,.35)]">
-      <div className="flex flex-col border-b border-white/10 bg-white/[0.035] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="overflow-hidden rounded-[2.2rem] border border-white/[0.10] bg-[#0f1110] text-white shadow-[0_50px_140px_rgba(0,0,0,.35)]">
+      <div className="flex flex-col border-b border-white/[0.10] bg-white/[0.035] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c9a75d]/12 text-[#dfbe70]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff4fa3]/[0.12] text-[#ff91c7]">
             <Sparkles size={18} />
           </div>
           <div>
             <p className="text-sm font-semibold">SEAINT Booking</p>
-            <p className="text-[11px] text-white/35">Interactive client sandbox</p>
+            <p className="text-[11px] text-white/[0.35]">Interactive client sandbox</p>
           </div>
         </div>
-        <div className="mt-4 grid grid-cols-2 rounded-full border border-white/10 bg-black/20 p-1 sm:mt-0">
+        <div className="mt-4 grid grid-cols-2 rounded-full border border-white/[0.10] bg-black/[0.20] p-1 sm:mt-0">
           {[
             ["booking", "Client view"],
             ["dashboard", "Owner view"],
@@ -70,8 +70,8 @@ export default function BookingSandbox() {
               onClick={() => setMode(value as "booking" | "dashboard")}
               className={`rounded-full px-4 py-2 text-xs transition ${
                 mode === value
-                  ? "bg-[#dfbe70] font-semibold text-[#17130d]"
-                  : "text-white/45"
+                  ? "bg-[#ff91c7] font-semibold text-[#17130d]"
+                  : "text-white/[0.45]"
               }`}
             >
               {label}
@@ -82,12 +82,12 @@ export default function BookingSandbox() {
 
       {mode === "booking" ? (
         <div className="grid min-h-[650px] lg:grid-cols-[280px_1fr]">
-          <aside className="border-b border-white/10 bg-white/[0.02] p-6 lg:border-b-0 lg:border-r">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#dfbe70]">
+          <aside className="border-b border-white/[0.10] bg-white/[0.02] p-6 lg:border-b-0 lg:border-r">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#ff91c7]">
               Purity of Hearts
             </p>
-            <h3 className="mt-4 font-serif text-3xl">Book with Susan</h3>
-            <p className="mt-3 text-xs leading-5 text-white/35">
+            <h3 className="mt-4 font-serif text-2xl">Book with Susan</h3>
+            <p className="mt-3 text-xs leading-5 text-white/[0.35]">
               Choose a session and complete a polished, mobile-friendly booking
               flow.
             </p>
@@ -98,15 +98,15 @@ export default function BookingSandbox() {
                     <div
                       className={`flex h-7 w-7 items-center justify-center rounded-full text-xs ${
                         step > index
-                          ? "bg-[#dfbe70] text-[#17130d]"
-                          : "border border-white/10 text-white/30"
+                          ? "bg-[#ff91c7] text-[#17130d]"
+                          : "border border-white/[0.10] text-white/[0.30]"
                       }`}
                     >
                       {step > index + 1 ? <Check size={13} /> : index + 1}
                     </div>
                     <span
                       className={`text-xs ${
-                        step === index + 1 ? "text-white/75" : "text-white/30"
+                        step === index + 1 ? "text-white/[0.75]" : "text-white/[0.30]"
                       }`}
                     >
                       {label}
@@ -115,13 +115,13 @@ export default function BookingSandbox() {
                 ),
               )}
             </div>
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+            <div className="mt-10 rounded-2xl border border-white/[0.10] bg-white/[0.035] p-4">
               <p className="text-xs font-medium">{selectedService.name}</p>
-              <p className="mt-2 text-[11px] text-white/35">
+              <p className="mt-2 text-[11px] text-white/[0.35]">
                 {selectedService.duration} · ${selectedService.price}
               </p>
               {step > 1 && (
-                <p className="mt-3 text-[11px] text-[#dfbe70]">
+                <p className="mt-3 text-[11px] text-[#ff91c7]">
                   {date} at {time}
                 </p>
               )}
@@ -132,11 +132,11 @@ export default function BookingSandbox() {
             <div className="w-full max-w-2xl">
               {confirmed ? (
                 <div className="py-12 text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#dfbe70] text-[#17130d]">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ff91c7] text-[#17130d]">
                     <Check size={27} />
                   </div>
-                  <h3 className="mt-7 font-serif text-4xl">You’re booked.</h3>
-                  <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-white/45">
+                  <h3 className="mt-7 font-serif text-3xl">You’re booked.</h3>
+                  <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-white/[0.45]">
                     A real system can collect payment, send confirmations and
                     reminders, update the owner dashboard, and sync the client
                     record automatically.
@@ -147,15 +147,15 @@ export default function BookingSandbox() {
                       setConfirmed(false);
                       setStep(1);
                     }}
-                    className="mt-8 rounded-full border border-white/10 px-6 py-3 text-sm text-white/60"
+                    className="mt-8 rounded-full border border-white/[0.10] px-6 py-3 text-sm text-white/[0.60]"
                   >
                     Try again
                   </button>
                 </div>
               ) : step === 1 ? (
                 <div>
-                  <p className="text-xs font-medium text-[#dfbe70]">Step 1 of 3</p>
-                  <h3 className="mt-3 font-serif text-4xl">Choose your session.</h3>
+                  <p className="text-xs font-medium text-[#ff91c7]">Step 1 of 3</p>
+                  <h3 className="mt-3 font-serif text-3xl">Choose your session.</h3>
                   <div className="mt-7 space-y-3">
                     {services.map((service) => (
                       <button
@@ -164,39 +164,39 @@ export default function BookingSandbox() {
                         onClick={() => setServiceId(service.id)}
                         className={`flex w-full items-center justify-between rounded-2xl border p-5 text-left transition ${
                           serviceId === service.id
-                            ? "border-[#dfbe70]/50 bg-[#dfbe70]/10"
-                            : "border-white/10 bg-white/[0.025] hover:bg-white/[0.05]"
+                            ? "border-[#ff91c7]/[0.50] bg-[#ff91c7]/[0.10]"
+                            : "border-white/[0.10] bg-white/[0.025] hover:bg-white/[0.05]"
                         }`}
                       >
                         <div>
                           <p className="text-sm font-medium">{service.name}</p>
-                          <p className="mt-2 text-xs text-white/35">
+                          <p className="mt-2 text-xs text-white/[0.35]">
                             {service.duration}
                           </p>
                         </div>
-                        <p className="text-sm text-[#dfbe70]">${service.price}</p>
+                        <p className="text-sm text-[#ff91c7]">${service.price}</p>
                       </button>
                     ))}
                   </div>
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[#dfbe70] px-6 py-4 text-sm font-semibold text-[#17130d]"
+                    className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[#ff91c7] px-6 py-4 text-sm font-semibold text-[#17130d]"
                   >
                     Continue <ArrowRight size={16} />
                   </button>
                 </div>
               ) : step === 2 ? (
                 <div>
-                  <p className="text-xs font-medium text-[#dfbe70]">Step 2 of 3</p>
-                  <h3 className="mt-3 font-serif text-4xl">Pick a date and time.</h3>
-                  <label className="mt-7 block text-xs text-white/45">
+                  <p className="text-xs font-medium text-[#ff91c7]">Step 2 of 3</p>
+                  <h3 className="mt-3 font-serif text-3xl">Pick a date and time.</h3>
+                  <label className="mt-7 block text-xs text-white/[0.45]">
                     Date
                     <input
                       type="date"
                       value={date}
                       onChange={(event) => setDate(event.target.value)}
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-sm text-white outline-none [color-scheme:dark]"
+                      className="mt-2 w-full rounded-2xl border border-white/[0.10] bg-white/[0.045] px-4 py-4 text-sm text-white outline-none [color-scheme:dark]"
                     />
                   </label>
                   <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -207,8 +207,8 @@ export default function BookingSandbox() {
                         onClick={() => setTime(item)}
                         className={`rounded-xl border px-4 py-3 text-xs transition ${
                           time === item
-                            ? "border-[#dfbe70]/50 bg-[#dfbe70]/10 text-[#efd48a]"
-                            : "border-white/10 text-white/45"
+                            ? "border-[#ff91c7]/[0.50] bg-[#ff91c7]/[0.10] text-[#efd48a]"
+                            : "border-white/[0.10] text-white/[0.45]"
                         }`}
                       >
                         {item}
@@ -219,14 +219,14 @@ export default function BookingSandbox() {
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="flex items-center gap-2 rounded-full border border-white/10 px-5 py-3.5 text-sm text-white/55"
+                      className="flex items-center gap-2 rounded-full border border-white/[0.10] px-5 py-3.5 text-sm text-white/[0.55]"
                     >
                       <ArrowLeft size={15} /> Back
                     </button>
                     <button
                       type="button"
                       onClick={() => setStep(3)}
-                      className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#dfbe70] px-6 py-3.5 text-sm font-semibold text-[#17130d]"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#ff91c7] px-6 py-3.5 text-sm font-semibold text-[#17130d]"
                     >
                       Continue <ArrowRight size={16} />
                     </button>
@@ -234,42 +234,42 @@ export default function BookingSandbox() {
                 </div>
               ) : (
                 <form onSubmit={finish}>
-                  <p className="text-xs font-medium text-[#dfbe70]">Step 3 of 3</p>
-                  <h3 className="mt-3 font-serif text-4xl">Complete your booking.</h3>
+                  <p className="text-xs font-medium text-[#ff91c7]">Step 3 of 3</p>
+                  <h3 className="mt-3 font-serif text-3xl">Complete your booking.</h3>
                   <div className="mt-7 grid gap-3 sm:grid-cols-2">
                     <input
                       required
                       placeholder="Full name"
-                      className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/25"
+                      className="rounded-2xl border border-white/[0.10] bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/[0.25]"
                     />
                     <input
                       required
                       type="email"
                       placeholder="Email address"
-                      className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/25"
+                      className="rounded-2xl border border-white/[0.10] bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/[0.25]"
                     />
                     <input
                       placeholder="Phone number"
-                      className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/25 sm:col-span-2"
+                      className="rounded-2xl border border-white/[0.10] bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/[0.25] sm:col-span-2"
                     />
                     <textarea
                       rows={4}
                       placeholder="What would you like to work on?"
-                      className="resize-none rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/25 sm:col-span-2"
+                      className="resize-none rounded-2xl border border-white/[0.10] bg-white/[0.045] px-4 py-4 text-sm outline-none placeholder:text-white/[0.25] sm:col-span-2"
                     />
                   </div>
-                  <p className="mt-4 text-[11px] text-white/25">
+                  <p className="mt-4 text-[11px] text-white/[0.25]">
                     Sandbox only—no payment or real appointment will be created.
                   </p>
                   <div className="mt-7 flex gap-3">
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="flex items-center gap-2 rounded-full border border-white/10 px-5 py-3.5 text-sm text-white/55"
+                      className="flex items-center gap-2 rounded-full border border-white/[0.10] px-5 py-3.5 text-sm text-white/[0.55]"
                     >
                       <ArrowLeft size={15} /> Back
                     </button>
-                    <button className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#dfbe70] px-6 py-3.5 text-sm font-semibold text-[#17130d]">
+                    <button className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#ff91c7] px-6 py-3.5 text-sm font-semibold text-[#17130d]">
                       Confirm demo booking <Check size={16} />
                     </button>
                   </div>
@@ -280,8 +280,8 @@ export default function BookingSandbox() {
         </div>
       ) : (
         <div className="grid min-h-[650px] lg:grid-cols-[220px_1fr]">
-          <aside className="border-b border-white/10 bg-white/[0.02] p-4 lg:border-b-0 lg:border-r">
-            <p className="px-3 py-4 text-[10px] uppercase tracking-[0.2em] text-white/30">
+          <aside className="border-b border-white/[0.10] bg-white/[0.02] p-4 lg:border-b-0 lg:border-r">
+            <p className="px-3 py-4 text-[10px] uppercase tracking-[0.2em] text-white/[0.30]">
               Command center
             </p>
             {[
@@ -297,8 +297,8 @@ export default function BookingSandbox() {
                 onClick={() => setDashboardTab(label)}
                 className={`mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm transition ${
                   dashboardTab === label
-                    ? "bg-[#dfbe70] font-medium text-[#17130d]"
-                    : "text-white/40 hover:bg-white/5"
+                    ? "bg-[#ff91c7] font-medium text-[#17130d]"
+                    : "text-white/[0.40] hover:bg-white/[0.05]"
                 }`}
               >
                 <Icon size={16} />
@@ -309,10 +309,10 @@ export default function BookingSandbox() {
           <div className="p-5 sm:p-8">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-xs text-[#dfbe70]">Owner dashboard</p>
-                <h3 className="mt-2 text-3xl font-semibold">{dashboardTab}</h3>
+                <p className="text-xs text-[#ff91c7]">Owner dashboard</p>
+                <h3 className="mt-2 text-2xl font-semibold">{dashboardTab}</h3>
               </div>
-              <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-[10px] text-emerald-300">
+              <div className="rounded-full border border-emerald-400/[0.20] bg-emerald-400/[0.10] px-3 py-1.5 text-[10px] text-emerald-300">
                 Demo data
               </div>
             </div>
@@ -326,39 +326,39 @@ export default function BookingSandbox() {
               ].map(([label, value, Icon]: any) => (
                 <div
                   key={label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.035] p-5"
+                  className="rounded-2xl border border-white/[0.10] bg-white/[0.035] p-5"
                 >
-                  <Icon size={17} className="text-[#dfbe70]" />
+                  <Icon size={17} className="text-[#ff91c7]" />
                   <p className="mt-5 text-2xl font-semibold">{value}</p>
-                  <p className="mt-2 text-xs text-white/35">{label}</p>
+                  <p className="mt-2 text-xs text-white/[0.35]">{label}</p>
                 </div>
               ))}
             </div>
 
             <div className="mt-5 grid gap-5 xl:grid-cols-[1.35fr_.65fr]">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+              <div className="rounded-2xl border border-white/[0.10] bg-white/[0.035] p-5">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium">Today’s schedule</p>
-                  <Clock3 size={16} className="text-white/25" />
+                  <Clock3 size={16} className="text-white/[0.25]" />
                 </div>
                 <div className="mt-5 space-y-2">
                   {demoBookings.map(([bookingTime, name, service, status]) => (
                     <div
                       key={`${bookingTime}-${name}`}
-                      className="grid grid-cols-[70px_1fr_auto] items-center gap-3 rounded-xl border border-white/8 bg-black/15 px-4 py-3"
+                      className="grid grid-cols-[70px_1fr_auto] items-center gap-3 rounded-xl border border-white/[0.08] bg-black/[0.15] px-4 py-3"
                     >
-                      <p className="text-xs text-[#dfbe70]">{bookingTime}</p>
+                      <p className="text-xs text-[#ff91c7]">{bookingTime}</p>
                       <div className="min-w-0">
                         <p className="truncate text-xs font-medium">{name}</p>
-                        <p className="mt-1 truncate text-[10px] text-white/30">
+                        <p className="mt-1 truncate text-[10px] text-white/[0.30]">
                           {service}
                         </p>
                       </div>
                       <span
                         className={`rounded-full px-2 py-1 text-[9px] ${
                           status === "Confirmed"
-                            ? "bg-emerald-400/10 text-emerald-300"
-                            : "bg-amber-400/10 text-amber-300"
+                            ? "bg-emerald-400/[0.10] text-emerald-300"
+                            : "bg-amber-400/[0.10] text-amber-300"
                         }`}
                       >
                         {status}
@@ -367,7 +367,7 @@ export default function BookingSandbox() {
                   ))}
                 </div>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+              <div className="rounded-2xl border border-white/[0.10] bg-white/[0.035] p-5">
                 <p className="text-sm font-medium">Weekly bookings</p>
                 <div className="mt-8 flex h-44 items-end justify-between gap-2">
                   {[40, 65, 52, 88, 72, 96, 62].map((height, index) => (
@@ -376,7 +376,7 @@ export default function BookingSandbox() {
                         className="w-full rounded-t-lg bg-gradient-to-t from-[#8f6e30] to-[#e6cb84]"
                         style={{ height: `${height}%` }}
                       />
-                      <span className="text-[9px] text-white/25">
+                      <span className="text-[9px] text-white/[0.25]">
                         {["M", "T", "W", "T", "F", "S", "S"][index]}
                       </span>
                     </div>

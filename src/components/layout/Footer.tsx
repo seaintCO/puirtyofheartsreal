@@ -1,49 +1,78 @@
-﻿import Link from "next/link";
-import { Heart } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Courses", href: "/courses" },
+  { label: "Education Platform", href: "/education" },
   { label: "PurityOS", href: "/purityos" },
-  { label: "Shop", href: "/shop" },
-  { label: "Book Susan", href: "/consultation" },
+  { label: "Work with Susan", href: "/private-advisory" },
+  { label: "About Susan", href: "/about" },
+  { label: "Member Portal", href: "/login" },
 ];
 
 export default function Footer({ dark = false }: { dark?: boolean }) {
   return (
     <footer
-      className={`border-t px-6 py-10 ${
+      className={`border-t px-5 py-10 sm:px-8 ${
         dark
-          ? "border-white/10 bg-[#0e0d0b] text-white"
-          : "border-[#1f1f1f]/5 bg-[#fffaf4] text-[#1f1f1f]"
+          ? "border-white/[0.08] bg-[#08080d] text-white"
+          : "border-white/[0.70] bg-white/[0.45] text-[#111116] backdrop-blur-2xl"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <Link href="/" className="text-lg font-semibold uppercase tracking-tight">
-          Purity of Hearts
-        </Link>
-
-        <div className="flex flex-wrap items-center gap-6">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className={`text-sm font-medium ${dark ? "text-white/45 hover:text-white" : "text-[#1f1f1f]/55 hover:text-[#1f1f1f]"}`}>
-              {item.label}
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 border-b pb-10 md:grid-cols-[1.4fr_1fr] md:items-end">
+          <div>
+            <div className="flex items-center gap-3">
+              <span
+                className={`flex h-9 w-9 items-center justify-center rounded-full border text-[10px] font-semibold ${
+                  dark
+                    ? "border-white/[0.12] bg-white/[0.07] text-white"
+                    : "border-white/[0.80] bg-white/[0.72] text-black shadow-sm"
+                }`}
+              >
+                PH
+              </span>
+              <p className="text-sm font-semibold">Purity Of Hearts</p>
+            </div>
+            <h2 className="mt-7 max-w-2xl text-2xl font-semibold leading-tight tracking-[-0.05em] sm:text-4xl">
+              Clear vision. Practical strategy. A business built to last.
+            </h2>
+          </div>
+          <div className="md:text-right">
+            <Link
+              href="/consultation"
+              className="liquid-button inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-6 py-3.5 text-sm font-semibold text-white"
+            >
+              Book a growth strategy call <ArrowUpRight size={15} />
             </Link>
-          ))}
+          </div>
         </div>
 
-        <div className={`flex flex-wrap items-center gap-4 text-sm ${dark ? "text-white/35" : "text-[#1f1f1f]/55"}`}>
-          <Link href="/privacy" className="hover:text-[#C9A75D]">Privacy</Link>
-          <Link href="/terms" className="hover:text-[#C9A75D]">Terms</Link>
-          <Link href="/returns" className="hover:text-[#C9A75D]">Returns</Link>
+        <div className="flex flex-col gap-7 pt-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-xs font-medium transition ${
+                  dark
+                    ? "text-white/[0.42] hover:text-white"
+                    : "text-black/[0.46] hover:text-black"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div
+            className={`flex flex-wrap items-center gap-5 text-[11px] ${
+              dark ? "text-white/[0.27]" : "text-black/[0.34]"
+            }`}
+          >
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <p>© 2026 Purity Of Hearts. Powered by SEAINT Enterprise.</p>
+          </div>
         </div>
-      </div>
-
-      <div className={`mx-auto mt-8 flex max-w-7xl flex-col gap-3 border-t pt-6 text-xs md:flex-row md:items-center md:justify-between ${dark ? "border-white/10 text-white/30" : "border-[#1f1f1f]/5 text-[#1f1f1f]/45"}`}>
-        <p>Copyright 2026 Purity of Hearts. All rights reserved.</p>
-        <p className="flex items-center gap-2">
-          Powered by SEAINT Enterprise <Heart size={13} className="text-[#C9A75D]" />
-        </p>
       </div>
     </footer>
   );

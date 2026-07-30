@@ -37,7 +37,7 @@ export async function GET() {
 
   if (error) {
     return NextResponse.json(
-      { error: error.message },
+      { error: "Resources could not be loaded." },
       { status: 500 },
     );
   }

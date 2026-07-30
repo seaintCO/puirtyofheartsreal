@@ -25,15 +25,15 @@ export default function BusinessCheatSheetCenter() {
     <section>
       <div className="mb-9 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
             Quick Reference Library
           </span>
 
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
             Business Cheat Sheets
           </h1>
 
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/45">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/[0.45]">
             Review the most important concepts, formulas, action steps, and
             connections across your business.
           </p>
@@ -55,8 +55,8 @@ export default function BusinessCheatSheetCenter() {
             onClick={() => setModuleNumber(item.module)}
             className={`shrink-0 rounded-full px-5 py-3 text-sm font-medium transition ${
               moduleNumber === item.module
-                ? "bg-[#C9A75D] text-[#111]"
-                : "border border-white/10 bg-white/[0.04] text-white/55 hover:text-white"
+                ? "bg-gradient-to-r from-[#f653a6] to-[#8f75ff] text-white"
+                : "border border-white/[0.10] bg-white/[0.04] text-white/[0.55] hover:text-white"
             }`}
           >
             Module {item.module}
@@ -64,17 +64,17 @@ export default function BusinessCheatSheetCenter() {
         ))}
       </div>
 
-      <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.04] p-6 md:p-10 print:border-black print:bg-white print:text-black">
-        <div className="border-b border-white/10 pb-8 print:border-black/10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C9A75D]">
+      <div className="liquid-card-dark rounded-[2.5rem] p-6 md:p-10 print:border-black print:bg-white print:text-black">
+        <div className="border-b border-white/[0.10] pb-8 print:border-black/[0.10]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff75b8]">
             Module {module.module}
           </p>
 
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">
             {module.title}
           </h2>
 
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/45 print:text-black/60">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/[0.45] print:text-black/[0.60]">
             {module.description}
           </p>
         </div>
@@ -83,15 +83,15 @@ export default function BusinessCheatSheetCenter() {
           {module.cheatSheet.map((section) => (
             <article
               key={section.title}
-              className="rounded-[2rem] border border-white/10 bg-[#181818] p-6 print:border-black/10 print:bg-white"
+              className="liquid-subcard-dark rounded-[2rem] p-6 print:border-black/[0.10] print:bg-white"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#C9A75D]/15 text-[#C9A75D]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ff75b8]/[0.15] text-[#ff75b8]">
                 <Lightbulb size={21} />
               </div>
 
               <h3 className="mt-5 text-xl font-semibold">{section.title}</h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-white/45 print:text-black/60">
+              <p className="mt-3 text-sm leading-relaxed text-white/[0.45] print:text-black/[0.60]">
                 {section.summary}
               </p>
 
@@ -99,10 +99,10 @@ export default function BusinessCheatSheetCenter() {
                 {section.points.map((point) => (
                   <div
                     key={point}
-                    className="flex items-start gap-3 text-sm leading-relaxed text-white/65 print:text-black/75"
+                    className="flex items-start gap-3 text-sm leading-relaxed text-white/[0.65] print:text-black/[0.75]"
                   >
                     <CheckCircle2
-                      className="mt-0.5 shrink-0 text-[#C9A75D]"
+                      className="mt-0.5 shrink-0 text-[#ff75b8]"
                       size={16}
                     />
                     <span>{point}</span>
@@ -111,8 +111,8 @@ export default function BusinessCheatSheetCenter() {
               </div>
 
               {section.formula && (
-                <div className="mt-6 rounded-2xl border border-[#C9A75D]/20 bg-[#C9A75D]/10 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+                <div className="mt-6 rounded-2xl border border-[#ff75b8]/[0.20] bg-[#ff75b8]/[0.10] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
                     Formula
                   </p>
 
@@ -123,15 +123,15 @@ export default function BusinessCheatSheetCenter() {
               )}
 
               {section.action && (
-                <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.04] p-4 print:border-black/10">
-                  <div className="flex items-center gap-2 text-[#C9A75D]">
+                <div className="mt-5 rounded-2xl border border-white/[0.10] bg-white/[0.045] backdrop-blur-2xl p-4 print:border-black/[0.10]">
+                  <div className="flex items-center gap-2 text-[#ff75b8]">
                     <Link2 size={15} />
                     <p className="text-xs font-semibold uppercase tracking-widest">
                       Apply It
                     </p>
                   </div>
 
-                  <p className="mt-3 text-sm leading-relaxed text-white/60 print:text-black/70">
+                  <p className="mt-3 text-sm leading-relaxed text-white/[0.60] print:text-black/[0.70]">
                     {section.action}
                   </p>
                 </div>
@@ -140,12 +140,12 @@ export default function BusinessCheatSheetCenter() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-[2rem] border border-[#C9A75D]/25 bg-[#C9A75D]/10 p-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
+        <div className="mt-8 rounded-[2rem] border border-[#ff75b8]/[0.25] bg-[#ff75b8]/[0.10] p-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#ff75b8]">
             How This Module Connects
           </p>
 
-          <p className="mt-3 max-w-4xl text-sm leading-relaxed text-white/65 print:text-black/70">
+          <p className="mt-3 max-w-4xl text-sm leading-relaxed text-white/[0.65] print:text-black/[0.70]">
             {module.module === 1 &&
               "Strong financial and strategic foundations help every later business function make better decisions."}
 
@@ -168,7 +168,7 @@ export default function BusinessCheatSheetCenter() {
 
         <button
           onClick={printSheet}
-          className="mt-8 flex items-center gap-2 rounded-full bg-[#C9A75D] px-7 py-3.5 text-sm font-medium text-white print:hidden"
+          className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f653a6] to-[#8f75ff] px-7 py-3.5 text-sm font-medium text-white print:hidden"
         >
           <Download size={16} />
           Save as PDF

@@ -12,7 +12,7 @@ export default function Shop() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6b31]">
               Purity Luma · Coming soon
             </p>
-            <h2 className="mt-6 max-w-3xl text-[clamp(2.8rem,6vw,5.2rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-[#111]">
+            <h2 className="mt-6 max-w-3xl text-[clamp(2.2rem,4.7vw,4rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-[#111]">
               Light, thoughtfully designed.
             </h2>
           </div>
@@ -38,12 +38,12 @@ export default function Shop() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition duration-700 group-hover:scale-[1.035]"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#745a2c] backdrop-blur-xl">
+                <span className="absolute left-4 top-4 rounded-full bg-white/[0.85] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#745a2c] backdrop-blur-xl">
                   Coming soon
                 </span>
               </div>
               <div className="px-1 pt-5">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-[#a88643]">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-[#e83491]">
                   {product.eyebrow}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em]">

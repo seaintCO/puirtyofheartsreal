@@ -43,69 +43,66 @@ export default async function EnrollPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#111] px-6 py-24 text-white">
+    <main className="liquid-page-dark relative min-h-screen overflow-hidden px-5 py-20 text-white sm:px-8 sm:py-24">
+      <div className="liquid-grid pointer-events-none absolute inset-0 opacity-20" />
+      <div className="liquid-orb left-[-12rem] top-[-12rem] h-[38rem] w-[38rem] bg-[#ff4fa3]/[0.22]" />
+      <div className="liquid-orb bottom-[-13rem] right-[-10rem] h-[40rem] w-[40rem] bg-[#8b67ff]/[0.20]" />
+
       <Link
-        href="/"
-        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium"
+        href="/education"
+        className="liquid-glass-dark relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white/[0.65]"
       >
         <ArrowLeft size={15} />
-        Back Home
+        Back to platform
       </Link>
 
-      <section className="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-[1fr_440px] lg:items-center">
+      <section className="relative mx-auto mt-14 grid max-w-6xl gap-12 lg:grid-cols-[1fr_440px] lg:items-center">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
-            Purity of Hearts
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff91c7]">
+            Purity Of Hearts
           </span>
-
-          <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-tight tracking-tight md:text-7xl">
-            Begin your coaching and course journey.
+          <h1 className="liquid-title mt-5 max-w-3xl pb-[0.1em] text-[clamp(2.35rem,5vw,4.35rem)] font-semibold leading-[0.98]">
+            Your learning platform is ready.
           </h1>
-
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/55">
-            Get access to Susan&apos;s lessons, coaching resources, quizzes,
-            personal notes, progress tracking, and private community.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/[0.43]">
+            Unlock Susan&apos;s lessons, learning resources, quizzes, personal
+            notes, progress tracking, study tools, and private community.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {features.map(([Icon, label]: any) => (
-              <div
-                key={label}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4"
-              >
-                <Icon className="text-[#C9A75D]" size={20} />
-                <span className="text-sm text-white/75">{label}</span>
-              </div>
-            ))}
+            {features.map(([Icon, label]) => {
+              const ItemIcon = Icon as typeof Video;
+              return (
+                <div key={label as string} className="liquid-glass-dark flex items-center gap-3 rounded-2xl p-4">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4fa3]/[0.12] text-[#ff91c7]">
+                    <ItemIcon size={18} />
+                  </span>
+                  <span className="text-sm text-white/[0.68]">{label as string}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 shadow-2xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A75D]">
-            Complete Enrollment
+        <div className="liquid-glass-dark rounded-[2.2rem] p-7 sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff91c7]">
+            Complete enrollment
           </p>
-
-          <h2 className="mt-4 text-3xl font-semibold">
+          <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em]">
             Purity Leadership Program
           </h2>
-
-          <p className="mt-4 text-sm leading-relaxed text-white/55">
-            Your account is ready. Complete your secure Stripe payment to
-            unlock the student dashboard.
+          <p className="mt-4 text-sm leading-relaxed text-white/[0.43]">
+            Your account is ready. Complete the secure Stripe checkout to unlock the member dashboard.
           </p>
 
-          <div className="my-8 border-y border-white/10 py-6">
-            <p className="text-xs uppercase tracking-widest text-white/35">
-              Logged in as
-            </p>
-            <p className="mt-2 text-sm font-medium text-white">
-              {user.email}
-            </p>
+          <div className="my-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] p-4">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-white/[0.28]">Logged in as</p>
+            <p className="mt-2 text-sm font-medium text-white/[0.78]">{user.email}</p>
           </div>
 
           <CheckoutButton />
 
-          <p className="mt-5 text-center text-xs leading-relaxed text-white/35">
+          <p className="mt-5 text-center text-xs leading-relaxed text-white/[0.30]">
             Secure checkout powered by Stripe.
           </p>
         </div>

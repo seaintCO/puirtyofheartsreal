@@ -25,6 +25,9 @@ const privatePageHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  outputFileTracingIncludes: {
+    "/api/vip/resource/[resource]": ["./src/private-assets/**/*"],
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

@@ -15,6 +15,8 @@ import {
   ScrollText,
   Settings,
   Trophy,
+  Crown,
+  UsersRound,
 } from "lucide-react";
 
 export const dashboardItems = [
@@ -31,28 +33,32 @@ export const dashboardItems = [
   { label: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 
+export const vipDashboardItem = { label: "GTTF VIP", href: "/dashboard/vip", icon: Crown };
+
 export const adminDashboardItems = [
   { label: "Resource Admin", href: "/dashboard/admin/resources", icon: FolderOpen },
   { label: "Consultations", href: "/dashboard/admin/consultations", icon: MessageCircle },
   { label: "Growth CRM", href: "/dashboard/admin/advisory", icon: BriefcaseBusiness },
+  { label: "VIP Clients", href: "/dashboard/admin/vip", icon: UsersRound },
 ];
 
 export default function DashboardSidebar({
   isAdmin = false,
+  isVip = false,
 }: {
   isAdmin?: boolean;
+  isVip?: boolean;
 }) {
   const pathname = usePathname();
-  const items = isAdmin
-    ? [...dashboardItems, ...adminDashboardItems]
-    : dashboardItems;
+  const memberItems = isVip ? [dashboardItems[0], vipDashboardItem, ...dashboardItems.slice(1)] : dashboardItems;
+  const items = isAdmin ? [...memberItems, ...adminDashboardItems] : memberItems;
 
   return (
     <aside className="liquid-glass-dark sticky top-4 m-4 hidden h-[calc(100vh_-_2rem)] w-64 shrink-0 rounded-[2rem] p-4 lg:block">
       <Link href="/" className="mb-6 flex items-center gap-3 rounded-[1.25rem] border border-white/[0.08] bg-white/[0.035] p-3.5">
         <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-white text-[9px] font-semibold text-black">
           <span className="absolute inset-0 bg-gradient-to-br from-[#f45aa4]/[0.32] to-[#8b5cf6]/[0.18]" />
-          <span className="relative">SW</span>
+          <span className="relative">PH</span>
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white">Purity Of Hearts</p>

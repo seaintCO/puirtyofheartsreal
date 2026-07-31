@@ -17,3 +17,7 @@ node_modules
 playlist-metadata.json
 supabase/.temp/
 tsconfig.tsbuildinfo
+.next/
+node_modules/
+.env.production
+.env.development

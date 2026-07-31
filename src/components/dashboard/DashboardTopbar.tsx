@@ -8,22 +8,28 @@ import { createClient } from "@/lib/supabase/client";
 import {
   adminDashboardItems,
   dashboardItems,
+  vipDashboardItem,
 } from "@/components/dashboard/DashboardSidebar";
 
 export default function DashboardTopbar({
   studentName,
   isAdmin = false,
+  isVip = false,
 }: {
   studentName: string;
   isAdmin?: boolean;
+  isVip?: boolean;
 }) {
   const supabase = createClient();
   const pathname = usePathname();
   const [query, setQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const items = useMemo(
-    () => (isAdmin ? [...dashboardItems, ...adminDashboardItems] : dashboardItems),
-    [isAdmin],
+    () => {
+      const memberItems = isVip ? [dashboardItems[0], vipDashboardItem, ...dashboardItems.slice(1)] : dashboardItems;
+      return isAdmin ? [...memberItems, ...adminDashboardItems] : memberItems;
+    },
+    [isAdmin, isVip],
   );
   const suggestions = query.trim()
     ? items.filter((item) => item.label.toLowerCase().includes(query.trim().toLowerCase()))

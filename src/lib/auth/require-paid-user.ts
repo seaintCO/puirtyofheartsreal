@@ -16,7 +16,7 @@ export async function requirePaidUser() {
   const { data: profile, error: profileError } =
     await supabase
       .from("profiles")
-      .select("id, email, full_name, role, paid")
+      .select("id, email, full_name, role, paid, vip_access")
       .eq("id", user.id)
       .single();
 
@@ -24,7 +24,7 @@ export async function requirePaidUser() {
     redirect("/login");
   }
 
-  if (!profile.paid && profile.role !== "admin") {
+  if (!profile.paid && !profile.vip_access && profile.role !== "admin") {
     redirect("/enroll");
   }
 

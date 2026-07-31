@@ -28,7 +28,7 @@ export default async function DashboardLayout({
 
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
-    .select("paid, full_name, role")
+    .select("paid, full_name, role, vip_access")
     .eq("id", user.id)
     .single();
 
@@ -36,7 +36,7 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
-  if (!profile.paid && profile.role !== "admin") {
+  if (!profile.paid && !profile.vip_access && profile.role !== "admin") {
     redirect("/enroll");
   }
 
@@ -47,12 +47,13 @@ export default async function DashboardLayout({
       <div className="pointer-events-none fixed bottom-[-22rem] left-[36%] h-[42rem] w-[42rem] rounded-full bg-[#5bb3ff]/[0.08] blur-[170px]" />
 
       <div className="relative flex min-h-screen">
-        <DashboardSidebar isAdmin={profile.role === "admin"} />
+        <DashboardSidebar isAdmin={profile.role === "admin"} isVip={profile.vip_access || profile.role === "admin"} />
 
         <div className="min-w-0 flex-1">
           <DashboardTopbar
             studentName={profile.full_name || user.email || "Student"}
             isAdmin={profile.role === "admin"}
+            isVip={profile.vip_access || profile.role === "admin"}
           />
 
           <main className="p-4 pt-5 sm:p-6 sm:pt-6 md:p-8 md:pt-7">

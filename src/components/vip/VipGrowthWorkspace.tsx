@@ -1,13 +1,11 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
-  BookOpen,
   Check,
   ChevronDown,
   Circle,
-  Download,
   LoaderCircle,
   Plus,
   Save,
@@ -67,6 +65,7 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
   const [checkins, setCheckins] = useState(initialCheckins);
   const [saving, setSaving] = useState("");
   const [openSection, setOpenSection] = useState(0);
+  const initialWorkspaceRef = useRef(true);
   const completedActions = actions.filter((item) => item.status === "done").length;
   const progress = actions.length ? Math.round((completedActions / actions.length) * 100) : 0;
 
@@ -85,6 +84,18 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
     try { await send({ action: "save-workspace", ...workspace }); }
     finally { setSaving(""); }
   }
+
+  useEffect(() => {
+    if (initialWorkspaceRef.current) {
+      initialWorkspaceRef.current = false;
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      setSaving("autosave");
+      void send({ action: "save-workspace", ...workspace }).finally(() => setSaving(""));
+    }, 1200);
+    return () => window.clearTimeout(timer);
+  }, [workspace]);
 
   async function addGoal(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -164,8 +175,8 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
                       <textarea value={workspace[key] || ""} onChange={(event) => setWorkspace((current) => ({ ...current, [key]: event.target.value }))} rows={5} className="mt-2 w-full resize-y rounded-[1.2rem] border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/70 outline-none transition focus:border-[#f45aa4]/50" placeholder="Capture your thinking here…" />
                     </label>
                   ))}
-                  <button onClick={saveWorkspace} disabled={saving === "workspace"} className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-6 py-3.5 text-sm font-semibold text-white disabled:opacity-60">
-                    {saving === "workspace" ? <LoaderCircle size={16} className="animate-spin" /> : <Save size={16} />} Save playbook
+                  <button onClick={saveWorkspace} disabled={saving === "workspace" || saving === "autosave"} className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-6 py-3.5 text-sm font-semibold text-white disabled:opacity-60">
+                    {saving === "workspace" || saving === "autosave" ? <LoaderCircle size={16} className="animate-spin" /> : <Save size={16} />} {saving === "autosave" ? "Saving automatically…" : "Save playbook"}
                   </button>
                 </div>
               )}
@@ -175,13 +186,10 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
 
         <aside className="space-y-5">
           <section className="liquid-glass-dark rounded-[1.7rem] p-5 sm:p-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Private resources</p>
-            <h2 className="mt-3 text-xl font-semibold">Susan’s coaching library</h2>
-            <p className="mt-2 text-xs leading-5 text-white/35">Reference materials remain attributed to The Alternative Board and are available only inside VIP access.</p>
-            <div className="mt-5 space-y-2">
-              <a href="/api/vip/resource/playbook" className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-sm text-white/65 hover:bg-white/[0.06]"><span className="flex items-center gap-3"><Target size={16} className="text-[#ff91c4]" />The Playbook Overview</span><Download size={15} /></a>
-              <a href="/api/vip/resource/coach" className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-sm text-white/65 hover:bg-white/[0.06]"><span className="flex items-center gap-3"><BookOpen size={16} className="text-[#a78bfa]" />How to Be a Great Coach</span><Download size={15} /></a>
-            </div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Your interactive Playbook</p>
+            <h2 className="mt-3 text-xl font-semibold">Your answers guide every session.</h2>
+            <p className="mt-3 text-xs leading-6 text-white/38">As you complete the vision, strategy, KPI, goals, and session-preparation sections, Susan’s private CRM automatically organizes them into your coaching brief and next-session agenda.</p>
+            <div className="mt-5 rounded-2xl border border-[#ff91c4]/20 bg-[#ff91c4]/[0.06] p-4 text-xs leading-6 text-white/50">The internal coaching methodology and Susan’s private notes are never visible in the client dashboard.</div>
           </section>
 
           <form onSubmit={addGoal} className="liquid-glass-dark rounded-[1.7rem] p-5 sm:p-6">

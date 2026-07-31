@@ -30,8 +30,8 @@ export async function GET(_: Request, { params }: { params: Promise<{ resource: 
     .select("role, vip_access")
     .eq("id", user.id)
     .single();
-  if (!profile || (!profile.vip_access && profile.role !== "admin")) {
-    return NextResponse.json({ error: "VIP access required" }, { status: 403 });
+  if (!profile || (resource === "coach" ? profile.role !== "admin" : (!profile.vip_access && profile.role !== "admin"))) {
+    return NextResponse.json({ error: resource === "coach" ? "Admin access required" : "VIP access required" }, { status: 403 });
   }
 
   const filePath = path.join(process.cwd(), "src", "private-assets", entry.file);

@@ -6,6 +6,7 @@ import {
   BookOpen,
   Brain,
   BriefcaseBusiness,
+  BrainCircuit,
   CheckSquare,
   FolderOpen,
   GraduationCap,
@@ -40,6 +41,7 @@ export const adminDashboardItems = [
   { label: "Consultations", href: "/dashboard/admin/consultations", icon: MessageCircle },
   { label: "Growth CRM", href: "/dashboard/admin/advisory", icon: BriefcaseBusiness },
   { label: "VIP Clients", href: "/dashboard/admin/vip", icon: UsersRound },
+  { label: "Coach Intelligence", href: "/dashboard/admin/coach-intelligence", icon: BrainCircuit },
 ];
 
 export default function DashboardSidebar({

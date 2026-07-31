@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Crown, LoaderCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Crown, LoaderCircle } from "lucide-react";
 
 type Client = { id: string; full_name: string | null; email: string | null; vip_access: boolean; paid: boolean; updated_at: string };
 
@@ -29,7 +30,7 @@ export default function VipClientAdmin({ initialClients }: { initialClients: Cli
         {clients.map((client) => (
           <div key={client.id} className="flex flex-col gap-4 border-b border-white/10 p-5 last:border-b-0 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4"><span className={`flex h-11 w-11 items-center justify-center rounded-full ${client.vip_access ? "bg-gradient-to-br from-[#f45aa4] to-[#8b5cf6]" : "bg-white/[0.06]"}`}><Crown size={17} /></span><div><p className="text-sm font-semibold">{client.full_name || "Member"}</p><p className="mt-1 text-xs text-white/35">{client.email}</p></div></div>
-            <button onClick={() => toggle(client)} disabled={saving === client.id} className={`rounded-full px-5 py-2.5 text-xs font-semibold ${client.vip_access ? "border border-white/10 text-white/55" : "bg-white text-black"}`}>{saving === client.id ? <LoaderCircle size={14} className="animate-spin" /> : client.vip_access ? "Remove VIP" : "Grant VIP"}</button>
+            <div className="flex items-center gap-2">{client.vip_access && <Link href={`/dashboard/admin/vip/${client.id}`} className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-5 py-2.5 text-xs font-semibold text-white">Open client room <ArrowRight size={14}/></Link>}<button onClick={() => toggle(client)} disabled={saving === client.id} className={`rounded-full px-5 py-2.5 text-xs font-semibold ${client.vip_access ? "border border-white/10 text-white/55" : "bg-white text-black"}`}>{saving === client.id ? <LoaderCircle size={14} className="animate-spin" /> : client.vip_access ? "Remove VIP" : "Grant VIP"}</button></div>
           </div>
         ))}
       </div>

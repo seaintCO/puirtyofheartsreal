@@ -1,32 +1,31 @@
 {
-  "name": "purity-of-hearts",
-  "version": "1.0.0",
+  "name": "altaprivateequity",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run build"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@supabase/ssr": "0.12.0",
-    "@supabase/supabase-js": "2.110.2",
-    "framer-motion": "12.42.2",
-    "lucide-react": "1.23.0",
+    "framer-motion": "^12.42.2",
+    "lucide-react": "^1.23.0",
     "next": "16.2.10",
-    "openai": "^6.48.0",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "stripe": "22.3.1"
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "three": "^0.185.1",
+    "unicornstudio-react": "^2.1.12-1"
   },
   "devDependencies": {
-    "@types/node": "26.1.0",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
-    "autoprefixer": "10.5.2",
-    "postcss": "8.5.16",
-    "tailwindcss": "3.4.19",
-    "typescript": "6.0.3"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.185.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

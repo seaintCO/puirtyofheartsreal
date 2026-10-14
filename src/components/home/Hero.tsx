@@ -1,104 +1,318 @@
-import Link from "next/link";
-import { ArrowRight, Check, Play } from "lucide-react";
-import { businessLessons } from "@/data/business-course";
+"use client";
+
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { useLanguage } from "@/i18n/LanguageProvider";
+
+const labels = [
+  { text: { en: "PRIVATE_EQUITY", es: "CAPITAL_PRIVADO" }, position: new THREE.Vector3(0, 3, 3) },
+  { text: { en: "VENTURE_CAPITAL", es: "CAPITAL_DE_RIESGO" }, position: new THREE.Vector3(-3, -1, 3.5) },
+  { text: { en: "STRATEGIC_ADVISORY", es: "ASESORÍA_ESTRATÉGICA" }, position: new THREE.Vector3(3, -2, 2.5) },
+];
 
 export default function Hero() {
+  const { language } = useLanguage();
+  const mountRef = useRef<HTMLDivElement | null>(null);
+  const blobRef = useRef<HTMLDivElement | null>(null);
+  const markerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const lineRefs = useRef<(SVGLineElement | null)[]>([]);
+
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    const mount = mountRef.current;
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffffff);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 25;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(
+      isMobile
+        ? Math.min(window.devicePixelRatio, 1.25)
+        : Math.min(window.devicePixelRatio, 2)
+    );
+    mount.appendChild(renderer.domElement);
+
+    const mainGroup = new THREE.Group();
+    mainGroup.position.x = window.innerWidth < 640 ? 1.5 : window.innerWidth < 768 ? 2.5 : 5;
+    scene.add(mainGroup);
+
+    const uniforms = {
+      uTime: { value: 0 },
+      uDistortion: { value: 0.8 },
+      uSize: { value: 1.8 },
+      uColor: { value: new THREE.Color("#00c8ff") },
+      uOpacity: { value: 0.55 },
+      uMouse: { value: new THREE.Vector2(0, 0) },
+    };
+
+    const vertexShader = `
+      uniform float uTime, uDistortion, uSize;
+      uniform vec2 uMouse;
+      varying float vAlpha;
+
+      float snoise(vec3 v) {
+        return fract(sin(dot(v, vec3(12.9898, 78.233, 45.164))) * 43758.5453);
+      }
+
+      void main() {
+        vec3 pos = position;
+        float noise = snoise(pos * 0.1 + uTime * 0.05);
+        vec3 dir = normalize(pos);
+        vec3 finalPos = pos + (dir * noise * uDistortion);
+        float mDist = distance(uMouse * 8.0, finalPos.xy);
+        finalPos += dir * smoothstep(5.0, 0.0, mDist) * 0.4;
+        vec4 mvPos = modelViewMatrix * vec4(finalPos, 1.0);
+        gl_Position = projectionMatrix * mvPos;
+        gl_PointSize = uSize * (15.0 / -mvPos.z);
+        vAlpha = 0.8;
+      }
+    `;
+
+    const fragmentShader = `
+      uniform vec3 uColor;
+      uniform float uOpacity;
+      varying float vAlpha;
+
+      void main() {
+        if (length(gl_PointCoord - 0.5) > 0.5) discard;
+        float alpha = smoothstep(0.5, 0.3, length(gl_PointCoord - 0.5)) * uOpacity * vAlpha;
+        gl_FragColor = vec4(uColor, alpha);
+      }
+    `;
+
+    const particleDetail = isMobile ? 36 : 48;
+    const particleMesh = new THREE.Points(
+      new THREE.SphereGeometry(5, particleDetail, particleDetail),
+      new THREE.ShaderMaterial({
+        vertexShader,
+        fragmentShader,
+        uniforms,
+        transparent: true,
+        depthWrite: false,
+      })
+    );
+
+    mainGroup.add(particleMesh);
+
+    const moveMouse = (e: MouseEvent) => {
+      uniforms.uMouse.value.set((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
+
+      if (blobRef.current) {
+        blobRef.current.style.left = `${e.clientX}px`;
+        blobRef.current.style.top = `${e.clientY}px`;
+      }
+    };
+
+    document.addEventListener("mousemove", moveMouse);
+
+    const connections = [[0, 1], [1, 2], [2, 0]];
+    let frame = 0;
+    let lastRender = 0;
+    let isVisible = true;
+    const mobileFrameInterval = 1000 / 30;
+    const desktopFrameInterval = 1000 / 45;
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { rootMargin: "120px" }
+    );
+    visibilityObserver.observe(mount);
+
+    const animate = (t: number) => {
+      frame = requestAnimationFrame(animate);
+
+      if (document.hidden || !isVisible) return;
+
+      const frameInterval = isMobile ? mobileFrameInterval : desktopFrameInterval;
+      if (t - lastRender < frameInterval) return;
+      lastRender = t;
+
+      uniforms.uTime.value = t * 0.001;
+      particleMesh.rotation.y += 0.001;
+      particleMesh.rotation.x += 0.0005;
+
+      const screenPts = labels.map((p, i) => {
+        const v = p.position.clone().applyEuler(particleMesh.rotation).applyMatrix4(particleMesh.matrix).applyMatrix4(mainGroup.matrixWorld).project(camera);
+        const x = (v.x * 0.5 + 0.5) * window.innerWidth;
+        const y = (-(v.y * 0.5) + 0.5) * window.innerHeight;
+
+        const marker = markerRefs.current[i];
+        if (marker) marker.style.transform = `translate(${x}px, ${y}px)`;
+
+        return { x, y };
+      });
+
+      connections.forEach(([a, b], i) => {
+        const line = lineRefs.current[i];
+        if (!line) return;
+        line.setAttribute("x1", String(screenPts[a].x));
+        line.setAttribute("y1", String(screenPts[a].y));
+        line.setAttribute("x2", String(screenPts[b].x));
+        line.setAttribute("y2", String(screenPts[b].y));
+      });
+
+      renderer.render(scene, camera);
+    };
+
+    frame = requestAnimationFrame(animate);
+
+    const resize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(
+        window.innerWidth < 768
+          ? Math.min(window.devicePixelRatio, 1.25)
+          : Math.min(window.devicePixelRatio, 2)
+      );
+      mainGroup.position.x = window.innerWidth < 640 ? 1.5 : window.innerWidth < 768 ? 2.5 : 5;
+    };
+
+    window.addEventListener("resize", resize);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("mousemove", moveMouse);
+      window.removeEventListener("resize", resize);
+      visibilityObserver.disconnect();
+      mount.removeChild(renderer.domElement);
+      renderer.dispose();
+    };
+  }, []);
+
   return (
-    <section className="overflow-hidden bg-[#f5f5f7] px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:pb-36 lg:pt-28">
-      <div className="mx-auto max-w-6xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6b31]">
-          Faith. Business. A life with direction.
-        </p>
-        <h1 className="mx-auto mt-6 max-w-5xl text-[clamp(2.8rem,7.2vw,5.9rem)] font-semibold leading-[0.88] tracking-[-0.065em] text-[#111]">
-          Grow with clarity.
-          <span className="mt-2 block text-[#a28142]">Lead with purpose.</span>
-        </h1>
-        <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-[#1d1d1f]/[0.58] sm:text-xl sm:leading-8">
-          A private learning and coaching experience for people building a
-          business, strengthening their faith, and becoming more intentional
-          about what comes next.
-        </p>
-        <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <Link
-            href="/enroll"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#8c6b30]"
+    <section className="relative h-[88vh] w-full overflow-hidden bg-white text-[#0a0c0e] antialiased selection:bg-cyan-300">
+      <style jsx global>{`
+        @keyframes dash {
+          to {
+            stroke-dashoffset: -100;
+          }
+        }
+
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes shimmer {
+          0%, 100% {
+            background-position: 200% 0;
+          }
+          50% {
+            background-position: 0% 0;
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 1s ease-out forwards;
+        }
+
+        .headline-shimmer {
+          background: linear-gradient(90deg, #020617 0%, #00c8ff 40%, #38bdf8 50%, #00c8ff 60%, #020617 100%);
+          background-size: 200% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .svg-line {
+          stroke: rgba(34,211,238,.18);
+          stroke-width: 0.5;
+        }
+
+        .svg-line.active {
+          stroke: rgba(34,211,238,.45);
+          stroke-dasharray: 2 4;
+          animation: dash 15s linear infinite;
+        }
+      `}</style>
+
+      <div
+        ref={blobRef}
+        className="pointer-events-none absolute z-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,145,255,0.10)_0%,rgba(255,255,255,0)_70%)]"
+      />
+
+      <svg className="pointer-events-none absolute inset-0 z-[5] h-full w-full">
+        {[0, 1, 2].map((_, i) => (
+          <line
+            key={i}
+            ref={(el) => {
+              lineRefs.current[i] = el;
+            }}
+            className={i === 0 ? "svg-line active" : "svg-line"}
+          />
+        ))}
+      </svg>
+
+      <div className="absolute inset-0 z-10">
+        {labels.map((item, i) => (
+          <div
+            key={item.text.en}
+            ref={(el) => {
+              markerRefs.current[i] = el;
+            }}
+            className="pointer-events-none absolute z-10 h-0 w-0"
           >
-            Explore the program <ArrowRight size={15} />
-          </Link>
-          <Link
-            href="/purityos"
-            className="inline-flex items-center justify-center rounded-full border border-black/[0.10] bg-white px-7 py-4 text-sm font-semibold text-[#111] transition hover:border-black/[0.20]"
-          >
-            Meet PurityOS
-          </Link>
-        </div>
-      </div>
-
-      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
-        <div className="rounded-[2rem] border border-black/[0.06] bg-white p-3 shadow-[0_35px_100px_rgba(0,0,0,.12)] sm:rounded-[2.6rem] sm:p-4">
-          <div className="overflow-hidden rounded-[1.45rem] bg-[#0a0a0a] text-white sm:rounded-[2rem]">
-            <div className="flex items-center justify-between border-b border-white/[0.10] px-5 py-4 sm:px-8 sm:py-5">
-              <div>
-                <p className="text-xs font-semibold">Purity Member Portal</p>
-                <p className="mt-1 hidden text-[11px] text-white/[0.35] sm:block">
-                  Learning, progress, and support in one place
-                </p>
-              </div>
-              <span className="rounded-full bg-white/[0.10] px-3 py-1.5 text-[10px] text-white/[0.55]">
-                Member view
-              </span>
-            </div>
-
-            <div className="grid gap-4 p-4 sm:p-6 lg:grid-cols-[1.3fr_.7fr] lg:p-8">
-              <div className="rounded-[1.5rem] bg-[#191919] p-5 sm:p-8">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#d9bb6d]">
-                    Continue learning
-                  </span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-black">
-                    <Play size={14} fill="currentColor" />
-                  </span>
-                </div>
-                <h2 className="mt-12 max-w-xl text-2xl font-semibold leading-tight tracking-[-0.035em] sm:mt-16 sm:text-4xl">
-                  Business Management
-                  <br />
-                  &amp; Leadership
-                </h2>
-                <div className="mt-8 h-1.5 overflow-hidden rounded-full bg-white/[0.10]">
-                  <div className="h-full w-[47%] rounded-full bg-[#d9bb6d]" />
-                </div>
-                <div className="mt-3 flex justify-between text-[11px] text-white/[0.35]">
-                  <span>15 of {businessLessons.length} lessons</span>
-                  <span>47%</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
-                {[
-                  ["Curriculum", `${businessLessons.length} lessons`],
-                  ["Study tools", "Quizzes + notes"],
-                  ["Progress", "Saved securely"],
-                ].map(([label, value], index) => (
-                  <div
-                    key={label}
-                    className={`rounded-[1.35rem] border border-white/[0.10] bg-white/[0.045] p-4 sm:p-5 ${
-                      index === 2 ? "col-span-2 lg:col-span-1" : ""
-                    }`}
-                  >
-                    <p className="text-[10px] uppercase tracking-[0.16em] text-white/[0.30]">
-                      {label}
-                    </p>
-                    <p className="mt-4 flex items-center gap-2 text-sm font-medium text-white/[0.75]">
-                      <Check size={14} className="text-[#d9bb6d]" />
-                      {value}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <div className="absolute h-[3px] w-[3px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,.45)]" />
+            <div className="absolute left-[-3px] top-[-3px] h-2 w-2 -translate-x-1/2 -translate-y-1/2 border-l border-t border-cyan-400" />
+            <div className="absolute bottom-[-3px] right-[-3px] h-2 w-2 -translate-x-1/2 -translate-y-1/2 border-b border-r border-cyan-400" />
+            <div className="absolute left-2.5 top-2.5 whitespace-nowrap rounded-[1px] bg-cyan-400 px-1 py-[1px] font-mono text-[8px] tracking-[0.05em] text-white">
+              {item.text[language]}
             </div>
           </div>
-        </div>
+        ))}
       </div>
+
+      <div ref={mountRef} className="absolute inset-0 z-[1]" />
+
+      <main className="pointer-events-none absolute inset-0 z-20">
+        <header className="animate-fade-in absolute left-5 top-6 opacity-0 sm:left-8 sm:top-8 md:left-12">
+          <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-cyan-600">
+            SEAINT ENTERPRISE
+          </span>
+        </header>
+
+        <div className="animate-fade-in absolute left-5 right-5 top-[48%] z-30 max-w-xl -translate-y-1/2 opacity-0 sm:left-8 sm:right-auto sm:top-[45%] md:left-12">
+          <h1 className="headline-shimmer text-[42px] font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+            {language === "en" ? "Build Tomorrow," : "Construye el mañana,"}
+            <br />
+            {language === "en" ? "Today." : "hoy."}
+          </h1>
+
+          <p className="mt-5 max-w-[320px] font-mono text-[9px] uppercase tracking-[0.22em] text-gray-500 sm:max-w-none sm:text-[10px] sm:tracking-widest">
+            {language === "en"
+              ? "VENTURE CAPITAL / PRIVATE EQUITY / STRATEGIC ADVISORY"
+              : "CAPITAL DE RIESGO / CAPITAL PRIVADO / ASESORÍA ESTRATÉGICA"}
+          </p>
+
+          <div className="pointer-events-auto mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+            <a href="/portfolio" className="rounded-full bg-cyan-400 px-5 py-3 text-center text-sm font-medium text-white transition hover:bg-cyan-500 sm:px-6">
+              {language === "en" ? "View Portfolio" : "Ver Portafolio"}
+            </a>
+
+            <a href="https://calendly.com/seaintco/new-meeting" target="_blank" rel="noreferrer" className="rounded-full border border-cyan-400 bg-white/70 px-5 py-3 text-center text-sm font-medium text-cyan-600 shadow-sm backdrop-blur transition hover:bg-[#f6f8fb] sm:px-6">
+              {language === "en" ? "Set Up Interview" : "Agendar Entrevista"}
+            </a>
+          </div>
+
+
+        </div>
+      </main>
     </section>
   );
 }

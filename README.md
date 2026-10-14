@@ -1,198 +1,36 @@
-# Purity of Hearts Platform
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A production-ready member platform for the existing Purity of Hearts course,
-private community, 1:1 consultation requests, PurityOS, the Purity Luma
-coming-soon shop, and the SEAINT Booking partner sandbox.
+## Getting Started
 
-The original course remains intact and now includes eight additional curated
-lessons from Y Combinator, Grow with Google, HubSpot, TED, and Harvard Business
-Review.
+First, run the development server:
 
-## What is included
-
-- Responsive minimalist liquid-glass marketing site and matching technology-focused member dashboard
-- Expanded 32-lesson, 9-module course with quizzes, flashcards, notes, journal, resources,
-  progress tracking, and completion certificate
-- Supabase authentication, row-level security, private resource storage, and
-  admin resource uploads
-- Existing one-time Stripe course checkout
-- Separate $50/month PurityOS Stripe subscription
-- Saved PurityOS conversations, membership billing portal, daily and monthly usage limits,
-  moderation, cost controls, and crisis-safe response boundaries
-- Private Discord links in the community and PurityOS experience
-- 1:1 consultation request form plus admin request management
-- Purity Luma face mask, neck mask, and home panel launch waitlists
-- Interactive SEAINT Booking client/owner sandbox
-- Newsletter capture
-
-## Local setup (PowerShell)
-
-Open PowerShell in the extracted project folder:
-
-```powershell
-Copy-Item .env.example .env.local
-npm install
+```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Before `npm run dev`, replace every placeholder in `.env.local`. Never commit
-`.env.local`.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Supabase setup
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-The project contains six ordered migrations:
+## Learn More
 
-1. `supabase/migrations/20260710150000_launch_ready.sql`
-2. `supabase/migrations/20260723010000_purityos_platform.sql`
-3. `supabase/migrations/20260723020000_course_expansion_and_purityos_limits.sql`
-4. `supabase/migrations/20260730154500_susan_advisory_crm.sql`
-5. `supabase/migrations/20260730213000_hide_advisory_pricing.sql`
-6. `supabase/migrations/20260730231500_auth_security_hardening.sql`
+To learn more about Next.js, take a look at the following resources:
 
-For a new Supabase project:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-```powershell
-npx supabase login
-npx supabase link --project-ref YOUR_PROJECT_REF
-npx supabase db push
-```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-For the already-connected project, run `npx supabase db push` from this folder.
-Review the output before confirming a production migration.
+## Deploy on Vercel
 
-The first migration creates the private `resource-vault` storage bucket and the
-course tables. The second migration adds PurityOS, consultation requests,
-product waitlists, newsletter subscribers, certificate issuance, and safe
-profile updates. The third aligns certificates with the 32-lesson curriculum and adds a 500-message monthly PurityOS cap in addition to the 30-message daily cap. The fourth adds Susan’s private growth CRM. The fifth keeps public advisory pricing unset while preserving the CRM schema. The sixth removes legacy profile-mutation privileges, keeps admin and paid access server-controlled, and reinforces private-table permissions.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-To make the owner account an admin, run this once in the Supabase SQL editor
-after that person signs up:
-
-```sql
-update public.profiles
-set role = 'admin'
-where email = 'OWNER_EMAIL_HERE';
-```
-
-## Stripe setup
-
-Create two Stripe prices:
-
-- Course price: the existing one-time course purchase
-- PurityOS: recurring monthly price for **$50 USD**
-
-Place their price IDs in `STRIPE_COURSE_PRICE_ID` and
-`STRIPE_PURITYOS_PRICE_ID`.
-
-Create a webhook endpoint:
-
-```text
-https://YOUR_DOMAIN.com/api/stripe/webhook
-```
-
-Subscribe it to:
-
-- `checkout.session.completed`
-- `customer.subscription.updated`
-- `customer.subscription.deleted`
-- `charge.refunded`
-- `charge.dispute.created`
-
-Copy the signing secret to `STRIPE_WEBHOOK_SECRET`. Enable Stripe’s customer
-portal so PurityOS members can cancel or update billing from the chat.
-
-For local webhook testing:
-
-```powershell
-stripe listen --forward-to localhost:3000/api/stripe/webhook
-```
-
-Use the temporary `whsec_...` value printed by the Stripe CLI in `.env.local`.
-
-## PurityOS setup and boundaries
-
-Add `OPENAI_API_KEY` only as a server-side environment variable. It is never
-sent to the browser. `OPENAI_MODEL` is configurable; the included default is
-`gpt-5.6-terra` to balance response quality and subscription economics.
-
-PurityOS is intentionally described as a faith-centered reflection and
-business-support companion—not as a licensed therapist. It:
-
-- saves chats only to the signed-in member’s Supabase account;
-- checks active subscription access server-side;
-- moderates input and output;
-- limits each member to 30 messages per day and 500 per month, and uses bounded
-  chat history;
-- provides general support but not diagnosis, medical care, emergency support,
-  legal advice, or guaranteed business outcomes.
-
-Before launch, the client should have local counsel review the Terms and Privacy
-pages for the business’s jurisdiction and actual operating practices.
-
-## Vercel deployment
-
-1. Push this folder to the intended GitHub repository.
-2. Import the repository in Vercel.
-3. Add every value from `.env.example` in Vercel Project Settings →
-   Environment Variables.
-4. Set `NEXT_PUBLIC_SITE_URL` to the final `https://` domain.
-5. Deploy.
-6. Add the production Stripe webhook URL and update
-   `STRIPE_WEBHOOK_SECRET` in Vercel.
-7. Add the final domain to Supabase Authentication → URL Configuration:
-   - Site URL: `https://YOUR_DOMAIN.com`
-   - Redirect URL: `https://YOUR_DOMAIN.com/auth/callback`
-8. Redeploy after changing environment variables.
-
-## Launch verification
-
-Run:
-
-```powershell
-npm run check
-```
-
-Then verify these flows in Stripe test mode:
-
-- new account and email verification;
-- one-time course purchase and dashboard access;
-- lesson progress, notes, quizzes, journal, resources, and certificate;
-- $50 PurityOS subscription, saved chats, delete chat, and billing portal;
-- cancel PurityOS and confirm access ends after Stripe updates the status;
-- consultation form and admin status management;
-- all three product waitlists;
-- newsletter signup;
-- Discord links;
-- mobile dashboard navigation;
-- booking sandbox client and owner views.
-
-Do not switch Stripe to live mode until every test-mode flow passes.
-
-## Susan Wagner Brand Revamp (July 2026)
-
-The public website now centers Susan Wagner and presents three distinct offers:
-
-- `/education` — premium marketing page for the existing Purity of Hearts course platform.
-- `/purityos` — mobile-first PurityOS coming-soon page with early-access capture.
-- `/private-advisory` — private growth strategy page with a consultation-first call to action and no public pricing.
-- `/consultation` — growth strategy call form that also creates a private CRM lead record.
-- `/dashboard/admin/advisory` — admin-only growth strategy CRM and inquiry pipeline.
-- `/dashboard/admin/advisory/[id]` — private client workspace for vision, strategy, objectives, milestones, notes, sessions, and exit planning.
-
-### Course preservation
-
-The course data, lesson player, quizzes, flashcards, cheat sheets, journal, progress hooks, student dashboard, and certificate logic were not rewritten by this revamp.
-
-### Required database migration
-
-Apply the latest migrations:
-
-```text
-supabase/migrations/20260730154500_susan_advisory_crm.sql
-supabase/migrations/20260730213000_hide_advisory_pricing.sql
-supabase/migrations/20260730231500_auth_security_hardening.sql
-```
-
-These migrations are additive and do not alter course curriculum, lessons, quizzes, or progress tables. The final migration locks privileged profile fields so signed-in users cannot grant themselves paid or admin access.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

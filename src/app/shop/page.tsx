@@ -18,7 +18,7 @@ export default function ShopPage() {
             Purity Of Hearts
           </div>
           <h1 className="public-hero-title mx-auto mt-7 font-semibold text-[#1f1f1f]">
-            The future of your <span className="text-[#e83491]">wellness ritual.</span>
+            The future of your <span className="text-[#648C85]">wellness ritual.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-[#1f1f1f]/[0.55]">
             Purity Luma is an upcoming collection of refined red-light wellness
@@ -54,7 +54,7 @@ export default function ShopPage() {
               </div>
 
               <div className="flex flex-col justify-center p-7 sm:p-12 lg:p-16">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e83491]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">
                   {product.eyebrow}
                 </p>
                 <h2 className="mt-5 font-serif text-3xl tracking-tight text-[#1f1f1f] sm:text-5xl">
@@ -103,7 +103,7 @@ export default function ShopPage() {
               key={title}
               className="rounded-[1.8rem] border border-white/[0.70] bg-white/[0.55] p-7 backdrop-blur-xl"
             >
-              <Icon size={22} className="text-[#e83491]" />
+              <Icon size={22} className="text-[#648C85]" />
               <h3 className="mt-5 text-lg font-medium">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#1f1f1f]/[0.48]">{text}</p>
             </article>

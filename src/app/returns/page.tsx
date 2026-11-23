@@ -9,7 +9,7 @@ export default function ReturnsPage() {
       </Link>
 
       <section className="mx-auto mt-16 max-w-3xl">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">Legal</span>
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#8AB0A9]">Legal</span>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight">Return Policy</h1>
         <p className="mt-6 text-[#1F1F1F]/[0.60]">Last updated: July 23, 2026</p>
 

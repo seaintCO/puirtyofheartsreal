@@ -48,7 +48,7 @@ export default function DemoPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#8AB0A9]">
                 Interactive Demo
               </span>
               <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
@@ -61,9 +61,9 @@ export default function DemoPage() {
 
             <div className="rounded-[2rem] border border-white/[0.10] bg-white/[0.05] p-5">
               <p className="text-xs uppercase tracking-widest text-white/[0.40]">Course Progress</p>
-              <p className="mt-2 text-3xl font-semibold text-[#ff4fa3]">{progress}%</p>
+              <p className="mt-2 text-3xl font-semibold text-[#8AB0A9]">{progress}%</p>
               <div className="mt-4 h-2 w-60 rounded-full bg-white/[0.10]">
-                <div className="h-2 rounded-full bg-[#ff4fa3]" style={{ width: `${progress}%` }} />
+                <div className="h-2 rounded-full bg-[#8AB0A9]" style={{ width: `${progress}%` }} />
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function DemoPage() {
           <div className="grid gap-6 lg:grid-cols-[280px_1fr_360px]">
             <aside className="rounded-[2rem] border border-white/[0.10] bg-white/[0.05] p-5">
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ff4fa3] text-[#111]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#8AB0A9] text-[#111]">
                   <BookOpen size={22} />
                 </div>
                 <div>
@@ -87,7 +87,7 @@ export default function DemoPage() {
                     onClick={() => setActiveLesson(index)}
                     className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm transition ${
                       activeLesson === index
-                        ? "bg-[#ff4fa3] text-[#111]"
+                        ? "bg-[#8AB0A9] text-[#111]"
                         : "bg-white/[0.04] text-white/[0.65] hover:bg-white/[0.08] hover:text-white"
                     }`}
                   >
@@ -101,14 +101,14 @@ export default function DemoPage() {
             <section className="rounded-[2rem] border border-white/[0.10] bg-white/[0.05] p-4">
               <div className="overflow-hidden rounded-[1.5rem] bg-black">
                 <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-[#222] to-[#050505]">
-                  <button className="flex h-24 w-24 items-center justify-center rounded-full bg-white/[0.10] text-[#ff4fa3] backdrop-blur transition hover:scale-110">
+                  <button className="flex h-24 w-24 items-center justify-center rounded-full bg-white/[0.10] text-[#8AB0A9] backdrop-blur transition hover:scale-110">
                     <PlayCircle size={46} />
                   </button>
                 </div>
               </div>
 
               <div className="mt-6 rounded-[1.5rem] border border-white/[0.10] bg-[#1F1F1F] p-6">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#8AB0A9]">
                   Lesson {activeLesson + 1}
                 </span>
                 <h2 className="mt-3 text-2xl font-semibold">{lessons[activeLesson]}</h2>
@@ -119,7 +119,7 @@ export default function DemoPage() {
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
                   {["Watch Lesson", "Complete Worksheet", "Mark Complete"].map((item) => (
                     <div key={item} className="rounded-2xl border border-white/[0.10] bg-white/[0.04] p-4">
-                      <CheckCircle2 className="text-[#ff4fa3]" size={20} />
+                      <CheckCircle2 className="text-[#8AB0A9]" size={20} />
                       <p className="mt-3 text-sm font-medium">{item}</p>
                     </div>
                   ))}
@@ -130,7 +130,7 @@ export default function DemoPage() {
             <aside className="space-y-5">
               <div className="rounded-[2rem] border border-white/[0.10] bg-white/[0.05] p-5">
                 <div className="mb-4 flex items-center gap-2">
-                  <FileText className="text-[#ff4fa3]" size={20} />
+                  <FileText className="text-[#8AB0A9]" size={20} />
                   <h3 className="font-semibold">Student Notes</h3>
                 </div>
                 <textarea
@@ -142,7 +142,7 @@ export default function DemoPage() {
 
               <div className="rounded-[2rem] border border-white/[0.10] bg-white/[0.05] p-5">
                 <div className="mb-4 flex items-center gap-2">
-                  <ClipboardList className="text-[#ff4fa3]" size={20} />
+                  <ClipboardList className="text-[#8AB0A9]" size={20} />
                   <h3 className="font-semibold">Quick Quiz</h3>
                 </div>
 
@@ -165,7 +165,7 @@ export default function DemoPage() {
                   [Sparkles, "AI Lesson Helper"],
                 ].map(([Icon, label]: any) => (
                   <button key={label} className="mb-3 flex w-full items-center gap-3 rounded-2xl bg-white/[0.04] p-3 text-left text-sm text-white/[0.70] transition hover:bg-white/[0.08]">
-                    <Icon className="text-[#ff4fa3]" size={18} />
+                    <Icon className="text-[#8AB0A9]" size={18} />
                     {label}
                   </button>
                 ))}

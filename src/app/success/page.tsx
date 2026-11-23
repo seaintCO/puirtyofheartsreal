@@ -23,7 +23,7 @@ export default async function SuccessPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#FFF8F2] px-6">
       <div className="w-full max-w-lg rounded-[2rem] border border-[#1F1F1F]/[0.05] bg-white p-10 text-center shadow-xl">
-        <CheckCircle2 className="mx-auto text-[#ff4fa3]" size={52} />
+        <CheckCircle2 className="mx-auto text-[#8AB0A9]" size={52} />
 
         <h1 className="mt-6 text-3xl font-semibold tracking-tight">
           Payment received.
@@ -36,7 +36,7 @@ export default async function SuccessPage() {
 
         <Link
           href="/dashboard"
-          className="mt-8 inline-flex rounded-full bg-[#1F1F1F] px-8 py-4 text-sm font-medium text-white transition hover:bg-[#ff4fa3]"
+          className="mt-8 inline-flex rounded-full bg-[#1F1F1F] px-8 py-4 text-sm font-medium text-white transition hover:bg-[#8AB0A9]"
         >
           Enter Member Portal
         </Link>

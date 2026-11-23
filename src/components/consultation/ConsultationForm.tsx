@@ -4,7 +4,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { ArrowUpRight, Check, LoaderCircle } from "lucide-react";
 
 const fieldClass =
-  "mt-2 w-full rounded-2xl border border-white/[0.80] bg-white/[0.55] px-4 py-3.5 text-sm text-[#15151b] shadow-[inset_0_1px_0_rgba(255,255,255,.85)] outline-none backdrop-blur-xl transition placeholder:text-black/[0.28] focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]";
+  "mt-2 w-full rounded-2xl border border-white/[0.80] bg-white/[0.55] px-4 py-3.5 text-sm text-[#15151b] shadow-[inset_0_1px_0_rgba(255,255,255,.85)] outline-none backdrop-blur-xl transition placeholder:text-black/[0.28] focus:border-[#8AB0A9]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#8AB0A9]/[0.08]";
 
 export default function ConsultationForm() {
   const [loading, setLoading] = useState(false);
@@ -37,10 +37,10 @@ export default function ConsultationForm() {
   if (complete) {
     return (
       <div className="liquid-glass flex min-h-[38rem] flex-col items-center justify-center rounded-[2.3rem] p-8 text-center sm:p-12">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#f32f91] to-[#8b67ff] text-white shadow-[0_18px_45px_rgba(243,47,145,.28)]">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#1B3C57] to-[#8AB0A9] text-white shadow-[0_18px_45px_rgba(243,47,145,.28)]">
           <Check size={24} />
         </div>
-        <p className="mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-[#e83491]">
+        <p className="mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">
           Request received
         </p>
         <h2 className="mt-4 max-w-md text-3xl font-semibold leading-[0.98] tracking-[-0.055em]">
@@ -56,7 +56,7 @@ export default function ConsultationForm() {
   return (
     <form onSubmit={submit} className="liquid-glass rounded-[2.3rem] p-6 sm:p-9">
       <input name="companyWebsiteField" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e83491]">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">
         Growth strategy call
       </p>
       <h2 className="mt-4 text-2xl font-semibold tracking-[-0.045em] sm:text-3xl">
@@ -138,7 +138,7 @@ export default function ConsultationForm() {
 
       <button
         disabled={loading}
-        className="liquid-button mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-6 py-4 text-sm font-semibold text-white disabled:opacity-60"
+        className="liquid-button mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-6 py-4 text-sm font-semibold text-white disabled:opacity-60"
       >
         {loading ? (
           <LoaderCircle size={18} className="animate-spin" />

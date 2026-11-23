@@ -33,6 +33,8 @@ export default async function EnrollPage() {
     redirect("/dashboard");
   }
 
+  const checkoutReady = Boolean(process.env.STRIPE_SECRET_KEY && process.env.STRIPE_COURSE_PRICE_ID && process.env.STRIPE_WEBHOOK_SECRET);
+
   const features = [
     [Video, "Premium video lessons"],
     [NotebookPen, "Saved student notes"],
@@ -45,8 +47,8 @@ export default async function EnrollPage() {
   return (
     <main className="liquid-page-dark relative min-h-screen overflow-hidden px-5 py-20 text-white sm:px-8 sm:py-24">
       <div className="liquid-grid pointer-events-none absolute inset-0 opacity-20" />
-      <div className="liquid-orb left-[-12rem] top-[-12rem] h-[38rem] w-[38rem] bg-[#ff4fa3]/[0.22]" />
-      <div className="liquid-orb bottom-[-13rem] right-[-10rem] h-[40rem] w-[40rem] bg-[#8b67ff]/[0.20]" />
+      <div className="liquid-orb left-[-12rem] top-[-12rem] h-[38rem] w-[38rem] bg-[#8AB0A9]/[0.22]" />
+      <div className="liquid-orb bottom-[-13rem] right-[-10rem] h-[40rem] w-[40rem] bg-[#8AB0A9]/[0.20]" />
 
       <Link
         href="/education"
@@ -58,15 +60,15 @@ export default async function EnrollPage() {
 
       <section className="relative mx-auto mt-14 grid max-w-6xl gap-12 lg:grid-cols-[1fr_440px] lg:items-center">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff91c7]">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">
             Purity Of Hearts
           </span>
           <h1 className="liquid-title mt-5 max-w-3xl pb-[0.1em] text-[clamp(2.35rem,5vw,4.35rem)] font-semibold leading-[0.98]">
-            Your learning platform is ready.
+            Your learning journey starts here.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/[0.43]">
-            Unlock Susan&apos;s lessons, learning resources, quizzes, personal
-            notes, progress tracking, study tools, and private community.
+            Access Susan&apos;s learning resources, culture-centered practice tools,
+            quizzes, notes, and the member experience once enrollment opens.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -74,7 +76,7 @@ export default async function EnrollPage() {
               const ItemIcon = Icon as typeof Video;
               return (
                 <div key={label as string} className="liquid-glass-dark flex items-center gap-3 rounded-2xl p-4">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4fa3]/[0.12] text-[#ff91c7]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#8AB0A9]/[0.12] text-[#CCB074]">
                     <ItemIcon size={18} />
                   </span>
                   <span className="text-sm text-white/[0.68]">{label as string}</span>
@@ -85,14 +87,14 @@ export default async function EnrollPage() {
         </div>
 
         <div className="liquid-glass-dark rounded-[2.2rem] p-7 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff91c7]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">
             Complete enrollment
           </p>
           <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em]">
-            Purity Leadership Program
+            Purity Learning Membership
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-white/[0.43]">
-            Your account is ready. Complete the secure Stripe checkout to unlock the member dashboard.
+            Once checkout is enabled, complete secure enrollment to unlock the member dashboard.
           </p>
 
           <div className="my-8 rounded-2xl border border-white/[0.08] bg-white/[0.04] p-4">
@@ -100,10 +102,16 @@ export default async function EnrollPage() {
             <p className="mt-2 text-sm font-medium text-white/[0.78]">{user.email}</p>
           </div>
 
-          <CheckoutButton />
+          {checkoutReady ? <CheckoutButton /> : (
+            <div className="rounded-2xl border border-[#CCB074]/30 bg-[#CCB074]/10 p-5">
+              <p className="text-sm font-semibold text-[#CCB074]">Enrollment is being prepared.</p>
+              <p className="mt-2 text-xs leading-6 text-white/65">Secure payments are not enabled yet. Please connect with Susan for availability.</p>
+              <Link href="/consultation" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#CCB074] px-4 py-3 text-xs font-semibold text-[#1B3C57]">Ask about enrollment</Link>
+            </div>
+          )}
 
           <p className="mt-5 text-center text-xs leading-relaxed text-white/[0.30]">
-            Secure checkout powered by Stripe.
+            Checkout is powered by Stripe when enrollment is available.
           </p>
         </div>
       </section>

@@ -76,7 +76,7 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
   return (
     <div className="liquid-glass w-full rounded-[2.2rem] p-7 sm:p-8">
       <div className="mb-8 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#e83491]">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#648C85]">
           Member Access
         </span>
 
@@ -100,7 +100,7 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           }}
           className={`rounded-full px-4 py-3 text-sm font-medium transition ${
             mode === "login"
-              ? "bg-gradient-to-r from-[#f32f91] to-[#8b67ff] text-white shadow-[0_8px_26px_rgba(243,47,145,.18)]"
+              ? "bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] text-white shadow-[0_8px_26px_rgba(243,47,145,.18)]"
               : "text-black/[0.48]"
           }`}
         >
@@ -115,7 +115,7 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           }}
           className={`rounded-full px-4 py-3 text-sm font-medium transition ${
             mode === "signup"
-              ? "bg-gradient-to-r from-[#f32f91] to-[#8b67ff] text-white shadow-[0_8px_26px_rgba(243,47,145,.18)]"
+              ? "bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] text-white shadow-[0_8px_26px_rgba(243,47,145,.18)]"
               : "text-black/[0.48]"
           }`}
         >
@@ -133,7 +133,7 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
             value={fullName}
             onChange={(event) => setFullName(event.target.value)}
             placeholder="Full name"
-            className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]"
+            className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#8AB0A9]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#8AB0A9]/[0.08]"
           />
         )}
 
@@ -149,7 +149,7 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Email address"
-          className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]"
+          className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#8AB0A9]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#8AB0A9]/[0.08]"
         />
 
         <input
@@ -162,12 +162,12 @@ export default function AuthForm({ next = "/dashboard" }: { next?: string }) {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
-          className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#ff4fa3]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#ff4fa3]/[0.08]"
+          className="w-full rounded-2xl border border-[#1F1F1F]/[0.10] bg-white/[0.55] px-5 py-4 text-sm outline-none transition focus:border-[#8AB0A9]/[0.60] focus:bg-white/[0.80] focus:ring-4 focus:ring-[#8AB0A9]/[0.08]"
         />
 
         <button
           disabled={loading}
-          className="liquid-button flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-6 py-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="liquid-button flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-6 py-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading ? (
             <LoaderCircle className="animate-spin" size={17} />

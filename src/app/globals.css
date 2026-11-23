@@ -3,20 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --ink: #111116;
-  --paper: #f7f7fb;
-  --paper-deep: #eef0f7;
+  --navy: #1B3C57;
+  --sage: #8AB0A9;
+  --gold: #CCB074;
+  --ivory: #FEFEFE;
+  --ink: #1B3C57;
+  --paper: #F7F8F5;
+  --paper-deep: #E8F0ED;
   --glass: rgba(255, 255, 255, 0.58);
   --glass-strong: rgba(255, 255, 255, 0.78);
-  --glass-dark: rgba(16, 16, 23, 0.62);
+  --glass-dark: rgba(16, 43, 64, 0.62);
   --glass-border: rgba(255, 255, 255, 0.72);
   --glass-border-dark: rgba(255, 255, 255, 0.11);
-  --pink: #ff4fa3;
-  --pink-strong: #f32f91;
-  --pink-soft: #ffd7eb;
-  --violet: #8b67ff;
-  --blue: #78a8ff;
-  --mint: #92efd4;
+  --pink: #8AB0A9;
+  --pink-strong: #1B3C57;
+  --pink-soft: #E8F0ED;
+  --violet: #8AB0A9;
+  --blue: #8AB0A9;
+  --mint: #CCB074;
 }
 
 * {
@@ -58,12 +62,12 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid rgba(255, 79, 163, 0.78);
+  outline: 2px solid rgba(138, 176, 169, 0.78);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(255, 79, 163, 0.22);
+  background: rgba(138, 176, 169, 0.22);
 }
 
 .liquid-page {
@@ -72,9 +76,9 @@ select:focus-visible {
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 4%, rgba(255, 151, 205, 0.26), transparent 28rem),
-    radial-gradient(circle at 86% 9%, rgba(120, 168, 255, 0.24), transparent 31rem),
-    radial-gradient(circle at 52% 72%, rgba(139, 103, 255, 0.13), transparent 34rem),
+    radial-gradient(circle at 12% 4%, rgba(138, 176, 169, 0.26), transparent 28rem),
+    radial-gradient(circle at 86% 9%, rgba(138, 176, 169, 0.24), transparent 31rem),
+    radial-gradient(circle at 52% 72%, rgba(204, 176, 116, 0.13), transparent 34rem),
     linear-gradient(180deg, #fbfbfd 0%, #f5f6fa 48%, #f8f8fb 100%);
 }
 
@@ -84,10 +88,10 @@ select:focus-visible {
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 3%, rgba(255, 79, 163, 0.18), transparent 30rem),
-    radial-gradient(circle at 84% 13%, rgba(120, 168, 255, 0.16), transparent 32rem),
-    radial-gradient(circle at 50% 92%, rgba(139, 103, 255, 0.13), transparent 36rem),
-    linear-gradient(180deg, #09090e 0%, #101018 56%, #09090e 100%);
+    radial-gradient(circle at 18% 3%, rgba(138, 176, 169, 0.18), transparent 30rem),
+    radial-gradient(circle at 84% 13%, rgba(138, 176, 169, 0.16), transparent 32rem),
+    radial-gradient(circle at 50% 92%, rgba(204, 176, 116, 0.13), transparent 36rem),
+    linear-gradient(180deg, #102B40 0%, #15354C 56%, #102B40 100%);
 }
 
 .liquid-grid {
@@ -237,7 +241,7 @@ select:focus-visible {
 }
 
 .liquid-gradient-text {
-  background: linear-gradient(105deg, #111116 4%, #7d4cff 43%, #ff3f9b 72%, #111116 100%);
+  background: linear-gradient(105deg, #1B3C57 4%, #7d4cff 43%, #ff3f9b 72%, #1B3C57 100%);
   background-size: 180% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -253,17 +257,17 @@ select:focus-visible {
 }
 
 .pink-dot {
-  box-shadow: 0 0 0 7px rgba(255, 79, 163, 0.11), 0 0 32px rgba(255, 79, 163, 0.52);
+  box-shadow: 0 0 0 7px rgba(138, 176, 169, 0.11), 0 0 32px rgba(138, 176, 169, 0.52);
 }
 
 .liquid-button {
-  box-shadow: 0 12px 36px rgba(243, 47, 145, 0.24);
+  box-shadow: 0 12px 36px rgba(27, 60, 87, 0.24);
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .liquid-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 46px rgba(243, 47, 145, 0.31);
+  box-shadow: 0 18px 46px rgba(27, 60, 87, 0.31);
   filter: saturate(1.08);
 }
 
@@ -280,10 +284,10 @@ select:focus-visible {
   min-height: 100vh;
   color: white;
   background:
-    radial-gradient(circle at 10% -5%, rgba(255, 79, 163, 0.2), transparent 30rem),
-    radial-gradient(circle at 88% 4%, rgba(120, 168, 255, 0.17), transparent 34rem),
-    radial-gradient(circle at 60% 100%, rgba(139, 103, 255, 0.13), transparent 34rem),
-    linear-gradient(160deg, #0b0b12 0%, #12121c 48%, #0a0a10 100%);
+    radial-gradient(circle at 10% -5%, rgba(138, 176, 169, 0.2), transparent 30rem),
+    radial-gradient(circle at 88% 4%, rgba(138, 176, 169, 0.17), transparent 34rem),
+    radial-gradient(circle at 60% 100%, rgba(204, 176, 116, 0.13), transparent 34rem),
+    linear-gradient(160deg, #102B40 0%, #12121c 48%, #0a0a10 100%);
 }
 
 .member-shell [class*="bg-white/"] {
@@ -312,9 +316,9 @@ select:focus-visible {
 }
 
 .advisory-input:focus {
-  border-color: rgba(255, 79, 163, 0.64);
+  border-color: rgba(138, 176, 169, 0.64);
   background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 0 0 5px rgba(255, 79, 163, 0.09);
+  box-shadow: 0 0 0 5px rgba(138, 176, 169, 0.09);
 }
 
 .crm-input {
@@ -336,9 +340,9 @@ select:focus-visible {
 }
 
 .crm-input:focus {
-  border-color: rgba(255, 79, 163, 0.48);
+  border-color: rgba(138, 176, 169, 0.48);
   background: rgba(255, 255, 255, 0.075);
-  box-shadow: 0 0 0 4px rgba(255, 79, 163, 0.07);
+  box-shadow: 0 0 0 4px rgba(138, 176, 169, 0.07);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -383,10 +387,10 @@ select:focus-visible {
   overflow: hidden;
   color: white;
   background:
-    radial-gradient(circle at 18% 3%, rgba(255, 79, 163, 0.18), transparent 30rem),
-    radial-gradient(circle at 84% 13%, rgba(120, 168, 255, 0.16), transparent 32rem),
-    radial-gradient(circle at 50% 92%, rgba(139, 103, 255, 0.13), transparent 36rem),
-    linear-gradient(180deg, #09090e 0%, #101018 56%, #09090e 100%);
+    radial-gradient(circle at 18% 3%, rgba(138, 176, 169, 0.18), transparent 30rem),
+    radial-gradient(circle at 84% 13%, rgba(138, 176, 169, 0.16), transparent 32rem),
+    radial-gradient(circle at 50% 92%, rgba(204, 176, 116, 0.13), transparent 36rem),
+    linear-gradient(180deg, #102B40 0%, #15354C 56%, #102B40 100%);
 }
 
 .glow-orb {
@@ -479,3 +483,8 @@ select:focus-visible {
   background: #171722;
   color: white;
 }
+
+/* Unified Purity of Hearts culture palette. */
+html { scroll-behavior: smooth; }
+:focus-visible { outline-color: #CCB074; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

@@ -56,23 +56,27 @@ export default async function DashboardPage() {
     <section className="mx-auto max-w-7xl">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f472b6]">Member home</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Member home</p>
           <h1 className="mt-4 text-3xl font-semibold tracking-[-0.055em] sm:text-5xl">
             Keep going, {firstName}.
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-white/[0.38]">
-            Everything you completed, saved, and started is exactly where you left it.
+            A place to continue learning, explore culture, and keep the work that matters together.
           </p>
         </div>
         <Link
           href="/purityos"
-          className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-5 py-3 text-sm font-semibold text-white"
+          className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#8AB0A9] px-5 py-3 text-sm font-semibold text-white"
         >
           <Sparkles size={16} />
           Open PurityOS
         </Link>
       </div>
 
+      <Link href="/dashboard/culture" className="mt-8 flex flex-col justify-between gap-5 rounded-[1.6rem] border border-[#CCB074]/25 bg-[#8AB0A9] p-6 text-[#1B3C57] sm:flex-row sm:items-center sm:p-8">
+        <div><p className="text-xs font-semibold uppercase tracking-[0.18em]">New · Culture Studio</p><h2 className="mt-3 text-2xl font-semibold tracking-[-0.045em]">Plan. Reflect. Write.</h2><p className="mt-2 text-sm leading-6">Explore your Culture Calendar, Culture Insights, and Book Writing Guide.</p></div>
+        <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1B3C57] px-5 py-3 text-xs font-semibold text-white">Open Studio <ArrowRight size={15}/></span>
+      </Link>
       <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {[
           [Target, `${progressPercent}%`, "Course progress"],
@@ -81,7 +85,7 @@ export default async function DashboardPage() {
           [NotebookPen, String(journalCount ?? 0), "Journal entries"],
         ].map(([Icon, value, label]: any) => (
           <article key={label} className="liquid-glass-dark rounded-[1.65rem] p-5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f472b6]/[0.10] text-[#ff91c4]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#CCB074]/[0.10] text-[#ff91c4]">
               <Icon size={17} />
             </span>
             <p className="mt-6 text-3xl font-semibold tracking-[-0.04em]">{value}</p>
@@ -92,8 +96,8 @@ export default async function DashboardPage() {
 
       <div className="mt-5 grid gap-5 xl:grid-cols-[1.35fr_.65fr]">
         <article className="liquid-glass-dark relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-          <div className="absolute right-[-10%] top-[-50%] h-72 w-72 rounded-full bg-[#f45aa4]/[0.18] blur-[85px]" />
-          <div className="absolute bottom-[-8rem] left-[35%] h-64 w-64 rounded-full bg-[#8b5cf6]/[0.12] blur-[90px]" />
+          <div className="absolute right-[-10%] top-[-50%] h-72 w-72 rounded-full bg-[#8AB0A9]/[0.18] blur-[85px]" />
+          <div className="absolute bottom-[-8rem] left-[35%] h-64 w-64 rounded-full bg-[#8AB0A9]/[0.12] blur-[90px]" />
           <div className="relative">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Continue learning</p>
             <h2 className="mt-5 max-w-2xl text-2xl font-semibold tracking-[-0.04em] sm:text-4xl">
@@ -108,14 +112,14 @@ export default async function DashboardPage() {
             </p>
             <div className="mt-7 h-1.5 max-w-xl overflow-hidden rounded-full bg-white/[0.10]">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#f45aa4] to-[#9d7cff]"
+                className="h-full rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#CCB074]"
                 style={{ width: `${Math.max(progressPercent, 2)}%` }}
               />
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/dashboard/lessons"
-                className="liquid-button inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#17151b]"
+                className="liquid-button inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#1B3C57]"
               >
                 {completedCount >= businessLessons.length ? "Review course" : "Continue lesson"}
                 <ArrowRight size={16} />
@@ -147,7 +151,7 @@ export default async function DashboardPage() {
                 className="group flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-3.5 text-sm text-white/[0.44] backdrop-blur-xl transition hover:bg-white/[0.07] hover:text-white/[0.78]"
               >
                 <span className="flex items-center gap-3">
-                  <Icon size={16} className="text-[#f472b6]" />
+                  <Icon size={16} className="text-[#CCB074]" />
                   {label}
                 </span>
                 <ArrowRight size={14} className="transition group-hover:translate-x-1" />

@@ -33,7 +33,7 @@ export default function SiteGuide() {
     const trimmed=question.trim().slice(0,350);
     if(!trimmed)return;
     const answer=responseFor(trimmed);
-    setMessages(previous=>[...previous,{from:"visitor",text:trimmed},{from:"guide",text:answer.text}].slice(-12));
+    setMessages((previous): ChatLine[] => [...previous,{from:"visitor" as const,text:trimmed},{from:"guide" as const,text:answer.text}].slice(-12));
     setLink({url:answer.url,label:answer.label});
     setInput("");
     setOpen(true);

@@ -78,7 +78,7 @@ export default function DashboardTopbar({
                     onClick={() => setQuery("")}
                     className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/[0.58] hover:bg-white/[0.05]"
                   >
-                    <Icon size={16} className="text-[#f472b6]" />
+                    <Icon size={16} className="text-[#CCB074]" />
                     {label}
                   </Link>
                 ))}
@@ -89,7 +89,7 @@ export default function DashboardTopbar({
           <div className="flex items-center gap-2">
             <Link
               href="/purityos"
-              className="hidden items-center gap-2 rounded-full border border-[#f472b6]/[0.20] bg-[#f472b6]/[0.10] px-4 py-2.5 text-xs text-[#ff9ac8] sm:flex"
+              className="hidden items-center gap-2 rounded-full border border-[#CCB074]/[0.20] bg-[#CCB074]/[0.10] px-4 py-2.5 text-xs text-[#ff9ac8] sm:flex"
             >
               <Sparkles size={14} />
               PurityOS
@@ -139,7 +139,7 @@ export default function DashboardTopbar({
                     onClick={() => setMenuOpen(false)}
                     className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm ${
                       active
-                        ? "bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] font-medium text-white"
+                        ? "bg-gradient-to-r from-[#8AB0A9] to-[#8AB0A9] font-medium text-white"
                         : "text-white/[0.48]"
                     }`}
                   >

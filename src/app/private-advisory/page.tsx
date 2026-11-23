@@ -16,9 +16,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Work with Susan | Private Growth Strategy",
+  title: "Work with Susan | Coaching for Coaches",
   description:
-    "Work privately with Susan Wagner on business vision, foundation, growth strategy, measurable objectives, execution, and long-term exit planning.",
+    "Explore culture-centered coaching with Susan Wagner for coaches, leaders, and those building purposeful learning experiences.",
 };
 
 const roadmap = [
@@ -32,33 +32,33 @@ const roadmap = [
 
 export default function PrivateAdvisoryPage() {
   return (
-    <main className="liquid-page text-[#111116]">
+    <main className="liquid-page text-[#1B3C57]">
       <Navbar />
 
       <section className="relative px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20">
         <div className="liquid-grid pointer-events-none absolute inset-0 opacity-48" />
-        <div className="liquid-orb left-[-9rem] top-[-8rem] h-[31rem] w-[31rem] bg-[#ff9dcc]/[0.30]" />
-        <div className="liquid-orb right-[-12rem] top-[4rem] h-[36rem] w-[36rem] bg-[#78a8ff]/[0.26]" />
+        <div className="liquid-orb left-[-9rem] top-[-8rem] h-[31rem] w-[31rem] bg-[#CCB074]/[0.30]" />
+        <div className="liquid-orb right-[-12rem] top-[4rem] h-[36rem] w-[36rem] bg-[#8AB0A9]/[0.26]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
           <div className="liquid-glass-soft mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.46]">
-            <span className="pink-dot h-1.5 w-1.5 rounded-full bg-[#ff4fa3]" />
+            <span className="pink-dot h-1.5 w-1.5 rounded-full bg-[#8AB0A9]" />
             Purity Of Hearts
           </div>
           <h1 className="liquid-title public-hero-title mt-7 font-semibold">
-            Your vision. <span className="liquid-gradient-text">A clear strategy.</span>
+            Your practice. <span className="liquid-gradient-text">A deeper perspective.</span>
           </h1>
           <p className="mx-auto mt-8 max-w-3xl text-base leading-7 text-black/[0.47] sm:text-xl sm:leading-8">
-            Private business guidance for founders who want Susan involved in
-            the vision, foundation, growth plan, objectives, execution, and
-            long-term direction of the company.
+            Private conversations for coaches and leaders who want to explore
+            culture, identity, communication, and the thoughtful practice
+            of guiding others.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/consultation"
-              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-7 py-4 text-sm font-semibold text-white"
+              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
             >
-              Book a growth strategy call <ArrowUpRight size={15} />
+              Book a coaching conversation <ArrowUpRight size={15} />
             </Link>
             <Link
               href="#approach"
@@ -69,9 +69,9 @@ export default function PrivateAdvisoryPage() {
           </div>
 
           <div className="liquid-glass mx-auto mt-16 max-w-6xl rounded-[2.4rem] p-3 text-left sm:mt-20 sm:p-4">
-            <div className="relative overflow-hidden rounded-[1.8rem] bg-[#0b0b12] p-4 text-white sm:p-6">
-              <div className="absolute -left-20 -top-28 h-80 w-80 rounded-full bg-[#ff4fa3]/[0.19] blur-[100px]" />
-              <div className="absolute -bottom-36 right-[-3rem] h-96 w-96 rounded-full bg-[#786bff]/[0.17] blur-[115px]" />
+            <div className="relative overflow-hidden rounded-[1.8rem] bg-[#102B40] p-4 text-white sm:p-6">
+              <div className="absolute -left-20 -top-28 h-80 w-80 rounded-full bg-[#8AB0A9]/[0.19] blur-[100px]" />
+              <div className="absolute -bottom-36 right-[-3rem] h-96 w-96 rounded-full bg-[#8AB0A9]/[0.17] blur-[115px]" />
 
               <div className="relative grid gap-4 lg:grid-cols-[.78fr_1.22fr]">
                 <div className="liquid-glass-dark rounded-[1.7rem] p-6 sm:p-8">
@@ -92,13 +92,13 @@ export default function PrivateAdvisoryPage() {
                 </div>
 
                 <div className="rounded-[1.7rem] border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-2xl sm:p-8">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#ff91c7]">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCB074]">
                     Founder operating roadmap
                   </p>
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
                     {roadmap.map(([Icon, title, copy]) => (
                       <div key={title} className="rounded-2xl border border-white/[0.08] bg-white/[0.045] p-5 backdrop-blur-xl">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4fa3]/[0.12] text-[#ff91c7]">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#8AB0A9]/[0.12] text-[#CCB074]">
                           <Icon size={17} />
                         </span>
                         <h3 className="mt-6 text-base font-semibold">{title}</h3>
@@ -117,7 +117,7 @@ export default function PrivateAdvisoryPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e83491]">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
                 Who this is for
               </p>
               <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.7vw,4rem)] font-semibold leading-[0.92]">
@@ -139,7 +139,7 @@ export default function PrivateAdvisoryPage() {
               "You want to build toward founder freedom, succession, sale, stewardship, or a meaningful legacy.",
             ].map((item, index) => (
               <div key={item} className="liquid-glass-soft flex gap-4 rounded-[1.7rem] p-6 sm:p-7">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#f32f91] to-[#8b67ff] text-xs font-semibold text-white">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#1B3C57] to-[#8AB0A9] text-xs font-semibold text-white">
                   0{index + 1}
                 </span>
                 <p className="pt-1 text-sm leading-7 text-black/[0.53]">{item}</p>
@@ -150,11 +150,11 @@ export default function PrivateAdvisoryPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#0a0a10] px-5 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
-        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#ff4fa3]/[0.17]" />
-        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#786bff]/[0.16]" />
+        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#8AB0A9]/[0.17]" />
+        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#8AB0A9]/[0.16]" />
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ff91c7]">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">
               What Susan helps build
             </p>
             <h2 className="liquid-title mt-6 text-[clamp(2.1rem,4.5vw,3.8rem)] font-semibold leading-[0.94]">
@@ -170,7 +170,7 @@ export default function PrivateAdvisoryPage() {
               ["05", "Exit and legacy", "Plan for founder freedom, succession, sale, stewardship, or the next chapter after the business matures."],
             ].map(([number, title, copy]) => (
               <div key={number} className="grid gap-3 border-b border-white/[0.08] py-6 last:border-b-0 sm:grid-cols-[52px_190px_1fr] sm:items-start sm:gap-6">
-                <span className="text-xs font-semibold text-[#ff91c7]">{number}</span>
+                <span className="text-xs font-semibold text-[#CCB074]">{number}</span>
                 <h3 className="text-base font-semibold">{title}</h3>
                 <p className="text-sm leading-7 text-white/[0.36]">{copy}</p>
               </div>
@@ -182,7 +182,7 @@ export default function PrivateAdvisoryPage() {
       <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e83491]">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
               Private client workspace
             </p>
             <h2 className="liquid-title mt-6 text-[clamp(2.1rem,4.5vw,3.8rem)] font-semibold leading-[0.94]">
@@ -202,7 +202,7 @@ export default function PrivateAdvisoryPage() {
                   <p className="text-xs font-semibold">Founder Strategy Workspace</p>
                   <p className="mt-1 text-[10px] text-white/[0.28]">Private · Susan and her team</p>
                 </div>
-                <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1.5 text-[9px] uppercase tracking-[0.16em] text-[#ff91c7]">
+                <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1.5 text-[9px] uppercase tracking-[0.16em] text-[#CCB074]">
                   Live roadmap
                 </span>
               </div>
@@ -216,7 +216,7 @@ export default function PrivateAdvisoryPage() {
                   "Exit & legacy plan",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.045] px-4 py-4 text-xs text-white/[0.52]">
-                    <Check size={14} className="text-[#ff91c7]" />
+                    <Check size={14} className="text-[#CCB074]" />
                     {item}
                   </div>
                 ))}
@@ -228,8 +228,8 @@ export default function PrivateAdvisoryPage() {
 
       <section className="px-5 pb-24 sm:px-8 sm:pb-32">
         <div className="liquid-glass mx-auto max-w-5xl rounded-[2.5rem] px-6 py-16 text-center sm:px-12 sm:py-20">
-          <CalendarDays size={28} className="mx-auto text-[#e83491]" />
-          <p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-[#e83491]">
+          <CalendarDays size={28} className="mx-auto text-[#648C85]" />
+          <p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
             Begin with a conversation
           </p>
           <h2 className="liquid-title mx-auto mt-5 max-w-4xl text-3xl font-semibold leading-[0.98] sm:text-5xl">
@@ -241,7 +241,7 @@ export default function PrivateAdvisoryPage() {
           </p>
           <Link
             href="/consultation"
-            className="liquid-button mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-7 py-4 text-sm font-semibold text-white"
+            className="liquid-button mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
           >
             Book a growth strategy call <ArrowUpRight size={15} />
           </Link>

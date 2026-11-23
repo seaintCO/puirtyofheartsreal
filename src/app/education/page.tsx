@@ -16,9 +16,9 @@ import Footer from "@/components/layout/Footer";
 import { businessCourse, businessLessons } from "@/data/business-course";
 
 export const metadata = {
-  title: "Education Platform",
+  title: "Learning Platform | Culture & Business",
   description:
-    "A complete business education platform with creator-led video lessons, modules, quizzes, study tools, assignments, and saved progress.",
+    "Explore coaching, culture-centered learning, and existing business education lessons with guided study tools.",
 };
 
 export default function EducationPage() {
@@ -28,31 +28,31 @@ export default function EducationPage() {
   }, 0);
 
   return (
-    <main className="liquid-page text-[#111116]">
+    <main className="liquid-page text-[#1B3C57]">
       <Navbar />
 
       <section className="relative px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20">
         <div className="liquid-grid pointer-events-none absolute inset-0 opacity-50" />
-        <div className="liquid-orb left-[-10rem] top-[-8rem] h-[30rem] w-[30rem] bg-[#ff9dcc]/[0.30]" />
-        <div className="liquid-orb right-[-10rem] top-[5rem] h-[34rem] w-[34rem] bg-[#78a8ff]/[0.28]" />
+        <div className="liquid-orb left-[-10rem] top-[-8rem] h-[30rem] w-[30rem] bg-[#CCB074]/[0.30]" />
+        <div className="liquid-orb right-[-10rem] top-[5rem] h-[34rem] w-[34rem] bg-[#8AB0A9]/[0.28]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
           <div className="liquid-glass-soft mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.46]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#ff4fa3] pink-dot" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#8AB0A9] pink-dot" />
             Purity Of Hearts
           </div>
           <h1 className="liquid-title public-hero-title mt-7 font-semibold">
-            Learn from people <span className="liquid-gradient-text">who build.</span>
+            Learn with intention. <span className="liquid-gradient-text">Lead with context.</span>
           </h1>
           <p className="mx-auto mt-8 max-w-3xl text-base leading-7 text-black/[0.47] sm:text-xl sm:leading-8">
-            Creator-led business videos organized into a complete learning
+            An evolving learning experience with business foundations and a Culture Studio, supported by modules, quizzes, saved
             system with modules, quizzes, flashcards, assignments, saved
             progress, and certificates.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/enroll"
-              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-7 py-4 text-sm font-semibold text-white"
+              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
             >
               Get the education platform <ArrowRight size={15} />
             </Link>
@@ -65,8 +65,8 @@ export default function EducationPage() {
           </div>
 
           <div className="liquid-glass mx-auto mt-16 max-w-6xl rounded-[2.4rem] p-3 text-left sm:mt-20 sm:p-4">
-            <div className="relative overflow-hidden rounded-[1.8rem] bg-[#0b0b12] text-white">
-              <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#ff4fa3]/[0.22] blur-[95px]" />
+            <div className="relative overflow-hidden rounded-[1.8rem] bg-[#102B40] text-white">
+              <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#8AB0A9]/[0.22] blur-[95px]" />
               <div className="absolute -bottom-28 left-[20%] h-80 w-80 rounded-full bg-[#7b6cff]/[0.16] blur-[105px]" />
 
               <div className="relative flex items-center justify-between border-b border-white/[0.08] px-5 py-4 sm:px-8 sm:py-5">
@@ -84,7 +84,7 @@ export default function EducationPage() {
               <div className="relative grid gap-4 p-4 sm:p-6 lg:grid-cols-[1.25fr_.75fr] lg:p-8">
                 <div className="liquid-shine min-h-[27rem] overflow-hidden rounded-[1.55rem] border border-white/[0.09] bg-gradient-to-br from-white/[0.09] to-white/[0.025] p-6 sm:p-9">
                   <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#ff9dcc]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCB074]">
                       Continue learning
                     </p>
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-xl">
@@ -99,7 +99,7 @@ export default function EducationPage() {
                   </div>
                   <div className="mt-10">
                     <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.10]">
-                      <div className="h-full w-[47%] rounded-full bg-gradient-to-r from-[#ff4fa3] to-[#8b67ff]" />
+                      <div className="h-full w-[47%] rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#8AB0A9]" />
                     </div>
                     <div className="mt-3 flex justify-between text-[10px] text-white/[0.27]">
                       <span>15 of {businessLessons.length} lessons complete</span>
@@ -122,7 +122,7 @@ export default function EducationPage() {
                           index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
                         }`}
                       >
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4fa3]/[0.12] text-[#ff91c7]">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#8AB0A9]/[0.12] text-[#CCB074]">
                           <ItemIcon size={17} />
                         </span>
                         <p className="mt-7 text-3xl font-semibold tracking-[-0.04em]">
@@ -143,7 +143,7 @@ export default function EducationPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e83491]">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
                 Designed for action
               </p>
               <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.7vw,4rem)] font-semibold leading-[0.92]">
@@ -168,7 +168,7 @@ export default function EducationPage() {
               const ItemIcon = Icon as typeof Play;
               return (
                 <article key={title as string} className="liquid-glass-soft rounded-[1.9rem] p-7 sm:p-8">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.80] bg-white/[0.62] text-[#e83491] shadow-sm">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.80] bg-white/[0.62] text-[#648C85] shadow-sm">
                     <ItemIcon size={18} />
                   </span>
                   <h3 className="mt-9 text-xl font-semibold tracking-[-0.035em]">{title as string}</h3>
@@ -181,11 +181,11 @@ export default function EducationPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#0a0a10] px-5 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
-        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#ff4fa3]/[0.17]" />
-        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#786bff]/[0.16]" />
+        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#8AB0A9]/[0.17]" />
+        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#8AB0A9]/[0.16]" />
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ff9dcc]">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">
               Built around the existing course
             </p>
             <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.6vw,4rem)] font-semibold leading-[0.94]">
@@ -208,7 +208,7 @@ export default function EducationPage() {
                 "Flashcards, assignments, and certificates preserved",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.045] px-4 py-4 text-sm text-white/[0.58]">
-                  <Check size={15} className="text-[#ff91c7]" />
+                  <Check size={15} className="text-[#CCB074]" />
                   {item}
                 </div>
               ))}
@@ -219,7 +219,7 @@ export default function EducationPage() {
 
       <section className="relative px-5 py-24 text-center sm:px-8 sm:py-32">
         <div className="liquid-glass mx-auto max-w-5xl rounded-[2.4rem] px-6 py-16 sm:px-12 sm:py-20">
-          <FileText size={27} className="mx-auto text-[#e83491]" />
+          <FileText size={27} className="mx-auto text-[#648C85]" />
           <h2 className="liquid-title mt-7 text-3xl font-semibold leading-[0.98] sm:text-5xl">
             Learn it. Apply it. Build it.
           </h2>
@@ -228,7 +228,7 @@ export default function EducationPage() {
           </p>
           <Link
             href="/enroll"
-            className="liquid-button mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-7 py-4 text-sm font-semibold text-white"
+            className="liquid-button mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
           >
             Get the education platform <ArrowRight size={15} />
           </Link>

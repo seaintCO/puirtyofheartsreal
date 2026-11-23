@@ -42,9 +42,9 @@ export default async function DashboardLayout({
 
   return (
     <div className="member-shell relative min-h-screen overflow-hidden text-white">
-      <div className="pointer-events-none fixed left-[-12rem] top-[-14rem] h-[40rem] w-[40rem] rounded-full bg-[#f45aa4]/[0.18] blur-[150px]" />
-      <div className="pointer-events-none fixed right-[-14rem] top-[8%] h-[42rem] w-[42rem] rounded-full bg-[#8b5cf6]/[0.14] blur-[160px]" />
-      <div className="pointer-events-none fixed bottom-[-22rem] left-[36%] h-[42rem] w-[42rem] rounded-full bg-[#5bb3ff]/[0.08] blur-[170px]" />
+      <div className="pointer-events-none fixed left-[-12rem] top-[-14rem] h-[40rem] w-[40rem] rounded-full bg-[#8AB0A9]/[0.18] blur-[150px]" />
+      <div className="pointer-events-none fixed right-[-14rem] top-[8%] h-[42rem] w-[42rem] rounded-full bg-[#8AB0A9]/[0.14] blur-[160px]" />
+      <div className="pointer-events-none fixed bottom-[-22rem] left-[36%] h-[42rem] w-[42rem] rounded-full bg-[#8AB0A9]/[0.08] blur-[170px]" />
 
       <div className="relative flex min-h-screen">
         <DashboardSidebar isAdmin={profile.role === "admin"} isVip={profile.vip_access || profile.role === "admin"} />

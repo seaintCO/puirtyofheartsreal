@@ -1,331 +1,127 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  BookOpen,
-  Check,
-  Compass,
-  Layers3,
-  Play,
-  Sparkles,
-  Target,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, CalendarDays, Check, Compass, Feather, MessageCircle, Sparkles, UsersRound } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { businessCourse, businessLessons } from "@/data/business-course";
+import BrandMark from "@/components/brand/BrandMark";
+
+const offerings = [
+  { number: "01", icon: CalendarDays, title: "Culture Calendar", text: "Turn awareness into practice with a monthly rhythm of reflection, observation, and intentional coaching.", href: "/culture#calendar" },
+  { number: "02", icon: Compass, title: "Culture Insights", text: "Explore communication, belonging, leadership, and context through practical questions and guided exercises.", href: "/culture#insights" },
+  { number: "03", icon: Feather, title: "Book Writing Guide", text: "Shape your experience into a book with chapter frameworks, writing prompts, and room for your own voice.", href: "/culture#writing" },
+];
 
 export default function Home() {
   return (
-    <main className="liquid-page text-[#111116]">
+    <main className="min-h-screen bg-[#FEFEFE] text-[#1B3C57]">
       <Navbar />
-
-      <section className="relative px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-20 lg:pb-24">
-        <div className="liquid-grid pointer-events-none absolute inset-0 opacity-55" />
-        <div className="liquid-orb left-[-10rem] top-[-7rem] h-[28rem] w-[28rem] bg-[#ff9dce]/[0.35]" />
-        <div className="liquid-orb right-[-11rem] top-[3rem] h-[32rem] w-[32rem] bg-[#80aaff]/[0.30]" />
-
-        <div className="relative mx-auto max-w-7xl text-center">
-          <div className="liquid-glass-soft mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.48]">
-            <span className="pink-dot h-1.5 w-1.5 rounded-full bg-[#ff4fa3]" />
-            Purity Of Hearts
+      <section className="relative overflow-hidden bg-[#102B40] px-5 pb-24 pt-16 text-white sm:px-8 sm:pb-28 sm:pt-24">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-44 -top-72 h-[55rem] w-[55rem] rounded-full border border-[#8AB0A9]/15" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-56 h-[45rem] w-[45rem] rounded-full border border-[#CCB074]/15" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-48 left-[-15rem] h-[32rem] w-[32rem] rounded-full bg-[#8AB0A9]/10 blur-[110px]" />
+        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.03fr_.97fr] lg:items-center">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#CCB074]/30 bg-[#CCB074]/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.19em] text-[#E4D4AE]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#CCB074]" /> The next chapter of Purity of Hearts
+            </div>
+            <h1 className="mt-8 text-[clamp(3.4rem,6.1vw,6.3rem)] font-semibold leading-[0.95] tracking-[-0.065em]">
+              Culture shapes<br />how we <span className="text-[#CCB074]">lead.</span>
+            </h1>
+            <p className="mt-8 max-w-xl text-base leading-8 text-white/65 sm:text-lg">
+              A learning home for coaches, leaders, and people ready to understand culture more deeply — then bring that understanding into the conversations that matter.
+            </p>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-[#B8D2CB]">Guided by Susan Wagner. Built for reflection, practical learning, and meaningful growth.</p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Link href="/culture" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#CCB074] px-7 py-4 text-sm font-semibold text-[#1B3C57] transition hover:bg-[#DCC78F]">
+                Explore Culture Studio <ArrowRight size={16} />
+              </Link>
+              <Link href="/consultation" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold text-white transition hover:border-[#8AB0A9]">
+                Coach with Susan <ArrowUpRight size={16} />
+              </Link>
+            </div>
+            <div className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-4 text-xs text-white/55">
+              <span className="inline-flex items-center gap-2"><Check size={15} className="text-[#CCB074]" /> Designed for coaches</span>
+              <span className="inline-flex items-center gap-2"><Check size={15} className="text-[#CCB074]" /> Culture-informed tools</span>
+              <span className="inline-flex items-center gap-2"><Check size={15} className="text-[#CCB074]" /> A place to keep learning</span>
+            </div>
           </div>
-
-          <h1 className="liquid-title public-hero-title mt-7 font-semibold">
-            Build with <span className="liquid-gradient-text">clarity.</span>
-          </h1>
-
-          <p className="mx-auto mt-8 max-w-3xl text-base leading-7 tracking-[-0.015em] text-black/[0.48] sm:text-xl sm:leading-8">
-            A modern ecosystem for business education, faith-centered clarity,
-            and private growth strategy with Susan Wagner.
-          </p>
-
-          <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/education"
-              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-7 py-4 text-sm font-semibold text-white"
-            >
-              Explore the platform <ArrowRight size={15} />
-            </Link>
-            <Link
-              href="/consultation"
-              className="liquid-button-secondary liquid-glass-soft inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-black"
-            >
-              Book a strategy call <ArrowUpRight size={15} />
-            </Link>
-          </div>
-
-          <div className="liquid-glass mx-auto mt-16 max-w-6xl rounded-[2.2rem] p-3 text-left sm:mt-20 sm:rounded-[3rem] sm:p-4">
-            <div className="relative overflow-hidden rounded-[1.65rem] bg-[#0b0b12] text-white sm:rounded-[2.3rem]">
-              <div className="absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#ff4fa3]/[0.20] blur-[100px]" />
-              <div className="absolute -bottom-36 left-[24%] h-80 w-80 rounded-full bg-[#7c65ff]/[0.18] blur-[110px]" />
-
-              <div className="relative flex items-center justify-between border-b border-white/[0.08] px-5 py-4 sm:px-8 sm:py-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.15] bg-white/[0.07] text-[10px] font-semibold">
-                    PH
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold">Purity Of Hearts</p>
-                    <p className="mt-0.5 text-[10px] text-white/[0.30]">
-                      Education · PurityOS · Growth Strategy
-                    </p>
-                  </div>
-                </div>
-                <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1.5 text-[10px] text-white/[0.38]">
-                  Connected ecosystem
-                </span>
+          <div className="relative mx-auto w-full max-w-[560px]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#8AB0A9]/25 bg-[#1B3C57] p-4 shadow-[0_40px_120px_rgba(2,14,22,.45)] sm:rounded-[2.5rem] sm:p-6">
+              <div className="flex items-center justify-between border-b border-white/10 px-2 pb-5">
+                <div className="flex items-center gap-3"><BrandMark variant="sage" size={40}/><div><p className="text-sm font-semibold">Culture Studio</p><p className="mt-1 text-[10px] text-white/45">Your learning space · preview</p></div></div>
+                <span className="rounded-full border border-[#CCB074]/25 px-3 py-1.5 text-[10px] text-[#CCB074]">PURPOSE + PRACTICE</span>
               </div>
-
-              <div className="relative grid gap-4 p-4 sm:p-6 lg:grid-cols-[1.25fr_.75fr] lg:p-8">
-                <div className="liquid-shine relative min-h-[25rem] overflow-hidden rounded-[1.6rem] border border-white/[0.09] bg-gradient-to-br from-white/[0.09] to-white/[0.025] p-6 sm:p-9">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#ff9dcc]">
-                      Purity of Hearts Education
-                    </p>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-xl">
-                      <Play size={14} fill="currentColor" />
-                    </span>
-                  </div>
-                  <div className="mt-20 max-w-xl sm:mt-28">
-                    <p className="text-sm text-white/[0.34]">Continue learning</p>
-                    <h2 className="mt-3 text-3xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl">
-                      Business Management
-                      <span className="block text-white/[0.32]">&amp; Leadership</span>
-                    </h2>
-                  </div>
-                  <div className="mt-10">
-                    <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.10]">
-                      <div className="h-full w-[47%] rounded-full bg-gradient-to-r from-[#ff4fa3] to-[#9b7bff]" />
-                    </div>
-                    <div className="mt-3 flex justify-between text-[10px] text-white/[0.28]">
-                      <span>15 of {businessLessons.length} lessons</span>
-                      <span>47% complete</span>
-                    </div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-[1.08fr_.92fr]">
+                <div className="rounded-[1.5rem] bg-[#8AB0A9] p-5 text-[#102B40]">
+                  <CalendarDays size={21} />
+                  <p className="mt-9 text-[10px] font-semibold uppercase tracking-[0.2em]">Your culture calendar</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-[-0.04em]">Pause. Notice. Listen.</p>
+                  <p className="mt-3 text-xs leading-6 text-[#1B3C57]/80">A weekly practice: ask whose perspective you haven’t heard yet.</p>
+                  <div className="mt-6 grid grid-cols-7 gap-1 text-center text-[10px]">
+                    {["M","T","W","T","F","S","S"].map((day,index)=><span key={index} className="text-[#1B3C57]/60">{day}</span>)}
+                    {Array.from({length:21},(_,i)=><span key={i} className={i===10?"rounded-md bg-[#1B3C57] py-1.5 text-white":"py-1.5 text-[#1B3C57]/80"}>{i+1}</span>)}
                   </div>
                 </div>
-
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                  {[
-                    [BookOpen, `${businessCourse.modules.length} modules`, "Structured learning"],
-                    [Sparkles, "PurityOS", "Clarity in your pocket"],
-                    [Target, "Private strategy", "Vision through execution"],
-                  ].map(([Icon, title, text], index) => {
-                    const ItemIcon = Icon as typeof BookOpen;
-                    return (
-                      <div
-                        key={title as string}
-                        className={`glass-card-dark rounded-[1.5rem] p-5 ${
-                          index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
-                        }`}
-                      >
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4fa3]/[0.20] to-[#8b67ff]/[0.20] text-[#ff91c7]">
-                          <ItemIcon size={17} />
-                        </span>
-                        <p className="mt-7 text-base font-semibold">{title as string}</p>
-                        <p className="mt-1 text-xs text-white/[0.32]">{text as string}</p>
-                      </div>
-                    );
-                  })}
+                <div className="flex flex-col gap-4">
+                  <div className="flex-1 rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5">
+                    <Sparkles size={20} className="text-[#CCB074]" />
+                    <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Culture insights</p>
+                    <p className="mt-2 text-lg font-semibold">Understanding before assumptions.</p>
+                    <p className="mt-2 text-xs leading-5 text-white/45">Reflection questions for better coaching conversations.</p>
+                  </div>
+                  <div className="flex-1 rounded-[1.5rem] border border-[#CCB074]/25 bg-[#CCB074] p-5 text-[#1B3C57]">
+                    <Feather size={20} />
+                    <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.2em]">Book writing guide</p>
+                    <p className="mt-2 text-lg font-semibold">Your story has a structure.</p>
+                    <p className="mt-2 text-xs leading-5 text-[#1B3C57]/75">Make room for your perspective and experience.</p>
+                  </div>
                 </div>
               </div>
+              <div className="mt-4 flex items-center justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-5 py-4">
+                <div className="flex items-center gap-3"><MessageCircle size={18} className="text-[#8AB0A9]"/><p className="text-xs text-white/65">ALMA · Your member AI reflection partner</p></div><ArrowRight size={15} className="text-[#CCB074]"/>
+              </div>
+            </div>
+            <div className="absolute -bottom-6 -right-3 hidden rounded-[1.4rem] border border-white/20 bg-[#FEFEFE] px-5 py-4 text-[#1B3C57] shadow-2xl sm:block">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#648C85]">Susan’s approach</p>
+              <p className="mt-1 text-sm font-semibold">Learn. Reflect. Lead.</p>
             </div>
           </div>
         </div>
       </section>
-
-      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
+      <section className="px-5 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e83491]">
-              One clear ecosystem
-            </p>
-            <h2 className="liquid-title mt-6 text-[clamp(2.2rem,4.8vw,4.2rem)] font-semibold leading-[0.91]">
-              Learn. Think clearly.
-              <span className="block text-black/[0.24]">Build what matters.</span>
-            </h2>
+          <div className="grid gap-6 md:grid-cols-[.85fr_1.15fr] md:gap-16">
+            <div><p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#648C85]">Culture meets coaching</p><h2 className="mt-5 max-w-lg text-4xl font-semibold leading-[1.05] tracking-[-0.06em] sm:text-5xl">More than information. <span className="text-[#8AB0A9]">A way to practice.</span></h2></div>
+            <div className="flex items-center"><p className="max-w-2xl text-base leading-8 text-[#1B3C57]/65">Coaching asks us to listen carefully, recognize context, and lead with intention. The Culture Studio is designed to help you bring those skills into your practice, your writing, and your everyday decisions.</p></div>
           </div>
-
-          <div className="mt-16 grid gap-5 lg:grid-cols-2">
-            <Link
-              href="/education"
-              className="liquid-shine liquid-glass group relative min-h-[38rem] overflow-hidden rounded-[2.2rem] p-7 sm:p-10"
-            >
-              <div className="relative z-10 max-w-lg">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e83491]">
-                  Education platform
-                </p>
-                <h3 className="mt-5 text-3xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl">
-                  Learn from people who build.
-                </h3>
-                <p className="mt-5 max-w-md text-sm leading-7 text-black/[0.46] sm:text-base">
-                  Creator-led videos, structured modules, quizzes, flashcards,
-                  assignments, saved progress, and a complete learning path.
-                </p>
-                <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#e83491]">
-                  Get the platform
-                  <ArrowRight size={15} className="transition group-hover:translate-x-1" />
-                </span>
-              </div>
-
-              <div className="absolute bottom-[-3.5rem] left-8 right-8 rounded-t-[1.7rem] border border-white/[0.70] bg-white/[0.60] p-4 shadow-[0_30px_80px_rgba(32,36,56,.14)] backdrop-blur-2xl sm:left-12 sm:right-12">
-                <div className="relative overflow-hidden rounded-[1.2rem] bg-[#11111a] p-5 text-white">
-                  <div className="absolute -right-10 -top-16 h-40 w-40 rounded-full bg-[#ff4fa3]/[0.25] blur-[60px]" />
-                  <div className="relative flex items-center justify-between">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-white/[0.28]">Module 04</p>
-                    <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1 text-[10px] text-white/[0.38]">
-                      In progress
-                    </span>
-                  </div>
-                  <h4 className="relative mt-12 text-2xl font-semibold tracking-[-0.04em] sm:text-4xl">
-                    Building a business people choose.
-                  </h4>
-                  <div className="relative mt-8 grid grid-cols-3 gap-2">
-                    {['Video', 'Quiz', 'Action'].map((item) => (
-                      <div key={item} className="rounded-xl border border-white/[0.08] bg-white/[0.05] px-3 py-4 text-center text-[10px] text-white/[0.42]">
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            <Link
-              href="/purityos"
-              className="liquid-shine group relative min-h-[38rem] overflow-hidden rounded-[2.2rem] border border-white/[0.08] bg-[#0b0b12] p-7 text-white shadow-[0_32px_90px_rgba(23,22,35,.22)] sm:p-10"
-            >
-              <div className="absolute right-[-8rem] top-[-8rem] h-96 w-96 rounded-full bg-[#ff4fa3]/[0.22] blur-[100px]" />
-              <div className="absolute bottom-[-10rem] left-[-8rem] h-96 w-96 rounded-full bg-[#786bff]/[0.20] blur-[110px]" />
-              <div className="relative z-10 max-w-lg">
-                <div className="flex items-center gap-3">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/[0.46]">PurityOS</p>
-                  <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1 text-[9px] uppercase tracking-wider text-white/[0.42]">
-                    App coming soon
-                  </span>
-                </div>
-                <h3 className="mt-5 text-3xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl">
-                  Clarity, carried with you.
-                </h3>
-                <p className="mt-5 max-w-md text-sm leading-7 text-white/[0.40] sm:text-base">
-                  A private, faith-centered companion for business decisions,
-                  leadership, difficult seasons, and the next honest step.
-                </p>
-                <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#ff9dcc]">
-                  Preview PurityOS
-                  <ArrowRight size={15} className="transition group-hover:translate-x-1" />
-                </span>
-              </div>
-
-              <div className="absolute bottom-[-8.5rem] left-1/2 h-[29rem] w-[14.5rem] -translate-x-1/2 rounded-[3rem] border-[7px] border-[#292932] bg-black p-2 shadow-[0_35px_80px_rgba(0,0,0,.65)] sm:left-auto sm:right-16 sm:translate-x-0">
-                <div className="relative h-full overflow-hidden rounded-[2.35rem] bg-gradient-to-b from-[#25162b] via-[#13101e] to-[#08080b] p-4">
-                  <div className="absolute left-1/2 top-2 h-5 w-20 -translate-x-1/2 rounded-full bg-black" />
-                  <p className="mt-8 text-[10px] text-white/[0.32]">Thursday, 8:42 AM</p>
-                  <h4 className="mt-3 text-xl font-semibold">Good morning.</h4>
-                  <p className="mt-1 text-xs leading-5 text-white/[0.38]">What deserves your attention today?</p>
-                  <div className="mt-7 space-y-3">
-                    <div className="ml-8 rounded-2xl rounded-tr-md bg-white px-3 py-2.5 text-[10px] leading-4 text-black">
-                      Help me focus on the decision that matters most.
-                    </div>
-                    <div className="mr-6 rounded-2xl border border-white/[0.08] bg-white/[0.07] px-3 py-3 text-[10px] leading-5 text-white/[0.56] backdrop-blur-xl">
-                      Let’s separate urgency from importance, then choose the next faithful action.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          <Link
-            href="/private-advisory"
-            className="liquid-shine liquid-glass group relative mt-5 grid min-h-[33rem] overflow-hidden rounded-[2.2rem] p-7 sm:p-10 lg:grid-cols-[1fr_.9fr] lg:items-center lg:p-16"
-          >
-            <div className="liquid-orb -right-16 -top-24 h-72 w-72 bg-[#ff88c4]/[0.28]" />
-            <div className="relative z-10 max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e83491]">
-                Work with Susan
-              </p>
-              <h3 className="mt-6 text-3xl font-semibold leading-[0.94] tracking-[-0.06em] sm:text-5xl">
-                Your vision.
-                <span className="block text-black/[0.26]">A real strategy.</span>
-              </h3>
-              <p className="mt-7 max-w-xl text-base leading-7 text-black/[0.48]">
-                Work privately with Susan to clarify the vision, strengthen the
-                foundation, create a growth plan, set measurable objectives,
-                and think ahead to ownership freedom, succession, or exit.
-              </p>
-              <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-black">
-                Explore working with Susan
-                <ArrowUpRight size={15} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </span>
-            </div>
-
-            <div className="relative mt-12 lg:mt-0">
-              <div className="liquid-glass-soft mx-auto max-w-md rounded-[2rem] p-6 sm:p-8">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold">Founder Roadmap</p>
-                  <span className="rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-wider text-white">
-                    Private
-                  </span>
-                </div>
-                <div className="mt-8 space-y-3">
-                  {[
-                    [Compass, "Vision & positioning"],
-                    [Layers3, "Foundation & operating model"],
-                    [Target, "Growth objectives"],
-                    [ArrowUpRight, "Exit & legacy plan"],
-                  ].map(([Icon, label]) => {
-                    const ItemIcon = Icon as typeof Compass;
-                    return (
-                      <div key={label as string} className="flex items-center gap-3 rounded-2xl border border-white/[0.80] bg-white/[0.55] px-4 py-4 backdrop-blur-xl">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4fa3]/[0.10] text-[#e83491]">
-                          <ItemIcon size={16} />
-                        </span>
-                        <p className="text-sm font-medium">{label as string}</p>
-                        <Check size={14} className="ml-auto text-[#e83491]/[0.55]" />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-6 flex items-center justify-between border-t border-black/[0.06] pt-5">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-black/[0.32]">First step</p>
-                    <p className="mt-1 text-base font-semibold">Growth strategy call</p>
-                  </div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
-                    <ArrowUpRight size={16} />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#0a0a10] px-5 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
-        <div className="liquid-orb left-[5%] top-[-8rem] h-80 w-80 bg-[#ff4fa3]/[0.18]" />
-        <div className="liquid-orb bottom-[-12rem] right-[8%] h-96 w-96 bg-[#786bff]/[0.16]" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ff9dcc]">
-              The Susan Wagner approach
-            </p>
-            <div className="glass-card-dark mt-8 flex h-28 w-28 items-center justify-center rounded-full text-3xl font-semibold tracking-[-0.06em]">
-              SW
-            </div>
-          </div>
-          <div>
-            <blockquote className="text-[clamp(2rem,4.2vw,3.8rem)] font-semibold leading-[0.94] tracking-[-0.065em]">
-              “A business should not only grow. It should become clear, healthy,
-              useful, and capable of outliving the season that created it.”
-            </blockquote>
-            <p className="mt-8 text-sm text-white/[0.36]">
-              Susan Wagner · Founder, educator, and private business mentor
-            </p>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {offerings.map((offering)=><Link key={offering.title} href={offering.href} className="group flex min-h-[350px] flex-col rounded-[1.8rem] border border-[#1B3C57]/10 bg-[#F5F7F4] p-7 transition hover:-translate-y-1 hover:border-[#8AB0A9] hover:shadow-xl sm:p-8">
+              <div className="flex items-start justify-between"><span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1B3C57] text-[#CCB074]"><offering.icon size={22}/></span><span className="text-[11px] tracking-[0.2em] text-[#1B3C57]/35">{offering.number}</span></div>
+              <h3 className="mt-12 text-2xl font-semibold tracking-[-0.045em]">{offering.title}</h3><p className="mt-4 flex-1 text-sm leading-7 text-[#1B3C57]/65">{offering.text}</p>
+              <span className="mt-8 inline-flex items-center gap-2 text-xs font-semibold text-[#517F77]">Explore the tool <ArrowRight size={15} className="transition group-hover:translate-x-1"/></span>
+            </Link>)}
           </div>
         </div>
       </section>
-
-      <Footer dark />
+      <section className="bg-[#E8F0ED] px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_.9fr] lg:items-center">
+          <div><div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]"><UsersRound size={17}/> Coaching the coaches</div>
+            <h2 className="mt-6 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-[-0.06em] sm:text-5xl">You can guide others without losing the curiosity to grow yourself.</h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-[#1B3C57]/70">Build thoughtful conversations around cultural awareness, belonging, communication, and leadership. Susan's coaching provides the human perspective behind the tools.</p>
+            <Link href="/private-advisory" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1B3C57] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#2B526B]">Explore coaching <ArrowRight size={15}/></Link>
+          </div>
+          <div className="rounded-[2rem] border border-[#1B3C57]/10 bg-white p-8 sm:p-10">
+            <BrandMark size={56} variant="navy"/>
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">The learning philosophy</p>
+            <p className="mt-5 text-2xl font-semibold leading-snug tracking-[-0.035em] sm:text-3xl">“A good question can open a conversation. A thoughtful conversation can change how we lead.”</p>
+            <p className="mt-6 text-sm leading-7 text-[#1B3C57]/60">A culture-centered approach starts with listening, context, and a willingness to keep learning.</p>
+          </div>
+        </div>
+      </section>
+      <section className="px-5 py-24 sm:px-8"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[#1B3C57] p-9 text-white md:flex-row md:items-center sm:p-14">
+        <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Your next step</p><h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">Start with curiosity. Grow with intention.</h2><p className="mt-4 max-w-xl text-sm leading-7 text-white/60">Explore the learning tools or start a conversation about your coaching goals.</p></div>
+        <Link href="/culture" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#CCB074] px-6 py-4 text-sm font-semibold text-[#1B3C57]">Discover Culture Studio <ArrowRight size={15}/></Link>
+      </div></section>
+      <Footer />
     </main>
   );
 }

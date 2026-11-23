@@ -92,7 +92,7 @@ export default function Home(){
         </section>
 
         <AuraPhotoBand
-          image="/purity-life-collage.webp"
+          image="/purity-life-1.avif"
           alt="Coaches and leaders in thoughtful conversation, reflective writing, and one-on-one coaching"
           eyebrow="PEOPLE IN PRACTICE"
           title="Culture becomes real in conversation."
@@ -134,7 +134,7 @@ export default function Home(){
         </section>
 
         <AuraPhotoBand
-          image="/purity-life-collage-2.webp"
+          image="/purity-life-2.avif"
           alt="A warm culture coaching workshop, writing session, and one-on-one reflective conversation"
           eyebrow="LEARN · REFLECT · WRITE"
           title="A learning space that feels lived in."

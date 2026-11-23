@@ -88,7 +88,7 @@ export default async function MembershipPage() {
           </div>
         </section>
         <AuraPhotoBand
-          image="/purity-life-collage-2.webp"
+          image="/purity-life-2.avif"
           alt="Members learning together, writing, and having an intentional coaching conversation"
           eyebrow="THE MEMBER EXPERIENCE"
           title="Built for the work between sessions."

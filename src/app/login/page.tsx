@@ -18,8 +18,8 @@ export default async function LoginPage({
   return (
     <main className="liquid-page relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-24 sm:px-8">
       <div className="liquid-grid pointer-events-none absolute inset-0 opacity-45" />
-      <div className="liquid-orb left-[-10rem] top-[-10rem] h-[34rem] w-[34rem] bg-[#ff9dcc]/[0.30]" />
-      <div className="liquid-orb bottom-[-12rem] right-[-9rem] h-[36rem] w-[36rem] bg-[#78a8ff]/[0.26]" />
+      <div className="liquid-orb left-[-10rem] top-[-10rem] h-[34rem] w-[34rem] bg-[#CCB074]/[0.30]" />
+      <div className="liquid-orb bottom-[-12rem] right-[-9rem] h-[36rem] w-[36rem] bg-[#8AB0A9]/[0.26]" />
 
       <Link
         href="/"

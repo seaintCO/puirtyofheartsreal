@@ -40,7 +40,7 @@ function downloadFile(filename: string, content: string, type: string) {
 
 function encodeIcs(text: string) { return text.replace(/\\/g, "\\\\").replace(/\n/g,"\\n").replace(/,/g,"\\,").replace(/;/g,"\\;"); }
 
-export default function CultureStudio() {
+export default function CultureStudio({ userId }: { userId: string }) {
   const [tab, setTab] = useState<Tab>("calendar");
   const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
   const [date, setDate] = useState(() => formatKey(new Date()));
@@ -54,8 +54,8 @@ export default function CultureStudio() {
 
   useEffect(() => {
     try {
-      const storedNotes = localStorage.getItem("purity-culture-calendar-v1");
-      const storedBook = localStorage.getItem("purity-culture-book-v1");
+      const storedNotes = localStorage.getItem("purity-culture-calendar-v1:" + userId);
+      const storedBook = localStorage.getItem("purity-culture-book-v1:" + userId);
       if (storedNotes) {
         const value = JSON.parse(storedNotes);
         if (value && typeof value === "object" && !Array.isArray(value)) setNotes(value);
@@ -66,15 +66,15 @@ export default function CultureStudio() {
       }
     } catch { /* Private browsing may prevent persistent storage. */ }
     setLoaded(true);
-  }, []);
+  }, [userId]);
   useEffect(() => {
     if (!loaded) return;
-    try { localStorage.setItem("purity-culture-calendar-v1", JSON.stringify(notes)); } catch { /* Export remains available. */ }
-  }, [notes, loaded]);
+    try { localStorage.setItem("purity-culture-calendar-v1:" + userId, JSON.stringify(notes)); } catch { /* Export remains available. */ }
+  }, [notes, loaded, userId]);
   useEffect(() => {
     if (!loaded) return;
-    try { localStorage.setItem("purity-culture-book-v1", JSON.stringify(book)); } catch { /* Export remains available. */ }
-  }, [book, loaded]);
+    try { localStorage.setItem("purity-culture-book-v1:" + userId, JSON.stringify(book)); } catch { /* Export remains available. */ }
+  }, [book, loaded, userId]);
   useEffect(() => { setNoteDraft(notes[date] || ""); setSaved(false); }, [notes, date]);
 
   const days = useMemo(() => {

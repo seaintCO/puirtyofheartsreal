@@ -8,6 +8,8 @@ import { createClient } from "@/lib/supabase/server";
 import { getMembershipOffer, membershipConfigured } from "@/lib/membership/stripe";
 import { getSubscriptionForUser, isActiveSubscription } from "@/lib/membership/access";
 import MembershipCheckoutButton from "@/components/membership/MembershipCheckoutButton";
+import AuraShiftLink from "@/components/ui/AuraShiftLink";
+import AuraPhotoBand from "@/components/media/AuraPhotoBand";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -59,9 +61,9 @@ export default async function MembershipPage() {
               <p className="price-copy">Susan's Stripe price or OpenAI connection is not active yet, so the site will not accept a payment.</p>
             </>}
             <div className="aura-price-action">
-              {active ? <Link href="/dashboard" className="aura-primary-button"><ArrowRight size={16}/> Enter member dashboard</Link>
+              {active ? <AuraShiftLink href="/dashboard" label="Enter member dashboard" icon={<ArrowRight size={16}/>} />
                 : price ? user ? <MembershipCheckoutButton label={"Subscribe for " + price.formatted + " / month"}/>
-                  : <Link href="/login?next=/membership" className="aura-primary-button"><ArrowRight size={16}/> Create account to join</Link>
+                  : <AuraShiftLink href="/login?next=/membership" label="Create account to join" icon={<ArrowRight size={16}/>} />
                   : <Link href="/consultation" className="aura-secondary-button">Ask about enrollment <ArrowUpRight size={16}/></Link>}
             </div>
             {subscription?.stripe_customer_id && <Link href="/membership/manage" className="aura-price-manage">Manage existing billing →</Link>}
@@ -85,6 +87,15 @@ export default async function MembershipPage() {
             })}
           </div>
         </section>
+        <AuraPhotoBand
+          image="/purity-life-collage-2.webp"
+          alt="Members learning together, writing, and having an intentional coaching conversation"
+          eyebrow="THE MEMBER EXPERIENCE"
+          title="Built for the work between sessions."
+          body="Membership gives the tools somewhere to live: lessons, Culture Studio, writing prompts, saved progress, and ALMA when you need help thinking through the next step."
+          href="/education"
+          linkLabel="Explore what's inside"
+        />
         <AuraFooter/>
       </main>
     </div>

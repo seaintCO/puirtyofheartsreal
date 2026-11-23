@@ -8,6 +8,8 @@ import AuraFooter from "@/components/layout/AuraFooter";
 import PurityAuraBackdrop from "@/components/effects/PurityAuraBackdrop";
 import AuraMotion from "@/components/effects/AuraMotion";
 import PurityFloatingCards from "@/components/home/PurityFloatingCards";
+import AuraShiftLink from "@/components/ui/AuraShiftLink";
+import AuraPhotoBand from "@/components/media/AuraPhotoBand";
 
 const features = [
   { icon: Compass, title:"Culture insights", copy:"Explore identity, belonging, communication, context, and leadership through better questions.", href:"/culture#insights" },
@@ -46,7 +48,7 @@ export default function Home(){
               Purity of Hearts is a culture-centered learning and coaching experience for coaches, leaders, and writers who want to listen better, ask better questions, and guide people with more intention.
             </p>
             <div className="aura-hero-buttons" data-aura-reveal>
-              <Link href="/membership" className="aura-primary-button" data-aura-magnet><ArrowUpRight size={16}/> Join membership</Link>
+              <AuraShiftLink href="/membership" label="Join membership" icon={<ArrowUpRight size={16}/>} />
               <Link href="/private-advisory" className="aura-secondary-button">Work with Susan <ArrowRight size={16}/></Link>
             </div>
             <div className="aura-trust-row" data-aura-reveal>
@@ -89,6 +91,16 @@ export default function Home(){
           </div>
         </section>
 
+        <AuraPhotoBand
+          image="/purity-life-collage.webp"
+          alt="Coaches and leaders in thoughtful conversation, reflective writing, and one-on-one coaching"
+          eyebrow="PEOPLE IN PRACTICE"
+          title="Culture becomes real in conversation."
+          body="The work is not abstract. It happens around a table, in a quiet notebook, and in the moments when a coach chooses to listen before answering."
+          href="/private-advisory"
+          linkLabel="Explore coaching with Susan"
+        />
+
         <section className="aura-section aura-story" id="story">
           <div className="aura-story-visual" data-aura-reveal>
             <div className="aura-story-orbit">
@@ -121,6 +133,17 @@ export default function Home(){
           </div>
         </section>
 
+        <AuraPhotoBand
+          image="/purity-life-collage-2.webp"
+          alt="A warm culture coaching workshop, writing session, and one-on-one reflective conversation"
+          eyebrow="LEARN · REFLECT · WRITE"
+          title="A learning space that feels lived in."
+          body="Use the platform between real conversations: study, write, ask better questions, and return to your work with more clarity."
+          href="/education"
+          linkLabel="Explore the learning experience"
+          reverse
+        />
+
         <section className="aura-section aura-membership-preview">
           <div className="aura-membership-copy" data-aura-reveal>
             <Link href="/membership" className="aura-outline-pill"><CheckCircle2 size={15}/> Member experience</Link>
@@ -129,7 +152,7 @@ export default function Home(){
             <div className="aura-check-list">
               {["Culture Calendar + Culture Insights","Book Writing Guide","Lessons, notes, quizzes and resources","ALMA member assistant","Stripe-hosted subscription and billing portal"].map(item=><span key={item}><CheckCircle2 size={15}/>{item}</span>)}
             </div>
-            <Link href="/membership" className="aura-primary-button"><ArrowUpRight size={16}/> See membership</Link>
+            <AuraShiftLink href="/membership" label="See membership" icon={<ArrowUpRight size={16}/>} />
           </div>
           <div className="aura-membership-console" data-aura-reveal>
             <div className="aura-console-head"><span>Purity member space</span><span className="online">PRIVATE</span></div>
@@ -144,7 +167,7 @@ export default function Home(){
           <div className="aura-cta-inner" data-aura-reveal>
             <h2>Ready to build a more <span>thoughtful practice?</span></h2>
             <p>Start with the Culture Studio, join the member experience, or talk directly with Susan about coaching.</p>
-            <div><Link href="/membership" className="aura-primary-button" data-aura-magnet><ArrowUpRight size={16}/> Join membership</Link><Link href="/consultation" className="aura-secondary-button">Talk with Susan <ArrowRight size={16}/></Link></div>
+            <div><AuraShiftLink href="/membership" label="Join membership" icon={<ArrowUpRight size={16}/>} /><Link href="/consultation" className="aura-secondary-button">Talk with Susan <ArrowRight size={16}/></Link></div>
           </div>
         </section>
 

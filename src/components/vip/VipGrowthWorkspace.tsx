@@ -142,7 +142,7 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
   return (
     <div className="mx-auto max-w-7xl pb-16">
       <section className="liquid-glass-dark relative overflow-hidden rounded-[2rem] p-6 sm:p-9">
-        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#f45aa4]/20 blur-[100px]" />
+        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#8AB0A9]/20 blur-[100px]" />
         <div className="relative grid gap-8 lg:grid-cols-[1fr_.45fr] lg:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff9ac8]">
@@ -153,7 +153,7 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
           </div>
           <div className="rounded-[1.5rem] border border-white/10 bg-black/20 p-5">
             <div className="flex items-center justify-between text-xs text-white/45"><span>Execution progress</span><span>{progress}%</span></div>
-            <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6]" style={{ width: `${Math.max(progress, 2)}%` }} /></div>
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#CCB074]" style={{ width: `${Math.max(progress, 2)}%` }} /></div>
             <p className="mt-3 text-[11px] text-white/30">{completedActions} of {actions.length} actions complete</p>
           </div>
         </div>
@@ -165,17 +165,17 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
             <article key={section.title} className="liquid-glass-dark overflow-hidden rounded-[1.7rem]">
               <button onClick={() => setOpenSection(openSection === index ? -1 : index)} className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6">
                 <div><h2 className="text-base font-semibold">{section.title}</h2><p className="mt-1 text-xs leading-5 text-white/35">{section.subtitle}</p></div>
-                <ChevronDown size={18} className={`shrink-0 text-[#ff91c4] transition ${openSection === index ? "rotate-180" : ""}`} />
+                <ChevronDown size={18} className={`shrink-0 text-[#CCB074] transition ${openSection === index ? "rotate-180" : ""}`} />
               </button>
               {openSection === index && (
                 <div className="grid gap-4 border-t border-white/10 p-5 sm:grid-cols-2 sm:p-6">
                   {section.fields.map(([key, label]) => (
                     <label key={key} className={section.fields.length === 1 ? "sm:col-span-2" : ""}>
                       <span className="text-[11px] font-medium text-white/50">{label}</span>
-                      <textarea value={workspace[key] || ""} onChange={(event) => setWorkspace((current) => ({ ...current, [key]: event.target.value }))} rows={5} className="mt-2 w-full resize-y rounded-[1.2rem] border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/70 outline-none transition focus:border-[#f45aa4]/50" placeholder="Capture your thinking here…" />
+                      <textarea value={workspace[key] || ""} onChange={(event) => setWorkspace((current) => ({ ...current, [key]: event.target.value }))} rows={5} className="mt-2 w-full resize-y rounded-[1.2rem] border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white/70 outline-none transition focus:border-[#8AB0A9]/50" placeholder="Capture your thinking here…" />
                     </label>
                   ))}
-                  <button onClick={saveWorkspace} disabled={saving === "workspace" || saving === "autosave"} className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-6 py-3.5 text-sm font-semibold text-white disabled:opacity-60">
+                  <button onClick={saveWorkspace} disabled={saving === "workspace" || saving === "autosave"} className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#CCB074] px-6 py-3.5 text-sm font-semibold text-white disabled:opacity-60">
                     {saving === "workspace" || saving === "autosave" ? <LoaderCircle size={16} className="animate-spin" /> : <Save size={16} />} {saving === "autosave" ? "Saving automatically…" : "Save playbook"}
                   </button>
                 </div>
@@ -186,14 +186,14 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
 
         <aside className="space-y-5">
           <section className="liquid-glass-dark rounded-[1.7rem] p-5 sm:p-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Your interactive Playbook</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#CCB074]">Your interactive Playbook</p>
             <h2 className="mt-3 text-xl font-semibold">Your answers guide every session.</h2>
             <p className="mt-3 text-xs leading-6 text-white/38">As you complete the vision, strategy, KPI, goals, and session-preparation sections, Susan’s private CRM automatically organizes them into your coaching brief and next-session agenda.</p>
-            <div className="mt-5 rounded-2xl border border-[#ff91c4]/20 bg-[#ff91c4]/[0.06] p-4 text-xs leading-6 text-white/50">The internal coaching methodology and Susan’s private notes are never visible in the client dashboard.</div>
+            <div className="mt-5 rounded-2xl border border-[#CCB074]/20 bg-[#CCB074]/[0.06] p-4 text-xs leading-6 text-white/50">The internal coaching methodology and Susan’s private notes are never visible in the client dashboard.</div>
           </section>
 
           <form onSubmit={addGoal} className="liquid-glass-dark rounded-[1.7rem] p-5 sm:p-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">90-day goals</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#CCB074]">90-day goals</p>
             <input required name="title" placeholder="Goal" className="mt-4 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm outline-none" />
             <input name="success_metric" placeholder="How will success be measured?" className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm outline-none" />
             <div className="mt-2 grid grid-cols-2 gap-2"><select name="category" className="rounded-2xl border border-white/10 bg-[#15131a] px-4 py-3 text-xs"><option>90-day goal</option><option>Growth</option><option>Leadership</option><option>Operations</option><option>Exit</option></select><input type="date" name="target_date" className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-xs" /></div>
@@ -205,13 +205,13 @@ export default function VipGrowthWorkspace({ initialWorkspace, initialGoals, ini
 
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
         <section className="liquid-glass-dark rounded-[1.7rem] p-5 sm:p-6">
-          <div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Accountability</p><h2 className="mt-2 text-xl font-semibold">Next actions</h2></div><ArrowRight size={18} className="text-white/25" /></div>
-          <form onSubmit={addAction} className="mt-5 grid gap-2 sm:grid-cols-[1fr_160px_130px_auto]"><input required name="title" placeholder="Specific next action" className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm outline-none" /><select name="goal_id" className="rounded-2xl border border-white/10 bg-[#15131a] px-3 py-3 text-xs"><option value="">No linked goal</option>{activeGoals.map((goal) => <option key={goal.id} value={goal.id}>{goal.title}</option>)}</select><input type="date" name="due_date" className="rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-xs" /><button className="rounded-full bg-gradient-to-r from-[#f45aa4] to-[#8b5cf6] px-4 py-3"><Plus size={16} /></button></form>
-          <div className="mt-5 space-y-2">{actions.map((item) => <button key={item.id} onClick={() => toggleAction(item)} className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left"><span className={`flex h-6 w-6 items-center justify-center rounded-full border ${item.status === "done" ? "border-[#f45aa4] bg-[#f45aa4]" : "border-white/20"}`}>{item.status === "done" ? <Check size={13} /> : <Circle size={11} className="text-transparent" />}</span><div><p className={`text-sm ${item.status === "done" ? "text-white/30 line-through" : "text-white/65"}`}>{item.title}</p>{item.due_date && <p className="mt-1 text-[10px] text-white/25">Due {item.due_date}</p>}</div></button>)}</div>
+          <div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#CCB074]">Accountability</p><h2 className="mt-2 text-xl font-semibold">Next actions</h2></div><ArrowRight size={18} className="text-white/25" /></div>
+          <form onSubmit={addAction} className="mt-5 grid gap-2 sm:grid-cols-[1fr_160px_130px_auto]"><input required name="title" placeholder="Specific next action" className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm outline-none" /><select name="goal_id" className="rounded-2xl border border-white/10 bg-[#15131a] px-3 py-3 text-xs"><option value="">No linked goal</option>{activeGoals.map((goal) => <option key={goal.id} value={goal.id}>{goal.title}</option>)}</select><input type="date" name="due_date" className="rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-xs" /><button className="rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#CCB074] px-4 py-3"><Plus size={16} /></button></form>
+          <div className="mt-5 space-y-2">{actions.map((item) => <button key={item.id} onClick={() => toggleAction(item)} className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left"><span className={`flex h-6 w-6 items-center justify-center rounded-full border ${item.status === "done" ? "border-[#8AB0A9] bg-[#8AB0A9]" : "border-white/20"}`}>{item.status === "done" ? <Check size={13} /> : <Circle size={11} className="text-transparent" />}</span><div><p className={`text-sm ${item.status === "done" ? "text-white/30 line-through" : "text-white/65"}`}>{item.title}</p>{item.due_date && <p className="mt-1 text-[10px] text-white/25">Due {item.due_date}</p>}</div></button>)}</div>
         </section>
 
         <section className="liquid-glass-dark rounded-[1.7rem] p-5 sm:p-6">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#ff91c4]">Session preparation</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#CCB074]">Session preparation</p>
           <h2 className="mt-2 text-xl font-semibold">Prepare for your next call with Susan</h2>
           <form onSubmit={addCheckin} className="mt-5 grid gap-3 sm:grid-cols-2">{[["wins","Wins since the last session"],["blockers","What is getting in the way?"],["decisions","Decisions you are avoiding"],["next_commitment","Your next commitment"],["coach_question","The question you want Susan to ask"]].map(([name,label], index) => <label key={name} className={index === 4 ? "sm:col-span-2" : ""}><span className="text-[11px] text-white/45">{label}</span><textarea name={name} rows={3} className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 p-3 text-sm outline-none" /></label>)}<button disabled={saving === "checkin"} className="sm:col-span-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black">Save session preparation</button></form>
           {checkins.length > 0 && <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4"><p className="text-[10px] uppercase tracking-wider text-white/30">Latest check-in</p><p className="mt-3 text-sm leading-6 text-white/55">{checkins[0].next_commitment || checkins[0].coach_question || checkins[0].wins}</p></div>}

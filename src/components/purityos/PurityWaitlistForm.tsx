@@ -72,7 +72,7 @@ export default function PurityWaitlistForm({ dark = false }: { dark?: boolean })
         />
         <button
           disabled={loading}
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f32f91] to-[#8b67ff] px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(243,47,145,.22)] transition hover:saturate-125 disabled:opacity-60"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(243,47,145,.22)] transition hover:saturate-125 disabled:opacity-60"
         >
           {loading ? <LoaderCircle size={16} className="animate-spin" /> : <>Join early access <ArrowRight size={14} /></>}
         </button>

@@ -23,7 +23,7 @@ export default function PurityOSPage(){
    </section>
    <section className="aura-section"><div className="aura-section-heading" data-aura-reveal><span className="aura-outline-pill"><MessageCircle size={15}/> What ALMA is for</span><h2>Support for <span>thoughtful practice.</span></h2><p>Members get private AI-assisted reflection with daily and monthly usage limits.</p></div><div className="aura-feature-grid">{uses.map(([Icon,title,copy])=>{const I=Icon as typeof CalendarDays;return <div className="aura-feature-card" data-aura-reveal key={title as string}><span className="aura-feature-icon"><I size={21}/></span><h3>{title as string}</h3><p>{copy as string}</p></div>})}</div></section>
    <AuraPhotoBand
-     image="/purity-writing.avif"
+     image="/purity-writing.webp"
      alt="A professional workshop, thoughtful writing session, and focused coaching conversation"
      eyebrow="HUMAN FIRST"
      title="AI supports the conversation. It does not replace it."

@@ -23,7 +23,7 @@ export default function EducationPage(){
   <div className="aura-learning-panel" data-aura-reveal><div className="aura-console-head"><span>{businessCourse.title}</span><span className="online">LEARNING</span></div><p className="aura-learning-big">{businessLessons.length} lessons</p><p className="aura-learning-copy">About {Math.round(totalMinutes)} minutes of guided video content plus quizzes, notes, resources, and saved progress.</p><div className="aura-learning-progress"><span style={{width:"42%"}}/></div><small>Member progress is saved to your private account.</small></div></section>
   <section className="aura-section"><div className="aura-section-heading" data-aura-reveal><span className="aura-outline-pill"><Sparkles size={15}/> Inside the learning space</span><h2>Practical learning, <span>without the noise.</span></h2><p>The member platform keeps lessons, study tools, and reflection in one place.</p></div><div className="aura-feature-grid">{highlights.map(([title,copy,Icon])=>{const I=Icon as typeof Play;return <div key={title as string} className="aura-feature-card" data-aura-reveal><span className="aura-feature-icon"><I size={21}/></span><h3>{title as string}</h3><p>{copy as string}</p></div>})}</div></section>
   <AuraPhotoBand
-    image="/purity-writing.avif"
+    image="/purity-writing.webp"
     alt="A coaching workshop, reflective writing desk, and thoughtful one-on-one conversation"
     eyebrow="LEARNING THAT FEELS REAL"
     title="Study it. Write it down. Use it with people."

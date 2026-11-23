@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SiteGuide from "@/components/site/SiteGuide";
 import ScrollMotion from "@/components/animations/ScrollMotion";
+import PwaRegister from "@/components/pwa/PwaRegister";
 import "./globals.css";
 import "./purity-editorial.css";
 import "./aura-reference.css";
@@ -16,6 +17,9 @@ export const metadata: Metadata = {
   description:
     "Explore culture-centered coaching, education, writing tools, and ALMA with Susan Wagner at Purity of Hearts.",
   applicationName: "Purity of Hearts",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: { capable: true, title: "Purity", statusBarStyle: "black-translucent" },
+  icons: { apple: "/apple-touch-icon.png" },
   openGraph: {
     type: "website",
     siteName: "Purity of Hearts",
@@ -34,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <SiteGuide />
         <ScrollMotion />
+        <PwaRegister />
       </body>
     </html>
   );

@@ -268,3 +268,11 @@
   .aura-photo-frame{min-height:280px;border-radius:20px}
   .aura-shift-button{width:100%}
 }
+
+.aura-pwa-install{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.055);color:white;padding:9px 13px;font-size:11px;font-weight:650;cursor:pointer}
+.aura-pwa-install:hover{background:rgba(255,255,255,.1)}
+.aura-pwa-install.mobile{display:none}
+.aura-pwa-guide{position:fixed;z-index:300;right:18px;bottom:18px;width:min(330px,calc(100vw - 36px));border:1px solid rgba(204,176,116,.35);border-radius:18px;background:#112F42;color:white;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.aura-pwa-guide>button{position:absolute;right:12px;top:12px;border:0;background:transparent;color:white;cursor:pointer}
+.aura-pwa-guide>svg{color:#CCB074}.aura-pwa-guide strong{display:block;margin-top:14px}.aura-pwa-guide p{margin:8px 0 0;color:rgba(255,255,255,.68);font-size:12px;line-height:1.7}
+@media(max-width:1100px){.aura-header-actions>.aura-pwa-install{display:none}.aura-pwa-install.mobile{display:flex;width:100%;justify-content:center;margin:8px 0;background:rgba(138,176,169,.12)}}

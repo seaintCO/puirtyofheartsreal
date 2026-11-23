@@ -42,7 +42,7 @@ export default function CulturePage(){
           </div>
         </section>
         <AuraPhotoBand
-          image="/purity-life-1.avif"
+          image="/purity-group.avif"
           alt="A diverse group discussing ideas, a woman writing reflections, and a coaching conversation"
           eyebrow="CULTURE IN REAL LIFE"
           title="Context lives in people, not categories."

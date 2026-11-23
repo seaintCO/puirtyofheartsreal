@@ -19,7 +19,7 @@ export default function AboutPage(){
    <section className="aura-subhero"><div className="aura-subhero-copy" data-aura-reveal><span className="aura-outline-pill"><HeartHandshake size={15}/> About Susan</span><h1>Work that starts<br/>with <span>people.</span></h1><p>Susan Wagner's work brings coaching, culture, faith-centered reflection, and practical learning into one experience for people who want to guide others with more care.</p><div className="aura-hero-buttons"><AuraShiftLink href="/consultation" label="Talk with Susan" icon={<ArrowUpRight size={16}/>} /><Link href="/private-advisory" className="aura-secondary-button">Explore coaching <ArrowRight size={16}/></Link></div></div><div className="aura-about-visual" data-aura-reveal><div className="aura-about-monogram">SW</div><span>COACH · EDUCATOR · GUIDE</span></div></section>
    <section className="aura-section"><div className="aura-section-heading" data-aura-reveal><span className="aura-outline-pill"><Compass size={15}/> The philosophy</span><h2>More thoughtful questions.<br/><span>More human answers.</span></h2><p>The platform is designed around the idea that meaningful coaching starts with understanding the person and the context around them.</p></div><div className="aura-path-grid">{values.map(([n,title,copy])=><div className="aura-path-card" data-aura-reveal key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></div>)}</div></section>
    <AuraPhotoBand
-   image="/purity-life-1.avif"
+   image="/purity-one-on-one.avif"
    alt="A modern workshop and coaching conversations centered on listening and thoughtful leadership"
    eyebrow="THE WORK"
    title="A platform shaped around real conversations."

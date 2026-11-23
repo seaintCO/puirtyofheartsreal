@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run build"
+    "check": "npm run typecheck && npm run build",
+    "prebuild": "node scripts/materialize-site-images.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.0",

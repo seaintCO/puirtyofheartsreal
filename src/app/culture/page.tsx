@@ -1,69 +1,89 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BookOpen, CalendarDays, CheckCircle2, Compass, Feather, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, CalendarDays, Compass, Feather, MessageCircle, MoveUpRight } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import StudioPreview from "@/components/culture/StudioPreview";
 
 export const metadata = {
-  title: "Culture Studio | Learning Tools for Coaches",
-  description: "Explore the Culture Calendar, Culture Insights, and Book Writing Guide with Purity of Hearts. Culture-centered coaching tools for thoughtful leaders and writers.",
+  title: "The Culture Studio | Learn, Reflect & Write",
+  description: "The Purity of Hearts Culture Studio: reflection calendar, culture insights, and book writing tools for coaches and leaders.",
 };
 
-const tools = [
-  { id: "calendar", icon: CalendarDays, number: "01", title: "Culture Calendar", subtitle: "A rhythm for intentional learning", description: "Choose a date, plan a coaching reflection, and track the conversations you want to have. The calendar is a personal planning tool — not an authoritative list of cultural holidays.", examples: ["What traditions or practices matter to this community?", "Who should be part of the conversation?", "What will you listen for and learn?"] },
-  { id: "insights", icon: Compass, number: "02", title: "Culture Insights", subtitle: "Questions before conclusions", description: "Explore themes like identity, belonging, communication, context, and power. Each theme comes with practical coaching questions and reflection exercises.", examples: ["What assumptions am I bringing?", "Whose perspective may be missing?", "How will I check my understanding?"] },
-  { id: "writing", icon: Feather, number: "03", title: "Book Writing Guide", subtitle: "Make space for your story", description: "Outline chapters, choose your reader, and reflect on how your lived experience informs your message without speaking for an entire group.", examples: ["Who am I writing for?", "Which experiences are mine to tell?", "What do I want the reader to practice?"] },
-];
+const offerings = [
+  { id:"calendar",number:"01",title:"Culture Calendar",category:"PLAN WITH INTENTION",icon:CalendarDays,detail:"A place to make time for what matters. Plan reflections, conversations, and the things you're curious to learn.",questions:["Which voices haven't I invited?","What is worth making time to notice?","What could I explore more deeply?"] },
+  { id:"insights",number:"02",title:"Culture Insights",category:"STUDY WITH CURIOSITY",icon:Compass,detail:"Learn about context, communication, and belonging through thoughtful prompts, without reducing any person to a label.",questions:["What am I assuming?","Whose perspective is missing?","What does this person want me to know?"] },
+  { id:"writing",number:"03",title:"Book Writing Guide",category:"WRITE WITH PURPOSE",icon:Feather,detail:"Bring your experiences into a story with chapter frameworks and space for your own words. The work should always sound like you.",questions:["What story is mine to tell?","Who am I writing for?","What do I hope a reader will carry forward?"] },
+] as const;
 
 export default function CulturePage() {
   return (
-    <main className="min-h-screen bg-[#FEFEFE] text-[#1B3C57]">
-      <Navbar />
-      <section className="relative overflow-hidden bg-[#E8F0ED] px-5 pb-20 pt-20 sm:px-8 sm:pb-24">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-44 -top-60 h-[40rem] w-[40rem] rounded-full border border-[#1B3C57]/10" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="flex max-w-3xl items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]"><Sparkles size={16}/> Purity of Hearts · Culture Studio</div>
-          <h1 className="mt-7 max-w-4xl text-[clamp(3.2rem,6vw,6rem)] font-semibold leading-[0.98] tracking-[-0.065em]">Understand more. <span className="text-[#648C85]">Coach better.</span></h1>
-          <p className="mt-7 max-w-2xl text-base leading-8 text-[#1B3C57]/70 sm:text-lg">One place to study culture, plan intentional conversations, and develop your voice as a coach or writer. Built around reflection, context, and thoughtful action.</p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/login?next=/dashboard/culture" className="inline-flex items-center gap-2 rounded-full bg-[#1B3C57] px-7 py-4 text-sm font-semibold text-white hover:bg-[#2B526B]">Open member tools <ArrowRight size={16}/></Link>
-            <Link href="/consultation" className="inline-flex items-center gap-2 rounded-full border border-[#1B3C57]/20 bg-white/70 px-7 py-4 text-sm font-semibold">Talk with Susan <ArrowUpRight size={16}/></Link>
-          </div>
-          <p className="mt-5 text-xs text-[#1B3C57]/60">Member tools require an eligible account. The previews below show the learning approach.</p>
-        </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
-        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">Three ways to learn</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">A toolkit with purpose.</h2></div>
-          <p className="max-w-md text-sm leading-7 text-[#1B3C57]/65">Use each space on its own, or move between them as you learn, teach, and write.</p>
-        </div>
-        <div className="mt-12 space-y-6">
-          {tools.map((tool,index)=>(
-            <article id={tool.id} key={tool.id} className="scroll-mt-28 overflow-hidden rounded-[2rem] border border-[#1B3C57]/10 bg-[#F7F8F5]">
-              <div className="grid lg:grid-cols-[1fr_.86fr]">
-                <div className="p-8 sm:p-12">
-                  <div className="flex items-center gap-3"><span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1B3C57] text-[#CCB074]"><tool.icon size={23}/></span><span className="text-xs tracking-[0.24em] text-[#648C85]">{tool.number} / CULTURE STUDIO</span></div>
-                  <h3 className="mt-8 text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">{tool.title}</h3><p className="mt-3 text-sm font-semibold text-[#648C85]">{tool.subtitle}</p><p className="mt-6 max-w-xl text-sm leading-8 text-[#1B3C57]/70">{tool.description}</p>
-                  <Link href="/login?next=/dashboard/culture" className="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-[#1B3C57] underline decoration-[#CCB074] underline-offset-8">Try the member tool <ArrowRight size={15}/></Link>
-                </div>
-                <div className={index===1?"flex flex-col justify-center bg-[#1B3C57] p-8 text-white sm:p-12":index===2?"flex flex-col justify-center bg-[#CCB074] p-8 text-[#1B3C57] sm:p-12":"flex flex-col justify-center bg-[#8AB0A9] p-8 text-[#1B3C57] sm:p-12"}>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-70">Practice prompts</p>
-                  <div className="mt-6 space-y-3">{tool.examples.map((text,i)=><div key={text} className="flex items-start gap-4 rounded-2xl border border-current/10 bg-white/10 px-5 py-4"><span className="text-sm font-semibold opacity-70">0{i+1}</span><p className="text-sm leading-6">{text}</p></div>)}</div>
-                </div>
+    <main className="ph-site">
+      <Navbar/>
+      <section className="ph-culture-hero">
+        <div className="ph-container">
+          <div className="ph-section-topline"><span>THE CULTURE STUDIO</span><span>AN INVITATION TO KEEP LEARNING</span></div>
+          <div className="ph-culture-hero-grid">
+            <div>
+              <p className="ph-eyebrow ph-reveal">PURPOSEFUL TOOLS, MEANINGFUL QUESTIONS</p>
+              <h1 className="ph-reveal ph-delay-1">A space to<br/><em>look deeper.</em></h1>
+            </div>
+            <div className="ph-culture-hero-aside ph-reveal ph-delay-2">
+              <div className="ph-culture-drawing" aria-hidden="true">
+                <svg viewBox="0 0 310 200" fill="none"><circle cx="155" cy="100" r="83" stroke="#8AB0A9"/><circle cx="155" cy="100" r="59" stroke="#CCB074" strokeDasharray="2 6"/><path d="M155 17V183M72 100H238" stroke="#1B3C57" strokeOpacity=".3"/><path d="M155 50L175 100L155 150L135 100Z" stroke="#1B3C57" fill="#E8F0ED"/><circle cx="155" cy="100" r="6" fill="#CCB074"/></svg>
               </div>
-            </article>
-          ))}
+              <p>Reflection. Learning. A voice of your own. Three ways to turn curiosity into meaningful practice.</p>
+              <Link href="#explore" className="ph-text-link">Explore the tools <ArrowDown size={16}/></Link>
+            </div>
+          </div>
+          <div className="ph-culture-hero-bottom"><span>01 — 03</span><span>MORE HUMAN. MORE INTENTIONAL.</span></div>
         </div>
       </section>
-      <section className="bg-[#102B40] px-5 py-20 text-white sm:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_.9fr] md:items-center">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Your reflection companion</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">Meet ALMA.</h2><p className="mt-5 max-w-xl text-base leading-8 text-white/65">Inside the member experience, ALMA helps you brainstorm reflection questions, structure chapters, and think through coaching situations. It is an AI assistant, not a substitute for lived experience or qualified cultural expertise.</p><Link href="/purityos" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#CCB074] px-6 py-3.5 text-sm font-semibold text-[#1B3C57]">Explore ALMA <ArrowRight size={16}/></Link></div>
-          <div className="rounded-[2rem] border border-white/15 bg-white/[0.06] p-7 sm:p-10"><div className="flex items-center gap-3"><MessageCircle className="text-[#CCB074]"/><span className="text-sm font-semibold">Example reflection</span></div><p className="mt-8 rounded-2xl bg-[#8AB0A9] px-5 py-4 text-sm leading-7 text-[#1B3C57]">“Help me develop five open-ended coaching questions about belonging without making assumptions.”</p><p className="mt-5 rounded-2xl border border-white/10 bg-white/[0.05] px-5 py-4 text-sm leading-7 text-white/65">Start by inviting a person’s own definition of belonging. Ask what support or practices they find meaningful, and listen for what you may not yet understand.</p><p className="mt-5 text-xs text-white/45">Illustrative example, not a live AI response.</p></div>
+      <section className="ph-culture-explore" id="explore">
+        <div className="ph-container">
+          <div className="ph-section-topline"><span>01 / DISCOVER YOUR PRACTICE</span><span>THREE INTERCONNECTED SPACES</span></div>
+          <div className="ph-culture-toc">
+            {offerings.map(item=>(
+              <a key={item.id} href={"#"+item.id} className="ph-culture-toc-item">
+                <span>{item.number}</span><span>{item.title}</span><ArrowDown size={15}/>
+              </a>
+            ))}
+          </div>
+          <div className="ph-culture-chapters">
+            {offerings.map((item,i)=>(
+              <article key={item.id} id={item.id} className={"ph-culture-chapter ph-culture-chapter-"+item.id}>
+                <div className="ph-culture-chapter-head"><span>{item.number} / 03</span><span>{item.category}</span></div>
+                <div className="ph-culture-chapter-grid">
+                  <div className="ph-culture-chapter-text">
+                    <div className="ph-culture-chapter-icon"><item.icon size={32} strokeWidth={1.2}/></div>
+                    <h2>{item.title.split(" ").slice(0,-1).join(" ")}<br/><em>{item.title.split(" ").at(-1)}</em></h2>
+                    <p>{item.detail}</p>
+                    <Link href="/login?next=/dashboard/culture" className="ph-text-link">Open the member workspace <ArrowUpRight size={16}/></Link>
+                  </div>
+                  <div className="ph-culture-chapter-visual">
+                    <div className="ph-culture-chapter-visual-title"><span>REFLECTION / {item.number}</span><span>✳</span></div>
+                    <div className="ph-culture-question-list">
+                      {item.questions.map((q,index)=><div className="ph-culture-question" key={q}><span>0{index+1}</span><p>{q}</p></div>)}
+                    </div>
+                    <span className="ph-culture-visual-footer">{i===2?"A BOOK STARTS WITH A QUESTION.":"REFLECTION BEFORE ASSUMPTION."}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <div className="grid gap-10 rounded-[2rem] border border-[#1B3C57]/10 bg-[#F7F8F5] p-8 md:grid-cols-[.9fr_1.1fr] md:items-center sm:p-12">
-          <div className="flex h-52 items-center justify-center rounded-[1.6rem] bg-[#E8F0ED]"><BookOpen size={74} strokeWidth={1.2} className="text-[#648C85]"/></div>
-          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">Learn with care</p><h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em]">Culture is lived, not a checklist.</h2><p className="mt-5 text-sm leading-8 text-[#1B3C57]/65">The studio encourages curiosity, context, and listening. It does not claim to define an entire culture, replace community knowledge, or provide verified holiday listings.</p><Link href="/private-advisory" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold">Explore coaching with Susan <ArrowRight size={16}/></Link></div>
+      <section className="ph-studio-section ph-studio-section-culture">
+        <div className="ph-container">
+          <div className="ph-section-topline"><span>02 / A LOOK INSIDE</span><span>THE STUDIO IN PRACTICE</span></div>
+          <div className="ph-studio-intro"><div><p className="ph-eyebrow">DESIGNED TO BE USED</p><h2>Quiet tools.<br/><em>Meaningful work.</em></h2></div><div><p>Preview the calendar, prompts, and writing guide. Members can then enter their own workspace.</p><Link href="/login?next=/dashboard/culture" className="ph-text-link">Visit your workspace <ArrowUpRight size={16}/></Link></div></div>
+          <StudioPreview/>
+        </div>
+      </section>
+      <section className="ph-culture-alma">
+        <div className="ph-container ph-culture-alma-inner">
+          <div className="ph-culture-alma-symbol"><span className="ph-culture-alma-ring"/><MessageCircle size={40} strokeWidth={1.1}/></div>
+          <div><p className="ph-eyebrow">MEET ALMA</p><h2>A place to <em>think out loud.</em></h2><p>Use the private member assistant to explore your questions, organize an outline, or think through a coaching conversation. AI can support reflection; it can't replace real lived experience.</p></div>
+          <Link href="/purityos" className="ph-culture-alma-link" aria-label="Explore ALMA"><MoveUpRight size={25}/></Link>
         </div>
       </section>
       <Footer/>

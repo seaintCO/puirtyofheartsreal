@@ -40,18 +40,18 @@ type Message = {
 const starters = [
   {
     icon: BriefcaseBusiness,
-    label: "Business clarity",
-    prompt: "Help me think through the biggest bottleneck in my business.",
+    label: "Culture & coaching",
+    prompt: "Help me reflect on how culture and context may shape a coaching conversation. Ask for context before advising.",
   },
   {
     icon: HeartHandshake,
-    label: "A hard season",
-    prompt: "I’m going through a hard season and need a grounded next step.",
+    label: "Culture calendar",
+    prompt: "Help me create a monthly culture reflection plan that fits my coaching community. Ask me which community and goals first.",
   },
   {
     icon: BookHeart,
-    label: "Faith & motivation",
-    prompt: "Give me faith-centered encouragement for what I’m facing today.",
+    label: "Writing my book",
+    prompt: "Help me outline a book about culture and coaching using my own experience. First ask who the reader is and what story I want to tell.",
   },
 ];
 
@@ -60,16 +60,18 @@ export default function PurityChat({
   messages: initialMessages,
   activeConversationId: initialConversationId,
   memberName,
+  initialPrompt = "",
 }: {
   conversations: Conversation[];
   messages: Message[];
   activeConversationId: string | null;
   memberName: string;
+  initialPrompt?: string;
 }) {
   const [conversations, setConversations] = useState(initialConversations);
   const [messages, setMessages] = useState(initialMessages);
   const [conversationId, setConversationId] = useState(initialConversationId);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(initialPrompt);
   const [loading, setLoading] = useState(false);
   const [notice, setNotice] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -190,7 +192,7 @@ export default function PurityChat({
     <div className="flex h-full flex-col">
       <div className="flex items-center justify-between border-b border-white/[0.10] p-5">
         <Link href="/" className="text-sm font-semibold tracking-[0.12em]">
-          PURITY<span className="text-[#ff91c7]">OS</span>
+          ALMA<span className="text-[#CCB074]">OS</span>
         </Link>
         <button
           onClick={() => setMenuOpen(false)}
@@ -205,7 +207,7 @@ export default function PurityChat({
         <button
           type="button"
           onClick={newChat}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#ff91c7]/[0.30] bg-[#ff91c7]/[0.10] px-4 py-3 text-sm font-medium text-[#ffb0d4] transition hover:bg-[#ff91c7]/[0.20]"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#CCB074]/[0.30] bg-[#CCB074]/[0.10] px-4 py-3 text-sm font-medium text-[#DCC78F] transition hover:bg-[#CCB074]/[0.20]"
         >
           <Plus size={17} />
           New conversation
@@ -317,7 +319,7 @@ export default function PurityChat({
             </Link>
             <Link
               href="/consultation"
-              className="flex items-center gap-2 rounded-full bg-[#ff91c7] px-4 py-2 text-xs font-semibold text-[#17121a]"
+              className="flex items-center gap-2 rounded-full bg-[#CCB074] px-4 py-2 text-xs font-semibold text-[#17121a]"
             >
               <CalendarDays size={14} />
               1:1 with Susan
@@ -329,7 +331,7 @@ export default function PurityChat({
           <div className="mx-auto flex min-h-full max-w-3xl flex-col px-4 py-8 sm:px-6">
             {messages.length === 0 ? (
               <div className="my-auto py-12">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#ff91c7]/[0.25] bg-[#ff91c7]/[0.10] text-[#ff91c7] shadow-[0_0_50px_rgba(255,79,163,0.14)]">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#CCB074]/[0.25] bg-[#CCB074]/[0.10] text-[#CCB074] shadow-[0_0_50px_rgba(255,79,163,0.14)]">
                   <Sparkles size={25} />
                 </div>
                 <h1 className="mt-6 text-center font-serif text-2xl sm:text-3xl">
@@ -345,9 +347,9 @@ export default function PurityChat({
                       key={label}
                       type="button"
                       onClick={() => sendMessage(undefined, prompt)}
-                      className="rounded-2xl border border-white/[0.10] bg-white/[0.04] backdrop-blur-2xl p-4 text-left transition hover:-translate-y-0.5 hover:border-[#ff91c7]/[0.25] hover:bg-white/[0.06]"
+                      className="rounded-2xl border border-white/[0.10] bg-white/[0.04] backdrop-blur-2xl p-4 text-left transition hover:-translate-y-0.5 hover:border-[#CCB074]/[0.25] hover:bg-white/[0.06]"
                     >
-                      <Icon size={19} className="text-[#f472b6]" />
+                      <Icon size={19} className="text-[#8AB0A9]" />
                       <p className="mt-4 text-sm font-medium">{label}</p>
                       <p className="mt-2 line-clamp-2 text-xs leading-5 text-white/[0.35]">
                         {prompt}
@@ -368,7 +370,7 @@ export default function PurityChat({
                     <div
                       className={
                         message.role === "user"
-                          ? "max-w-[88%] rounded-[1.4rem] rounded-br-md bg-[#f472b6] px-5 py-4 text-sm leading-6 text-[#17121a]"
+                          ? "max-w-[88%] rounded-[1.4rem] rounded-br-md bg-[#8AB0A9] px-5 py-4 text-sm leading-6 text-[#17121a]"
                           : "max-w-[92%] whitespace-pre-wrap text-sm leading-7 text-white/[0.72]"
                       }
                     >
@@ -378,7 +380,7 @@ export default function PurityChat({
                 ))}
                 {loading && (
                   <div className="flex items-center gap-3 text-sm text-white/[0.35]">
-                    <LoaderCircle size={16} className="animate-spin text-[#f472b6]" />
+                    <LoaderCircle size={16} className="animate-spin text-[#8AB0A9]" />
                     PurityOS is reflecting…
                   </div>
                 )}
@@ -391,7 +393,7 @@ export default function PurityChat({
         <div className="relative z-10 border-t border-white/[0.10] bg-[#0d0c0b]/[0.85] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-2xl sm:px-6">
           <form
             onSubmit={sendMessage}
-            className="mx-auto flex max-w-3xl items-end gap-3 rounded-[1.5rem] border border-white/[0.10] bg-white/[0.045] p-2 pl-4 shadow-2xl transition focus-within:border-[#f472b6]/[0.35]"
+            className="mx-auto flex max-w-3xl items-end gap-3 rounded-[1.5rem] border border-white/[0.10] bg-white/[0.045] p-2 pl-4 shadow-2xl transition focus-within:border-[#8AB0A9]/[0.35]"
           >
             <textarea
               value={input}
@@ -409,7 +411,7 @@ export default function PurityChat({
             />
             <button
               disabled={!input.trim() || loading}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f472b6] text-[#17121a] transition hover:bg-[#ff9dcc] disabled:opacity-30"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#8AB0A9] text-[#17121a] transition hover:bg-[#CCB074] disabled:opacity-30"
               aria-label="Send message"
             >
               <ArrowUp size={18} />

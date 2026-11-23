@@ -1,3 +1,4 @@
+import SiteGuide from "@/components/site/SiteGuide";
 import "./globals.css";
 
 export const metadata = {
@@ -5,15 +6,15 @@ export const metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
   title: {
-    default: "Purity Of Hearts | Business, Faith & Legacy",
+    default: "Purity of Hearts | Culture, Coaching & Clarity",
     template: "%s | Purity Of Hearts",
   },
   description:
-    "Learn business through the Purity of Hearts education platform, discover PurityOS, or book a private growth strategy call with Susan Wagner.",
+    "Explore culture-centered coaching, education, writing tools, and ALMA with Susan Wagner at Purity of Hearts.",
   openGraph: {
     title: "Purity Of Hearts",
     description:
-      "Education, clarity, and private growth strategy for founders building with purpose.",
+      "Culture-centered education, coaching, and reflective tools for thoughtful leaders and writers.",
     type: "website",
   },
 };
@@ -25,8 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased selection:bg-[#ff4fa3]/25 selection:text-[#111116]">
+      <body className="antialiased selection:bg-[#8AB0A9]/25 selection:text-[#1B3C57]">
         {children}
+        <SiteGuide />
       </body>
     </html>
   );

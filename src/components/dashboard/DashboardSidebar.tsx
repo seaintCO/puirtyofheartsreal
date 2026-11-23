@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BookOpen,
+  Compass,
   Brain,
   BriefcaseBusiness,
   BrainCircuit,
@@ -22,6 +23,7 @@ import {
 
 export const dashboardItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+  { label: "Culture Studio", href: "/dashboard/culture", icon: Compass },
   { label: "Journal", href: "/dashboard/journal", icon: NotebookPen },
   { label: "Resource Vault", href: "/dashboard/resources", icon: FolderOpen },
   { label: "Courses", href: "/dashboard/courses", icon: GraduationCap },

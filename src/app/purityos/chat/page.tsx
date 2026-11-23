@@ -5,14 +5,14 @@ import PurityChat from "@/components/purityos/PurityChat";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "PurityOS Private Chat",
+  title: "ALMA | Private Member Chat",
   robots: { index: false, follow: false },
 };
 
 export default async function PurityChatPage({
   searchParams,
 }: {
-  searchParams: Promise<{ conversation?: string }>;
+  searchParams: Promise<{ conversation?: string; prompt?: string }>;
 }) {
   const supabase = await createClient();
   const {
@@ -34,7 +34,9 @@ export default async function PurityChatPage({
     supabase.from("profiles").select("full_name").eq("id", user.id).maybeSingle(),
   ]);
 
-  const requestedId = (await searchParams).conversation;
+  const params = await searchParams;
+  const requestedId = params.conversation;
+  const initialPrompt = typeof params.prompt === "string" ? params.prompt.slice(0,600) : "";
   const activeConversationId =
     requestedId && conversations?.some((item) => item.id === requestedId)
       ? requestedId
@@ -60,6 +62,7 @@ export default async function PurityChatPage({
       }>}
       activeConversationId={activeConversationId}
       memberName={profile?.full_name?.split(" ")[0] || "you"}
+      initialPrompt={initialPrompt}
     />
   );
 }

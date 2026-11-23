@@ -30,7 +30,7 @@ export default function Shop() {
               key={product.slug}
               className="group"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#f5f5f7]">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-[#F7F8F5]">
                 <Image
                   src={product.image}
                   alt={`${product.name} product concept`}
@@ -43,7 +43,7 @@ export default function Shop() {
                 </span>
               </div>
               <div className="px-1 pt-5">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-[#e83491]">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-[#648C85]">
                   {product.eyebrow}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em]">

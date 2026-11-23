@@ -16,7 +16,7 @@ const messages = [
 
 export default function Community() {
   return (
-    <section className="bg-[#f5f5f7] px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
+    <section className="bg-[#F7F8F5] px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[.78fr_1.22fr] lg:gap-24">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6b31]">

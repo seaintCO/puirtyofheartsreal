@@ -3,11 +3,11 @@ import { Quote } from "lucide-react";
 export default function DevotionalPreview() {
   return (
     <section className="py-24 bg-[#FFF8F2] flex items-center justify-center px-6">
-      <div className="w-full max-w-3xl bg-white rounded-[2.5rem] p-10 md:p-16 luxury-shadow border border-[#ff4fa3]/[0.10] text-center relative overflow-hidden">
+      <div className="w-full max-w-3xl bg-white rounded-[2.5rem] p-10 md:p-16 luxury-shadow border border-[#8AB0A9]/[0.10] text-center relative overflow-hidden">
         <Quote className="absolute top-10 left-10 text-[#F8F3EB] opacity-50" size={64} />
 
         <div className="relative z-10">
-          <span className="text-[#ff4fa3] text-xs font-semibold uppercase tracking-widest block mb-6">
+          <span className="text-[#8AB0A9] text-xs font-semibold uppercase tracking-widest block mb-6">
             Today's Devotional
           </span>
 

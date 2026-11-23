@@ -53,7 +53,7 @@ export default function Newsletter() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email address"
-              className="min-w-0 flex-1 rounded-full border border-black/[0.10] bg-white/[0.75] px-6 py-4 text-sm text-[#1f1f1f] outline-none placeholder:text-[#1f1f1f]/[0.35] focus:border-[#e83491]"
+              className="min-w-0 flex-1 rounded-full border border-black/[0.10] bg-white/[0.75] px-6 py-4 text-sm text-[#1f1f1f] outline-none placeholder:text-[#1f1f1f]/[0.35] focus:border-[#648C85]"
             />
             <button
               disabled={loading}

@@ -26,7 +26,7 @@ const reviews = [
 function ReviewCard({ text }: { text: string }) {
   return (
     <div className="mx-3 w-[320px] shrink-0 rounded-3xl border border-[#1F1F1F]/[0.05] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-      <div className="mb-4 flex gap-1 text-[#ff4fa3]">
+      <div className="mb-4 flex gap-1 text-[#8AB0A9]">
         {[1, 2, 3, 4, 5].map((i) => (
           <Star key={i} size={15} fill="currentColor" />
         ))}
@@ -43,7 +43,7 @@ export default function Testimonials() {
   return (
     <section className="overflow-hidden bg-[#FFF8F2] py-24">
       <div className="mb-12 px-6 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#8AB0A9]">
           Stories of Growth
         </span>
         <h2 className="mx-auto mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-[#1F1F1F] md:text-4xl">

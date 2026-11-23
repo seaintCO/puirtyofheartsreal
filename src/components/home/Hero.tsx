@@ -4,7 +4,7 @@ import { businessLessons } from "@/data/business-course";
 
 export default function Hero() {
   return (
-    <section className="overflow-hidden bg-[#f5f5f7] px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:pb-36 lg:pt-28">
+    <section className="overflow-hidden bg-[#F7F8F5] px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:pb-36 lg:pt-28">
       <div className="mx-auto max-w-6xl text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6b31]">
           Faith. Business. A life with direction.

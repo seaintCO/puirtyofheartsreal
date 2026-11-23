@@ -19,7 +19,6 @@ export default function MembershipCheckoutButton({ label = "Start membership" }:
         return;
       }
       if (!response.ok || !data.url) throw new Error(data.error || "Checkout could not start.");
-      // Only redirect to a server-generated Stripe hosted URL or a same-origin member URL.
       const destination = new URL(data.url, window.location.origin);
       if (destination.protocol !== "https:" && destination.origin !== window.location.origin) throw new Error("Unexpected checkout destination.");
       if (destination.origin !== window.location.origin && !destination.hostname.endsWith(".stripe.com")) throw new Error("Unexpected payment provider.");
@@ -32,9 +31,12 @@ export default function MembershipCheckoutButton({ label = "Start membership" }:
 
   return (
     <div className="w-full">
-      <button type="button" disabled={loading} onClick={start} className="flex w-full items-center justify-center gap-3 bg-[#CCB074] px-6 py-4 text-sm font-semibold text-[#1B3C57] transition hover:bg-[#DDC68F] disabled:cursor-wait disabled:opacity-60">
-        {loading ? <LoaderCircle size={17} className="animate-spin"/> : <ArrowRight size={17}/>}
-        {loading ? "Opening secure checkout…" : label}
+      <button type="button" disabled={loading} onClick={start} className="aura-shift-button aura-shift-primary aura-shift-checkout">
+        <span className="aura-shift-icon">{loading ? <LoaderCircle size={17} className="animate-spin"/> : <ArrowRight size={17}/>}</span>
+        <span className="aura-shift-window" aria-label={loading ? "Opening secure checkout" : label}>
+          <span className="aura-shift-label">{loading ? "Opening secure checkout…" : label}</span>
+          <span className="aura-shift-label aura-shift-label-clone" aria-hidden="true">{loading ? "Opening secure checkout…" : label}</span>
+        </span>
       </button>
       {error && <p role="alert" className="mt-3 text-sm leading-6 text-red-200">{error}</p>}
     </div>

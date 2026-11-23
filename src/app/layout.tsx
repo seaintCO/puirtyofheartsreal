@@ -3,6 +3,7 @@ import SiteGuide from "@/components/site/SiteGuide";
 import ScrollMotion from "@/components/animations/ScrollMotion";
 import "./globals.css";
 import "./purity-editorial.css";
+import "./aura-reference.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gettothef.com";
 

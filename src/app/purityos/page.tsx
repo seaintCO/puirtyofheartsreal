@@ -1,54 +1,26 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BookOpen, CalendarDays, Feather, MessageCircle } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import PurityWaitlistForm from "@/components/purityos/PurityWaitlistForm";
+import { ArrowRight, ArrowUpRight, BookOpen, CalendarDays, Feather, MessageCircle, Sparkles } from "lucide-react";
+import AuraHeader from "@/components/layout/AuraHeader";
+import AuraFooter from "@/components/layout/AuraFooter";
+import PurityAuraBackdrop from "@/components/effects/PurityAuraBackdrop";
+import AuraMotion from "@/components/effects/AuraMotion";
 
-export const metadata = {
-  title: "ALMA | Your Reflection Companion",
-  description: "ALMA is a private AI reflection partner within Purity of Hearts for coaches, leaders, culture, and writing.",
-};
+export const metadata = { title:"ALMA | Purity of Hearts", description:"Private AI-assisted reflection for culture, coaching, and writing." };
 
-const uses = [
-  { n:"01", icon:CalendarDays, title:"Make space to reflect", text:"Think through conversations, set intentions, and develop a rhythm of thoughtful coaching practice." },
-  { n:"02", icon:BookOpen, title:"Understand the context", text:"Explore better questions about culture, belonging, and communication without reducing people to a label." },
-  { n:"03", icon:Feather, title:"Find the words", text:"Work through chapter ideas, writing prompts, and the stories only you can tell." },
+const uses=[
+  [CalendarDays,"Reflect","Think through conversations and plan intentional reflection."],
+  [BookOpen,"Understand","Explore culture and context through better questions."],
+  [Feather,"Write","Outline chapters and work through ideas in your own voice."],
 ];
 
-export default function PurityOSPage() {
-  return (
-    <main className="ph-site">
-      <Navbar/>
-      <section className="ph-alma-hero">
-        <div className="ph-container">
-          <div className="ph-section-topline"><span>ALMA / THE REFLECTION COMPANION</span><span>MEMBER EXPERIENCE</span></div>
-          <div className="ph-alma-grid">
-            <div className="ph-reveal"><p className="ph-eyebrow">A QUIETER PLACE TO THINK</p><h1>Clarity takes<br/><em>a conversation.</em></h1><p>Meet ALMA, a private companion for thinking through culture, your coaching practice, and the ideas worth putting into words.</p>
-              <div className="ph-hero-actions"><Link className="ph-btn ph-btn-gold" href="/membership">Become a member <ArrowUpRight size={16}/></Link><Link href="/culture" className="ph-text-link ph-text-link-light">Explore the studio <ArrowRight size={16}/></Link></div><p className="ph-alma-access"><Link href="/purityos/chat" className="text-[#CCB074] underline underline-offset-4">Already a member? Open ALMA.</Link> Member access is required. ALMA uses AI to support reflection, not to replace cultural expertise or professional advice.</p>
-            </div>
-            <div className="ph-alma-visual ph-reveal ph-delay-2" aria-label="ALMA circular wordmark illustration">
-              <div className="ph-alma-circle ph-alma-circle-one"/><div className="ph-alma-circle ph-alma-circle-two"/><div className="ph-alma-circle ph-alma-circle-three"/>
-              <span className="ph-alma-visual-top">LISTEN · REFLECT · GROW</span>
-              <span className="ph-alma-wordmark">alma<span>.</span></span>
-              <span className="ph-alma-visual-bottom">A SPACE FOR THOUGHTFUL QUESTIONS</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="ph-alma-uses">
-        <div className="ph-container">
-          <div className="ph-section-topline"><span>01 / WHAT ALMA CAN HELP YOU EXPLORE</span><span>REFLECTION OVER INSTANT ANSWERS</span></div>
-          <div data-ph-animate className="ph-alma-uses-intro"><h2>Questions worth<br/><em>spending time with.</em></h2><p>Three places to begin. Your conversations are your own, and the perspective behind them belongs to you.</p></div>
-          <div className="ph-alma-use-list">{uses.map(item=><article key={item.n} data-ph-animate className="ph-alma-use"><span>{item.n}</span><item.icon size={28} strokeWidth={1.2}/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
-        </div>
-      </section>
-      <section className="ph-alma-waitlist">
-        <div data-ph-animate className="ph-container ph-alma-waitlist-grid">
-          <div><span className="ph-eyebrow">PURITY OF HEARTS / NEWS</span><h2>The next chapter<br/><em>is taking shape.</em></h2><p>Follow along as the member experience grows. Joining the mailing list does not purchase access or guarantee a place in a program.</p></div>
-          <div className="ph-alma-waitlist-form"><PurityWaitlistForm dark /></div>
-        </div>
-      </section>
-      <Footer/>
-    </main>
-  );
+export default function PurityOSPage(){
+ return <div className="aura-page"><AuraMotion/><main className="aura-shell aura-inner-page"><PurityAuraBackdrop/><div className="aura-hatch" aria-hidden="true"/><AuraHeader/>
+   <section className="aura-subhero">
+     <div className="aura-subhero-copy" data-aura-reveal><span className="aura-outline-pill"><Sparkles size={15}/> ALMA member assistant</span><h1>A quieter place<br/>to <span>think out loud.</span></h1><p>ALMA helps members reflect on coaching situations, culture, leadership, and book ideas. It supports thoughtful questions — it does not replace lived experience or professional expertise.</p><div className="aura-hero-buttons"><Link href="/purityos/chat" className="aura-primary-button"><MessageCircle size={16}/> Open member chat</Link><Link href="/membership" className="aura-secondary-button">Membership <ArrowRight size={16}/></Link></div></div>
+     <div className="aura-alma-visual" data-aura-reveal><span className="ring one"/><span className="ring two"/><span className="ring three"/><strong>alma<span>.</span></strong><small>LISTEN · REFLECT · GROW</small></div>
+   </section>
+   <section className="aura-section"><div className="aura-section-heading" data-aura-reveal><span className="aura-outline-pill"><MessageCircle size={15}/> What ALMA is for</span><h2>Support for <span>thoughtful practice.</span></h2><p>Members get private AI-assisted reflection with daily and monthly usage limits.</p></div><div className="aura-feature-grid">{uses.map(([Icon,title,copy])=>{const I=Icon as typeof CalendarDays;return <div className="aura-feature-card" data-aura-reveal key={title as string}><span className="aura-feature-icon"><I size={21}/></span><h3>{title as string}</h3><p>{copy as string}</p></div>})}</div></section>
+   <section className="aura-cta"><div className="aura-cta-inner" data-aura-reveal><h2>Already a member? <span>Start a conversation.</span></h2><p>Open your private ALMA chat, or learn about the membership if you haven't joined yet.</p><div><Link href="/purityos/chat" className="aura-primary-button"><ArrowUpRight size={16}/> Open ALMA</Link><Link href="/membership" className="aura-secondary-button">View membership <ArrowRight size={16}/></Link></div></div></section>
+   <AuraFooter/>
+ </main></div>
 }

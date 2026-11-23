@@ -74,7 +74,7 @@ export default function ResourceUploader() {
       className="rounded-[2rem] border border-white/[0.10] bg-white/[0.04] p-6"
     >
       <div className="mb-7">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#ff4fa3]">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#8AB0A9]">
           Admin Resource Manager
         </p>
 
@@ -92,7 +92,7 @@ export default function ResourceUploader() {
           name="title"
           required
           placeholder="Resource title"
-          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
+          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#8AB0A9]"
         />
 
         <select
@@ -118,19 +118,19 @@ export default function ResourceUploader() {
         <input
           name="duration"
           placeholder="Duration, such as 12:30"
-          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
+          className="rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#8AB0A9]"
         />
       </div>
 
       <textarea
         name="description"
         placeholder="Resource description"
-        className="mt-4 min-h-28 w-full resize-none rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
+        className="mt-4 min-h-28 w-full resize-none rounded-2xl border border-white/[0.10] bg-[#181818] px-5 py-4 text-sm text-white outline-none focus:border-[#8AB0A9]"
       />
 
       <div className="mt-4 rounded-2xl border border-white/[0.10] bg-[#181818] p-5">
         <div className="flex items-center gap-2">
-          <FileUp className="text-[#ff4fa3]" size={19} />
+          <FileUp className="text-[#8AB0A9]" size={19} />
           <p className="text-sm font-medium">Upload protected file</p>
         </div>
 
@@ -144,7 +144,7 @@ export default function ResourceUploader() {
 
       <div className="mt-4 rounded-2xl border border-white/[0.10] bg-[#181818] p-5">
         <div className="flex items-center gap-2">
-          <Link2 className="text-[#ff4fa3]" size={19} />
+          <Link2 className="text-[#8AB0A9]" size={19} />
           <p className="text-sm font-medium">
             Or add an external video URL
           </p>
@@ -154,7 +154,7 @@ export default function ResourceUploader() {
           name="externalUrl"
           type="url"
           placeholder="https://youtu.be/..."
-          className="mt-4 w-full rounded-2xl border border-white/[0.10] bg-[#111] px-5 py-4 text-sm text-white outline-none focus:border-[#ff4fa3]"
+          className="mt-4 w-full rounded-2xl border border-white/[0.10] bg-[#111] px-5 py-4 text-sm text-white outline-none focus:border-[#8AB0A9]"
         />
       </div>
 
@@ -165,7 +165,7 @@ export default function ResourceUploader() {
 
       <button
         disabled={uploading}
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#ff4fa3] px-7 py-4 text-sm font-medium text-white disabled:opacity-50"
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#8AB0A9] px-7 py-4 text-sm font-medium text-white disabled:opacity-50"
       >
         {uploading ? (
           <LoaderCircle className="animate-spin" size={18} />
@@ -178,7 +178,7 @@ export default function ResourceUploader() {
 
       {message && (
         <div className="mt-5 flex items-center gap-2 rounded-2xl bg-white/[0.05] p-4 text-sm text-white/[0.65]">
-          <CheckCircle2 className="text-[#ff4fa3]" size={17} />
+          <CheckCircle2 className="text-[#8AB0A9]" size={17} />
           {message}
         </div>
       )}

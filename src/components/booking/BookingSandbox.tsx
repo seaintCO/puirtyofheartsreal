@@ -51,7 +51,7 @@ export default function BookingSandbox() {
     <div className="overflow-hidden rounded-[2.2rem] border border-white/[0.10] bg-[#0f1110] text-white shadow-[0_50px_140px_rgba(0,0,0,.35)]">
       <div className="flex flex-col border-b border-white/[0.10] bg-white/[0.035] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff4fa3]/[0.12] text-[#ff91c7]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#8AB0A9]/[0.12] text-[#CCB074]">
             <Sparkles size={18} />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function BookingSandbox() {
               onClick={() => setMode(value as "booking" | "dashboard")}
               className={`rounded-full px-4 py-2 text-xs transition ${
                 mode === value
-                  ? "bg-[#ff91c7] font-semibold text-[#17130d]"
+                  ? "bg-[#CCB074] font-semibold text-[#17130d]"
                   : "text-white/[0.45]"
               }`}
             >
@@ -83,7 +83,7 @@ export default function BookingSandbox() {
       {mode === "booking" ? (
         <div className="grid min-h-[650px] lg:grid-cols-[280px_1fr]">
           <aside className="border-b border-white/[0.10] bg-white/[0.02] p-6 lg:border-b-0 lg:border-r">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#ff91c7]">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#CCB074]">
               Purity of Hearts
             </p>
             <h3 className="mt-4 font-serif text-2xl">Book with Susan</h3>
@@ -98,7 +98,7 @@ export default function BookingSandbox() {
                     <div
                       className={`flex h-7 w-7 items-center justify-center rounded-full text-xs ${
                         step > index
-                          ? "bg-[#ff91c7] text-[#17130d]"
+                          ? "bg-[#CCB074] text-[#17130d]"
                           : "border border-white/[0.10] text-white/[0.30]"
                       }`}
                     >
@@ -121,7 +121,7 @@ export default function BookingSandbox() {
                 {selectedService.duration} · ${selectedService.price}
               </p>
               {step > 1 && (
-                <p className="mt-3 text-[11px] text-[#ff91c7]">
+                <p className="mt-3 text-[11px] text-[#CCB074]">
                   {date} at {time}
                 </p>
               )}
@@ -132,7 +132,7 @@ export default function BookingSandbox() {
             <div className="w-full max-w-2xl">
               {confirmed ? (
                 <div className="py-12 text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ff91c7] text-[#17130d]">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#CCB074] text-[#17130d]">
                     <Check size={27} />
                   </div>
                   <h3 className="mt-7 font-serif text-3xl">You’re booked.</h3>
@@ -154,7 +154,7 @@ export default function BookingSandbox() {
                 </div>
               ) : step === 1 ? (
                 <div>
-                  <p className="text-xs font-medium text-[#ff91c7]">Step 1 of 3</p>
+                  <p className="text-xs font-medium text-[#CCB074]">Step 1 of 3</p>
                   <h3 className="mt-3 font-serif text-3xl">Choose your session.</h3>
                   <div className="mt-7 space-y-3">
                     {services.map((service) => (
@@ -164,7 +164,7 @@ export default function BookingSandbox() {
                         onClick={() => setServiceId(service.id)}
                         className={`flex w-full items-center justify-between rounded-2xl border p-5 text-left transition ${
                           serviceId === service.id
-                            ? "border-[#ff91c7]/[0.50] bg-[#ff91c7]/[0.10]"
+                            ? "border-[#CCB074]/[0.50] bg-[#CCB074]/[0.10]"
                             : "border-white/[0.10] bg-white/[0.025] hover:bg-white/[0.05]"
                         }`}
                       >
@@ -174,21 +174,21 @@ export default function BookingSandbox() {
                             {service.duration}
                           </p>
                         </div>
-                        <p className="text-sm text-[#ff91c7]">${service.price}</p>
+                        <p className="text-sm text-[#CCB074]">${service.price}</p>
                       </button>
                     ))}
                   </div>
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[#ff91c7] px-6 py-4 text-sm font-semibold text-[#17130d]"
+                    className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[#CCB074] px-6 py-4 text-sm font-semibold text-[#17130d]"
                   >
                     Continue <ArrowRight size={16} />
                   </button>
                 </div>
               ) : step === 2 ? (
                 <div>
-                  <p className="text-xs font-medium text-[#ff91c7]">Step 2 of 3</p>
+                  <p className="text-xs font-medium text-[#CCB074]">Step 2 of 3</p>
                   <h3 className="mt-3 font-serif text-3xl">Pick a date and time.</h3>
                   <label className="mt-7 block text-xs text-white/[0.45]">
                     Date
@@ -207,7 +207,7 @@ export default function BookingSandbox() {
                         onClick={() => setTime(item)}
                         className={`rounded-xl border px-4 py-3 text-xs transition ${
                           time === item
-                            ? "border-[#ff91c7]/[0.50] bg-[#ff91c7]/[0.10] text-[#efd48a]"
+                            ? "border-[#CCB074]/[0.50] bg-[#CCB074]/[0.10] text-[#efd48a]"
                             : "border-white/[0.10] text-white/[0.45]"
                         }`}
                       >
@@ -226,7 +226,7 @@ export default function BookingSandbox() {
                     <button
                       type="button"
                       onClick={() => setStep(3)}
-                      className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#ff91c7] px-6 py-3.5 text-sm font-semibold text-[#17130d]"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#CCB074] px-6 py-3.5 text-sm font-semibold text-[#17130d]"
                     >
                       Continue <ArrowRight size={16} />
                     </button>
@@ -234,7 +234,7 @@ export default function BookingSandbox() {
                 </div>
               ) : (
                 <form onSubmit={finish}>
-                  <p className="text-xs font-medium text-[#ff91c7]">Step 3 of 3</p>
+                  <p className="text-xs font-medium text-[#CCB074]">Step 3 of 3</p>
                   <h3 className="mt-3 font-serif text-3xl">Complete your booking.</h3>
                   <div className="mt-7 grid gap-3 sm:grid-cols-2">
                     <input
@@ -269,7 +269,7 @@ export default function BookingSandbox() {
                     >
                       <ArrowLeft size={15} /> Back
                     </button>
-                    <button className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#ff91c7] px-6 py-3.5 text-sm font-semibold text-[#17130d]">
+                    <button className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#CCB074] px-6 py-3.5 text-sm font-semibold text-[#17130d]">
                       Confirm demo booking <Check size={16} />
                     </button>
                   </div>
@@ -297,7 +297,7 @@ export default function BookingSandbox() {
                 onClick={() => setDashboardTab(label)}
                 className={`mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm transition ${
                   dashboardTab === label
-                    ? "bg-[#ff91c7] font-medium text-[#17130d]"
+                    ? "bg-[#CCB074] font-medium text-[#17130d]"
                     : "text-white/[0.40] hover:bg-white/[0.05]"
                 }`}
               >
@@ -309,7 +309,7 @@ export default function BookingSandbox() {
           <div className="p-5 sm:p-8">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-xs text-[#ff91c7]">Owner dashboard</p>
+                <p className="text-xs text-[#CCB074]">Owner dashboard</p>
                 <h3 className="mt-2 text-2xl font-semibold">{dashboardTab}</h3>
               </div>
               <div className="rounded-full border border-emerald-400/[0.20] bg-emerald-400/[0.10] px-3 py-1.5 text-[10px] text-emerald-300">
@@ -328,7 +328,7 @@ export default function BookingSandbox() {
                   key={label}
                   className="rounded-2xl border border-white/[0.10] bg-white/[0.035] p-5"
                 >
-                  <Icon size={17} className="text-[#ff91c7]" />
+                  <Icon size={17} className="text-[#CCB074]" />
                   <p className="mt-5 text-2xl font-semibold">{value}</p>
                   <p className="mt-2 text-xs text-white/[0.35]">{label}</p>
                 </div>
@@ -347,7 +347,7 @@ export default function BookingSandbox() {
                       key={`${bookingTime}-${name}`}
                       className="grid grid-cols-[70px_1fr_auto] items-center gap-3 rounded-xl border border-white/[0.08] bg-black/[0.15] px-4 py-3"
                     >
-                      <p className="text-xs text-[#ff91c7]">{bookingTime}</p>
+                      <p className="text-xs text-[#CCB074]">{bookingTime}</p>
                       <div className="min-w-0">
                         <p className="truncate text-xs font-medium">{name}</p>
                         <p className="mt-1 truncate text-[10px] text-white/[0.30]">

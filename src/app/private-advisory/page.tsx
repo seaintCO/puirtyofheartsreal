@@ -1,253 +1,76 @@
 import Link from "next/link";
 import {
-  ArrowRight,
-  ArrowUpRight,
-  CalendarDays,
-  Check,
-  Compass,
-  Flag,
-  Layers3,
-  LineChart,
-  LockKeyhole,
-  Route,
-  Target,
+  ArrowRight, ArrowUpRight, BookOpen, CalendarDays, Check,
+  Compass, Feather, HeartHandshake, MessageCircle, UsersRound,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BrandMark from "@/components/brand/BrandMark";
 
 export const metadata = {
-  title: "Work with Susan | Coaching for Coaches",
-  description:
-    "Explore culture-centered coaching with Susan Wagner for coaches, leaders, and those building purposeful learning experiences.",
+  title: "Coaching for Coaches | Work with Susan Wagner",
+  description: "Explore Susan Wagner's culture-centered approach to coaching coaches, leadership, learning, and authentic book writing with Purity of Hearts.",
 };
 
-const roadmap = [
-  [Compass, "Vision", "Define what the business is becoming, who it serves, and why it should exist."],
-  [Layers3, "Foundation", "Clarify the offer, positioning, model, structure, roles, and immediate priorities."],
-  [LineChart, "Growth", "Create a realistic strategy for demand, conversion, delivery, capacity, and scale."],
-  [Target, "Objectives", "Translate the strategy into measurable outcomes, milestones, and next actions."],
-  [Route, "Execution", "Organize the work around the few actions that create meaningful progress."],
-  [Flag, "Exit", "Think ahead to founder freedom, succession, stewardship, sale, or long-term legacy."],
-] as const;
+const approaches = [
+  { icon: Compass, num: "01", title: "Understanding culture", copy: "Consider how context, identity, and lived experience shape communication, expectations, and the way people learn." },
+  { icon: MessageCircle, num: "02", title: "The art of asking", copy: "Practice questions that invite reflection without making assumptions or speaking for the people you coach." },
+  { icon: HeartHandshake, num: "03", title: "Leading with awareness", copy: "Examine trust, belonging, listening, and how to facilitate conversations where different experiences matter." },
+  { icon: BookOpen, num: "04", title: "Teaching what you learn", copy: "Turn ideas into usable coaching exercises, workshops, and learning paths while staying true to your own experience." },
+];
+
+const pathways = [
+  { title: "For aspiring coaches", copy: "Find your voice, your approach, and the questions that help people think more clearly." },
+  { title: "For practicing coaches", copy: "Deepen reflection, strengthen communication, and explore how culture may influence client experiences." },
+  { title: "For leaders and educators", copy: "Build more thoughtful conversations and learning experiences within the communities you serve." },
+];
 
 export default function PrivateAdvisoryPage() {
   return (
-    <main className="liquid-page text-[#1B3C57]">
+    <main className="min-h-screen bg-[#FEFEFE] text-[#1B3C57]">
       <Navbar />
-
-      <section className="relative px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20">
-        <div className="liquid-grid pointer-events-none absolute inset-0 opacity-48" />
-        <div className="liquid-orb left-[-9rem] top-[-8rem] h-[31rem] w-[31rem] bg-[#CCB074]/[0.30]" />
-        <div className="liquid-orb right-[-12rem] top-[4rem] h-[36rem] w-[36rem] bg-[#8AB0A9]/[0.26]" />
-
-        <div className="relative mx-auto max-w-7xl text-center">
-          <div className="liquid-glass-soft mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.46]">
-            <span className="pink-dot h-1.5 w-1.5 rounded-full bg-[#8AB0A9]" />
-            Purity Of Hearts
-          </div>
-          <h1 className="liquid-title public-hero-title mt-7 font-semibold">
-            Your practice. <span className="liquid-gradient-text">A deeper perspective.</span>
-          </h1>
-          <p className="mx-auto mt-8 max-w-3xl text-base leading-7 text-black/[0.47] sm:text-xl sm:leading-8">
-            Private conversations for coaches and leaders who want to explore
-            culture, identity, communication, and the thoughtful practice
-            of guiding others.
-          </p>
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              href="/consultation"
-              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
-            >
-              Book a coaching conversation <ArrowUpRight size={15} />
-            </Link>
-            <Link
-              href="#approach"
-              className="liquid-button-secondary liquid-glass-soft inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-black"
-            >
-              See the approach <ArrowRight size={15} />
-            </Link>
-          </div>
-
-          <div className="liquid-glass mx-auto mt-16 max-w-6xl rounded-[2.4rem] p-3 text-left sm:mt-20 sm:p-4">
-            <div className="relative overflow-hidden rounded-[1.8rem] bg-[#102B40] p-4 text-white sm:p-6">
-              <div className="absolute -left-20 -top-28 h-80 w-80 rounded-full bg-[#8AB0A9]/[0.19] blur-[100px]" />
-              <div className="absolute -bottom-36 right-[-3rem] h-96 w-96 rounded-full bg-[#8AB0A9]/[0.17] blur-[115px]" />
-
-              <div className="relative grid gap-4 lg:grid-cols-[.78fr_1.22fr]">
-                <div className="liquid-glass-dark rounded-[1.7rem] p-6 sm:p-8">
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs font-semibold">Private Client</p>
-                    <LockKeyhole size={16} className="text-white/[0.36]" />
-                  </div>
-                  <div className="mt-12 flex h-20 w-20 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.08] text-2xl font-semibold tracking-[-0.06em]">
-                    SW
-                  </div>
-                  <h2 className="mt-8 text-3xl font-semibold leading-[0.98] tracking-[-0.055em]">
-                    Susan beside the business.
-                  </h2>
-                  <p className="mt-5 text-sm leading-7 text-white/[0.38]">
-                    Not generic coaching. A private strategy relationship built
-                    around the actual company, constraints, decisions, and future in front of you.
-                  </p>
-                </div>
-
-                <div className="rounded-[1.7rem] border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-2xl sm:p-8">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCB074]">
-                    Founder operating roadmap
-                  </p>
-                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {roadmap.map(([Icon, title, copy]) => (
-                      <div key={title} className="rounded-2xl border border-white/[0.08] bg-white/[0.045] p-5 backdrop-blur-xl">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#8AB0A9]/[0.12] text-[#CCB074]">
-                          <Icon size={17} />
-                        </span>
-                        <h3 className="mt-6 text-base font-semibold">{title}</h3>
-                        <p className="mt-2 text-xs leading-5 text-white/[0.32]">{copy}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="approach" className="relative scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
-                Who this is for
-              </p>
-              <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.7vw,4rem)] font-semibold leading-[0.92]">
-                Serious vision. Honest work.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-base leading-7 text-black/[0.45]">
-              The strongest fit is a founder ready to make decisions, share the
-              real constraints, execute between conversations, and build for
-              more than a temporary burst of attention.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-4 md:grid-cols-2">
-            {[
-              "You have a business idea and want the foundation built correctly from the beginning.",
-              "You have revenue, but the business lacks focus, systems, positioning, or a clear growth path.",
-              "You are repositioning an existing company and need stronger strategy and measurable objectives.",
-              "You want to build toward founder freedom, succession, sale, stewardship, or a meaningful legacy.",
-            ].map((item, index) => (
-              <div key={item} className="liquid-glass-soft flex gap-4 rounded-[1.7rem] p-6 sm:p-7">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#1B3C57] to-[#8AB0A9] text-xs font-semibold text-white">
-                  0{index + 1}
-                </span>
-                <p className="pt-1 text-sm leading-7 text-black/[0.53]">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#0a0a10] px-5 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
-        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#8AB0A9]/[0.17]" />
-        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#8AB0A9]/[0.16]" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.8fr_1.2fr]">
+      <section className="relative overflow-hidden bg-[#E8F0ED] px-5 py-20 sm:px-8 sm:py-28">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-60 -top-80 h-[45rem] w-[45rem] rounded-full border border-[#1B3C57]/10" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.07fr_.93fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">
-              What Susan helps build
-            </p>
-            <h2 className="liquid-title mt-6 text-[clamp(2.1rem,4.5vw,3.8rem)] font-semibold leading-[0.94]">
-              From vision to an exit that makes sense.
-            </h2>
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#567E77]"><UsersRound size={16} /> Coaching for coaches</div>
+            <h1 className="mt-7 max-w-4xl text-[clamp(3.2rem,6vw,6rem)] font-semibold leading-[0.98] tracking-[-0.065em]">Become the coach who <span className="text-[#648C85]">listens deeper.</span></h1>
+            <p className="mt-8 max-w-2xl text-base leading-8 text-[#1B3C57]/70 sm:text-lg">Work with Susan Wagner to explore culture, communication, leadership, and the way your own experiences shape how you guide others.</p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link href="/consultation" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1B3C57] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#315770]">Request a coaching conversation <ArrowUpRight size={16}/></Link>
+              <Link href="/culture" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1B3C57]/20 bg-white px-7 py-4 text-sm font-semibold">Explore Culture Studio <ArrowRight size={16}/></Link>
+            </div>
+            <p className="mt-6 text-xs leading-6 text-[#1B3C57]/55">A conversation about fit and availability. Programs and pricing are shared directly by Susan.</p>
           </div>
-          <div className="liquid-glass-dark rounded-[2rem] p-5 sm:p-8">
-            {[
-              ["01", "Vision and direction", "Define what the company is building, who it serves, and the future it is designed to create."],
-              ["02", "Business foundation", "Clarify positioning, offers, operating model, priorities, roles, and the decisions underneath growth."],
-              ["03", "Growth strategy", "Build a practical path for demand, conversion, delivery, capacity, partnerships, and expansion."],
-              ["04", "Objectives and accountability", "Turn strategy into measurable outcomes, milestones, next actions, and a useful operating cadence."],
-              ["05", "Exit and legacy", "Plan for founder freedom, succession, sale, stewardship, or the next chapter after the business matures."],
-            ].map(([number, title, copy]) => (
-              <div key={number} className="grid gap-3 border-b border-white/[0.08] py-6 last:border-b-0 sm:grid-cols-[52px_190px_1fr] sm:items-start sm:gap-6">
-                <span className="text-xs font-semibold text-[#CCB074]">{number}</span>
-                <h3 className="text-base font-semibold">{title}</h3>
-                <p className="text-sm leading-7 text-white/[0.36]">{copy}</p>
+          <div className="relative mx-auto w-full max-w-lg">
+            <div className="rounded-[2rem] bg-[#1B3C57] p-6 text-white shadow-[0_35px_90px_rgba(18,50,67,.20)] sm:p-8">
+              <div className="flex items-center justify-between"><BrandMark size={48}/><span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCB074]">A coaching framework</span></div>
+              <div className="mt-10 space-y-5">
+                {["Listen before you interpret.","Understand the context.","Ask the deeper question.","Turn reflection into action."].map((line,i)=><div key={line} className="flex items-start gap-4 border-b border-white/10 pb-5 last:border-0 last:pb-0"><span className="mt-0.5 text-xs font-semibold text-[#CCB074]">0{i+1}</span><p className="text-lg font-medium tracking-[-0.025em]">{line}</p></div>)}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
-              Private client workspace
-            </p>
-            <h2 className="liquid-title mt-6 text-[clamp(2.1rem,4.5vw,3.8rem)] font-semibold leading-[0.94]">
-              Strategy does not disappear after the call.
-            </h2>
-            <p className="mt-7 max-w-xl text-base leading-8 text-black/[0.46]">
-              Accepted clients can be organized inside Susan’s private CRM with
-              their vision, goals, growth strategy, objectives, milestones,
-              session notes, next actions, and exit plan kept together.
-            </p>
-          </div>
-
-          <div className="liquid-glass rounded-[2.2rem] p-4 sm:p-6">
-            <div className="rounded-[1.65rem] bg-[#0c0c13] p-5 text-white sm:p-7">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-semibold">Founder Strategy Workspace</p>
-                  <p className="mt-1 text-[10px] text-white/[0.28]">Private · Susan and her team</p>
-                </div>
-                <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1.5 text-[9px] uppercase tracking-[0.16em] text-[#CCB074]">
-                  Live roadmap
-                </span>
-              </div>
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Vision & positioning",
-                  "Growth strategy",
-                  "Quarterly objectives",
-                  "Milestones & next actions",
-                  "Session notes",
-                  "Exit & legacy plan",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.045] px-4 py-4 text-xs text-white/[0.52]">
-                    <Check size={14} className="text-[#CCB074]" />
-                    {item}
-                  </div>
-                ))}
-              </div>
+              <div className="mt-10 rounded-[1.3rem] bg-[#8AB0A9] p-5 text-[#102B40]"><p className="text-xs font-semibold uppercase tracking-[0.17em]">A different kind of learning</p><p className="mt-2 text-sm leading-7">Curiosity, reflection, and practical application — not quick labels or one-size-fits-all answers.</p></div>
             </div>
           </div>
         </div>
       </section>
-
-      <section className="px-5 pb-24 sm:px-8 sm:pb-32">
-        <div className="liquid-glass mx-auto max-w-5xl rounded-[2.5rem] px-6 py-16 text-center sm:px-12 sm:py-20">
-          <CalendarDays size={28} className="mx-auto text-[#648C85]" />
-          <p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
-            Begin with a conversation
-          </p>
-          <h2 className="liquid-title mx-auto mt-5 max-w-4xl text-3xl font-semibold leading-[0.98] sm:text-5xl">
-            Bring the business. Leave with more clarity.
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-black/[0.45]">
-            Book a consultation or growth strategy call so Susan can understand
-            where the business is now and what it needs next.
-          </p>
-          <Link
-            href="/consultation"
-            className="liquid-button mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
-          >
-            Book a growth strategy call <ArrowUpRight size={15} />
-          </Link>
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+        <div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">The approach</p><h2 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.055em] sm:text-5xl">Culture-informed coaching starts with better questions.</h2><p className="mt-6 text-base leading-8 text-[#1B3C57]/65">No two coaching relationships have the same context. These are the themes you can explore together, not a promise of a standardized certification.</p></div>
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {approaches.map(item=><article key={item.title} className="rounded-[1.8rem] border border-[#1B3C57]/10 bg-[#F7F8F5] p-8 sm:p-10"><div className="flex items-start justify-between"><span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1B3C57] text-[#CCB074]"><item.icon size={22}/></span><span className="text-xs tracking-[0.2em] text-[#648C85]">{item.num}</span></div><h3 className="mt-9 text-2xl font-semibold tracking-[-0.04em]">{item.title}</h3><p className="mt-4 max-w-lg text-sm leading-8 text-[#1B3C57]/65">{item.copy}</p></article>)}
         </div>
       </section>
-
+      <section className="bg-[#102B40] px-5 py-20 text-white sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-7xl"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Who this is for</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">Grow your practice, at your stage.</h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">{pathways.map(item=><article key={item.title} className="rounded-[1.6rem] border border-white/10 bg-white/[0.05] p-7"><span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#CCB074] text-[#1B3C57]"><Check size={17}/></span><h3 className="mt-7 text-xl font-semibold">{item.title}</h3><p className="mt-4 text-sm leading-7 text-white/60">{item.copy}</p></article>)}</div>
+        </div>
+      </section>
+      <section className="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center sm:px-8 sm:py-28">
+        <div className="flex items-center justify-center rounded-[2rem] bg-[#E8F0ED] px-10 py-16"><div className="w-full max-w-sm space-y-4"><div className="flex items-center justify-between rounded-[1.2rem] bg-[#8AB0A9] px-6 py-5"><CalendarDays size={22}/><span className="text-sm font-semibold">Culture Calendar</span></div><div className="flex items-center justify-between rounded-[1.2rem] bg-[#CCB074] px-6 py-5"><Compass size={22}/><span className="text-sm font-semibold">Culture Insights</span></div><div className="flex items-center justify-between rounded-[1.2rem] bg-[#1B3C57] px-6 py-5 text-white"><Feather size={22}/><span className="text-sm font-semibold">Book Writing Guide</span></div></div></div>
+        <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">Beyond the session</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">Learning that stays with you.</h2><p className="mt-6 text-base leading-8 text-[#1B3C57]/65">The Culture Studio gives you reflection tools to use between conversations. Plan what to explore, study practical culture-informed questions, and organize your voice into a book outline.</p><Link href="/culture" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1B3C57] px-6 py-3.5 text-sm font-semibold text-white">Discover the studio <ArrowRight size={16}/></Link></div>
+      </section>
+      <section className="bg-[#E8F0ED] px-5 py-20 sm:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">Work with Susan</p><h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">Have a question about your next step?</h2><p className="mt-4 max-w-xl text-sm leading-7 text-[#1B3C57]/65">Start with a conversation about what you're working toward and what kind of support would help.</p></div><Link href="/consultation" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1B3C57] px-7 py-4 text-sm font-semibold text-white">Request a conversation <ArrowRight size={16}/></Link></div>
+      </section>
       <Footer />
     </main>
   );

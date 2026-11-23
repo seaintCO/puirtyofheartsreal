@@ -1,170 +1,67 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BookHeart,
-  BriefcaseBusiness,
-  Check,
-  HeartHandshake,
-  LockKeyhole,
-  MessageCircle,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, BookOpen, CalendarDays, Compass, Feather, LockKeyhole, MessageCircle, Sparkles } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BrandMark from "@/components/brand/BrandMark";
 import PurityWaitlistForm from "@/components/purityos/PurityWaitlistForm";
 
 export const metadata = {
-  title: "ALMA",
-  description:
-    "PurityOS is Susan Wagner's private, faith-centered companion for business decisions, leadership, personal growth, and difficult seasons. ALMA · Member AI.",
+  title: "ALMA | A Thoughtful AI Companion",
+  description: "ALMA by Purity of Hearts is a member AI reflection companion for culture-informed coaching, learning, book writing, and purposeful leadership.",
 };
+
+const examples = [
+  { icon: Compass, title: "Understand a coaching situation", prompt: "Help me look at this conversation from different perspectives without making assumptions." },
+  { icon: CalendarDays, title: "Plan a month of reflection", prompt: "Help me create a culture reflection calendar for my coaching community." },
+  { icon: Feather, title: "Shape the next chapter", prompt: "Help me outline a chapter of my book using my experience and my readers' needs." },
+];
 
 export default function PurityOSPage() {
   return (
-    <main className="night-shell">
+    <main className="min-h-screen bg-[#102B40] text-white">
       <Navbar dark />
-
-      <section className="relative px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-20">
-        <div className="glow-orb left-[-12rem] top-[-10rem] h-[38rem] w-[38rem] bg-[#8AB0A9]/[0.25]" />
-        <div className="glow-orb right-[-10rem] top-[-8rem] h-[38rem] w-[38rem] bg-[#8AB0A9]/[0.28]" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1fr_.85fr] lg:items-center">
+      <section className="relative overflow-hidden px-5 py-20 sm:px-8 sm:py-28">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-44 -top-56 h-[45rem] w-[45rem] rounded-full border border-[#8AB0A9]/15" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_.95fr] lg:items-center">
           <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#CCB074]">Purity Of Hearts</p>
-              <span className="rounded-full border border-white/[0.10] bg-white/[0.055] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-white/[0.42] backdrop-blur-xl">
-                Mobile app coming soon
-              </span>
+            <p className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]"><Sparkles size={17}/> Purity of Hearts · ALMA</p>
+            <h1 className="mt-8 text-[clamp(3.4rem,6vw,6rem)] font-semibold leading-[0.97] tracking-[-0.06em]">A thoughtful mind. <span className="text-[#CCB074]">A place to grow.</span></h1>
+            <p className="mt-8 max-w-xl text-base leading-8 text-white/65 sm:text-lg">Meet ALMA, a private AI reflection partner for coaches, educators, and writers. Explore culture, think through conversations, and develop ideas with more clarity.</p>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-[#B4D1CA]">Powered by AI. Grounded in reflection, care, and the belief that better questions lead to better decisions.</p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link href="/purityos/chat" className="inline-flex items-center gap-2 rounded-full bg-[#CCB074] px-7 py-4 text-sm font-semibold text-[#1B3C57] transition hover:bg-[#DBC68F]">Member chat <ArrowRight size={16}/></Link>
+              <Link href="/culture" className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold">Explore Culture Studio</Link>
             </div>
-            <h1 className="night-gradient-text mt-7 max-w-3xl pb-[0.1em] text-[clamp(2.6rem,5.1vw,4.55rem)] font-semibold leading-[0.96] tracking-[-0.065em]">
-              Ask more thoughtful questions.
-            </h1>
-            <p className="mt-8 max-w-2xl text-base leading-7 text-white/[0.45] sm:text-xl sm:leading-8">
-              ALMA is a private AI reflection partner for coaches and writers exploring
-              culture, leadership, faith, and the next meaningful step.
-            </p>
-
-            <div className="mt-10 max-w-xl">
-              <PurityWaitlistForm dark />
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-white/[0.25]">
-                <span>Private conversations</span>
-                <span>Mobile-first</span>
-                <span>Early access</span>
-              </div>
-            </div>
-
-            <Link href="/purityos/chat" className="mt-8 inline-flex items-center gap-2 text-xs font-semibold text-white/[0.45] transition hover:text-white">
-              Existing member? Open ALMA <ArrowRight size={14} />
-            </Link>
+            <p className="mt-6 text-xs leading-6 text-white/45">ALMA chat requires an eligible account and an active service connection. It is not a professional cultural assessment or a substitute for qualified advice.</p>
           </div>
-
-          <div className="relative mx-auto h-[43rem] w-full max-w-[31rem]">
-            <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]" />
-            <div className="absolute left-1/2 top-1/2 h-[27rem] w-[27rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]" />
-
-            <div className="float-soft absolute left-1/2 top-1/2 h-[39rem] w-[19.2rem] -translate-x-1/2 -translate-y-1/2 -rotate-[4deg] rounded-[4rem] border-[7px] border-[#2a2632] bg-black p-2 shadow-[0_60px_150px_rgba(0,0,0,.8)]">
-              <div className="relative h-full overflow-hidden rounded-[3.15rem] bg-gradient-to-b from-[#251a32] via-[#120d1b] to-[#07070b] p-5">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_4%,rgba(255,93,174,.22),transparent_32%),radial-gradient(circle_at_88%_18%,rgba(143,115,255,.22),transparent_34%)]" />
-                <div className="absolute left-1/2 top-2 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
-                <div className="relative mt-8 flex items-center justify-between text-[10px] text-white/[0.38]">
-                  <span>8:42</span><span>PurityOS</span><span>•••</span>
-                </div>
-                <div className="relative mt-10">
-                  <p className="text-xs text-white/[0.30]">Thursday reflection</p>
-                  <h2 className="mt-2 text-2xl font-semibold leading-[0.98] tracking-[-0.045em]">Good morning, Susan.</h2>
-                  <p className="mt-3 text-xs leading-5 text-white/[0.36]">What deserves your attention today?</p>
-                </div>
-                <div className="relative mt-8 space-y-3">
-                  <div className="ml-10 rounded-[1.4rem] rounded-tr-md bg-white px-4 py-3 text-[11px] leading-5 text-black shadow-lg">
-                    I feel pulled in too many directions. Help me choose what matters.
-                  </div>
-                  <div className="mr-6 rounded-[1.4rem] border border-white/[0.10] bg-white/[0.07] px-4 py-3 text-[11px] leading-5 text-white/[0.58] backdrop-blur-xl">
-                    Let&apos;s name the one outcome that would create the most peace and progress by Friday.
-                  </div>
-                </div>
-                <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/[0.10] bg-white/[0.06] px-4 py-4 text-[10px] text-white/[0.24] backdrop-blur-xl">
-                  Ask about business, faith, leadership, or today…
-                </div>
-              </div>
+          <div className="mx-auto w-full max-w-lg rounded-[2rem] border border-white/15 bg-[#1B3C57] p-5 shadow-[0_45px_110px_rgba(5,20,32,.42)] sm:p-7">
+            <div className="flex items-center gap-3 border-b border-white/10 pb-6"><BrandMark size={46} /><div><p className="text-sm font-semibold">ALMA</p><p className="mt-1 text-xs text-white/45">Culture · Coaching · Writing</p></div><span className="ml-auto rounded-full border border-[#CCB074]/30 px-3 py-1.5 text-[10px] text-[#CCB074]">MEMBER AI</span></div>
+            <div className="mt-7 space-y-4">
+              <p className="mr-10 rounded-2xl rounded-tl-md border border-white/10 bg-white/5 p-5 text-sm leading-7 text-white/70">What are you trying to understand, and whose perspective might be missing?</p>
+              <p className="ml-8 rounded-2xl rounded-tr-md bg-[#8AB0A9] p-5 text-sm leading-7 text-[#102B40]">I’m preparing a workshop for coaches who serve people from different backgrounds.</p>
+              <p className="mr-8 rounded-2xl rounded-tl-md border border-white/10 bg-white/5 p-5 text-sm leading-7 text-white/70">Begin by defining the community and context. Then invite participants to share how they describe their own experiences.</p>
             </div>
-
-            <div className="liquid-card-dark absolute bottom-12 left-0 rounded-2xl p-4">
-              <LockKeyhole size={15} className="text-[#CCB074]" />
-              <p className="mt-3 text-xs font-semibold">Private by design</p>
-              <p className="mt-1 text-[10px] text-white/[0.30]">Your conversations. Your account.</p>
-            </div>
-            <div className="liquid-card-dark absolute right-0 top-20 rounded-2xl p-4">
-              <Sparkles size={15} className="text-[#DCC78F]" />
-              <p className="mt-3 text-xs font-semibold">Built for clarity</p>
-              <p className="mt-1 text-[10px] text-white/[0.30]">Less noise. Better next steps.</p>
-            </div>
+            <p className="mt-7 text-right text-[10px] text-white/35">Illustrative conversation · not a live response</p>
           </div>
         </div>
       </section>
-
-      <section className="border-y border-white/[0.06] bg-white/[0.02] px-5 py-24 sm:px-8 sm:py-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">One private place</p>
-            <h2 className="mt-6 text-[clamp(2.15rem,4.7vw,4rem)] font-semibold leading-[0.91] tracking-[-0.065em]">
-              For the decisions people do not always see.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              [BriefcaseBusiness, "Business decisions", "Think through priorities, offers, direction, and the next move without adding more noise."],
-              [HeartHandshake, "Leadership & confidence", "Process responsibility, difficult conversations, uncertainty, and the weight of leading."],
-              [BookHeart, "Faith-centered reflection", "Return to biblical principles, honest reflection, and grounded encouragement."],
-              [MessageCircle, "Difficult seasons", "Create practical next steps when you feel overwhelmed, stuck, or unsure."],
-              [Sparkles, "Daily clarity", "Use short conversations to organize your thinking and protect your focus."],
-              [LockKeyhole, "Saved privately", "Reopen, continue, or permanently delete conversations from your account."],
-            ].map(([Icon, title, copy]) => {
-              const ItemIcon = Icon as typeof BriefcaseBusiness;
-              return (
-                <article key={title as string} className="liquid-card-dark rounded-[1.8rem] p-7">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#ff6ab6]/[0.15] to-[#9479ff]/[0.15] text-[#CCB074]">
-                    <ItemIcon size={18} />
-                  </span>
-                  <h3 className="mt-9 text-xl font-semibold tracking-[-0.035em]">{title as string}</h3>
-                  <p className="mt-3 text-sm leading-7 text-white/[0.36]">{copy as string}</p>
-                </article>
-              );
-            })}
-          </div>
+      <section className="bg-[#FEFEFE] px-5 py-20 text-[#1B3C57] sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-7xl"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">Designed for your work</p><h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.055em] sm:text-5xl">The companion for curious coaches and creators.</h2>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">{examples.map(item=><article key={item.title} className="rounded-[1.8rem] border border-[#1B3C57]/10 bg-[#F7F8F5] p-8"><span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1B3C57] text-[#CCB074]"><item.icon size={22}/></span><h3 className="mt-8 text-xl font-semibold tracking-[-0.03em]">{item.title}</h3><p className="mt-4 text-sm leading-7 text-[#1B3C57]/60">“{item.prompt}”</p><Link href={"/purityos/chat?prompt="+encodeURIComponent(item.prompt)} className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-[#648C85]">Explore in member chat <ArrowRight size={15}/></Link></article>)}</div>
         </div>
       </section>
-
-      <section className="px-5 py-24 sm:px-8 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">The promise</p>
-            <h2 className="mt-6 text-[clamp(2.1rem,4.5vw,3.8rem)] font-semibold leading-[0.93] tracking-[-0.065em]">Not louder. Clearer.</h2>
-            <p className="mt-7 max-w-xl text-base leading-8 text-white/[0.40]">
-              ALMA does not replace therapy, medical care, legal advice,
-              financial advice, pastoral care, or emergency support. It helps
-              you reflect, organize your thinking, and choose a grounded next step.
-            </p>
-          </div>
-
-          <div className="liquid-card-dark rounded-[2.1rem] p-7 sm:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Early access</p>
-            <h3 className="mt-5 text-3xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-4xl">Be first when the app opens.</h3>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-white/[0.38]">
-              Join the list for launch updates and the first mobile preview.
-            </p>
-            <div className="mt-8 max-w-xl"><PurityWaitlistForm dark /></div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {["Private account", "Saved conversations", "Mobile-first"].map((item) => (
-                <div key={item} className="liquid-subcard-dark flex items-center gap-2 rounded-2xl px-4 py-3 text-xs text-white/[0.40]">
-                  <Check size={13} className="text-[#CCB074]" /> {item}
-                </div>
-              ))}
-            </div>
-          </div>
+      <section className="bg-[#E8F0ED] px-5 py-20 text-[#1B3C57] sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_.85fr] lg:items-center">
+          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#648C85]">Culture Studio + ALMA</p><h2 className="mt-5 text-4xl font-semibold leading-[1.06] tracking-[-0.055em] sm:text-5xl">Tools to practice. A partner to think with.</h2><p className="mt-6 max-w-xl text-base leading-8 text-[#1B3C57]/65">Use the calendar to plan your observations, culture insights to shape better questions, and the writing guide to develop your own book. Ask ALMA for prompts and guidance along the way.</p><Link href="/culture" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1B3C57] px-6 py-3.5 text-sm font-semibold text-white">Discover the studio <ArrowRight size={16}/></Link></div>
+          <div className="space-y-3">{[{icon:CalendarDays,title:"Culture Calendar",body:"Build your own learning rhythm."},{icon:BookOpen,title:"Culture Insights",body:"Study context and practical coaching questions."},{icon:Feather,title:"Book Writing Guide",body:"Organize your experience into chapters."}].map(item=><div key={item.title} className="flex items-center gap-5 rounded-[1.3rem] bg-white px-6 py-5"><span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#8AB0A9]/25 text-[#1B3C57]"><item.icon size={22}/></span><div><p className="font-semibold">{item.title}</p><p className="mt-1 text-sm text-[#1B3C57]/60">{item.body}</p></div></div>)}</div>
         </div>
       </section>
-
+      <section className="px-5 py-20 sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 rounded-[2rem] border border-white/15 bg-[#1B3C57] p-7 md:grid-cols-[1fr_.8fr] md:items-center sm:p-12">
+          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#CCB074]">Access updates</p><h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">A new way to learn is taking shape.</h2><p className="mt-5 max-w-xl text-sm leading-7 text-white/60">Get news about ALMA and upcoming member experiences. Subscribing to updates does not purchase a membership or guarantee access.</p></div>
+          <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 sm:p-7"><PurityWaitlistForm dark /></div>
+        </div>
+      </section>
       <Footer dark />
     </main>
   );

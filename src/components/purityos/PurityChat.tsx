@@ -125,7 +125,7 @@ export default function PurityChat({
       };
 
       if (!response.ok || !data.message || !data.conversationId) {
-        throw new Error(data.error || "PurityOS could not respond.");
+        throw new Error(data.error || "ALMA could not respond.");
       }
 
       setConversationId(data.conversationId);
@@ -217,7 +217,7 @@ export default function PurityChat({
       <div className="min-h-0 flex-1 space-y-1 overflow-y-auto px-3">
         {conversations.length === 0 ? (
           <p className="px-3 py-6 text-xs leading-5 text-white/[0.35]">
-            Your saved conversations will appear here.
+            Your private ALMA conversations will appear here.
           </p>
         ) : (
           conversations.map((conversation) => (

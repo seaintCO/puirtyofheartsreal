@@ -8,7 +8,8 @@ export function membershipConfigured(): boolean {
   return Boolean(
     process.env.STRIPE_SECRET_KEY &&
     process.env.STRIPE_MEMBERSHIP_PRICE_ID &&
-    process.env.STRIPE_WEBHOOK_SECRET,
+    process.env.STRIPE_WEBHOOK_SECRET &&
+    process.env.OPENAI_API_KEY,
   );
 }
 

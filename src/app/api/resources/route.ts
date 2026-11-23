@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { hasCourseAccess } from "@/lib/membership/access";
 
 export async function GET() {
   const supabase = await createClient();
@@ -15,13 +16,7 @@ export async function GET() {
     );
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("paid")
-    .eq("id", user.id)
-    .single();
-
-  if (!profile?.paid) {
+  if (!(await hasCourseAccess(supabase))) {
     return NextResponse.json(
       { error: "Paid access required" },
       { status: 403 },

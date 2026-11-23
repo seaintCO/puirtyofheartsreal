@@ -18,7 +18,7 @@ function responseFor(question: string) {
   if (/coach|susan|consult|meeting|schedule/.test(value)) return {text:"Susan offers private coaching and conversations about professional growth and culture-informed leadership. You can request a session through the consultation page.",url:"/consultation",label:"Book a conversation"};
   if (/alma|ai|chat|assistant|purityos/.test(value)) return {text:"ALMA is the member AI reflection assistant within PurityOS. Access requires an eligible account and an active service connection. Learn how it is intended to support coaching and writing.",url:"/purityos",label:"Explore ALMA"};
   if (/course|learn|lesson|class|education/.test(value)) return {text:"Purity of Hearts has an education platform with lessons and learning tools. Culture Studio is a separate learning workspace for coaches and writers.",url:"/education",label:"See education"};
-  if (/pay|stripe|price|cost|buy|enroll|member|sign in|login/.test(value)) return {text:"Member features require an account. Payment and access availability are confirmed through the enrollment flow; the guide cannot process payments or quote a price.",url:"/login",label:"Member login"};
+  if (/pay|stripe|price|cost|buy|enroll|member|sign in|login/.test(value)) return {text:"Member features require an account. Payment and access availability are confirmed through the enrollment flow; the guide cannot process payments or quote a price.",url:"/membership",label:"Membership details"};
   return {text:"I’m a guided site helper, not a live AI chat. I can point you toward culture tools, courses, ALMA, or a conversation with Susan.",url:"/consultation",label:"Contact Susan"};
 }
 

@@ -65,11 +65,11 @@ export default async function DashboardPage() {
           </p>
         </div>
         <Link
-          href="/purityos"
+          href="/purityos/chat"
           className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#8AB0A9] px-5 py-3 text-sm font-semibold text-white"
         >
           <Sparkles size={16} />
-          Open PurityOS
+          Open ALMA
         </Link>
       </div>
 

@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { hasCourseAccess } from "@/lib/membership/access";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardTopbar from "@/components/dashboard/DashboardTopbar";
 
@@ -36,8 +37,8 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
-  if (!profile.paid && !profile.vip_access && profile.role !== "admin") {
-    redirect("/enroll");
+  if (!(await hasCourseAccess(supabase))) {
+    redirect("/membership");
   }
 
   return (

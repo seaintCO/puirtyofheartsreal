@@ -46,8 +46,7 @@ export default function EducationPage() {
           </h1>
           <p className="mx-auto mt-8 max-w-3xl text-base leading-7 text-black/[0.47] sm:text-xl sm:leading-8">
             An evolving learning experience with business foundations and a Culture Studio, supported by modules, quizzes, saved
-            system with modules, quizzes, flashcards, assignments, saved
-            progress, and certificates.
+            progress, quizzes, flashcards, and certificates.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link

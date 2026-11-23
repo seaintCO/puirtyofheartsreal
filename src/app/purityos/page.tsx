@@ -24,7 +24,7 @@ export default function PurityOSPage() {
           <div className="ph-section-topline"><span>ALMA / THE REFLECTION COMPANION</span><span>MEMBER EXPERIENCE</span></div>
           <div className="ph-alma-grid">
             <div className="ph-reveal"><p className="ph-eyebrow">A QUIETER PLACE TO THINK</p><h1>Clarity takes<br/><em>a conversation.</em></h1><p>Meet ALMA, a private companion for thinking through culture, your coaching practice, and the ideas worth putting into words.</p>
-              <div className="ph-hero-actions"><Link className="ph-btn ph-btn-gold" href="/purityos/chat">Open member chat <ArrowUpRight size={16}/></Link><Link href="/culture" className="ph-text-link ph-text-link-light">Explore the studio <ArrowRight size={16}/></Link></div><p className="ph-alma-access">Member access is required. ALMA uses AI to support reflection, not to replace cultural expertise or professional advice.</p>
+              <div className="ph-hero-actions"><Link className="ph-btn ph-btn-gold" href="/membership">Become a member <ArrowUpRight size={16}/></Link><Link href="/culture" className="ph-text-link ph-text-link-light">Explore the studio <ArrowRight size={16}/></Link></div><p className="ph-alma-access"><Link href="/purityos/chat" className="text-[#CCB074] underline underline-offset-4">Already a member? Open ALMA.</Link> Member access is required. ALMA uses AI to support reflection, not to replace cultural expertise or professional advice.</p>
             </div>
             <div className="ph-alma-visual ph-reveal ph-delay-2" aria-label="ALMA circular wordmark illustration">
               <div className="ph-alma-circle ph-alma-circle-one"/><div className="ph-alma-circle ph-alma-circle-two"/><div className="ph-alma-circle ph-alma-circle-three"/>

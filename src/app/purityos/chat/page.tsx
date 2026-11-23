@@ -22,7 +22,7 @@ export default async function PurityChatPage({
   if (!user) redirect("/login?next=/purityos/chat");
 
   const { data: hasAccess } = await supabase.rpc("has_purityos_access");
-  if (!hasAccess) redirect("/purityos?access=required");
+  if (!hasAccess) redirect("/membership?access=required");
 
   const [{ data: conversations }, { data: profile }] = await Promise.all([
     supabase

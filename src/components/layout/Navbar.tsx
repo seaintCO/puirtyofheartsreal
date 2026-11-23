@@ -11,6 +11,7 @@ const links = [
   { label: "Coaching", href: "/private-advisory" },
   { label: "Learning", href: "/education" },
   { label: "ALMA", href: "/purityos" },
+  { label: "Membership", href: "/membership" },
   { label: "Susan", href: "/about" },
 ];
 

@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   try {
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(
-        { error: "PurityOS is not configured yet." },
+        { error: "ALMA has not been configured yet." },
         { status: 503 },
       );
     }
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     const { data: hasAccess } = await supabase.rpc("has_purityos_access");
     if (!hasAccess) {
       return NextResponse.json(
-        { error: "An active PurityOS membership is required." },
+        { error: "An active Purity of Hearts membership is required." },
         { status: 403 },
       );
     }
@@ -151,7 +151,7 @@ export async function POST(request: Request) {
     if (historyError) throw historyError;
 
     const response = await openai.responses.create({
-      model: process.env.OPENAI_MODEL || "gpt-5.6-terra",
+      model: process.env.OPENAI_MODEL || "gpt-5-mini",
       instructions: PURITYOS_SYSTEM_PROMPT,
       input: (history ?? []).map((item) => ({
         role: item.role as "user" | "assistant",

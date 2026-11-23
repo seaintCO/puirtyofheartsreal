@@ -1,8 +1,8 @@
 const CACHE = "purity-public-v3";
 const OFFLINE = "/offline";
-const PUBLIC_PAGES = ["/","/culture","/education","/private-advisory","/purityos","/about","/consultation","/membership",OFFLINE];
+const PUBLIC_PAGES = ["/","/culture","/education","/private-advisory","/purityos","/about",OFFLINE];
 const ASSETS = ["/manifest.webmanifest","/pwa-icon-192.png","/pwa-icon-512.png","/apple-touch-icon.png","/purity-group.webp","/purity-writing.webp","/purity-one-on-one.webp"];
-const PRIVATE_PREFIXES = ["/api/","/dashboard","/login","/membership/manage","/membership/success","/purityos/chat","/success","/auth/"];
+const PRIVATE_PREFIXES = ["/api/","/dashboard","/login","/membership","/purityos/chat","/success","/auth/"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll([...PUBLIC_PAGES,...ASSETS])).then(() => self.skipWaiting()));

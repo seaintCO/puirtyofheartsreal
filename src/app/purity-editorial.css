@@ -13,7 +13,7 @@
   --ph-serif: "Iowan Old Style","Baskerville","Palatino Linotype","Book Antiqua",Georgia,serif;
   --ph-sans: "Helvetica Neue",Arial,-apple-system,BlinkMacSystemFont,sans-serif;
 }
-.ph-site { min-height:100vh; background:var(--ph-paper); color:var(--ph-ink); font-family:var(--ph-sans); letter-spacing:-.012em; overflow:hidden }
+.ph-site { min-height:100vh; background:var(--ph-paper); color:var(--ph-ink); font-family:var(--ph-sans); letter-spacing:-.012em; overflow:clip }
 .ph-site *, .ph-nav-wrap *, .ph-footer * { box-sizing:border-box }
 .ph-container,.ph-footer-inner { width:min(100% - 96px,1440px); margin-inline:auto }
 .ph-overline,.ph-eyebrow { font-size:10px; font-weight:600; letter-spacing:.23em; line-height:1.6; text-transform:uppercase }
@@ -549,3 +549,6 @@
 @media(prefers-reduced-motion:reduce) {
   .ph-motion-ready .ph-site [data-ph-animate]:not(.ph-animate-visible) { opacity:1; transform:none }
 }
+
+/* Mobile navigation expands into a contained panel rather than a giant pill. */
+.ph-nav-frame-open{border-radius:26px}

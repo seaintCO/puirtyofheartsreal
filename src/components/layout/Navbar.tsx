@@ -20,7 +20,7 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
   useEffect(() => { setOpen(false); }, [pathname]);
   return (
     <header className={"ph-nav-wrap" + (dark ? " ph-nav-wrap-dark" : "")}>
-      <div className="ph-nav-frame">
+      <div className={"ph-nav-frame" + (open ? " ph-nav-frame-open" : "")}>
         <nav className="ph-nav" aria-label="Main navigation">
           <Link href="/" className="ph-nav-logo" aria-label="Purity of Hearts home" onClick={() => setOpen(false)}>
             <BrandMark size={38} variant="sage" />

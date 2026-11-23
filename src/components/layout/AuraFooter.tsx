@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import BrandMark from "@/components/brand/BrandMark";
 
 const groups = [
@@ -16,8 +16,6 @@ export default function AuraFooter(){
           <p>Culture-centered learning, coaching, and thoughtful tools for people who want to understand more before they lead.</p>
           <div className="aura-social-row">
             <Link href="/consultation" aria-label="Contact Purity of Hearts"><Mail size={15}/></Link>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={15}/></a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={15}/></a>
           </div>
         </div>
         {groups.map(group=><nav key={group.title} aria-label={group.title} className="aura-footer-nav"><p>{group.title}</p><ul>{group.links.map(([label,href])=><li key={href}><Link href={href}>{label}</Link></li>)}</ul></nav>)}

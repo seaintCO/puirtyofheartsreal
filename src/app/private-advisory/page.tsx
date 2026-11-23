@@ -49,18 +49,18 @@ export default function PrivateAdvisoryPage() {
       <section className="ph-coach-approach">
         <div className="ph-container">
           <div className="ph-section-topline"><span>01 / THE APPROACH</span><span>THREE PRINCIPLES</span></div>
-          <div className="ph-coach-approach-intro"><h2>Coaching is not about<br/><em>having every answer.</em></h2><p>It is about paying attention to what might be missing, and helping someone hear their own voice more clearly.</p></div>
-          <div className="ph-coach-list">{principles.map(item=><div className="ph-coach-line" key={item.n}><span>{item.n}</span><h3>{item.label}</h3><p>{item.text}</p><MoveUpRight size={23} strokeWidth={1.25}/></div>)}</div>
+          <div data-ph-animate className="ph-coach-approach-intro"><h2>Coaching is not about<br/><em>having every answer.</em></h2><p>It is about paying attention to what might be missing, and helping someone hear their own voice more clearly.</p></div>
+          <div className="ph-coach-list">{principles.map(item=><div data-ph-animate className="ph-coach-line" key={item.n}><span>{item.n}</span><h3>{item.label}</h3><p>{item.text}</p><MoveUpRight size={23} strokeWidth={1.25}/></div>)}</div>
         </div>
       </section>
       <section className="ph-coach-dark">
-        <div className="ph-container ph-coach-dark-grid">
+        <div data-ph-animate className="ph-container ph-coach-dark-grid">
           <div><span className="ph-eyebrow">WHO THIS IS FOR</span><h2>For those who<br/>help others <em>grow.</em></h2></div>
           <div><p>Whether you are developing a coaching practice, leading a team, teaching, or writing from your lived experience, the work begins in the same place: curiosity about people.</p><div className="ph-coach-dark-labels"><span><Compass size={17}/> Coaches</span><span><Eye size={17}/> Leaders</span><span><HeartHandshake size={17}/> Educators</span></div></div>
         </div>
       </section>
       <section className="ph-coach-next">
-        <div className="ph-container ph-coach-next-grid">
+        <div data-ph-animate className="ph-container ph-coach-next-grid">
           <div className="ph-coach-next-emblem"><MessageCircle size={54} strokeWidth={1.1}/><span>THE CONVERSATION CONTINUES</span></div>
           <div><p className="ph-eyebrow">WORK WITH SUSAN</p><h2>Start with<br/><em>a conversation.</em></h2><p>Tell Susan what you are building, who you hope to serve, and where you'd like to grow. Coaching availability and next steps can be discussed directly.</p><Link href="/consultation" className="ph-btn ph-btn-navy">Request a conversation <ArrowUpRight size={16}/></Link></div>
         </div>

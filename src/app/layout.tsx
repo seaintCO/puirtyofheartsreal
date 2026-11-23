@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteGuide from "@/components/site/SiteGuide";
+import ScrollMotion from "@/components/animations/ScrollMotion";
 import "./globals.css";
 import "./purity-editorial.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased selection:bg-[#8AB0A9]/25 selection:text-[#1B3C57]">
         {children}
         <SiteGuide />
+        <ScrollMotion />
       </body>
     </html>
   );

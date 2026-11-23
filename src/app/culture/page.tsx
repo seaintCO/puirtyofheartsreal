@@ -41,7 +41,7 @@ export default function CulturePage() {
       <section className="ph-culture-explore" id="explore">
         <div className="ph-container">
           <div className="ph-section-topline"><span>01 / DISCOVER YOUR PRACTICE</span><span>THREE INTERCONNECTED SPACES</span></div>
-          <div className="ph-culture-toc">
+          <div data-ph-animate className="ph-culture-toc">
             {offerings.map(item=>(
               <a key={item.id} href={"#"+item.id} className="ph-culture-toc-item">
                 <span>{item.number}</span><span>{item.title}</span><ArrowDown size={15}/>
@@ -50,7 +50,7 @@ export default function CulturePage() {
           </div>
           <div className="ph-culture-chapters">
             {offerings.map((item,i)=>(
-              <article key={item.id} id={item.id} className={"ph-culture-chapter ph-culture-chapter-"+item.id}>
+              <article key={item.id} id={item.id} data-ph-animate className={"ph-culture-chapter ph-culture-chapter-"+item.id}>
                 <div className="ph-culture-chapter-head"><span>{item.number} / 03</span><span>{item.category}</span></div>
                 <div className="ph-culture-chapter-grid">
                   <div className="ph-culture-chapter-text">
@@ -75,12 +75,12 @@ export default function CulturePage() {
       <section className="ph-studio-section ph-studio-section-culture">
         <div className="ph-container">
           <div className="ph-section-topline"><span>02 / A LOOK INSIDE</span><span>THE STUDIO IN PRACTICE</span></div>
-          <div className="ph-studio-intro"><div><p className="ph-eyebrow">DESIGNED TO BE USED</p><h2>Quiet tools.<br/><em>Meaningful work.</em></h2></div><div><p>Preview the calendar, prompts, and writing guide. Members can then enter their own workspace.</p><Link href="/login?next=/dashboard/culture" className="ph-text-link">Visit your workspace <ArrowUpRight size={16}/></Link></div></div>
+          <div data-ph-animate className="ph-studio-intro"><div><p className="ph-eyebrow">DESIGNED TO BE USED</p><h2>Quiet tools.<br/><em>Meaningful work.</em></h2></div><div><p>Preview the calendar, prompts, and writing guide. Members can then enter their own workspace.</p><Link href="/login?next=/dashboard/culture" className="ph-text-link">Visit your workspace <ArrowUpRight size={16}/></Link></div></div>
           <StudioPreview/>
         </div>
       </section>
       <section className="ph-culture-alma">
-        <div className="ph-container ph-culture-alma-inner">
+        <div data-ph-animate className="ph-container ph-culture-alma-inner">
           <div className="ph-culture-alma-symbol"><span className="ph-culture-alma-ring"/><MessageCircle size={40} strokeWidth={1.1}/></div>
           <div><p className="ph-eyebrow">MEET ALMA</p><h2>A place to <em>think out loud.</em></h2><p>Use the private member assistant to explore your questions, organize an outline, or think through a coaching conversation. AI can support reflection; it can't replace real lived experience.</p></div>
           <Link href="/purityos" className="ph-culture-alma-link" aria-label="Explore ALMA"><MoveUpRight size={25}/></Link>

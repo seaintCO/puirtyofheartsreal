@@ -38,12 +38,12 @@ export default function PurityOSPage() {
       <section className="ph-alma-uses">
         <div className="ph-container">
           <div className="ph-section-topline"><span>01 / WHAT ALMA CAN HELP YOU EXPLORE</span><span>REFLECTION OVER INSTANT ANSWERS</span></div>
-          <div className="ph-alma-uses-intro"><h2>Questions worth<br/><em>spending time with.</em></h2><p>Three places to begin. Your conversations are your own, and the perspective behind them belongs to you.</p></div>
-          <div className="ph-alma-use-list">{uses.map(item=><article key={item.n} className="ph-alma-use"><span>{item.n}</span><item.icon size={28} strokeWidth={1.2}/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
+          <div data-ph-animate className="ph-alma-uses-intro"><h2>Questions worth<br/><em>spending time with.</em></h2><p>Three places to begin. Your conversations are your own, and the perspective behind them belongs to you.</p></div>
+          <div className="ph-alma-use-list">{uses.map(item=><article key={item.n} data-ph-animate className="ph-alma-use"><span>{item.n}</span><item.icon size={28} strokeWidth={1.2}/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
         </div>
       </section>
       <section className="ph-alma-waitlist">
-        <div className="ph-container ph-alma-waitlist-grid">
+        <div data-ph-animate className="ph-container ph-alma-waitlist-grid">
           <div><span className="ph-eyebrow">PURITY OF HEARTS / NEWS</span><h2>The next chapter<br/><em>is taking shape.</em></h2><p>Follow along as the member experience grows. Joining the mailing list does not purchase access or guarantee a place in a program.</p></div>
           <div className="ph-alma-waitlist-form"><PurityWaitlistForm dark /></div>
         </div>

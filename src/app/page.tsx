@@ -75,13 +75,13 @@ export default function Home() {
           <div className="ph-section-topline">
             <span>01 / THE EXPERIENCE</span><span>THREE WAYS TO GROW</span>
           </div>
-          <div className="ph-practice-intro">
+          <div data-ph-animate className="ph-practice-intro">
             <h2 id="ph-practice-title">Not more information.<br/><em>A different perspective.</em></h2>
             <p>Learning can be something you return to, not something you rush through. Start with the questions that change how you see.</p>
           </div>
           <div className="ph-discipline-list">
             {disciplines.map((item) => (
-              <Link href={item.href} className="ph-discipline" key={item.index}>
+              <Link href={item.href} data-ph-animate className="ph-discipline" key={item.index}>
                 <div className="ph-discipline-index"><span>{item.index}</span><span>{item.category}</span></div>
                 <div className="ph-discipline-main">
                   <div className="ph-discipline-symbol" aria-hidden="true">
@@ -100,7 +100,7 @@ export default function Home() {
         <div className="ph-belief-lines" aria-hidden="true"><i/><i/><i/></div>
         <div className="ph-container ph-belief-inner">
           <div className="ph-belief-aside"><span>02 / A POINT OF VIEW</span><div className="ph-belief-mark"><BrandMark size={64} variant="navy"/></div><span>BEYOND ASSUMPTIONS</span></div>
-          <div className="ph-belief-content">
+          <div data-ph-animate className="ph-belief-content">
             <h2 id="ph-belief-title">Before we teach,<br/>we should <em>listen.</em></h2>
             <p>Culture is not a set of boxes to check. It is lived experience, context, and the meaning people make together. Coaching becomes more useful when we leave room for all three.</p>
             <Link href="/private-advisory" className="ph-text-link ph-text-link-light">Our approach to coaching <ArrowUpRight size={16}/></Link>
@@ -112,7 +112,7 @@ export default function Home() {
       <section className="ph-studio-section" id="studio" aria-labelledby="ph-studio-title">
         <div className="ph-container">
           <div className="ph-section-topline"><span>03 / THE CULTURE STUDIO</span><span>DESIGNED FOR PRACTICE</span></div>
-          <div className="ph-studio-intro">
+          <div data-ph-animate className="ph-studio-intro">
             <div><p className="ph-eyebrow">YOUR SPACE TO DO THE WORK</p><h2 id="ph-studio-title">A thoughtful tool<br/>for <em>every chapter.</em></h2></div>
             <div><p>Move between reflection, learning, and writing. Everything has a place, without getting in the way of the work itself.</p><Link href="/culture" className="ph-text-link">Discover the studio <ArrowUpRight size={16}/></Link></div>
           </div>
@@ -129,7 +129,7 @@ export default function Home() {
             <div className="ph-susan-emblem"><BrandMark size={105} variant="sage"/></div>
             <span className="ph-susan-graphic-caption">PEOPLE • PERSPECTIVE • PURPOSE</span>
           </div>
-          <div className="ph-susan-content">
+          <div data-ph-animate className="ph-susan-content">
             <span className="ph-eyebrow">04 / COACHING WITH SUSAN WAGNER</span>
             <h2 id="ph-susan-title">Good coaching<br/>begins with<br/><em>good questions.</em></h2>
             <p>For coaches, leaders, and people who want their work to mean something. Develop a deeper understanding of culture and of the people you hope to serve.</p>
@@ -139,7 +139,7 @@ export default function Home() {
       </section>
 
       <section className="ph-final" aria-labelledby="ph-final-title">
-        <div className="ph-container ph-final-inner">
+        <div data-ph-animate className="ph-container ph-final-inner">
           <div><span className="ph-overline">CULTURE / COACHING / CLARITY</span><h2 id="ph-final-title">There's always more<br/><em>to understand.</em></h2></div>
           <Link href="/culture" className="ph-final-link" aria-label="Explore the Culture Studio"><ArrowUpRight size={35} strokeWidth={1.2}/></Link>
         </div>

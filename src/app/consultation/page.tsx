@@ -1,70 +1,19 @@
-import {
-  CalendarDays,
-  Clock3,
-  Compass,
-  HeartHandshake,
-  Target,
-  Video,
-} from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { CalendarDays, Clock3, Compass, MessageCircle, Target } from "lucide-react";
+import AuraHeader from "@/components/layout/AuraHeader";
+import AuraFooter from "@/components/layout/AuraFooter";
+import PurityAuraBackdrop from "@/components/effects/PurityAuraBackdrop";
+import AuraMotion from "@/components/effects/AuraMotion";
 import ConsultationForm from "@/components/consultation/ConsultationForm";
 
-export const metadata = {
-  title: "Book a Coaching Conversation",
-  description:
-    "Request a conversation with Susan Wagner about coaching, culture, leadership, and your next meaningful step.",
-};
+export const metadata={title:"Talk with Susan | Purity of Hearts",description:"Request a private conversation with Susan Wagner."};
 
-export default function ConsultationPage() {
-  return (
-    <main className="liquid-page text-[#1B3C57]">
-      <Navbar />
-      <section className="relative px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-        <div className="liquid-grid pointer-events-none absolute inset-0 opacity-45" />
-        <div className="liquid-orb left-[-10rem] top-[-8rem] h-[32rem] w-[32rem] bg-[#CCB074]/[0.30]" />
-        <div className="liquid-orb bottom-[-12rem] right-[-9rem] h-[34rem] w-[34rem] bg-[#8AB0A9]/[0.25]" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <div>
-            <div className="liquid-glass-soft inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.46]">
-              <span className="pink-dot h-1.5 w-1.5 rounded-full bg-[#8AB0A9]" />
-              Purity Of Hearts
-            </div>
-            <h1 className="liquid-title public-hero-title-split mt-7 font-semibold">
-              A conversation about <span className="liquid-gradient-text">what comes next.</span>
-            </h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-black/[0.47]">
-              Connect with Susan to explore your coaching practice, the culture
-              you want to understand or build, and your next thoughtful step.
-            </p>
-
-            <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-2">
-              {[
-                [Video, "Private video conversation"],
-                [Clock3, "Focused strategy session"],
-                [Compass, "Vision and positioning"],
-                [Target, "Practical next steps"],
-                [HeartHandshake, "Direct, honest guidance"],
-                [CalendarDays, "Request a preferred time"],
-              ].map(([Icon, label]) => {
-                const ItemIcon = Icon as typeof Video;
-                return (
-                  <div key={label as string} className="liquid-glass-soft flex items-center gap-3 rounded-2xl p-4 text-sm text-black/[0.58]">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#8AB0A9]/[0.10] text-[#648C85]">
-                      <ItemIcon size={17} />
-                    </span>
-                    {label as string}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <ConsultationForm />
-        </div>
-      </section>
-      <Footer />
-    </main>
-  );
+export default function ConsultationPage(){
+ const reasons=[[MessageCircle,"Coaching practice"],[Compass,"Culture & leadership"],[Target,"Growth & direction"],[CalendarDays,"Programs & availability"]];
+ return <div className="aura-page"><AuraMotion/><main className="aura-shell aura-inner-page"><PurityAuraBackdrop/><div className="aura-hatch" aria-hidden="true"/><AuraHeader/>
+   <section className="aura-consult-grid">
+    <div className="aura-consult-copy" data-aura-reveal><span className="aura-outline-pill"><MessageCircle size={15}/> Start a conversation</span><h1>Tell Susan what<br/>you're <span>building.</span></h1><p>Share where you are, who you serve, and what kind of support would be useful. This form sends a real consultation request into the Purity admin workflow.</p><div className="aura-consult-reasons">{reasons.map(([Icon,label])=>{const I=Icon as typeof MessageCircle;return <span key={label as string}><I size={16}/>{label as string}</span>})}</div><p className="aura-consult-note"><Clock3 size={15}/> Availability, fit, and pricing are discussed directly with Susan.</p></div>
+    <div className="aura-form-shell" data-aura-reveal><ConsultationForm/></div>
+   </section>
+   <AuraFooter/>
+ </main></div>
 }

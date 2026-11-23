@@ -1,240 +1,26 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Award,
-  BookOpen,
-  Check,
-  CheckCircle2,
-  FileText,
-  Layers3,
-  NotebookPen,
-  Play,
-  Sparkles,
-} from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { ArrowRight, ArrowUpRight, BookOpen, CheckCircle2, FileText, Layers3, NotebookPen, Play, Sparkles } from "lucide-react";
+import AuraHeader from "@/components/layout/AuraHeader";
+import AuraFooter from "@/components/layout/AuraFooter";
+import PurityAuraBackdrop from "@/components/effects/PurityAuraBackdrop";
+import AuraMotion from "@/components/effects/AuraMotion";
 import { businessCourse, businessLessons } from "@/data/business-course";
 
-export const metadata = {
-  title: "Learning Platform | Culture & Business",
-  description:
-    "Explore coaching, culture-centered learning, and existing business education lessons with guided study tools.",
-};
+export const metadata={title:"Learning | Purity of Hearts",description:"Guided business, leadership, and culture-centered learning inside Purity of Hearts."};
 
-export default function EducationPage() {
-  const totalMinutes = businessLessons.reduce((total, lesson) => {
-    const [minutes, seconds] = lesson.duration.split(":").map(Number);
-    return total + minutes + seconds / 60;
-  }, 0);
-
-  return (
-    <main className="liquid-page text-[#1B3C57]">
-      <Navbar />
-
-      <section className="relative px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20">
-        <div className="liquid-grid pointer-events-none absolute inset-0 opacity-50" />
-        <div className="liquid-orb left-[-10rem] top-[-8rem] h-[30rem] w-[30rem] bg-[#CCB074]/[0.30]" />
-        <div className="liquid-orb right-[-10rem] top-[5rem] h-[34rem] w-[34rem] bg-[#8AB0A9]/[0.28]" />
-
-        <div className="relative mx-auto max-w-7xl text-center">
-          <div className="liquid-glass-soft mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.46]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#8AB0A9] pink-dot" />
-            Purity Of Hearts
-          </div>
-          <h1 className="liquid-title public-hero-title mt-7 font-semibold">
-            Learn with intention. <span className="liquid-gradient-text">Lead with context.</span>
-          </h1>
-          <p className="mx-auto mt-8 max-w-3xl text-base leading-7 text-black/[0.47] sm:text-xl sm:leading-8">
-            An evolving learning experience with business foundations and a Culture Studio, supported by modules, quizzes, saved
-            progress, quizzes, flashcards, and certificates.
-          </p>
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              href="/enroll"
-              className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
-            >
-              Get the education platform <ArrowRight size={15} />
-            </Link>
-            <Link
-              href="/courses"
-              className="liquid-button-secondary liquid-glass-soft inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-black"
-            >
-              View the curriculum
-            </Link>
-          </div>
-
-          <div className="liquid-glass mx-auto mt-16 max-w-6xl rounded-[2.4rem] p-3 text-left sm:mt-20 sm:p-4">
-            <div className="relative overflow-hidden rounded-[1.8rem] bg-[#102B40] text-white">
-              <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#8AB0A9]/[0.22] blur-[95px]" />
-              <div className="absolute -bottom-28 left-[20%] h-80 w-80 rounded-full bg-[#7b6cff]/[0.16] blur-[105px]" />
-
-              <div className="relative flex items-center justify-between border-b border-white/[0.08] px-5 py-4 sm:px-8 sm:py-5">
-                <div>
-                  <p className="text-xs font-semibold">Purity Education Portal</p>
-                  <p className="mt-1 text-[10px] text-white/[0.28]">
-                    Learning, progress, and study tools in one place
-                  </p>
-                </div>
-                <span className="rounded-full border border-white/[0.10] bg-white/[0.06] px-3 py-1.5 text-[10px] text-white/[0.36]">
-                  Member view
-                </span>
-              </div>
-
-              <div className="relative grid gap-4 p-4 sm:p-6 lg:grid-cols-[1.25fr_.75fr] lg:p-8">
-                <div className="liquid-shine min-h-[27rem] overflow-hidden rounded-[1.55rem] border border-white/[0.09] bg-gradient-to-br from-white/[0.09] to-white/[0.025] p-6 sm:p-9">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#CCB074]">
-                      Continue learning
-                    </p>
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-xl">
-                      <Play size={15} fill="currentColor" />
-                    </span>
-                  </div>
-                  <div className="mt-24 max-w-2xl">
-                    <p className="text-sm text-white/[0.32]">Current lesson</p>
-                    <h2 className="mt-3 text-3xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl">
-                      Strategy people can understand and execute.
-                    </h2>
-                  </div>
-                  <div className="mt-10">
-                    <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.10]">
-                      <div className="h-full w-[47%] rounded-full bg-gradient-to-r from-[#8AB0A9] to-[#8AB0A9]" />
-                    </div>
-                    <div className="mt-3 flex justify-between text-[10px] text-white/[0.27]">
-                      <span>15 of {businessLessons.length} lessons complete</span>
-                      <span>47%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                  {[
-                    [Layers3, businessCourse.modules.length.toString(), "focused modules"],
-                    [BookOpen, businessLessons.length.toString(), "guided lessons"],
-                    [Award, `${Math.round(totalMinutes / 60)}+ hrs`, "learning content"],
-                  ].map(([Icon, value, label], index) => {
-                    const ItemIcon = Icon as typeof Layers3;
-                    return (
-                      <div
-                        key={label as string}
-                        className={`glass-card-dark rounded-[1.45rem] p-5 ${
-                          index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
-                        }`}
-                      >
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#8AB0A9]/[0.12] text-[#CCB074]">
-                          <ItemIcon size={17} />
-                        </span>
-                        <p className="mt-7 text-3xl font-semibold tracking-[-0.04em]">
-                          {value as string}
-                        </p>
-                        <p className="mt-1 text-xs text-white/[0.28]">{label as string}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">
-                Designed for action
-              </p>
-              <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.7vw,4rem)] font-semibold leading-[0.92]">
-                More than a folder of videos.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-base leading-7 text-black/[0.45]">
-              Learn the idea, test your understanding, capture what matters,
-              complete the action, and return exactly where you stopped.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              [Play, "Creator-led video lessons", "Focused instruction from experienced creators and operators."],
-              [Layers3, "Structured modules", "A clear sequence so members always know what to learn next."],
-              [CheckCircle2, "Quizzes", "Knowledge checks that reinforce the ideas that matter."],
-              [Sparkles, "Flashcards & cheat sheets", "Fast review tools for frameworks, principles, and decisions."],
-              [NotebookPen, "Journal & assignments", "Turn each lesson into written thinking and practical action."],
-              [Award, "Progress & certificates", "Saved completion data and recognition at the end of the curriculum."],
-            ].map(([Icon, title, copy]) => {
-              const ItemIcon = Icon as typeof Play;
-              return (
-                <article key={title as string} className="liquid-glass-soft rounded-[1.9rem] p-7 sm:p-8">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.80] bg-white/[0.62] text-[#648C85] shadow-sm">
-                    <ItemIcon size={18} />
-                  </span>
-                  <h3 className="mt-9 text-xl font-semibold tracking-[-0.035em]">{title as string}</h3>
-                  <p className="mt-3 text-sm leading-7 text-black/[0.43]">{copy as string}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#0a0a10] px-5 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
-        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#8AB0A9]/[0.17]" />
-        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#8AB0A9]/[0.16]" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">
-              Built around the existing course
-            </p>
-            <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.6vw,4rem)] font-semibold leading-[0.94]">
-              A new interface. The same learning system.
-            </h2>
-            <p className="mt-7 max-w-xl text-base leading-8 text-white/[0.40]">
-              The course curriculum, lesson content, quizzes, flashcards,
-              assignments, progress tracking, notes, and certificates remain
-              intact. Only the visual experience has been upgraded.
-            </p>
-          </div>
-
-          <div className="liquid-glass-dark rounded-[2rem] p-5 sm:p-8">
-            <div className="space-y-3">
-              {[
-                "Course curriculum preserved",
-                "Lessons and videos preserved",
-                "Quiz questions and scoring preserved",
-                "Student progress and notes preserved",
-                "Flashcards, assignments, and certificates preserved",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.045] px-4 py-4 text-sm text-white/[0.58]">
-                  <Check size={15} className="text-[#CCB074]" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-5 py-24 text-center sm:px-8 sm:py-32">
-        <div className="liquid-glass mx-auto max-w-5xl rounded-[2.4rem] px-6 py-16 sm:px-12 sm:py-20">
-          <FileText size={27} className="mx-auto text-[#648C85]" />
-          <h2 className="liquid-title mt-7 text-3xl font-semibold leading-[0.98] sm:text-5xl">
-            Learn it. Apply it. Build it.
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-black/[0.45]">
-            Get access to the complete Purity of Hearts business education platform.
-          </p>
-          <Link
-            href="/enroll"
-            className="liquid-button mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
-          >
-            Get the education platform <ArrowRight size={15} />
-          </Link>
-        </div>
-      </section>
-
-      <Footer />
-    </main>
-  );
+export default function EducationPage(){
+ const totalMinutes=businessLessons.reduce((total,lesson)=>{const [m,s]=lesson.duration.split(":").map(Number);return total+m+s/60},0);
+ const highlights=[
+  ["Guided lessons",businessLessons.length+" lessons",Play],
+  ["Structured modules",businessCourse.modules.length+" modules",Layers3],
+  ["Notes & study tools","Save your learning",NotebookPen],
+  ["Resources","Member learning library",FileText],
+ ];
+ return <div className="aura-page"><AuraMotion/><main className="aura-shell aura-inner-page"><PurityAuraBackdrop/><div className="aura-hatch" aria-hidden="true"/><AuraHeader/>
+  <section className="aura-subhero"><div className="aura-subhero-copy" data-aura-reveal><span className="aura-outline-pill"><BookOpen size={15}/> Learning</span><h1>Learn with intention.<br/><span>Apply with context.</span></h1><p>Move through practical business and leadership lessons, then connect what you learn to culture, coaching, and the way you lead people.</p><div className="aura-hero-buttons"><Link href="/membership" className="aura-primary-button"><ArrowUpRight size={16}/> Join membership</Link><Link href="/courses" className="aura-secondary-button">View curriculum <ArrowRight size={16}/></Link></div></div>
+  <div className="aura-learning-panel" data-aura-reveal><div className="aura-console-head"><span>{businessCourse.title}</span><span className="online">LEARNING</span></div><p className="aura-learning-big">{businessLessons.length} lessons</p><p className="aura-learning-copy">About {Math.round(totalMinutes)} minutes of guided video content plus quizzes, notes, resources, and saved progress.</p><div className="aura-learning-progress"><span style={{width:"42%"}}/></div><small>Member progress is saved to your private account.</small></div></section>
+  <section className="aura-section"><div className="aura-section-heading" data-aura-reveal><span className="aura-outline-pill"><Sparkles size={15}/> Inside the learning space</span><h2>Practical learning, <span>without the noise.</span></h2><p>The member platform keeps lessons, study tools, and reflection in one place.</p></div><div className="aura-feature-grid">{highlights.map(([title,copy,Icon])=>{const I=Icon as typeof Play;return <div key={title as string} className="aura-feature-card" data-aura-reveal><span className="aura-feature-icon"><I size={21}/></span><h3>{title as string}</h3><p>{copy as string}</p></div>})}</div></section>
+  <section className="aura-cta"><div className="aura-cta-inner" data-aura-reveal><h2>Ready to put the learning <span>into practice?</span></h2><p>Join the member experience, or explore the Culture Studio before you decide.</p><div><Link href="/membership" className="aura-primary-button"><CheckCircle2 size={16}/> View membership</Link><Link href="/culture" className="aura-secondary-button">Explore Culture Studio <ArrowRight size={16}/></Link></div></div></section>
+  <AuraFooter/>
+ </main></div>
 }

@@ -1,123 +1,22 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Compass,
-  HeartHandshake,
-  Layers3,
-} from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { ArrowRight, ArrowUpRight, Compass, HeartHandshake, MessageCircle } from "lucide-react";
+import AuraHeader from "@/components/layout/AuraHeader";
+import AuraFooter from "@/components/layout/AuraFooter";
+import PurityAuraBackdrop from "@/components/effects/PurityAuraBackdrop";
+import AuraMotion from "@/components/effects/AuraMotion";
 
-export const metadata = {
-  title: "About Susan",
-  description:
-    "Explore Susan Wagner's evolving approach to culture-centered coaching, reflective learning, and leadership.",
-};
+export const metadata={title:"About Susan | Purity of Hearts",description:"Meet Susan Wagner and the philosophy behind Purity of Hearts."};
 
-export default function AboutPage() {
-  return (
-    <main className="liquid-page text-[#1B3C57]">
-      <Navbar />
-
-      <section className="relative px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-        <div className="liquid-grid pointer-events-none absolute inset-0 opacity-45" />
-        <div className="liquid-orb left-[-10rem] top-[-10rem] h-[32rem] w-[32rem] bg-[#CCB074]/[0.28]" />
-        <div className="liquid-orb right-[-11rem] top-[3rem] h-[36rem] w-[36rem] bg-[#8AB0A9]/[0.25]" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
-          <div>
-            <div className="liquid-glass-soft inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/[0.46]">
-              <span className="pink-dot h-1.5 w-1.5 rounded-full bg-[#8AB0A9]" />
-              Purity Of Hearts
-            </div>
-            <h1 className="liquid-title public-hero-title-split mt-7 font-semibold">
-              Coaching with heart. <span className="liquid-gradient-text">Culture with care.</span>
-            </h1>
-            <p className="mt-8 max-w-2xl text-base leading-7 text-black/[0.47] sm:text-lg sm:leading-8">
-              Susan’s work brings culture-informed coaching, education, and
-              faith-centered reflection into one experience for coaches and
-              leaders who want to keep learning while they guide others.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/consultation"
-                className="liquid-button inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1B3C57] to-[#8AB0A9] px-7 py-4 text-sm font-semibold text-white"
-              >
-                Book a strategy call <ArrowUpRight size={15} />
-              </Link>
-              <Link
-                href="/education"
-                className="liquid-button-secondary liquid-glass-soft inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-black"
-              >
-                Explore education <ArrowRight size={15} />
-              </Link>
-            </div>
-          </div>
-
-          <div className="liquid-glass relative mx-auto aspect-square w-full max-w-[34rem] rounded-[3rem] p-3">
-            <div className="relative flex h-full items-center justify-center overflow-hidden rounded-[2.35rem] bg-[#0a0a10] text-white">
-              <div className="absolute inset-8 rounded-full border border-white/[0.06]" />
-              <div className="absolute inset-20 rounded-full border border-white/[0.06]" />
-              <div className="absolute left-5 top-5 h-52 w-52 rounded-full bg-[#8AB0A9]/[0.20] blur-[75px]" />
-              <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-[#8AB0A9]/[0.18] blur-[80px]" />
-              <div className="relative text-center">
-                <p className="text-[8rem] font-semibold leading-none tracking-[-0.09em] sm:text-[11rem]">SW</p>
-                <p className="mt-5 text-xs uppercase tracking-[0.28em] text-white/[0.32]">
-                  Founder · Educator · Mentor
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:py-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#648C85]">The work</p>
-            <h2 className="liquid-title mt-6 text-[clamp(2.15rem,4.7vw,3.9rem)] font-semibold leading-[0.92]">
-              Three expressions. One philosophy.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-4 lg:grid-cols-3">
-            {[
-              [Layers3, "Education", "A structured platform that turns creator-led business knowledge into modules, quizzes, study tools, and practical execution."],
-              [HeartHandshake, "PurityOS", "A private, faith-centered companion for decisions, leadership, difficult seasons, and everyday clarity."],
-              [Compass, "Private Strategy", "Direct work with Susan to define the vision, strengthen the foundation, build a growth strategy, set objectives, and plan the long term."],
-            ].map(([Icon, title, copy]) => {
-              const ItemIcon = Icon as typeof Layers3;
-              return (
-                <article key={title as string} className="liquid-glass-soft rounded-[1.9rem] p-7 sm:p-9">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.80] bg-white/[0.60] text-[#648C85] shadow-sm">
-                    <ItemIcon size={18} />
-                  </span>
-                  <h3 className="mt-11 text-2xl font-semibold tracking-[-0.04em]">{title as string}</h3>
-                  <p className="mt-4 text-sm leading-7 text-black/[0.44]">{copy as string}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#0a0a10] px-5 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
-        <div className="liquid-orb left-[-8rem] top-[-10rem] h-96 w-96 bg-[#8AB0A9]/[0.17]" />
-        <div className="liquid-orb bottom-[-12rem] right-[-7rem] h-96 w-96 bg-[#8AB0A9]/[0.16]" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CCB074]">
-              What guides the work
-            </p>
-          </div>
-          <blockquote className="text-[clamp(2rem,4.2vw,3.7rem)] font-semibold leading-[0.94] tracking-[-0.065em]">
-            Build clearly. Lead responsibly. Grow without losing the reason you began.
-          </blockquote>
-        </div>
-      </section>
-
-      <Footer dark />
-    </main>
-  );
+export default function AboutPage(){
+ const values=[
+  ["01","Curiosity","Ask before assuming. Listen before labeling."],
+  ["02","Context","People make sense inside their history, relationships, and environment."],
+  ["03","Practice","Reflection should change the way we show up, not stop at information."],
+ ];
+ return <div className="aura-page"><AuraMotion/><main className="aura-shell aura-inner-page"><PurityAuraBackdrop/><div className="aura-hatch" aria-hidden="true"/><AuraHeader/>
+   <section className="aura-subhero"><div className="aura-subhero-copy" data-aura-reveal><span className="aura-outline-pill"><HeartHandshake size={15}/> About Susan</span><h1>Work that starts<br/>with <span>people.</span></h1><p>Susan Wagner's work brings coaching, culture, faith-centered reflection, and practical learning into one experience for people who want to guide others with more care.</p><div className="aura-hero-buttons"><Link href="/consultation" className="aura-primary-button"><ArrowUpRight size={16}/> Talk with Susan</Link><Link href="/private-advisory" className="aura-secondary-button">Explore coaching <ArrowRight size={16}/></Link></div></div><div className="aura-about-visual" data-aura-reveal><div className="aura-about-monogram">SW</div><span>COACH · EDUCATOR · GUIDE</span></div></section>
+   <section className="aura-section"><div className="aura-section-heading" data-aura-reveal><span className="aura-outline-pill"><Compass size={15}/> The philosophy</span><h2>More thoughtful questions.<br/><span>More human answers.</span></h2><p>The platform is designed around the idea that meaningful coaching starts with understanding the person and the context around them.</p></div><div className="aura-path-grid">{values.map(([n,title,copy])=><div className="aura-path-card" data-aura-reveal key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></div>)}</div></section>
+   <section className="aura-cta"><div className="aura-cta-inner" data-aura-reveal><h2>Want to learn directly <span>with Susan?</span></h2><p>Start with a conversation about your coaching, leadership, writing, or learning goals.</p><div><Link href="/consultation" className="aura-primary-button"><MessageCircle size={16}/> Start a conversation</Link></div></div></section>
+   <AuraFooter/>
+ </main></div>
 }

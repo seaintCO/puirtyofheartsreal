@@ -53,7 +53,7 @@ export default function Page() {
           href={DISCORD_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#f472b6] px-6 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#ff9ac8]"
+          className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-[#8AB0A9] px-6 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#ff9ac8]"
         >
           Join Discord
           <ArrowUpRight className="h-4 w-4" />
@@ -65,7 +65,7 @@ export default function Page() {
 
         <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff75b8]/[0.25] bg-[#ff75b8]/[0.10] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#f472b6]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff75b8]/[0.25] bg-[#ff75b8]/[0.10] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#8AB0A9]">
               <ShieldCheck className="h-3.5 w-3.5" />
               Private Member Community
             </div>
@@ -84,7 +84,7 @@ export default function Page() {
               href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#f472b6] px-6 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#ff9ac8]"
+              className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#8AB0A9] px-6 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#ff9ac8]"
             >
               Open Private Discord
               <ArrowUpRight className="h-4 w-4" />
@@ -93,7 +93,7 @@ export default function Page() {
 
           <div className="rounded-[1.5rem] border border-white/[0.10] bg-black/[0.20] p-6">
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff75b8]/[0.15] text-[#f472b6]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff75b8]/[0.15] text-[#8AB0A9]">
                 <MessageCircle className="h-6 w-6" />
               </div>
 
@@ -136,7 +136,7 @@ export default function Page() {
               key={feature.title}
               className="rounded-[1.5rem] border border-white/[0.10] bg-white/[0.04] backdrop-blur-2xl p-6"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff75b8]/[0.10] text-[#f472b6]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff75b8]/[0.10] text-[#8AB0A9]">
                 <Icon className="h-5 w-5" />
               </div>
 

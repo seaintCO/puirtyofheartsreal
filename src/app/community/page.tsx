@@ -16,7 +16,7 @@ export default function CommunityPage() {
     <main className="min-h-screen bg-[#11100e] text-white">
       <Navbar dark />
       <section className="relative overflow-hidden px-6 pb-20 pt-16 sm:pb-24 sm:pt-20">
-        <div className="absolute right-[-10%] top-[-20%] h-[760px] w-[760px] rounded-full bg-[#ff4fa3]/[0.13] blur-[160px]" />
+        <div className="absolute right-[-10%] top-[-20%] h-[760px] w-[760px] rounded-full bg-[#8AB0A9]/[0.13] blur-[160px]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff75b8]">

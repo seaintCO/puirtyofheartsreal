@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SiteGuide from "@/components/site/SiteGuide";
 import "./globals.css";
+import "./purity-editorial.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gettothef.com";
 

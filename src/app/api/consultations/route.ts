@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { rejectUntrustedOrigin } from "@/lib/security/request";
 
@@ -15,8 +14,7 @@ export async function POST(request: Request) {
 
   try {
     const body = (await request.json()) as Record<string, unknown>;
-    const honeypot = clean(body.companyWebsiteField, 100);
-    if (honeypot) return NextResponse.json({ submitted: true });
+    if (clean(body.companyWebsiteField, 100)) return NextResponse.json({ submitted: true });
 
     const name = clean(body.name, 120);
     const email = clean(body.email, 254).toLowerCase();
@@ -28,67 +26,27 @@ export async function POST(request: Request) {
     const businessName = clean(body.businessName, 160);
     const businessStage = clean(body.businessStage, 120);
 
-    if (
-      name.length < 2 ||
-      !emailPattern.test(email) ||
-      topic.length < 2 ||
-      message.length < 10
-    ) {
-      return NextResponse.json(
-        { error: "Please complete the required fields correctly." },
-        { status: 400 },
-      );
+    if (name.length < 2 || !emailPattern.test(email) || topic.length < 2 || message.length < 10) {
+      return NextResponse.json({ error: "Please complete the required fields correctly." }, { status: 400 });
     }
 
     const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    const admin = createAdminClient();
-    const { error: consultationError } = await admin
-      .from("consultation_requests")
-      .insert({
-        user_id: user?.id ?? null,
-        name,
-        email,
-        phone: phone || null,
-        topic,
-        preferred_date: preferredDate || null,
-        preferred_time: preferredTime || null,
-        message,
-      });
-
-    if (consultationError) throw consultationError;
-
-    // Mirror the request into Susan's private growth CRM. This keeps the public
-    // call flow simple while giving Susan a complete business strategy record.
-    const { error: crmError } = await admin.from("advisory_clients").insert({
-      user_id: user?.id ?? null,
-      name,
-      email,
-      phone: phone || null,
-      business_name: businessName || "Business not provided",
-      industry: topic,
-      business_stage: businessStage || "Not provided",
-      primary_challenge: message,
-      desired_outcome: `Growth strategy call focused on: ${topic}`,
-      source: "growth-strategy-call",
-      stage: "applied",
-      investment_amount: 0,
-      next_session_at: null,
+    const { error } = await supabase.rpc("submit_consultation_request", {
+      p_name: name,
+      p_email: email,
+      p_phone: phone || null,
+      p_topic: topic,
+      p_message: message,
+      p_preferred_date: preferredDate || null,
+      p_preferred_time: preferredTime || null,
+      p_business_name: businessName || null,
+      p_business_stage: businessStage || null,
     });
 
-    if (crmError) {
-      console.error("Growth CRM sync error:", crmError);
-    }
-
-    return NextResponse.json({ submitted: true, crmSynced: !crmError });
+    if (error) throw error;
+    return NextResponse.json({ submitted: true });
   } catch (error) {
-    console.error("Consultation request error:", error);
-    return NextResponse.json(
-      { error: "Your request could not be saved. Please try again." },
-      { status: 500 },
-    );
+    console.error("Consultation request error:", error instanceof Error ? error.message : "Unknown error");
+    return NextResponse.json({ error: "Your request could not be saved. Please try again." }, { status: 500 });
   }
 }

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { hasCourseAccess } from "@/lib/membership/access";
+import { reconcileAnnualCourseAccess } from "@/lib/course/annual-access";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardTopbar from "@/components/dashboard/DashboardTopbar";
 
@@ -37,8 +38,10 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
+  await reconcileAnnualCourseAccess(supabase, user.id);
+
   if (!(await hasCourseAccess(supabase))) {
-    redirect("/membership");
+    redirect("/course");
   }
 
   return (

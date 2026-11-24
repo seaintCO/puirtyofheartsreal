@@ -48,12 +48,12 @@ export default function Home(){
               Purity of Hearts is a culture-centered learning and coaching experience for coaches, leaders, and writers who want to listen better, ask better questions, and guide people with more intention.
             </p>
             <div className="aura-hero-buttons" data-aura-reveal>
-              <AuraShiftLink href="/membership" label="Join membership" icon={<ArrowUpRight size={16}/>} />
-              <Link href="/private-advisory" className="aura-secondary-button">Work with Susan <ArrowRight size={16}/></Link>
+              <AuraShiftLink href="/course" label="Buy Course · $200" icon={<BookOpen size={16}/>} />
+              <Link href="/consultation" className="aura-secondary-button">1-on-1 with Susan <ArrowRight size={16}/></Link>
             </div>
             <div className="aura-trust-row" data-aura-reveal>
-              <span><ShieldCheck size={15}/> Secure member access</span>
-              <span><CheckCircle2 size={15}/> Culture · learning · ALMA</span>
+              <span><ShieldCheck size={15}/> $200 · 12 months of course access</span>
+              <span><CheckCircle2 size={15}/> Private mentorship available</span>
             </div>
           </div>
           <div className="aura-hero-visual" data-aura-reveal>
@@ -139,35 +139,35 @@ export default function Home(){
           eyebrow="LEARN · REFLECT · WRITE"
           title="A learning space that feels lived in."
           body="Use the platform between real conversations: study, write, ask better questions, and return to your work with more clarity."
-          href="/education"
-          linkLabel="Explore the learning experience"
+          href="/course"
+          linkLabel="Explore the $200 educational platform"
           reverse
         />
 
         <section className="aura-section aura-membership-preview">
           <div className="aura-membership-copy" data-aura-reveal>
-            <Link href="/membership" className="aura-outline-pill"><CheckCircle2 size={15}/> Member experience</Link>
-            <h2>One membership. <span>Everything connected.</span></h2>
-            <p>Members can access learning resources, Culture Studio tools, saved progress, and ALMA from one private account.</p>
+            <Link href="/course" className="aura-outline-pill"><CheckCircle2 size={15}/> Educational platform</Link>
+            <h2>$200 gives you <span>one full year.</span></h2>
+            <p>Buy the business and leadership platform once and keep access for 12 months. ALMA remains a separate member experience.</p>
             <div className="aura-check-list">
-              {["Culture Calendar + Culture Insights","Book Writing Guide","Lessons, notes, quizzes and resources","ALMA member assistant","Stripe-hosted subscription and billing portal"].map(item=><span key={item}><CheckCircle2 size={15}/>{item}</span>)}
+              {["32 video lessons across 9 modules","Over 4 hours of guided business education","Quizzes, action steps, notes and saved progress","72 flashcards + 18 cheat-sheet sections","Completion and certificate tracking"].map(item=><span key={item}><CheckCircle2 size={15}/>{item}</span>)}
             </div>
-            <AuraShiftLink href="/membership" label="See membership" icon={<ArrowUpRight size={16}/>} />
+            <AuraShiftLink href="/course" label="Buy Course · $200" icon={<BookOpen size={16}/>} />
           </div>
           <div className="aura-membership-console" data-aura-reveal>
             <div className="aura-console-head"><span>Purity member space</span><span className="online">PRIVATE</span></div>
             <Link href="/dashboard/culture" className="aura-console-row"><CalendarDays size={17}/><div><strong>Culture Studio</strong><small>Calendar · Insights · Writing</small></div><ArrowUpRight size={15}/></Link>
             <Link href="/dashboard" className="aura-console-row"><BookOpen size={17}/><div><strong>Learning dashboard</strong><small>Lessons · Quizzes · Notes</small></div><ArrowUpRight size={15}/></Link>
             <Link href="/purityos/chat" className="aura-console-row"><Sparkles size={17}/><div><strong>ALMA</strong><small>Private reflection assistant</small></div><ArrowUpRight size={15}/></Link>
-            <Link href="/membership/manage" className="aura-console-row"><ShieldCheck size={17}/><div><strong>Membership</strong><small>Secure Stripe billing portal</small></div><ArrowUpRight size={15}/></Link>
+            <Link href="/consultation" className="aura-console-row"><ShieldCheck size={17}/><div><strong>Private mentorship</strong><small>Book a conversation with Susan</small></div><ArrowUpRight size={15}/></Link>
           </div>
         </section>
 
         <section className="aura-cta" id="cta">
           <div className="aura-cta-inner" data-aura-reveal>
-            <h2>Ready to build a more <span>thoughtful practice?</span></h2>
-            <p>Start with the Culture Studio, join the member experience, or talk directly with Susan about coaching.</p>
-            <div><AuraShiftLink href="/membership" label="Join membership" icon={<ArrowUpRight size={16}/>} /><Link href="/consultation" className="aura-secondary-button">Talk with Susan <ArrowRight size={16}/></Link></div>
+            <h2>Choose your <span>next step.</span></h2>
+            <p>Learn at your own pace for $200/year, or book a consultation for one-on-one mentorship with Susan.</p>
+            <div><AuraShiftLink href="/course" label="Buy Course · $200" icon={<BookOpen size={16}/>} /><Link href="/consultation" className="aura-secondary-button">Book Susan <ArrowRight size={16}/></Link></div>
           </div>
         </section>
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   ArrowRight, ArrowUpRight, BookOpen, CalendarDays, CheckCircle2,
-  Compass, Feather, HeartHandshake, MessageCircle, ShieldCheck, Sparkles, UsersRound
+  Compass, Feather, HeartHandshake, Info, Mic2, MessageCircle, ShieldCheck, Sparkles, UsersRound
 } from "lucide-react";
 import AuraHeader from "@/components/layout/AuraHeader";
 import AuraFooter from "@/components/layout/AuraFooter";
@@ -51,6 +51,10 @@ export default function Home(){
               <AuraShiftLink href="/course" label="Buy Course · $200" icon={<BookOpen size={16}/>} />
               <Link href="/consultation" className="aura-secondary-button">1-on-1 with Susan <ArrowRight size={16}/></Link>
             </div>
+            <div className="aura-identity-actions" data-aura-reveal>
+              <Link href="/about"><Info size={14}/> About Us</Link>
+              <Link href="/speaking"><Mic2 size={14}/> See / Hear Susan Speak</Link>
+            </div>
             <div className="aura-trust-row" data-aura-reveal>
               <span><ShieldCheck size={15}/> $200 · 12 months of course access</span>
               <span><CheckCircle2 size={15}/> Private mentorship available</span>
@@ -58,6 +62,22 @@ export default function Home(){
           </div>
           <div className="aura-hero-visual" data-aura-reveal>
             <PurityFloatingCards/>
+          </div>
+        </section>
+
+        <section className="speaker-home-card" data-aura-reveal>
+          <div className="speaker-home-date">
+            <span>SEP</span><strong>09</strong><small>2027</small>
+          </div>
+          <div className="speaker-home-copy">
+            <span className="speaker-kicker"><Mic2 size={14}/> UPCOMING SPEAKING APPEARANCE</span>
+            <h2>Be Brilliant in the Basics Leadership Summit 2027</h2>
+            <p>Susan is scheduled to speak in Nashville at a one-day leadership summit focused on practical leadership, culture, people, and workplace performance.</p>
+            <div className="speaker-home-meta"><span>Nashville, Tennessee</span><span>Music City Center</span><span>September 9, 2027</span></div>
+          </div>
+          <div className="speaker-home-actions">
+            <Link href="/speaking" className="speaker-site-button">See Susan Speak <ArrowRight size={15}/></Link>
+            <a href="https://www.bebrilliantinthebasics.com" target="_blank" rel="noreferrer" className="speaker-event-link">Official Event Site <ArrowUpRight size={14}/></a>
           </div>
         </section>
 

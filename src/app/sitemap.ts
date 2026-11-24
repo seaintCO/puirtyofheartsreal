@@ -8,6 +8,7 @@ const routes = [
   "/purityos",
   "/education",
   "/about",
+  "/speaking",
   "/consultation",
   "/community",
   "/shop",

@@ -3,7 +3,7 @@ import { ArrowUpRight, Mail } from "lucide-react";
 import BrandMark from "@/components/brand/BrandMark";
 
 const groups = [
-  { title:"Explore", links:[["Educational Platform","/course"],["Culture Studio","/culture"],["ALMA","/purityos"],["About Susan","/about"]] },
+  { title:"Explore", links:[["Educational Platform","/course"],["Culture Studio","/culture"],["ALMA","/purityos"],["About Susan","/about"],["Speaking","/speaking"]] },
   { title:"Work with Susan", links:[["Private Mentorship","/private-advisory"],["Book a Consultation","/consultation"],["Member Sign In","/login"]] },
 ];
 

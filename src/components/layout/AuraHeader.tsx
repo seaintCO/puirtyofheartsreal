@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Compass, GraduationCap, Home, Info, Menu, MessageCircle, UsersRound, X } from "lucide-react";
+import { BookOpen, Compass, GraduationCap, Home, Info, Menu, MessageCircle, Mic2, UsersRound, X } from "lucide-react";
 import { useState } from "react";
 import BrandMark from "@/components/brand/BrandMark";
 import PwaInstallButton from "@/components/pwa/PwaInstallButton";
@@ -14,6 +14,7 @@ const links = [
   { label: "Mentorship", href: "/private-advisory", icon: UsersRound },
   { label: "ALMA", href: "/purityos", icon: MessageCircle },
   { label: "Susan", href: "/about", icon: Info },
+  { label: "Speaking", href: "/speaking", icon: Mic2 },
 ];
 
 export default function AuraHeader() {
